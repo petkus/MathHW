@@ -1,0 +1,109 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 461, Fall 2016}} \hspace{1.3cm} \textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{1.}
+		In order for $X_i$ to divide $2^{20}$ $X_i$ must be a power of
+		$2$. We now have the equivalent problem, how many ways can we
+		choose these nonegative powers for each $X_i$ so that they add
+		up to $20$.\\
+		As established in class we know the number of ways to add up
+		$5$ ordered nonzero numbers so that they add up to $20$ is
+		$$\binom{20 + 5 - 1}{5 - 1} = \binom{24}{4}$$
+		Which is the answer.
+\end{ques}
+
+\begin{ques}
+	\textbf{2.} As established in lecture, there are $\binom{n + k - 1}{k}$
+	ways to put $k$ objects in $n$ ordered objects, Therefore we have
+	$$\binom{15}{7}\binom{10}{2}$$
+	ways to put the 7 white and then 2 black billards in 9 distinguishable pockets
+
+\end{ques}
+
+\begin{ques}
+	\textbf{3.} This is equivalent to counting the following way:\\
+		There are $7$ unchosen chairs, now we have $8$ spots inbetween
+		and on the sides of these unchosen chairs to put the $5$ chosen
+		chairs, No two chosen chairs can occupy the same spot since
+		that would mean they are next to each other. This is equivalent
+		to the count
+		$${8}\choose{5}$$
+	
+\end{ques}
+
+\begin{ques}
+	\textbf{4.}
+		We can calculate this by 
+		$$|A| - |S| - |C| + |S \cap C|$$
+		Where $A$ is the set of integers from $1$ to $1000$, $S$ is the
+		set of integers that are perfect squares $\leq 1000$, and
+		$C$ is the set of integers that are perfect cubes $\leq 1000$\\
+		It is clear $|A| = 1000$.\\ 
+		$32^2 = 1024$, and $31^2 = 961$, and so $1 \leq n \leq 31
+		\Leftrightarrow n^2 \in S$ so $|S| = 31$.\\
+		$10^3 = 1000$, and so $|C| = 10$.\\
+		looking at $S \cap C$, we can look through each term of $C$,
+		and find that only $1,4^3,9^3 \in S$, and so $|S \cap C|$\\
+		And so the count totals to 
+		$$1000 - 31 - 10 + 3 = 962$$
+\end{ques}
+
+\begin{ques}
+	\textbf{5.}
+		We can count this by 
+		$$|S| - |T_A \cup T_B \cup T_C|$$
+		Where $S$ is the set of all possible rearrangments, and $T_X$ is
+		the set of all rearrangments that contain three consecutive
+		letters $X$.\\
+		Using the inclustion exclusion principle, this is equivalent to
+		$$|S| - (|T_A| + |T_B| + |T_C|) + (|T_A \cap T_B| + |T_A \cap
+		T_C| + |T_B \cap T_C|) - |T_A \cap T_B \cap T_C|$$
+		For $|S|$ we have $9$ spots to put $3$ As, then $6$ spots for
+		$3$ Bs, and the Cs will take whats left. So 
+		$$|S| = \binom{9}{3} \binom{6}{3}$$
+		As for the other sets, if we treat each triplet as one letter,
+		there is a one to one correspondence between the number of
+		strings with one of the triplets and the string treating the
+		triplet as one letter. So we have
+		$$|T_A| = |T_B| = |T_C| = \binom{7}{3} \binom{4}{3}$$
+		Similarly for the intersections we treat each triplet as a seperate letter:
+		$$|T_A \cap T_B| =  |T_A \cap T_C| = |T_B \cap T_C| = 3\binom{5}{3}$$
+		And for the intersection off all three sets we are taking the
+		permutations of three different letters so we have
+		$$|T_A \cap T_B \cap T_C| = 3!$$
+		So the total count is 
+		$$\binom{9}{3}\binom{6}{3} - 3\binom{7}{3}\binom{4}{3} + 9\binom{5}{3} - 3!$$
+\end{ques}
+
+
+
+
+\end{document}

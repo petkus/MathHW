@@ -1,0 +1,196 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 402, Fall 2016}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$5}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{9.1} 
+		\begin{enumerate}
+			\item
+				This is not an equivalence relation:\\ 
+				Consider $1, 2$, we have $2 - 1 \geq 0$ but $1
+				- 2 \not \geq 0$
+			\item
+				This is an equivalence relation: for any $a \in
+				\mathbb{Z}$, if $|a| = |b|$ then $b = a$ or $b
+				= -a$ so $|b| = |a|$, and if for some $c \in
+				\mathbb{Z}$ and $c\ R\ b$ then $c = b$ or $c = -b$
+				so $c = a$ or $c = -a$ so $c\ R\ a$
+			\item
+				This is not an equivalence relation:\\
+				Consider $1, 0, -1$. We have $1\ R\ 0$ and $-1\
+				R\ 0$ but we dont have $1\ R\ -1$
+			\item
+				This is not an equivalence relation:\\
+				Consider $1, 0, -1$. We have $1\ R\ 0$ and $-1\
+				R\ 0$ but we dont have $1\ R\ -1$
+		\end{enumerate}
+\end{ques}
+
+\begin{ques}
+	\textbf{9.3}
+		All points that belong to the same equivalence class have the property
+		$$y - x = a$$
+		for some $a \in \mathbb{R}$ therefore the equivalence classes
+		are lines of the form
+		$$y = a + x$$
+\end{ques}
+
+\begin{ques}
+	\textbf{9.5}
+		\begin{enumerate}
+			\item
+				We have $\langle J\rangle  = \{I, J, -I, -J\}$, and so we have
+				$$\langle J\rangle I = \langle J\rangle$$
+				$$\langle J\rangle K = \{K, L, -K, -L\}$$
+			\item
+				We have $\langle -I\rangle  = \{I, -I\}$, and we have
+				$$\langle -I\rangle  J = \{J, -J\}$$
+				$$\langle -I\rangle  K = \{K, -K\}$$
+				$$\langle -I\rangle  L = \{L, -L\}$$
+				$$\langle -I\rangle  I = \langle -I\rangle$$
+		\end{enumerate}
+
+\end{ques}
+
+\begin{ques}
+	\textbf{9.6}
+		We have
+		$$HI = H$$
+		$$Hf = \{f, fg\}$$
+		$$Hf^2 = \{f^2, g\}$$
+		$$Hf^3 = \{f^3, f^3g\}$$
+		As for the left cosets we have
+		$$IH = H$$
+		$$fH = \{f, f^3g\}$$
+		$$f^2H = \{f^2, g\}$$
+		$$f^3H = \{f^3, fg\}$$
+\end{ques}
+
+\begin{ques}
+	\textbf{9.10}
+		We have $H = \{I, \{1\}, \{1, 2\}, \{2\}\}$, and so
+		$$HI = H$$
+		$$H\{1, 2, 3, 4\} = \{\{1,2,3,4\}, \{2,3,4\},\{3,4\},\{1,3,4\}\}$$
+		$$H\{1,2,3\} = \{\{1,2,3\},\{2,3\},\{3\},\{1,3\}\}$$
+		$$H\{1,2,4\} = \{\{1,2,4\},\{2,4\},\{4\},\{1,4\}\}$$
+\end{ques}
+
+\begin{ques}
+	\textbf{9.11}
+		For any sets $A, B, C$ we have 
+		$$A\ R\ A$$
+		since we can create a bijective map from each element of $A$
+		back to itself. We also have
+		$$A\ R\ B \Rightarrow B\ R\ A$$
+		Since every bijective function from $A$ to $B$ has a bijective
+		inverse function from $B$ to $A$. Finally
+		$$A\ R\ B \text{ and } B\ R\ C \Rightarrow A\ R\ C$$
+		Since we the composition of bijective functions is bijective
+		and so if we compose the bijective function from $A$ to $B$ and
+		the bijective function from $B$ to $C$ we get a bijective
+		function from $A$ to $C$
+\end{ques}
+
+\begin{ques}
+	\textbf{9.14}
+		$R$ is not an equivalence relation for any non-abelian group $G$. Consider
+		$a,b,e \in G$ such that $e$ is the identity and $a$ and $b$ do
+		not commute. We have
+		$$a\ R\ e, b\ R\ e$$
+		but it is not the case that 
+		$$a\ R\ b$$
+\end{ques}
+
+\begin{ques}
+	\textbf{9.16} 
+		\begin{enumerate}
+			\item
+				For any $a, b, c$ in $G$ we have
+				$$a^{-1}a = e \in H$$
+				so $a\ R\ a$, we have 
+				$$a^{-1}b \in H \Rightarrow (a^{-1}b)^{-1} =
+				b^{-1}a \in H$$
+				so $a\ R\ b \Rightarrow b\ R\ a$. Finally we have
+				$$a^{-1}b, b^{-1}c \in H \Rightarrow
+				a^{-1}bb^{-1}c = a^{-1}c \in H$$
+				so $a\ R\ b$ and $b\ R\ c \Rightarrow a\ R\ c$
+			\item
+				let $\bar a$ denote the equivalence class of $a$, we have 
+				$$\bar a = aH$$
+				Since
+				$$x \in \bar a \text{ iff } a^{-1}x \in H
+				\text{ iff } x \in aH$$
+			\item 
+				$$aH = bH \Leftrightarrow a^{-1}aH = H =
+				a^{-1}bH \Leftrightarrow a^{-1}b \in H$$
+
+		\end{enumerate}
+\end{ques}
+
+\begin{ques} 
+	\textbf{9.18} 
+		$$Hx = Ky \Leftrightarrow H = Kyx^{-1}$$
+		In order for $e \in H$, from the above equality we know
+		$(yx^{-1})^{-1} \in K$ so $yx^{-1} \in K$ so 
+		$$Kyx^{-1} = K = H$$
+\end{ques}
+
+\begin{ques}
+	\textbf{9.19} 
+		Consider $f_3 = x + 1$, $f_3 \in H$ so $f_2 \circ f_3 \in f_2H$.\\
+		$$f_2 \circ f_3 = 2(x + 1) = 2x + 2$$
+		however there is no $f \in H$ such that 
+		$$f_1 \circ f = 2x + 2$$
+		The proof for this is that we know all $f \in H$ have the form $x + n$, so 
+		$f_1 \circ f$ has the form $2(x + n) + 1 = 2x + 2n + 1$, $2n +
+		1$ must be an odd number, and so there is no $n \in \mathbb{Z}$
+		such that $2n + 1 = 2$\\
+		This proves that $f_2H \neq f_1H$ since there is an element in
+		$f_2H$ not in $f_1H$\\
+		To show $Hf_2 = f_1H \cup f_2H$, we wll show every element of
+		$Hf_2$ is in $f_1H \cup f_2H$ and then every element of $f_1H \cup
+		f_2H$ is in $Hf_2$\\
+		For any $f_3 \in H$ we have $f_3 = x + n$ for some $n \in
+		\mathbb{Z}$ so we have 
+		$$f_3 \circ f_2 = 2x + n$$
+		if $n$ is even
+		$$= 2x + 2k = 2(x + k) \in f_2H$$
+		and if $n$ is odd
+		$$= 2x + 2k + 1 = 2(x + k) + 1 \in f_1H$$
+		For some $k \in \mathbb{Z}$\\
+		therefore no matter what
+		$$f_3 \circ f_2 \in f_1H \cup f_2H$$
+		And 
+		$$f_1 \circ f_3 = 2x + 2n + 1 = (2x) + (2n + 1) \in Hf_2$$	
+		and
+		$$f_2 \circ f_3 = 2x + 2n = (2x) + (2n) \in Hf_2$$
+		so
+		$$Hf_2 = f_1H \cup f_2H$$
+\end{ques}
+\end{document}

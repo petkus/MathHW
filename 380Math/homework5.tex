@@ -1,0 +1,192 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 380a, Fall 2016}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$5}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{1.} We will prove this by contradiction, consider 
+		$$z = 1 + \frac12 + \frac13 + \dots \frac1n$$
+		for some $n$ with $z$ being an integer.\\
+		We will now define a value $M$ as the number with the prime
+		factorization of $n!$, except that the power of
+		$2$ in $M$'s prime factorization is equal to $i - 1$, where $i$ is
+		the value such that
+		$$2^i \leq n < 2^{i+1}$$
+		The following property holds for $M$:
+		$$k \in \{1, 2, 3, \dots n\} / \{2^i\} \Rightarrow k|M$$
+		The reason is that the largest possible power of $2$ that
+		divides a number $\leq n$ that is not $2^i$ would be $i - 1$,
+		that is because the smallest possible number that has a factor
+		of $2^i$ besides $2^i$ would be $2^{i + 1}$ which is larger
+		than $n$. All the other prime factors for each number $\leq n$
+		must be present in $M$ since $M$ has the same prime
+		factorization as $n!$ besides the powers of $2$.\\
+		Therefore we have by multiplying by $M$ on both sides of the
+		original assumption:
+		$$Mz = M + \frac M 2 + \frac M 3 + \dots \frac M {2^i} + \dots
+		\frac M n$$
+		However we reach a contradiction here, since the left hand
+		side of the equality is an integer, and each term of the right
+		hand side of the equality is an integer except for the term 
+		$$\frac M {2^i}$$
+		Which means the right hand side cannot be an integer. Therefore
+		the equality above cannot hold
+
+\end{ques}
+
+\begin{ques}
+	\textbf{2.} We can prove this by contradiction.\\
+		Let $\frac{x}{y}$ be a root of $p$ such that $\frac{x}{y}$ is
+		the most reduced form, so gcd$(x,y) = 1$.\\
+		That means
+		$$- a_0 = a_1\frac{x}{y} + a_2\frac{x^2}{y^2} +
+		a_3\frac{x^3}{y^3} + \dots a_r\frac{x^r}{y^r}$$
+		$$-y^ra_0 = a_1xy^{r-1} + a_2x^2y^{r-2} \dots a_rx^r$$
+		Now we work through the following cases:\\
+		If $y$ is even then since $y$ and $x$ are relatively prime, $2 \not| \ x$.\\
+		Therefore we have 
+		$$2|-y^ra_0$$ 
+		However we have, $2|a_ix^iy^{r-i}$ for $i \neq r$, and since
+		$2\not| \ x$ and $2 \not| \ a_r$, we have $2 \not| \ x^ra_r$. Which means
+		$$a_1xy^{r-1} + a_2x^2y^{r-2} \dots a_rx^r \equiv 0 + 0 + 0
+		\dots + 1 \pmod 2$$
+		And so 
+		$$2\not| \ a_1xy^{r-1} + a_2x^2y^{r-2} \dots a_rx^r$$ 
+		Which means 
+		$$-y^ra_0 \neq a_1xy^{r-1} + a_2x^2y^{r-2} \dots a_rx^r$$ 
+		which is a contradiction.\\
+		If $y$ is odd then we know $-y^ra_0$ must be odd since $a_0$ is also odd.\\
+		However if $x$ is even, we know 
+		$$a_1xy^{r-1} + a_2x^2y^{r-2} \dots a_rx^r $$
+		Is even which would mean
+		$$-y^ra_0 \neq a_1xy^{r-1} + a_2x^2y^{r-2} \dots a_rx^r$$
+		which would be a contradiction. \\
+		And if $x$ is odd, we have the following:
+		Since $p(1)$ is odd, we know
+		$$a_0 + a_1 + a_2 + \dots a_r \equiv 1 \mod 2$$
+		And since $a_0, a_r$ are odd
+		$$a_1 + a_2 + \dots a_{r-1} \equiv 1 \mod 2$$
+		which means an odd amount of the terms above must be odd.\\
+		Therefore since $x \equiv 1 \mod 2$ and $y \equiv 1 \mod 2$, we have 
+		$$a_ix^iy^{r-i} \equiv a_i \mod 2$$
+		And so 
+		$$xy^{r-1}a_1 + x^2y^{r-2}a_2 + \dots x^{r-1}ya_{r-1} \equiv 1 \mod 2$$
+		And we have $x^ra_r \equiv 1 \mod 2$
+		$$xy^{r-1}a_1 + x^2y^{r-2}a_2 + \dots x^{r-1}ya_{r-1} + x^ra_r
+		\equiv 0 \mod 2$$
+		Which would lead to the same contradiction,
+		$$xy^{r-1}a_1 + x^2y^{r-2}a_2 + \dots x^{r-1}ya_{r-1} + x^ra_r \neq -a_0y^r$$
+		Therefore there can be no rational roots for $p$
+
+\end{ques}
+
+\begin{ques}
+	\textbf{3.} To prove this, we choose a set of $n$ primes: 
+		$$P = \{p_1^2, p_2^2, p_3^2, \dots p_n^2\}$$
+		We know any two elements of $P$ are relatively prime since each
+		element is a square of distinct primes\\
+		And now consider the set
+		$$S = \{0, -1, -2, \dots, -n + 2, -n + 1\}$$
+		Then by the chinese remainder thm, we know there exits some $A$ such that
+		$$A \equiv 0 \mod{p_1^2}, A + 1 \equiv 0 \mod{p_2^2},\ \ \dots
+		\ \ A + n -1 \equiv 0 \mod{p_n^2}$$
+		Which is the desired result
+\end{ques}
+
+\begin{ques}
+	\textbf{4.} For any prime $p$ we know the number of times $p$ divides
+		the numerator and denominator of $a_{m,n}$ is given by the following:\\
+		number of times p divides the numerator: 
+		$$\lfloor \frac{2m}p\rfloor + \lfloor \frac{2m}{p^2}\rfloor +
+		\lfloor \frac{2m}{p^3}\rfloor \dots + \lfloor
+		\frac{2m}{p^k}\rfloor + \lfloor \frac{2n}p\rfloor + \lfloor
+		\frac{2n}{p^2}\rfloor + \lfloor \frac{2n}{p^3}\rfloor \dots +
+		\lfloor \frac{2n}{p^k}\rfloor$$
+		number of times p divides the denominator: 
+		$$\lfloor \frac{m}p\rfloor + \lfloor \frac{m}{p^2}\rfloor +
+		\lfloor \frac{m}{p^3}\rfloor \dots + \lfloor
+		\frac{m}{p^k}\rfloor + \lfloor \frac{n}p\rfloor + \lfloor
+		\frac{n}{p^2}\rfloor + \lfloor \frac{n}{p^3}\rfloor \dots +
+		\lfloor \frac{m + n}{p}\rfloor + \lfloor \frac{m +
+		n}{p^2}\rfloor + \lfloor \frac{m + n}{p^3}\rfloor \dots + \lfloor
+		\frac{m + n}{p^k}\rfloor$$
+		Comparing term for term these counts we will conclude
+		$$\lfloor\frac{2m}{p^i}\rfloor + \lfloor\frac{2n}{p^i}\rfloor
+		\geq \lfloor\frac m {p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor
+		+ \lfloor\frac{m+n}{p^i}\rfloor$$
+		For any $i \in \{1,2,\dots n\}$\\
+		Which would imply that the count of times $p$ divides the
+		numerator is $\geq$ the count of times $p$ divides the
+		denominator. This would mean that the denominator divides the
+		numerator since any prime that divides the denominator, divides
+		the numerator at least the same number of times. And so we can conclude that
+		$\frac{(2m)!(2n)!}{m!n!(m+n)!}$ is an integer.\\
+		To prove
+		$$\lfloor\frac{2m}{p^i}\rfloor + \lfloor\frac{2n}{p^i}\rfloor
+		\geq \lfloor\frac m {p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor
+		+ \lfloor\frac{m+n}{p^i}\rfloor$$
+		We will go through the following cases, if
+		$$\lfloor\frac{2m}{p^i}\rfloor + \lfloor\frac{2n}{p^i}\rfloor
+		= \lfloor\frac{m}{p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor +
+		\lfloor\frac{m}{p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor$$
+		Then that would mean the rounded off term for $\frac m {p^i}$
+		and $\frac n {p^i}$ must both be $< \frac 1 2$, and so
+		$$\lfloor\frac m {p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor +
+		\lfloor\frac{m+n}{p^i}\rfloor = \lfloor\frac{m}{p^i}\rfloor +
+		\lfloor\frac{n}{p^i}\rfloor + \lfloor\frac{m}{p^i}\rfloor +
+		\lfloor\frac{n}{p^i}\rfloor$$
+		Similarly if
+		$$\lfloor\frac{2m}{p^i}\rfloor + \lfloor\frac{2n}{p^i}\rfloor
+		= \lfloor\frac{m}{p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor +
+		\lfloor\frac{m}{p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor + 1$$
+		Then the rounded off term for either $\frac m {p^i}$ or $\frac
+		n {p^i}$ is $< \frac 1 2$ and the other rounded off term is
+		$\geq \frac 1 2$, which would mean
+		$$\lfloor\frac m {p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor +
+		\lfloor\frac{m+n}{p^i}\rfloor \leq \lfloor\frac{m}{p^i}\rfloor +
+		\lfloor\frac{n}{p^i}\rfloor + \lfloor\frac{m}{p^i}\rfloor +
+		\lfloor\frac{n}{p^i}\rfloor + 1$$
+		And lastly if
+		$$\lfloor\frac{2m}{p^i}\rfloor + \lfloor\frac{2n}{p^i}\rfloor
+		= \lfloor\frac{m}{p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor +
+		\lfloor\frac{m}{p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor + 2$$
+		Then the rounded off term for both $\frac m {p^i}$ and $\frac
+		n {p^i}$ are $> \frac 1 2$, which would mean
+		$$\lfloor\frac m {p^i}\rfloor + \lfloor\frac{n}{p^i}\rfloor +
+		\lfloor\frac{m+n}{p^i}\rfloor = \lfloor\frac{m}{p^i}\rfloor +
+		\lfloor\frac{n}{p^i}\rfloor + \lfloor\frac{m}{p^i}\rfloor +
+		\lfloor\frac{n}{p^i}\rfloor + 1$$
+		Therefore the inequality holds for each of the cases.
+\end{ques}
+
+
+
+
+\end{document}

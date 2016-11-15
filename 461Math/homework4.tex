@@ -1,0 +1,132 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 461, Fall 2016}} \hspace{1.3cm} \textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{1.} This number is equivalent to counting the number of
+	surjective functions from the set of $12$ places in a string to the set
+	of $\{A,B,C,D\}$. The size of the domain of these functions is $12$ and
+	the size of the set the functions map to is $4$, as established in
+	class we know from this that the number of these functions is:
+	$$4^{12} - 3^{12}\binom{1}{4} + 2^{12}\binom{2}{4} - \binom{3}{4}$$
+\end{ques}
+
+\begin{ques}
+	\textbf{2.} We can calculate this by calculating the number of elements
+		in the  complement of the set of ways to add up positive $x_1 \dots
+		x_{10}$ to $100$ such that at least one of the terms is $> 30$. By the
+		inclusion excultion principle we know the way to calculate such a
+		number is:
+		$$A - \sum_{1 \leq i \leq 10}|A_i| + \sum_{1 \leq i < j \leq
+		10} |A_i \cap A_j| - \sum_{1 \leq i < j < k \leq 10} |A_i \cap
+		A_j \cap A_k|\dots$$
+		Where $A$ is the set of all positive $x_1 \dots x_{10}$ such
+		that they add up to $100$, and $A_i$ is the set of all positive
+		$X_1 \dots x_{10}$ such that they add up to $100$ and that $x_i
+		> 30$.\\
+		As established in class, we know the way to count $|A|$ is 
+		$$\binom{99}{9}$$
+		As for the other terms, we know that the count of $|A_i|$ is
+		the same as the count of all the different ways for positive
+		$x_1 \dots x_i - 30, \dots x_{10}$ to add up to $70$. We can
+		treat $x_i - 30$ as no different from any of the other terms
+		and so our count will be 
+		$$|A_i| = \binom{69}{9}$$
+		Using the same trick for $|A_i \cap A_j|$ we are counting the
+		ways for positive $x_1 \dots x_i - 30 \dots x_j -30 \dots
+		x_{10}$ to add up to $40$. And so 
+		$$|A_i \cap A_j| = \binom{39}{9}$$
+		Using the same logic with a new term we have
+		$$|A_i \cap A_j \cap A_k| = \binom{9}{9} = 1$$
+		And lastly we have that
+		$$|A_i \cap A_j \cap A_k \cap A_l| = 0$$
+		since $4$ of the terms are greater than $30$ so the sum of the
+		terms must be $>100$\\
+		We know there are $\binom{10}{1}$ of the $|A_i|$ terms,
+		$\binom{10}{2}$ of the $|A_i \cap A_j|$ terms, and
+		$\binom{10}{3}$ of the $|A_i \cap A_j \cap A_k|$ terms, and so
+		for our final calculation, we know the answer is 
+		$$\binom{99}{9} - \binom{10}{1}\binom{69}{9} +
+		\binom{10}{2}\binom{39}{9} - \binom{10}{3}$$
+\end{ques}
+
+\begin{ques}
+	\textbf{3.} We will prove that the two quantities on either side of the
+		equation are counting the same thing.\\
+		If we consider the set $Z = X \cup Y$ where $|X| = n$ and $|Y =
+		m|$ and $|X \cap Y| = 0$, and we want to count the number of
+		$k$ element subsets of $Z$ consisting of only elements from $Y$.\\
+		One way to count this would be to just count $k$ element
+		subsets of $Y$ since if a subset of $Z$ consists entirely of
+		elements of $Y$, it must also be a subset of $Y$. Counting the
+		quantity this way would yield
+		$$\binom{m}{k}$$
+		when $m \geq k$ and $0$ otherwise, which is the value on the
+		rhs of the equation.\\
+		Another way to count these $k$ element subsets would be to use
+		the inclusion exclusion principle. We find the cardinality of
+		the complement of the union of $k$ subsets of $Z$ that contain at
+		least one element in $X$. This would be calculated as
+		$$Z_k - \sum_{1 \leq i \leq n} |X_i| + \sum_{1 \leq i < j \leq
+		n}|X_i \cap X_j|\dots $$
+		Where $X_i$ refers the set of $k$ subsets of $Z$ with the $i$th term
+		of $X$ in each of the subsets and $Z_k$ refers to the set of
+		all $k$ subsets of $Z$\\
+		We know that $Z_k = \binom{|Z|}{k} = \binom{m + n}{k}$, and we
+		have $|X_i| = \binom{n + m - 1}{k-1}$ and there are $\binom{n}{1}$ of
+		the $|X_i|$ terms. More generally we can say for the $i$th term
+		of the series described above: 
+		$$\sum_{1 \leq l_1 < l_2 \dots l_i \leq n}|X_{l_1} \cap X_{l_2}
+		\dots \cap X_{l_n}|$$
+		We have $|X_{l_1} \cap X_{l_2} \dots \cap X_{l_i}| = \binom{n +
+		m - i}{k - i}$ since there are $n+m - i $ elements left in $Z$ to
+		choose from and there are $k - i$ elements still needing to be
+		chosen. There are $\binom{n}{i}$ of these terms we are summing.
+		$$\sum_{1 \leq l_1 < l_2 \dots l_i \leq n}|X_{l_1} \cap X_{l_2}
+		\dots \cap X_{l_n}| = \binom{n + m - i}{k-i}\binom{n}{i}$$
+		Depending on weather $i$ is even or odd we are adding or
+		subtracting the terms. When the sum we are calculating is equivalent to 
+		$$\sum_{i = 0}{n} (-1)^i\binom{n}{i}\binom{m+n - i}{k-i}$$
+		And so we are done
+
+\end{ques}
+
+\begin{ques}
+	\textbf{4.}
+		We can count this the following way. When we choose two of
+		$\{e_1, e_2, e_3, e_4\}$, the other two must be unchosen. Therefore we have
+		$$2^{\binom{10}{2} - 4}$$
+		Choices for choosing the remaining edges. The number of ways to
+		choose two edges from $\{e_1, e_2, e_3, e_4\}$ is
+		$\binom{4}{2}$. Therefore the total number of unequal graphs containing exactly $2$ of the four edges is 
+		$$2^{\binom{10}{2} - 4}\binom{4}{2}$$
+\end{ques}
+
+
+\end{document}

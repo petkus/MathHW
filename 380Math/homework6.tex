@@ -1,0 +1,253 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 380a, Fall 2016}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$6}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{1.} We can prove this by induction:\\
+		Base Case: for $n = 1$, we have $\frac{a_1}{a_1} \geq 1$ is true.\\
+		For the inductive step we look at 
+		$$((a_1 + \dots + a_n) + a_{n+1})((\frac 1{a_1} + \dots +\frac
+		1{a_n}) + \frac 1{a_{n+1}})$$
+		$$= (a_1 + \dots a_n)(\frac 1{a_1} + \dots + \frac 1{a_n}) +
+		a_{n+1}(\frac 1{a_1} + \dots +\frac 1{a_n})+ (a_1 + \dots
+		a_n)\frac{1}{a_{n+1}}+ 1$$
+		By the inductive hypothesis
+		$$\geq n^2 + a_{n+1}(\frac 1{a_1} + \dots +\frac 1{a_n})+ (a_1 + \dots
+		a_n)\frac{1}{a_{n+1}}+ 1$$
+		If we look term for term at 
+		$$a_{n+1}(\frac 1{a_1} + \dots +\frac 1{a_n})+ (a_1 + \dots
+		a_n)\frac{1}{a_{n+1}}$$
+		We have 
+		$$\sum_{i=1}^n \frac{a_{n+1}}{a_i} + \frac{a_i}{a_{n+1}}
+		= \sum_{i=1}^n \frac{a_i^2 + a_{n+1}^2}{a_ia_{n+1}}$$
+		now consider 
+		$$2a_ia_{n+1} < 2a_ia_{n+1} + a_i^2 + a_{n+1}^2 = (a_i + a_{n+1})^2$$
+		And by the cauchy shwartz ineq:
+		$$ \leq a_i^2 + a_{n+1}^2$$
+		Therefore 
+		$$1 = \frac{a_i^2 + a_{n+1}^2}{a_i^2 + a_{n+1}^2} < \frac{a_i^2
+		+ a_{n+1}^2}{2a_ia_{n+1}}$$
+		And so 
+		$$\sum_{i=1}^n \frac{a_i^2 + a_{n+1}^2}{a_ia_{n+1}} > \sum_{i=1}^n 2 = 2n$$
+		So we have
+		$$(a_1 + \dots + a_n + a_{n+1})(\frac 1{a_1} + \dots +\frac
+		1{a_n} + \frac 1{a_{n+1}}) \geq n^2 + 2n + 1 = (n+1)^2$$
+		Which is the desired result
+\end{ques}
+
+\begin{ques}
+	\textbf{2.} 
+		\begin{enumerate}
+			\item 
+				Using the two number form of the AM-GM inequality we have
+				$$\frac{a_1 + a_2 + a_3 + a_4}{4} =
+				\frac{\frac{a_1 + a_2}2 + \frac{a_3 + a_4}
+				2}{2} \geq \sqrt{\frac{a_1 + a_2}2 \frac{a_3 +
+				a_4} 2}$$
+				We can use the inequality again since $ab \leq
+				cd \Rightarrow \sqrt{ab} \leq \sqrt{cd}$ for
+				any $a, b, c, d \geq 0$. 
+				$$\geq \sqrt{\sqrt{a_1a_2} \sqrt{a_3 a_4}} =
+				\sqrt[4]{a_1a_2a_3a_4}$$
+			\item 
+				For three numbers $a_1, a_2, a_3$ we have the
+				following from the AM-GM result for four
+				numbers:
+				$$\frac{a_1 + a_2 + a_3 + \frac{a_1 + a_2 +
+				a_3}{3}}{4} \geq \sqrt[4]{a_1a_2a_3}\sqrt[4]
+				{\frac{a_1 + a_2 + a_3}{3}}$$
+				We observe that
+				$$\frac{a_1 + a_2 + a_3 + \frac{a_1 + a_2 +
+				a_3}{3}}{4} = \frac{3a_1 + 3a_2 + 3a_3 + a_1 +
+				a_2 + a_3}{12} = \frac{a_1 + a_2 + a_3}{3}$$
+				Therefore if we divide $\sqrt[4] {\frac{a_1 +
+				a_2 + a_3}{3}}$ on both sides of our AM-GM
+				inequality we get
+				$$\left(\frac{a_1 + a_2 + a_3}{3}\right)^{3/4} \geq
+				\sqrt[4]{a_1a_2a_3} = \left(\sqrt[3]{a_1a_2a_3}\right)^{3/4}$$
+				If we take both sides to the $4/3$ power we get
+				the desired result
+			\item
+				We can prove the AM-GM in general with a
+				modified induction. We will prove that the $n$
+				case implies the $2n$ case and then prove that
+				the $n$ case implies the $n-1$ case. This would
+				Imply the AM-GM for all $n$ since we prove it
+				for every power of two, and then prove it for
+				all numbers less than a power of two. The base
+				case is the $n= 2$ which was proven in class.\\
+				To prove the $2n$ case, given 
+				$$\{a_1, a_2 \dots a_n, a_{n+1} \dots a_{2n}\}$$
+				We will define $A$ as the Arithmetic mean and
+				$G$ the Geometric mean of $\{a_1 \dots a_n\}$
+				and $A'$ as the Arithmetic mean and $G'$ the
+				Geometric mean  of $\{a_{n+1} \dots a_{2n}\}$\\
+				Using the AM-GM for the $n = 2$ case we have
+				$$\frac{A + A'}{2} \geq \sqrt{A}\sqrt{A'}$$
+				By the inductive hypothesis we have $G \leq A$,
+				$G' \leq A'$ so
+				$$\sqrt{A}\sqrt{A'} \geq \sqrt{G}\sqrt{G'}$$
+				So
+				$$\frac{A + A'}{2} \geq \sqrt{G}\sqrt{G'}$$
+				We observe that
+				$$\sqrt{G}\sqrt{G'} = \sqrt{(a_1 \dots
+				a_n)^{1/n}}\sqrt{(a_{n + 1} \dots
+				a_{2n})^{1/n}} = (a_1 \cdot a_2 \dots
+				a_{2n})^{1/2n} = G_{2n}$$
+				Where $G_{2n}$ is the Geometric mean of $\{a_1
+				\dots a_{2n}\}$.\\
+				We also have that
+				$$\frac{A + A'}{2} = \frac{a_1 + \dots a_n +
+				a_{n+1} + \dots a_{2n}}{2n} = A_{2n}$$
+				where $A_{2n}$ is the Arithmetic mean of $\{a_1
+				\dots a_{2n}\}$.\\
+				So we have
+				$$A_{2n} \geq G_{2n}$$
+				Now to prove the $n-1$ case.\\
+				for a given $\{a_1, \dots a_{n-1}\}$ we define
+				$a_n = A_{n-1}$ where $A_{n-1}$ is the
+				Arithmetic mean of the set. By our inductive
+				hypothesis we have
+				$$A_n \geq G_n$$
+				Where $A_n$ and $G_n$ are the Arithmetic and
+				Geometric means of $\{a_1 \dots a_n\}$\\
+				We have that
+				$$A_n = \frac{a_1 + \dots a_{n-1}}{n} +
+				\frac{a_1 + \dots a_{n-1}}{n(n-1)} =
+				\frac{(n-1)(a_1 + \dots a_{n-1}) + a_1 + \dots
+				a_{n-1}}{n(n-1)} = A_{n-1}$$
+				We also have
+				$$G_n = \sqrt[n]{a_1 \dots
+				a_{n-1}}\sqrt[n]{A_{n-1}} =
+				G_{n-1}^{(n-1)/n}A_{n-1}^{1/n}$$
+				If we substitute these equations into our
+				original inequality we have
+				$$A_{n-1} \geq G_{n-1}^{(n-1)/n}A_{n-1}^{1/n}$$
+				dividint the $A_{n-1}^{1/n}$ on both sides yields
+				$$A_{n-1}^{(n-1)/n} \geq G_{n-1}^{(n-1)/n}$$
+				And so 
+				$$A_{n-1} \geq G_{n-1}$$
+
+
+
+
+		\end{enumerate}
+\end{ques}
+
+\begin{ques}
+	\textbf{3.} 
+		We can prove this by induction:\\
+		Base Case ($n = 1$) is true since there is only one element in
+		the set $\{\frac{a_1}{b_1}\}$\\
+		Now looking at proving
+		$$\frac{a_1 + \dots a_{n+1}}{b_1 + \dots b_{n+1}} \leq
+		\frac{A_{n+1}}{B_{n+1}}$$
+		where $A_{n+1}, B_{n+1}$ are the numerator and denominator
+		respectively of the max of $\{\frac{a_1}{b_1}, \dots
+		\frac{a_{n+1}}{b_{n+1}}\}$.\\ 
+		We can assume as the inductive hypothesis 
+		$$\frac{a_1 + \dots a_n}{b_1 + \dots b_n} \leq \frac{A_n}{B_n}$$
+		where $A_n, B_n$ are the numerator and denominator respectively
+		of the max of $\{\frac{a_1}{b_1}, \dots \frac{a_n}{b_n}\}$.\\
+		This is the case if and only if
+		$$B_n\sum_{i=1}^n a_i \leq A_n \sum_{i=1}^n b_i$$
+		We also know
+		$$\frac{A_n}{B_n} \leq \frac{A_{n+1}}{B_{n+1}}$$
+		since $\{\frac{a_1}{b_1}, \dots \frac{a_n}{b_n}\}$ is contained
+		in $\{\frac{a_1}{b_1}, \dots \frac{a_{n+1}}{b_{n+1}}\}$, so
+		$$\frac{B_{n+1}}{B_n} \leq \frac{A_{n+1}}{A_{n}}$$
+		so
+		$$B_{n+1}\sum_{i=1}^n a_i \leq A_{n+1} \sum_{i=1}^n b_i$$
+		similarly we have
+		$$\frac{A_{n+1}}{B_{n+1}} \geq \frac{a_{n+1}}{b_{n+1}}
+		\Rightarrow A_{n+1}b_{n+1} \geq B_{n+1}a_{n+1}$$
+		so
+		$$B_{n+1}\sum_{i=1}^n a_i +  B_{n+1}a_{n+1} \leq A_{n+1}
+		\sum_{i=1}^n b_i + A_{n+1}b_{n+1}$$
+		$$\Updownarrow$$
+		$$\frac{a_1 + \dots a_{n+1}}{b_1 + \dots b_{n+1}} \leq
+		\frac{A_{n+1}}{B_{n+1}}$$
+		This proves that the fraction of the sums is always less than or equal to
+		the max of the ratios. To prove that it is always greater than
+		or equal to the min of the ratios, we just swap the $a_i$s and
+		$b_i$s. Then the max of the ratios of these terms would be the
+		min of the ratio of our original ratios, so we have
+		$$\frac{b_1 + \dots b_{n}}{a_1 + \dots a_{n}} \leq \frac{\beta_n}{\alpha_n}$$ 
+		So
+		$$\frac{a_1 + \dots a_{n}}{b_1 + \dots b_{n}} \geq \frac{\alpha_n}{\beta_n}$$ 
+		Where $\frac{\alpha_n}{\beta_n}$ is the min of the ratios
+\end{ques}
+
+\begin{ques}
+	\textbf{4.} 
+		We can prove this by induction:\\
+		Base Case: for $n = 2$ we have:
+		$$(1 + a_1)(1 + a_2) = 1 + a_1 + a_2 + a_1a_2$$
+		And since $a_1, a_2$ are the same sign and nonzero, we know $a_1a_2 > 0$ so
+		the assersion holds.\\
+		Now we have 
+		$$(1 + a_1)(1+ a_2) \dots (1 + a_{n+1}) = (1 + a_1) \dots (1 +
+		a_n) + (1 + a_1) \dots (1 + a_n)a_{n+1}$$
+		By the inductive hypothesis we know that
+		$$> 1 + 2 + \dots a_n + (1 + a_1) \dots (1 + a_n)a_{n+1}$$
+		Now we go through cases, if all the $a_i$ terms are positive,
+		then $1 + a_i > 1$ so 
+		$$(1 + a_1) \dots (1 + a_n)a_{n+1} > a_{n+1}$$
+		so we have the desired result
+		$$(1 + a_1)(1+ a_2) \dots (1 + a_{n+1})> 1 + 2 + \dots a_n + a_{n+1}$$
+		And the other case is $a_i$ terms are negative but  $> -1$ then
+		$1 > a_i + 1 > 0$. Therefore 
+		$$0 < (1 + a_1) \dots (1 + a_n) < 1$$
+		so 
+		$$a_{n+1}(1 + a_1) \dots (1 + a_n) > a_{n+1}$$
+		so we have the desired result
+		$$(1 + a_1)(1+ a_2) \dots (1 + a_{n+1})> 1 + 2 + \dots a_n + a_{n+1}$$
+		
+\end{ques}
+
+\begin{ques}
+	\textbf{5.} 
+		We can use the AM-GM inequality for $\{1, \dots n\}$.\\
+		We have
+		$$AM = \frac{1 + 2 + \dots n}n = \frac{n(n+1)}{2n}= \frac{n+1}{2}$$
+		and
+		$$GM = \sqrt[n]{1 \cdot 2 \dots n} = \sqrt[n]{n!}$$
+		And since the terms of $\{1, \dots n\}$ are not equal for $n >
+		1$, we know that the AM-GM is a strict inequality:
+		$$\frac{n+1}{2} > \sqrt[n]{n!}$$
+		$$\left(\frac{n+1}{2}\right)^n > \sqrt{n!}$$
+\end{ques}
+
+
+
+
+\end{document}

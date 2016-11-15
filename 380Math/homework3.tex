@@ -1,0 +1,179 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 380a, Fall 2016}} \hspace{1.3cm} \textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{1.}
+		\begin{enumerate}
+			\item  If $n$ is one digit it is clear that the
+				sequence remains constant since $S(n) = n$.  If
+				$n$ has multiple digits we can show that $S(n)$
+				will always yield a number smaller than $n$ and
+				is therefore decreasing, which would imply
+				after repeated applications of $S$, the output
+				would eventually be one digit and therefore
+				constant.\\ To show this we simply observe if
+				$d_i$ is the digit of $n$ in the $i$th place
+				from the right, we have 
+				$$n = d_k10^k + d_{k-1}10^{k-1} \dots d_1 10 + d_0$$
+				while 
+				$$S(n) = d_k + d_{k-1} \dots + d_1 + d_0$$
+				We have for $i \geq 1$, $d_i < 10^id_i$, and
+				therefore if $n$ has more than one digit,
+				$S(n) < n$
+			\item First we can use the useful property of modular
+				arithmetic mod $9$:
+				$$n \equiv S(n) \bmod9$$
+				Therefore
+				$$n \equiv S(S(\dots S(n) \dots )) \bmod 9$$
+				And so the digital sum of $n$ is equivalent to
+				$n \bmod 9$\\ 
+				We also can say twin primes have the form $6n -
+				1, 6n + 1$ for some $n \in \mathbb{N}$ since any
+				other form has one of the primes divisible by
+				either $2$ or $3$.\\
+				Therefore the product of these primes is 
+				$$36n^2 -1$$
+				Which is $8$ mod $9$. Therefore the digital sum
+				of any prime twins must be $8$
+		\end{enumerate}
+\end{ques}
+
+\begin{ques}
+	\textbf{2.}
+		\begin{enumerate}
+			\item $$9^{121} + 13^{1331} = (9^{11})^{11} +
+				((13^{11})^{11})^{11}$$ by Fermats Little Thm
+				$$(9^{11})^{11} + ((13^{11})^{11})^{11} \equiv
+				(9 + 13) \bmod{11} \equiv 0 \bmod{11}$$ Since
+				both $(9^{11})^{11}$ and
+				$((13^{11})^{11})^{11}$ are odd, $(9^{11})^{11}
+				+ ((13^{11})^{11})^{11}$ must be even.\\
+				Therefore since both $2$ and $11$ divide the
+				sum, $22$ must divide it as well
+			\item We have $31 |( 30^{239} + 239^{30})$ and here is why:\\
+				$30 \equiv -1 \bmod 31$, so since $239$ is odd:
+				$$30^{239} \equiv -1 \bmod 31$$
+				and by Fermat's Little Thm 
+				$$239^{30} \equiv 1 \bmod 31$$ 
+				Therefore
+				$$30^{239} + 239^{30} \equiv -1 + 1 \equiv 0 \bmod 31$$
+				And so $31 |( 30^{239} + 239^{30})$
+		\end{enumerate}
+\end{ques}
+
+\begin{ques}
+	\textbf{3.} There is no such value. To start with, if $a_0$ is not
+		prime the condition fails right away. If $a_0$ is prime, we can
+		find a composite term of the sequence as follows:\\
+		\\
+		We can rewrite the term of $a_n$ in terms of $a_0$:
+		$$a_n = 2(2( \dots 2( 2a_0 + 1) + 1) \dots )+ 1) + 1$$
+		$$a_n = 2^na_0 + 2^{n-1} + 2^{n-2} + \dots 2^2 + 2 + 1$$
+		The series on the right can be rewritten with the identity:
+		$$2^{n-1} + 2^{n-2} + \dots 2^2 + 2 + 1 = 2^n - 1$$
+		And so
+		$$a_n = 2^na_0 + 2^n - 1$$
+		Since $a_0$ is prime we can use Fermats Little Thm, we set $n = a_0 - 1$:
+		$$2^{n} \equiv 1\bmod{a_0}$$
+		And so 
+		$$a_n \equiv 0 \bmod{a_0}$$
+		Which means $a_0 | a_n$
+\end{ques}
+
+\begin{ques}
+	\textbf{4.}
+		We know $d_i \geq i$ for all $i: 1 \leq i \leq k$ since $d_1 =
+		1$ and $d_i$ increases by at least $1$ every time $i$ is
+		incrimented.\\
+		We also know the following:
+		$$d_1 = \frac n {d_k}, \ d_2 = \frac n {d_{k - 2}}, \ d_3 =
+		\frac n {d_{k - 3}} \dots d_i = \frac n {d_{k+1-i}}$$
+		Since factoring out the $i$th smallest factor out of $n$ yields
+		the $i$th largest factor of $n$ and vice versa.\\
+		Therefore since $d_i \leq i$, we have:
+		$$d_1 \leq \frac n {k}, \ d_2 \leq \frac n {k - 1}, \ d_3 \leq
+		\frac n {k-2} \dots d_i \leq \frac n {k+1-i}$$
+		And so 
+		$$\sum_{i = 1}^{k-1} d_id_{i+1} \leq \sum_{i = 1}^{k-1}
+		\frac{n^2}{(k+1 - i)(k - i)}$$
+		reordering the indecies with $j = k- i$ yields:
+		$$= \sum_{j = 1}^{k-1}\frac{n^2}{j(j+1)}= n^2\sum_{j =
+		1}^{k-1}\frac{1}{j(j+1)}$$
+		We can telescope this sum:
+		$$\sum_{j = 1}^{k-1}\frac{1}{j(j+1)} = \sum_{j = 1}^{k-1}\frac1
+		j -\frac 1 {j + 1} = 1 - \frac 1 k < 1$$
+		so 
+		$$\sum_{i = 1}^{k-1} d_id_{i+1} < n^2$$
+\end{ques}
+
+\begin{ques}
+	\textbf{EC Question.}
+		If $d_1$ is $2$, we have 
+		$$d_1 - d_0 = 1$$
+		and so incrimenting by $1$ each time should yield a number
+		relatively prime to $n$. Therefore every number in 
+		$$\{1,2,3, \dots n-1\}$$
+		is relatively prime to $n$ and so $n$ must be prime.\\
+		If $d_1 = 3$, we have 
+		$$d_1 - d_0 = 2$$
+		And so incrimenting by $2$ each time should yield a number
+		relatively prime to $n$. This would be all the odd numbers less
+		than $n$ and therefore $n$ can only have the prime factor of
+		$2$ since all other primes are odd. And so $n$ must be a power
+		of $2$.\\
+		\\
+		If $d_1 > 3$, we find it impossible for $n$ to have the
+		property described in the problem.\\
+		All numbers below $d_1$ are not relatively prime with $n$ and so
+		$d_1$ must be prime, otherwise if $d_1$ had a factor, it would have
+		to share that factor with $n$. It follows from this that all
+		primes less than $d_1$ must divide $n$.\\
+		Since $d_1 - d_0 = d_1 - 1$ we know all numbers relatively
+		prime to $n$ that are less than $n$ must be of the form 
+		$$(d_1 - 1)k + 1$$
+		In order for the property to hold.\\
+		However if
+		$$d_1 \equiv 1 \bmod 3$$
+		then $2|d_1$ so $d_1$ is not relatively prime to $n$, similarly if 
+		$$d_1 \equiv 0 \bmod 3$$
+		then $3|d_1$ and so $d_1$ is not relatively prime to $n$, if
+		$$d_1 \equiv 2 \bmod 3$$
+		then for $k = 2$:
+		$$(d_1 - 1)k + 1 \equiv 0 \bmod 3$$
+		so $(d_1 - 1)k + 1$ is not relatively prime to $n$.\\
+		We know $(d_1 - 1)2 + 1$ must be less than $n$ since $(d_1 -
+		1)!$ divides $n$ and $d_1 > 4$ (since $d_1$ cannot be even) so
+		$(d_1 - 1)! > 2d_1$.
+\end{ques}
+
+
+
+
+\end{document}

@@ -1,0 +1,272 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 402, Fall 2016}} \hspace{1.3cm} \textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+\textbf{2.1} 
+	\begin{enumerate}
+		\item $\mathbb{R}^+$ is not a group since none of the elements
+			have inverses besides $\{0\}$. The inverse of $a \in
+			\mathbb{R}^+$ is $-a \notin \mathbb{R}^+$\\
+		\item This is a group, $0$ is the identity, the inverse of $a
+			\in 3\mathbb{Z}$ is $-a$ and $3$ divides $-a$ since 3
+			divides $a$ so $-a \in 3\mathbb{Z}$, and addition is
+			assosiative. Therefore $3\mathbb{Z}$ under addition
+			satisfies all the requirements of a group
+		\item This is not a group since there is no identity. $a * b
+			\geq 0$ for all $a,b \in \mathbb{R}$, therefore if $a <
+			0$, $a * b \neq a$ for all $b \in \mathbb{R}$
+		\item This is a group since $1$ is the identity, $-1$ and $1$
+			are their own inverses and multiplication is
+			assosiative.
+		\item This is a group since for any $a, b \in \mathbb{Q}$ such
+			that $\sqrt{a}, \sqrt{b} \in \mathbb{Q}$, $\sqrt{ab}
+			\in \mathbb{Q}$. The inverse of $a$ would be $\frac1a$
+			which by the way the square root works, $\sqrt \frac1a
+			\in \mathbb{Q}$. The identity would be $1$ and
+			multiplication is associative. Therefore all the
+			conditions are met for this set under multiplication to
+			be a group
+		\item This is not a group since the operation is not
+			associative. Subtraction is not associative.
+		\item This is a group, we have $(0,1)$ be the identity, for a
+			given $(a,b)$ in the set, $(-a, \frac1b)$ is its
+			inverse, and addition and multiplication are
+			associative and so $*$ is associative too
+		\item This is a group, $0$ is the identity. The operation is
+			accociative: 
+			$$a * (b * c) = a * (b + c - bc) = a + b + c - a(b + c - bc) $$
+			$$= a + b + c - ab - ac + abc = (a + b - ab) + c -
+			c(a+b - ab) = (a * b) * c$$ 
+			And the inverse of any $a \in \mathbb{R} - \{1\}$ is
+			$\frac{a}{a-1}$ since 
+			$$a * \frac{a}{a-1} = \frac1{a-1}(a(a-1) + a - a^2) =
+			0$$ which is well defined since $a-1 \neq 0$. Therefore
+			all the conditions of being a group are satisfied
+		\item This is a group, $1$ is the identity, addition is
+			associative, and the inverse of a given $a \in
+			\mathbb{Z}$ is $-a$: $a - 1 - (a - 1) = 0$
+	\end{enumerate}
+
+\end{ques}
+
+\begin{ques}
+	\textbf{2.3}
+	Under intersection $P(X)$ is a group, but not under union. As
+		established in an earlier homework assignments, for a given $A
+		\in P(X)$, the operation 
+		$$F(B) = A \cup B$$
+		is not injective and therefore does not have an inverse, and
+		therefore the element $A$ cannot have an inverse under the
+		union operation.\\
+		For intersection, we have proven in a previous homework that
+		the intersection operation is assosiative. We have the empty
+		set be the identity since
+		$$\emptyset \cap A = A \cap \emptyset = \emptyset$$
+		and for the inverse of a given element $A$ we have 
+		$$A^{-1} = X - A$$
+		since 
+		$$A \cap (X - A) = (X - A) \cap A = \emptyset$$
+
+\end{ques}
+
+\begin{ques}
+	\textbf{2.5}
+		No, $c$ has no inverse, there is no element $c^{-1}$ in the
+		table such that $c^{-1} c a = a$
+\end{ques}
+
+\begin{ques}
+	\textbf{2.7}
+	$$\begin{array}{c|cc}
+			& a & b \\
+			\hline
+			a & a & b \\
+			b & b & a
+		\end{array}$$
+	$a$ is the identity, and $b$ is it's own inverse
+\end{ques}
+
+\begin{ques}
+	\textbf{2.8}
+		Yes it forms a group. The identity function is $f(x) = 1$ since 
+		$$1g(x) = g(x)1 = g(x)$$
+		for all functions $g(x)$. For any function $f(x)$ where $f(x)
+		\neq 0 \ \forall x \in \mathbb{R}$, we define its inverse to be
+		$\frac1{f(x)}$. Since $f(x) \neq 0$, the inverse is well
+		defined. And multiplication is associative, so the operation of
+		multiplying these functions is associative. Therefore all the
+		criteria for being a group are met.
+\end{ques}
+
+\begin{ques}
+	\textbf{2.10}
+		Matrix multiplication is associative, the Identity matrix would be:
+		$$\left[ \begin{matrix}
+			1 & 0 \\
+			0 & 1 
+		\end{matrix} \right ]$$
+		which as established in linear algebra, changes nothing under
+		matrix multiplication. Since the determinanant of these
+		matricies is non-zero, they all have inverses:
+		$$\left[ \begin{matrix}
+			a & b \\
+			-b & a 
+		\end{matrix} \right ]^{-1}
+		=
+		\frac{1}{a^2 + b^2}
+		\left[ \begin{matrix}
+			a & -b \\
+			b & a 
+		\end{matrix} \right ]$$
+		which are also of the form $\left[ \begin{matrix}
+			a & b \\
+			-b & a 
+		\end{matrix} \right ]$. Therefore all the requirements to be a
+		group are met
+\end{ques}
+
+\begin{ques}
+	\textbf{3.3}
+	Example:
+		$$A = \left[ \begin{matrix}
+			0 & 1\\
+			1 & 0
+		\end{matrix} \right ],
+		B = \left[ \begin{matrix}
+			1 & 1\\
+			1 & 1
+		\end{matrix} \right ],
+		C = \left[ \begin{matrix}
+			1 & 0\\
+			0 & 1
+		\end{matrix} \right ]$$
+		Some straight forward calculations yield $AB = BC$ even though $A \neq C$
+\end{ques}
+
+\begin{ques}
+	\textbf{3.4}
+		Because $G$ is a group, $\exists x^{-1} \in G$. Therefore if we apply
+		$x^{-1}$ to both sides of the equation we have:
+		$$x \cdot g = x$$
+		$$x^{-1} \cdot x g = x^{-1}\cdot x$$
+		$$e \cdot g = e$$
+		and by the definition of the identity, this can only be the case if $g = e$
+
+\end{ques}
+
+\begin{ques}
+	\textbf{3.7}
+		If an element occured more than once in a row or column of a
+		table, that is equivalent to saying there exists $a \in G$ such
+		that
+		$$\exists \ b, c \in G: b \neq c, \text{ and either } ab = ac, \text{ or } ba = ca$$
+		However we know $a^{-1} \in G$, therefore
+		$$a^{-1} ab = a^{-1} a c \text{ or } baa^{-1} = caa^{-1}$$
+		and so 
+		$$b = c$$
+		which is a contradicion. Therefore the maping of elements in
+		$G$ to the elements in the rows and columns must be injective.
+		And because the number of elements in each row is the same as
+		the number of elements in $G$, we know that the mapping is
+		surjective. Therefore every element occurs precisely once in
+		each row and column.
+\end{ques}
+
+\begin{ques}
+	\textbf{3.11}
+		For a given $x,y \in G$, with $x \neq y$ we have for the element $xy$:
+		$$(xy)^{-1} = xy$$
+		however 
+		$$(xy)(yx) = x(yy)x = e$$
+		as well, therefore they are both the inverse of $xy$, which is unique. So
+		$$(xy)^{-1} = xy = yx$$
+\end{ques}
+
+\begin{ques}
+	\textbf{3.14}
+		First we will show there is an Identity element. We know some
+		element $a \in G$ there is an element $e \in G$ such that 
+		$$ae = a$$
+		from this, we have $\forall y \in G$
+		$$(ae)y = ay = a(ey)$$
+		And therefore $ey = y$ for all $y$, Therefore for $\forall x \in G$:
+		$$x(ey) = xy = (xe)y$$
+		and so $x = xe$. Therefore $e$ satisfies all the properties of
+		the identity element for $G$.\\
+		From there we have for any $a \in G$:
+		$$\exists a^{-1} \in G: a a^{-1} = e$$
+		And so we have
+		$$a(a^{-1}a) = a = (a^{-1}a)a$$
+		and so $a^{-1}a = e$. Therefore $a^{-1}$ satisfies the
+		properties to be the inverse of $a$.\\
+		Theres an identity, all elements have an inverse, and $G$ is
+		closed under an assosicative operation, therefore $G$ is a
+		group.
+\end{ques}
+
+\begin{ques}
+	\textbf{3.15}
+		We will let the cardinality of $G$ be $n$. First we will show
+		that there must be an Identity element.\\
+		If we take some $a \in G$ we look at the set 
+		$$\{a, a^2, a^3, a^4, \dots a^n, a^{n+1}\}$$
+		Since there are $n$ possible values in $G$ but there are $n+1$
+		elements in this set, by the pigeonhole principle, two of these
+		values must be the same: $a^i = a^j$ for some $i < j$.\\
+		Therefore we have $a^i = a^i a^{j-i}$. We will relabel
+		$a^{j-i}$ as $e$. We now have for all $b \in G$
+		$$(a^ie)b = a^{i}(eb) = a^{i}b$$
+		and so $eb = b$. Similarly for any $c \in G$
+		$$c(eb) = (ce)b = cb$$
+		so $ec = c$. Therefore $e$ satisfies all the properties to be
+		the identity of $G$.\\
+		From the following property for any $x, a, b \in G$
+		$$a \neq b \Rightarrow ax \neq bx$$
+		We know the mapping of $f(a) = a \cdot x$ is injective, and
+		therefore since it maps from $G$ to $G$, it is surjective.
+		Therefore we know there is some $x^{-1} \in G$ such that
+		$x^{-1} x = e$. Also that
+		$$x(x^{-1}x) = (xx^{-1})x = x$$
+		and so $xx^{-1} = e$. So $x^{-1}$ satisfies all the properties
+		of the inverse of $x$. Therefore all elements in $G$ have an inverse.\\
+		All the properties required to be a group are satisfied and
+		so $G$ is a group
+\end{ques}
+
+\begin{ques}
+	\textbf{3.16}
+		Consider $G = \mathbb{N}$ under addition.\\
+		The conditions are met since for $a,b,c \in \mathbb{N}$:
+		$$a + b = c + b \Leftrightarrow a = c$$
+		and 
+		$$a + b \in \mathbb{N} \Leftrightarrow a,b \in \mathbb{N}$$
+		However there is no identity or inverses over $G$.
+\end{ques}
+
+
+\end{document}
