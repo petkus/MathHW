@@ -23,13 +23,39 @@
 \begin{document}
 
 \noindent \textit{\textbf{Math 402, Fall 2016}} \hspace{1.3cm}
-\textit{\textbf{HOMEWORK $\#$5}} \hspace{1.3cm} \textit{\textbf{Peter
+\textit{\textbf{HOMEWORK $\#$6}} \hspace{1.3cm} \textit{\textbf{Peter
 Gylys-Colwell}} 
 
 \vspace{1cm}
 
 \begin{ques}
-	\textbf{10.11} 
+	\textbf{10.11}
+		\begin{enumerate}
+			\item
+				Given any two left cosets $aH, bH$, we can
+				construct a bijection $f : aH \to bH$ as
+				$f(ah) = bh$. Which would imply the sets have
+				the same size \\
+				$f$ is one-to-one since if $f(ah_1) = f(ah_2)$
+				then $bh_1 = bh_2$, applying $b^{-1}$ on the
+				left yields $h_1 = h_2$ so $ah_1 = ah_2$.\\
+				$f$ is onto since for any $bh$, we can choose the
+				same $h$ for $ah$ and we have $f(ah) = bh$\\
+				Therefore $f$ is a bijection
+			\item
+				Given any right coset and left coset $Ha, bH$,
+				we can construct a bijection $f : Ha \to bH$
+				where $f(ha) = bh$. Which would imply the sets
+				have the same size.\\
+				$f$ is one-to-one since if $f(ha_1) = f(ah_2)$,
+				then $bh_1 = bh_2$, applying $b^{-1}$ on the
+				left yields $h_1 = h_2$.\\
+				$f$ is onto since for any $bh$, we can choose
+				the same $h$ for $ha$, and we would have $f(ha)
+				= bh$.\\
+				Therefore $f$ is a bijection
+		\end{enumerate}
+
 \end{ques}
 
 \begin{ques}
@@ -78,21 +104,51 @@ Gylys-Colwell}}
 
 \begin{ques}
 	\textbf{11.11}
+		We can go through each subgroup of $D_4$ and check which is normal\\
+		List of all subgroups:\\
+		$$\{I\}, \{I, R^2\}, \{I, F\}, \{I, FR\}, \{I, FR^2\}, \{I, FR^3\}$$
+		$$\{I, R, R^2, R^3\}, \{I, R^2, F, FR^2\}, \{I, R^2, FR, FR^3\}, D_4$$
+		We know that every subgroup $H$ of size $4$ must be normal since
+		there are only two possible cosets (since $D_4$ is size $8$),
+		$H, xH$ where $x \notin H$, Therefore $xH = \{a \in G: a \notin H\} = Hx$.\\
+		As for the groups of size $2$, none of them are normal: $F\{I,
+		R^2\} \neq \{I, R^2\}F$, $R\{I, F\} \neq \{I, F\}R$, $R\{I,
+		FR^2\} \neq \{I, FR^2\}R$, $R\{I, FR^3\} \neq \{I, FR^3\}R$.\\
+		Since $D_4$ and $\{I\}$ are included, total there are $6$ normal subgroups
 		
 		
 \end{ques}
 
 \begin{ques}
-	\textbf{11.16} NOT DONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+	\textbf{11.16}
 		Given any element $a \in \mathbb{Q}$ and $z \in \mathbb{Z}$ we
 		have since addition is commutative for $aza^{-1} \in a\mathbb{Z}a^{-1}$
 		$$aza^{-1} = aa^{-1}z = z \in \mathbb{Z}$$
 		so we know $\mathbb{Z}$ is a normal subgroup of $\mathbb{Q}$.
 		Therefore $\mathbb{Q} / \mathbb{Z}$ is a group.\\
-		We know $\mathbb{Q} / \mathbb{Z}$ is infinite, if it were not
+		Next we can show every element
+		$$\frac{a}{b}\mathbb{Z} \in \mathbb{Q}/\mathbb{Z}$$
+		has finite order. We can show this by seeing that
+		$$(\frac{a}{b}\mathbb{Z})^b = (\frac{a}{b} + \frac{a}{b} +
+		\dots \frac{a}{b} )\mathbb{Z} = a\mathbb{Z} = e\mathbb{Z}$$ 
+		Since $a \in \mathbb{Z}$.\\
+		Finally we can show $\mathbb{Q} / \mathbb{Z}$ is infinite, if it were not
 		we could list the group:
 		$$\{a_1\mathbb{Z}, a_2\mathbb{Z}, a_3\mathbb{Z}, \dots a_n\mathbb{Z}\}$$
-		and come up with an element $a_{n+1}\mathbb{Z} \in \mathbb{Z}$
+		Where $a_1, \dots , a_n$ are all $\in (0, 1)$. We can always
+		choose our $a_i$ in such a way since there is always
+		an element $\in (0,1)$ in each coset because we can add or
+		subtract the integer part of any element in the coset to be
+		only left with the fractional portion of that number\\
+		Since there are infinite rational numbers in $(0,1)$, we can
+		choose $a_{n+1} \in (0,1)$ such that $a_{n+1} \notin \{a_1,
+		\dots a_n\}$. We know there is no integer $z$ such
+		that $a_{n+1} + z = a_i$ for any $i: 0 <
+		i \leq n$ since $|a_{n+1} - a_i| < 1$ so $a_{n+1} \notin
+		a_i\mathbb{Z}$ therefore 
+		$$a_{n+1}\mathbb{Z} \notin \{a_1\mathbb{Z}, a_2\mathbb{Z},
+		a_3\mathbb{Z}, \dots a_n\mathbb{Z}\}$$
+		which is a contradiction
 		
 \end{ques}
 
@@ -108,7 +164,7 @@ Gylys-Colwell}}
 		We know every element of $G$ has the form $x^n$ where $x$ is
 		the generator of $G$, therefore every element of $G/H$ also has
 		the form $Hx^n$\\
-		We have 
+		We have since $H$ is normal 
 		$$Hx^{k}Hx^j = Hx^{k+j}$$
 		Therefore $Hx$ is the generator of $G/H$ since every term in
 		$G/H$ is of the form $(Hx)^n = Hx^n$ which means $G/H$ is
