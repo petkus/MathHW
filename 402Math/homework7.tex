@@ -1,0 +1,180 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 402, Fall 2016}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$7}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{10.2}
+		\begin{enumerate}
+			\item
+				We know that $42$ must divide $32|H|$ since
+				$|H|$ is the order of $32$ and adding $32$ $H$
+				is the same as multiplying $32$ by $H$,
+				therefore
+				$$|H| = \frac{LCM(32,48)}{32} = \frac{32 * 3 *
+				7}{32} = 21$$
+				And by Lagrange's thm we have 
+				$$|H||G:H| = |G| = 48$$
+				so $|G:H| = 2$
+			\item
+				Using the same logic above we have
+				$$|H| = \frac{LCM(24, 54)}{24} = \frac{24 * 3 *
+				3}{24} = 9$$
+				and so
+				$$|G:H| = \frac{|G|}{|H|} = \frac{54}{9} = 6$$
+			\item
+				Using the same logic:
+				$$|H| = \frac{LCM(100,112)}{100} = \frac{2 * 2
+				* 7 * 100}{100} = 28$$
+				So 
+				$$|G:H| = \frac{|G|}{|H|} = \frac{112}{28} = 4$$
+		\end{enumerate}
+
+\end{ques}
+
+\begin{ques}
+	\textbf{10.5}
+		Given any element $a \in G$, by Lagrange's thm we have $|\langle
+		a \rangle|$ divides $|G| = 8$. Since $G$ is not cyclic we know
+		$\langle a \rangle \neq G$ so $|\langle a \rangle| \neq 8$.
+		Therefore the only options for $|\langle a \rangle|$ are $1, 2,
+		4$. Since all these numbers divide $4$, we know that $a^4 = e$
+
+\end{ques}
+
+\begin{ques}
+	\textbf{10.6}
+		We know that the intersection of two subgroups is a group.
+		Therefore if we let $A = H \cap K$, we have that $A$ is a
+		subgroup of both $H$ and $K$ so by Lagrange's thm we have that
+		$|A|$ divides both $|H| = 12$ and $|K| = 5$. The only number
+		that divides both $12$ annd $5$ is $1$, so $|A| = 1$ so $A =
+		\{e\}$
+
+\end{ques}
+
+\begin{ques}
+	\textbf{10.14}
+		\begin{enumerate}
+			\item
+				This is because we know for the element $x$ of order $6$,
+				$|\langle x \rangle| = 6 = |G|$ and a subgroup
+				of $G$ that is the same size of $G$ is
+				equivalent to $G$. Therefore $G = \langle x
+				\rangle$ is cyclic
+			\item
+				By Lagrange's thm for any element $a \in G$,
+				$|\langle a \rangle|$ divides $|G| = 6$
+				$|\langle a \rangle|$ cannot equal $6$ since
+				$G$ is not cyclic, so $a$ must have either
+				order 1, 2, or 3. We know that only $e$ has
+				order $1$. We cannot have all the elements have
+				order $2$, otherwise we would have two elements
+				$a$, $b$, then we would have $ab$, each having
+				order $2$ so they are their own inverses. So we
+				have $\{e, a, b, ab\}$ which is closed with size $4$,
+				so we must introduce another element $c$, which
+				would bring us to $\{e, a, b, c, ab, ac, bc,
+				abc\}$ which is too large. Therefore there is
+				some element $a$ of order $3$
+			\item
+				If we take some element $b \in G: b \notin
+				\langle a \rangle$, we already know $e, a, a^2
+				\in G$. We know since $b \notin
+				\langle a \rangle$ that $ab, a^2b \notin
+				\langle a \rangle$ since $b$ is not equal to any
+				power of $a$. Looking at $ab$, we can deduce
+				$ab \neq a^2b$, since applying $b^{-1}$ on the
+				right yields $a \neq a^2$ which is true. Therefore we have
+				$$\{e, a, a^2, b, ab, a^2b\} \subseteq G$$
+				Are all unique elements
+			\item 
+				We cannot have $b^2$ be a seperate element in
+				the above set since $|G| = 6$, if $b^2 = a$
+				then $b = a^2$ which is not true, if $b^2 a^2$
+				then $b = a$ which is not true, if $b^2 = ab$
+				then applying $b^{-1}$ on the right yields $b =
+				a$ which is not true, and finally if $b^2 =
+				a^2b$ then $b = a^2$ which is not true.
+				Therefore $b^2 = e$.
+			\item
+				We have $(ba)^{-1} = a^{-1}b^{-1} = a^2b$ but
+				since we concluded $a^2b$ has order 2
+				$(a^2b)^{-1} = a^2b = ba$. Similarly
+				$(ba^2)^{-1} = ab = (ab)^{-1}$
+		\end{enumerate}
+\end{ques}
+
+\begin{ques}
+	\textbf{10.15}
+		By Lagrange's thm we have $|G| = |G:H||H|$ and $|H| = |H:K||K|$
+		so $|K| = \frac{|H|}{|H:K|}$. We also have
+		$$|G:K|= \frac{|G|}{|K|}$$
+		Substituting the equalities for $|G|$ and $|K|$ yields
+		$$|G:K| = \frac{|H:K||G:H||H|}{|H|} = |G:H||H:K|$$
+\end{ques}
+
+\begin{ques}
+	\textbf{10.16}
+		Because $|G|$ is odd we know the order of none of the elements
+		except for the identity can be $2$.\\
+		If the order of some element $a \in G$ was $2$ then $|\langle a
+		\rangle| = 2$ but by Lagrange's thm $|\langle a \rangle|$
+		should divide $|G|$ which cannot happen since $|G|$ is odd.\\
+		Therefore for all elements $a \in G$, we know $a^{-1} \neq a$\\
+		Therefore if we take the product of all the elements in $G$, we
+		know that for every element in that product, it's inverse is
+		present in that product as well. Since $G$ is abelian we can
+		rearrange the product so that each element and it's inverse
+		present in the product cancel out, to be left with $e$
+\end{ques}
+
+\begin{ques}
+	\textbf{12.1}
+		\begin{enumerate}
+			\item
+
+			\item
+
+			\item
+
+		\end{enumerate}
+\end{ques}
+
+\begin{ques}
+	\textbf{12.9} 
+\end{ques}
+
+\begin{ques} 
+	\textbf{12.12} 
+\end{ques}
+
+\begin{ques} 
+	\textbf{12.13} 
+\end{ques}
+\end{document}
