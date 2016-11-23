@@ -158,23 +158,129 @@ Gylys-Colwell}}
 	\textbf{12.1}
 		\begin{enumerate}
 			\item
-
+				This is an epimorphism. We have its a homomorphism since
+				$$|xy| = |x||y|$$
+				for every $x \in \mathbb{R}^+$ we have $x =
+				|y|$ where $y = x$ with $y \in \mathbb{R} -
+				\{0\}$. However both $y$ and $-y$ map to $x$ so
+				it is not one-to-one
 			\item
-
+				This is an isomorphism. We know the function
+				$f(x) = \sqrt{x}$ is one-to-one and onto on the
+				positive real line.\\
+				It is a homomorphism since
+				$$\sqrt{xy} = \sqrt{x}\sqrt{y}$$
 			\item
-
+				This is a epimorphism. We know it is not injective
+				since $\varphi((x - 1)) = \varphi((x-1)(x-2)) =
+				0$. We do know it is surjective since given any
+				$r \in \mathbb{R}$ we have $\varphi( rx) = r$.
+				It is homomorphic since $\varphi(P_1(x) +
+				P_2(x)) = P_1(1) + P_2(1) = \varphi(P_1(1)) +
+				\varphi(P_2(1))$
+			\item
+				This is also an epimorphism. We know it is not
+				injective since $\varphi(x + 1) = \varphi(x +
+				2) = 1$. We do know it is surjective since
+				every polinomial's antiderivative is a
+				polinomial. Finally we know it is a homomorphism since
+				$$\varphi(P_1(x) + P_2(x)) = P_1'(x) + P_2'(x)
+				= \varphi(P_1) + \varphi(P_2)$$
+			\item
+				This is the same as applying the element $A \in
+				G$ on the left hand side, we know $G$ is
+				commutative (proved in previous hw that
+				symetric difference is commutative), which
+				means for any $BC \in G$ we have $\varphi(BC) =
+				ABC \neq ABAC = BC = \varphi(B)\varphi(C)$.
+				Therefore $\varphi$ is not a homomorphism
 		\end{enumerate}
 \end{ques}
 
 \begin{ques}
 	\textbf{12.9} 
+		There is no isomorphic subgroup of $Q_8$ to $V$. The reason is
+		because $V$ has $4$ elements of order $2$ but $Q_8$ only has
+		one: $-I$. We know that isomorphisms preserve orders so no
+		such isomorphism can exist
 \end{ques}
 
 \begin{ques} 
 	\textbf{12.12} 
+		For any group $G$ of order $8$, by Lagrange's thm we know
+		elements can only have order $1,2,4,8$ (because the size of
+		their cyclic subgroup equals the order of its element).\\
+		The first case is if an element $a$ has order $8$. In this case
+		$G = \langle a \rangle$ is a cyclic group.\\
+		If an element $a$ has order $4$ then for an element $b \notin
+		\langle a \rangle$ we have two cases:\\ 
+		The first case is that $\langle b \rangle$ and $\langle a
+		\rangle$ do not intersect, in which case we have the cosets $e
+		\langle b \rangle, a \langle b \rangle, a^2 \langle b \rangle,
+		a^3 \langle b \rangle$. Therefore $|\langle b \rangle| = 2$
+		since we need the sum of the sizes of the cosets to be $= G$.
+		So $b$ has order $2$. So we have $G = \{e, a, a^2, a^3, b, ab,
+		a^2b, a^3b\}$. This is isomorphic to $D_8$\\
+		For the case where $\langle b \rangle$ and $\langle a \rangle$
+		do intersect, we can narrow it down to show only $b^2 = a^2$ is
+		possible. We know that $a \neq b$, and since $(b^{3})^{-1} = b$
+		and $(a^3)^{-1} = a$ if $a^3 = b^3$ that would imply $a = b$,
+		so $a^3 \neq b^3$.\\
+		Looking at other terms we have $(ab)(ba) = a(b^2)a = a^4 = e$.
+		We know that $ab$ can have either order $4$ or $2$, if order
+		$2$, we have $ab = ba$ so $a,b$ commute. Which would mean we have
+		$$G = \{e, a, b, a^2, a^3, b^3, ab, a^3b = ab^3\}$$
+		As for the other case when $ab$ has order $4$, we have 
+		$$G = \{e, a, b, a^2, a^3, b^3, ab, (ab)^2 = (ba)^2,  ba\}$$
+		This is isomorphic to the quaternians (where $a = J$, $b = K$,
+		$ab = L$, and $a^2 = -I$)\\		
+		That is all the cases where an element has
+		order $4$. The rest of the cases are where all elements have
+		order $2$.\\ We can add on two elements $a, b$ so we have $\{e,
+		a, b, ab\}$ and since $ab$ has order $2$, $ab = (ab)^{-1} =
+		b^{-1}a^{-1} = ba$. The set is closed so we add another element
+		$c$, which gives us
+		$$\{e, a, b, c, ab, ac, bc, abc\}$$
+		Using the same logic as before we know $ac = ca$ and $bc = cb$.
+		So all elements commute. There is no other possible changes to
+		made to the elements of order $2$, so we are done. In total we
+		have counted $5$ possible subgroups, each with different
+		properties, which means they are not isomorphic.
+
 \end{ques}
 
 \begin{ques} 
 	\textbf{12.13} 
+		\begin{enumerate}
+			\item
+				Given any $x,y \in G$ we have since $H$ is abelian
+				$$\varphi(yx) = \varphi (y)\varphi(x) = \varphi
+				(x)\varphi(y) = \varphi(xy)$$
+				Since $\varphi$ is one to one, we know there
+				exists an inverse mapping $\varphi^{-1}$ from
+				the image of $\varphi$ back to $G$. Applying
+				the inverse shows that $G$ is abelian:
+				$$\varphi^{-1}(\varphi(xy)) = \varphi^{-1}(\varphi(yx))$$
+				$$xy = yx$$
+				So $G$ is abelian
+			\item
+				Given any $x, y \in H$, since $\varphi$ is onto
+				we know there is some $x',y' \in G$ such that
+				$\varphi(x') = x, \varphi(y') = y$. Therefore
+				since $G$ is abelian we have
+				$$xy = \varphi(x)\varphi(y) = \varphi(x'y') =
+				\varphi(y')\varphi(x') =
+				\varphi(y')\varphi(x') = yx$$
+				So $H$ is abelian since $xy = yx$
+
+			\item
+				As shown in problem $a$ we know $\varphi$ being
+				an isomorphism and $H$ abelian $\Rightarrow$
+				$G$ abelian. And in problem $b$ we showed the
+				other way, $H$ abelian $\Leftarrow$ $G$
+				abelian
+
+
+		\end{enumerate}
 \end{ques}
 \end{document}
