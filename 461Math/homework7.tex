@@ -1,0 +1,167 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{document}
+
+\noindent \textit{\textbf{Math 461, Fall 2016}} \hspace{1.3cm} \textit{\textbf{HOMEWORK $\#$7}} \hspace{1.3cm} \textit{\textbf{Peter Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{1.}
+		If we consider the spanning tree $T$ of the graph $G$ defined with
+		verticies being towns and edges being weather or
+		not it is possible to fly between the two towns. We know that
+		$T$ has $100$ verticies, and since it is a tree, it has $99$ edges. If we
+		double all edges of $T$, this new graph $T'$ will have $198$
+		edges, and also every vertex in $T'$ will have even
+		degree since doubling every edge in $T$ would double the degree
+		of each vertex. Therefore $T'$ is eulerian.  An eulerian path of $T'$
+		corresponds to a flight around the country visiting
+		all the towns in $198$ flights since every vertex must be
+		visited in an eulerian path of a connected graph and there are
+		exactly $198$ edges in a eulerian path of $T'$ and we know
+		every edge and vertex of $T'$ is contained in $G$. Therefore there
+		is always such a trip with exacly $198$ flights.
+\end{ques}
+
+\begin{ques}
+	\textbf{2.}
+		We can consider a spanning tree of $G$, $T$. We know that $T$
+		has a leaf $v$. Removing $v$ from $G$ would yield a connected
+		graph $G'$. The reason being that $T$ with $v$ removed is still a
+		tree $T'$ (since $T$ being a tree $\Leftrightarrow$ $|V(T)| = |E(T)|
+		+ 1$ and removing $v$ removes $1$ from both $|V(T)|$ and
+		$|E(T)|$ so the equality still holds for the resulting graph).
+		And $T'$ is a spanning tree of $G'$ since all verticies in $G$
+		are present in $T'$ and vice-versa. Therefore since $G'$ has a
+		spanning tree, it is connected.
+\end{ques}
+
+\begin{ques}
+	\textbf{3.}
+		\begin{enumerate}
+			\item
+				If $(7,8) \notin E$ then there are $6$
+				verticies with degree $1$ that will accept $6$
+				edges total, but $7$ and $8$ must pair up with
+				$8$ edges total which cannot happen\\
+				Therefore $(7,8) \in E$. There
+				are $6$ vertices left with degree $1$, and $6$
+				edges that must come from $7$ and $8$. If any
+				of these degree $1$ verticies paired up then we
+				would have the problem that $7$ and $8$ need to
+				pair up with $3$ vertices each (for a total of
+				$6$ edges), but there are only $4$ verticies
+				that will accept $4$ edges
+				total.\\
+				Therefore each of these degree $1$ vertices
+				must share an edge with either $7$ or $8$.
+				There are $\binom{6}{3}$ ways to choose this.
+			\item
+				We know that the number of odd degree verticies
+				must be even. For all the possible graphs with $8$
+				vertices of degree $1$, we know that none of
+				them are connected since a connected graph must
+				have a spanning tree which would mean the
+				number of edges $\geq$ number of vertices $-1$,
+				but number of edges = $\frac{1}{2}\sum $
+				degrees $= 4 <$ number of vertices $-1$. Part
+				$a$ counts the number with $6$ verticies of
+				degree $1$, however we must account relabeling
+				verticies so we multiply by $\binom{8}{2}$. And the
+				graphs with number of $4$ degree vertices $\geq
+				4$ are not trees, the reason being is that
+				number of edges = $\frac{1}{2}\sum $ degrees
+				$\geq \frac{1}{2}(4 + 4 + 4  + 4 + 1 + 1 + 1 +
+				1) = 10 >$ the number of vertices, and trees
+				must have the property that number of verticies
+				$=$ number of edges $+ 1$.\\ So the total
+				number of trees is $$\binom{6}{3}\binom{8}{2}$$
+
+		\end{enumerate}
+\end{ques}
+
+\begin{ques}
+	\textbf{4.}
+		We can count the number of spanning trees of the $K_{n-1}$
+		subgraph, and then attatch the $n$th vertex with an edge to one
+		of the verticies of this spanning tree. The resulting graph
+		would be a spanning tree of $K_n$ with $n$ as a leaf. There are
+		$n-1$ ways to attach $n$ since there are $n-1$ verticies with
+		which $n$ can attach. These methods of coming up with such
+		spanning
+		trees account for all spanning trees of $K_n$ with $n$ as a
+		leaf since for any spanning tree of $K_n$ with
+		$n$ as a leaf, we can remove $n$ to have a spanning tree of
+		$K_{n-1}$, and so the method of adding $n$ back to this
+		spanning tree of $K_{n-1}$ along with the edge that was removed
+		will yield the original spanning tree. We also know that the
+		images of these mapings dont intersect since the vertex $n$ is
+		attatched is unique to each mapping.\\
+		From Cayleys's formula we have $(n-1)^{n-3}$ spanning trees of
+		$K_{n-1}$, and there are $n-1$ of these mappings, there are
+		$$(n-1)(n-1)^{n-3} = (n-1)^{n-2}$$
+		total spanning trees with $n$ as a leaf.
+\end{ques}
+
+\begin{ques}
+	\textbf{5.}
+		We can consider the connected component of $1$. If the
+		connected component has $k$ vertices, there are
+		$\binom{n-1}{k-1}$ ways to choose these other verticies. Of these
+		vertices, by Cayley's formula there are $k^{k-2}$ possible
+		trees of this connected component. The other connected
+		component has the rest of verticies, so there are
+		$(n-k)^{n-k-2}$ possible trees of this connected component.
+		Therefore for a forrest with two connected components with the
+		connected component of $1$ having size $k$ we have,
+		$k^{k-2}\binom{n-1}{k-1}k^{k-2}(n-k)^{n-k-2}$ possible forrests\\
+		To get all possible forrests with two connected components, we
+		can sum $k$ from $1$ to $n-1$:
+		$$\sum_{k=1}^{n-1}\binom{n-1}{k-1}k^{k-2}(n-k)^{n-k-2}$$
+\end{ques}
+
+\begin{ques}
+	\textbf{6.}
+		Every pair $\{i,j\} \subset V$ appears as an edge in the same
+		number of trees. The reason for this is because for any pair
+		$i,j$ there was nothing special about $i$ or $j$ and we can
+		simply relabel the verticies to have any verticy pair take the
+		places of $i,j$ and recount the trees in the same way. We can
+		let the number of times any of these pairs of verticies show up
+		as an edge in a tree be $k$. We know that the total number of
+		trees is $n^{n-2}$. Each of these trees has $n-1$ edges, and so
+		there are $(n-1)n^{n-2}$ total edges of these trees. We know
+		that the total number of edges of these trees must equal the
+		total number of times each pair shows up as an edge in a tree
+		multiplied by the total number of pairs. We know the number of
+		pairs is $\binom{n}{2}$ and total number of times a pair shows
+		up is $k$. So we have 
+		$$\binom{n}{2}k = (n-1)n^{n-2}$$
+		$\frac{n(n-1)}{2}k = (n-1)n^{n-2}$, so $k = 2n^{n-3}$. And $k$
+		is the number of times $(1,2)$ shows up as an edge in a tree
+\end{ques}
+\end{document}
