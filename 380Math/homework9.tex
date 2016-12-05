@@ -1,0 +1,124 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 380a, Fall 2016}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$9}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{1.} 
+		\begin{enumerate}
+			\item
+				The probability is $1$ since
+
+			\item
+				We want to find all the walks where number of
+				steps he has taken away from the cliff (we will
+				call $A$) is $\geq$ the number of steps taken
+				towards the cliff (we will call $B$) except for
+				on his $k$th step in which case $A - B = -1$
+				$$P_k = \frac{1}{2}(P_1P_{k-2} + P_3P_{k-4} +
+				\dots P_{k-2}P_1)$$
+		\end{enumerate}
+
+\end{ques}
+
+\begin{ques}
+	\textbf{2.}  %donnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnne
+		We can simply integrate the density of $1$ over the area of the
+		regions where if the center of the coin landed, the coin would
+		be inside a square, and divide by the total area of the chess
+		board. $C$ has $8 \times 8$ squares, so $64$ squares,
+		each $d^2$ area so $64d^2$ area total. There is a small square
+		with side length $d - a$ sharing the center point of each
+		square of $C$ such that if the center of the coin lands in any of these
+		squares, the coin would be contained entirely in a square of
+		$C$. If the center of the coin is not in one of these squares,
+		it will intersect with the boundary of one of the squares of
+		$C$. There are $64$ of these squares, so the total area the
+		coin's center can land on is $64(d-a)^2$. So the probability is 
+		$$\frac{64(d-a)^2}{64d^2} = \frac{(d-a)^2}{d^2}$$
+
+\end{ques}
+
+\begin{ques}
+	\textbf{3.}  %donnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnne
+		We have already established in class that the expected value of
+		the minimum of a set of $n$ random numbers in $[0, 1]$ is
+		$\frac{1}{n+1}$. If we shift all the values over by $-1$, we would
+		shift the expected value by $-1$ as well and it would be the
+		expected value of the min of the $n$ terms in $[-1, 0]$. And
+		finally if we multiply each term by $-1$, we would multiply the
+		expected value by $-1$, and we would be measureing the maximum
+		value of the $n$ terms in $[0,1]$, which is what we want.
+		Therefore our expected value is 
+		$$-(\frac{1}{n+1} - 1) = 1 - \frac{1}{n+1} = \frac{n}{n+1}$$
+
+\end{ques}
+
+\begin{ques}
+	\textbf{4.} 
+		For a given $P$, the probablity that our rectangle is inside
+		$C$ is the area of the rectangle inscribed in $C$ with one of
+		the corners being $P$ and its sides parallel to the axis
+		divided by the area of the whole circle. Any
+		$Q$ outside of this rectangle would create a rectangle that has
+		a side that extends beyond the bounds of $C$ and any $Q$ inside
+		this rectangle would create a rectangle contained in the
+		inscribed rectangle which is contained in $C$. Therefore to
+		find the whole probability, we can integrate uniformly over the
+		domain of $P$ the areas of these inscribed rectangles divided
+		by the area of $C$ and divided by the arclength we are
+		integrating over. Using polar coordinates we have
+		$$\frac{1}{2\pi}\int_{0}^{2\pi} \frac{|2\cos(\theta)2\sin(\theta)|}{\pi} \ d
+		\theta = \frac{1}{2\pi}4\int_{0}^{\pi/2}
+		\frac{4\cos(\theta)\sin(\theta)}{\pi} \ d \theta$$
+		Using a u-substitution for $u = \sin(\theta), du =
+		\cos(\theta)$:
+		$$= \frac{4}{2\pi}\frac{4\sin^2(\pi/2)}{2\pi} = \frac{4}{\pi ^ 2}$$
+\end{ques}
+
+\begin{ques}
+	\textbf{EC.}  %donnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnne
+		We simulate in the following way. We flip the coin twice if the
+		coin pattern is $H,T$ then we say our balanced coin result
+		would be $T$, if the pattern is $T,H$ then we say $H$. Any
+		other pattern and we ignore it and repeat the process. We have
+		that the probablity of $H, T$ is $p(1-p)$ while the probablity
+		of $T,H$ is $(1-p)p$, and so the probabilities are equal,
+		therefore we are simulating a balanced coin. We know that this
+		process must terminate since the probablility of not
+		terminating after $n$ times is $(2(1-p)p)^n = (2(p - p^2))^n <
+		1^n$ and so as $n \to \infty$, $(2(1-p)p)^n \to 0$. (The reason
+		$2(p - p^2) < 1$ is because the function $f(x) = x - x^2$ on
+		$[0,1]$ is $<\frac{1}{2}$, we can use the derivative to find
+		the critical point at $\frac{1}{2}$ to conclude this)
+
+\end{ques}
+\end{document}

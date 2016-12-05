@@ -1,0 +1,89 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 402, Fall 2016}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$7}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{6.3}
+		No, if there were some generator $(a, b) \in \mathbb{Z} \times
+		\mathbb{Z}$ we have that $(a, b)^n = (na, nb)$ but there is no
+		possible power $n \in \mathbb{Z}$ such that $(a, b-1) = (na,
+		nb) = (a, b)^n$ since $a = na$ implies that $n = 1$ but then
+		$nb \neq b - 1$.
+\end{ques}
+
+\begin{ques}
+	\textbf{6.5}
+		For any element $(a, b) \in A \times B$ we have $(a, b) \circ
+		(a^{-1}, b^{-1}) = (e_a, e_b)$, and $(a^{-1}, b^{-1}) \in A
+		\times B$ since, $A, B$ are groups. Therefore every element has
+		an inverse. We already know the operations are assosiative
+		since crossing two associative operations is an associative
+		operation, and
+		finally we know $A \times B$ is closed under these operations
+		since we just apply the operations component wise and $A, B$
+		are closed under their respective operation. Therefore $A
+		\times B$ is a subgroup of $G \times H$
+\end{ques}
+
+\begin{ques}
+	\textbf{6.10}
+		We have
+		$$\{(0,0)\}, \langle (1, 0) \rangle, \langle (1, 1) \rangle, \langle (0,
+		1) \rangle, \langle (0, 2) \rangle, \langle (1, 2) \rangle$$
+		For a total of $6$ subgroups
+\end{ques}
+
+\begin{ques}
+	\textbf{6.12}
+		(i). If a generator of $G, H$ is $g, h$ respectivly, then a
+		generator of $G \times H$ is $(g,h)$ for any element $(a, b)
+		\in G \times H$ since $G, H$ are cyclic we know there is some
+		$n, m$ such that $(a, b) = (g^n, b^m)$,
+\end{ques}
+
+\begin{ques}
+	\textbf{13.10}
+\end{ques}
+
+\begin{ques}
+	\textbf{13.11}
+\end{ques}
+
+\begin{ques}
+	\textbf{13.16} 
+\end{ques}
+
+\begin{ques} 
+	\textbf{13.20} 
+\end{ques}
+
+\begin{ques} 
+	\textbf{13.25} 
+\end{ques}
+\end{document}

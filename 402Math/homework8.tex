@@ -1,0 +1,178 @@
+%29.09.16
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{ques}{\vspace{2 ex}}{\vspace{2 ex}}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+%\headsep25pt
+\textheight8.75in
+\footskip27pt
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 402, Fall 2016}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$7}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}
+	\textbf{12.17}
+		Since every element has order $2$ and commutes with every other
+		element, any injective mapping from $K$ to $K$ is an
+		automorphim as long as the identity maps to itself.\\
+		To count the number of injections, we have $a$ can map to $3$
+		elements, then $b$ can map to the remaining $2$ elements, and
+		$c$ must map to whats left. Therefore there are $3\cdot 2 = 6$ automorphisms
+\end{ques}
+
+\begin{ques}
+	\textbf{12.20}
+		\begin{enumerate}
+			\item
+				For any elements $x,y \in G$ we have
+				$$\varphi (xy) = (xy)^n$$
+				Since $G$ is abelian
+				$$= x^ny^n = \varphi(x)\varphi(y)$$
+				We can show $\varphi$ is a injective which
+				would imply it is bijective since it is a
+				mapping from $G$ to $G$. If $x^n = y^n$,
+				we have 
+				$$y^nx^{-n} = e$$
+				since $G$ is abelian we have
+				$$(x^{-1}y)^n = e$$
+				since $n$ is relatively prime to $|G|$, we know
+				that $n$ cannot be a multiple of the order of
+				$x^{-1}y$ since the order must divide $|G|$ by
+				lagranges thm, unless $x^{-1}y = e$. This
+				implies $x = y$ since inverses are unique
+			\item
+				Since  $\varphi$ is surjective, for any $x \in
+				G$ there is a $y \in G$ such that 
+				$$\varphi(y) = y^n = x$$
+		\end{enumerate}
+\end{ques}
+
+\begin{ques}
+	\textbf{12.23}
+		\begin{enumerate}
+			\item
+				We know that the mapping $\varphi(h) = ghg^{-1}$ is an
+				automorphim of $G$ for any $g \in G$. Applying these
+				mappings to $H$ we have
+				$$\varphi(H) = gHg^{-1}$$
+				And so if for all these mappings we have
+				$\varphi(H) \subseteq H$ then we have
+				$$gHg^{-1} \subseteq H$$
+				Which is means $H$ is normal
+			\item
+				Consider $G =$ the Klien's 4group. Let $H =
+				\{e, a\}$ and let $\varphi$ be the automorphim
+				with  $\varphi(e) = e, \varphi(a) = b, \varphi(b) = c,
+				\varphi(c) = a$. We have
+				$$\varphi(H) = \{e, b\} \not \subseteq H$$
+		\end{enumerate}
+\end{ques}
+
+\begin{ques}
+	\textbf{12.31}
+		No, consider $G=$ the Klien's 4group. $\psi(a) = b, \psi(b) =
+		c,$ and $\psi(c) = a$. If we let $H = \{e, a\}$ we have
+		$\varphi(a) = \psi(a) = b$, but $\varphi(b) = b$ so $\varphi$
+		is not injective so not an automorphim.
+\end{ques}
+
+\begin{ques}
+	\textbf{12.34}
+		Letting $H$ bet the set of inner automorphisms of $G$, we have for any
+		$A(x) = axa^{-1}, B(x) = bxb^{-1}, C(x) = cxc^{-1} \in H$. 
+		$$A \circ B = abxb^{-1}a^{-1} \in H$$
+		since $ab \in G$. Since $H$ is closed under the group operation
+		and since Aut(G) is finite, that is sufficient to show $H$ is a
+		subgroup. To check if normal we have for any $\varphi \in $Aut(G):
+		$$\varphi \circ H \circ \varphi^{-1} = \{A(x) = \varphi(a
+		\varphi^{-1}(x) a^{-1}): a \in G\}$$
+		$$= \{A(x) = \varphi(a)x\varphi(a^{-1}): a\in G\}$$
+		and since $\varphi$ is an automorphim on $G$,
+		$$\{A(x) = bx b^{-1}: b\in G\} = H$$
+		So $H$ is normal
+\end{ques}
+
+\begin{ques}
+	\textbf{13.2}
+		$H$ consists of only an identity element and an element of
+		order $2$. Lets call this element $a$ and the identity $e$.
+		If there existed a homomorphism $\varphi : Q_8 \to H$ then we know
+		$\varphi(I) = e$ since $(\varphi(I))^2 = \varphi(I)$. If there is some
+		element $q \in Q_8$ such that $\varphi(q) = a$. A property of
+		$Q_8$ is that for any element $q \in Q_8$, there is an element
+		$j$ such that $j^2 = q$. Therefore we have
+		$$(\varphi(j))^2 = \varphi(q) = a$$
+		But there is no element $k \in H$ such that $k^2 = a$ so there
+		is nothing that $\varphi(j)$ can map to.
+\end{ques}
+
+\begin{ques}
+	\textbf{13.6} 
+		We have 
+		$$\{0(3\mathbb{Z}/12\mathbb{Z}), 1(3\mathbb{Z}/12\mathbb{Z}),
+		2(3\mathbb{Z}/12\mathbb{Z})\}$$
+\end{ques}
+
+\begin{ques} 
+	\textbf{13.8} 
+		We can define a homomorphism $\varphi: G \to (\mathbb{Z}, +)$
+		such that for a given $\frac a b \in G$ with $a$ and $b$ in
+		their most reduced state (relatively prime to each other) we
+		have $\varphi(\frac a b) = m(a) - m(b)$ where $m(x)$ is the number of
+		times $2$ divides $x$ (note that since $a$ and $b$ are
+		relatively prime, $m(a)$ and/or $m(b)$ is zero). $\varphi$ is a
+		homomorphism since for any $\frac{a}{b},
+		\frac{c}{d}$, 
+		$$\varphi(\frac a b) + \varphi(\frac c d) = m(a) - m(d) + m(c)
+		- m(b)=  m(ac) - m(bd) = \varphi(\frac{ac}{bd})$$
+		The kernal of $\varphi$ would be $\frac{a}{b} \in G$ such that
+		$m(a) = m(b) = 0$ which is precisely $H$. Lastly $\varphi$ is
+		surjective since for any $z \in \mathbb{Z}$ we have
+		$\varphi(\frac{2^z}{1}) = z$ if $z \geq 0$ and
+		$\varphi(\frac{1}{2^z}) = z$ if $z < 0$. Therefore by the
+		Fundamental Theorem we have our desired result
+		
+\end{ques}
+
+\begin{ques} 
+	\textbf{13.9} 
+		Let $\varphi : G \to \{\mathbb{R} - \{0\},\cdot \} \times
+		\{\mathbb{R} - \{0\},\cdot \}$ with 
+		$$\varphi \left(\begin{matrix} a & b\\ 0 & c \end{matrix}\right) = (a,c)$$
+		$\varphi$ is a homomorphism since 
+		$$\varphi \left(\begin{matrix} a & b\\ 0 & c
+		\end{matrix}\right)\varphi \left(\begin{matrix} i & j\\
+		0 & k \end{matrix}\right) = (ai, ck) =\varphi\left(
+		\left(\begin{matrix} a & b\\ 0 & c \end{matrix}\right)
+		\left(\begin{matrix} i & j\\ 0 & k
+		\end{matrix}\right)\right) = \varphi\left(\begin{matrix} ai & aj + bk\\
+		0 & ck \end{matrix}\right)$$
+		We know $(1,1)$ is the identity of $\{\mathbb{R} - \{0\},\cdot \} \times
+		\{\mathbb{R} - \{0\},\cdot \}$, and $(a,c)$ is precisely when
+		the input matrix is in $H$ so ker($\varphi$) $= H$. It is clear
+		$\varphi$ is surjective since we can choose $a, c$ to be
+		anything in the matrix. Therefore
+		by the Fundamental Theorem we have our desired result.
+		$$G/H = \{\mathbb{R} - \{0\},\cdot \} \times \{\mathbb{R} -
+		\{0\},\cdot \}$$
+		
+\end{ques}
+\end{document}
