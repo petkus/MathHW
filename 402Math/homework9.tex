@@ -23,7 +23,7 @@
 \begin{document}
 
 \noindent \textit{\textbf{Math 402, Fall 2016}} \hspace{1.3cm}
-\textit{\textbf{HOMEWORK $\#$7}} \hspace{1.3cm} \textit{\textbf{Peter
+\textit{\textbf{HOMEWORK $\#$9}} \hspace{1.3cm} \textit{\textbf{Peter
 Gylys-Colwell}} 
 
 \vspace{1cm}
@@ -61,26 +61,96 @@ Gylys-Colwell}}
 
 \begin{ques}
 	\textbf{6.12}
-		(i). If a generator of $G, H$ is $g, h$ respectivly, then a
-		generator of $G \times H$ is $(g,h)$ for any element $(a, b)
-		\in G \times H$ since $G, H$ are cyclic we know there is some
-		$n, m$ such that $(a, b) = (g^n, b^m)$,
+		(i). If $(a, b)$ is a generator of $G \times H$, then for any
+		$g \in G$ and $h \in H$ we have for some $n \in \mathbb Z$,
+		since $G \times H$ is a cyclic for $(g,h) \in G \times H$ we have
+		$(a, b)^n = (a^n, b^n) = (g,h) \Leftrightarrow a^n = g, b^n =
+		h$ and so $a, b$ are generators of $G, H$ respectively\\
+		(ii). For any subgroup $A \times B$ of $G \times H$ we know
+		that for any $(a, b) \in A \times B$, $(a, b)^{-1} = (a^{-1},
+		b^{-1}) \in A \times B$, we know the group operations
+		must be closed and assosiative as well. Therefore $A$ and $B$
+		satisify all the conditions to be subgroups of $G, H$
+		respectively since the inverse of every element in $A, B$ is
+		contained in $A, B$ respectively and the sets are closed under
+		their respective group operation.
 \end{ques}
 
 \begin{ques}
 	\textbf{13.10}
+		\begin{enumerate}
+			\item
+				If $G$ is abelian then $G \times G$ is abelian.
+				We know that any subgroup of an abelian group
+				is normal, and so this would imply $D$ is
+				normal. Conversly if $G$ was not abelian, we
+				can take elements $a, b \in G$ that dont
+				commute, we have for $(b, b) \in D$
+				$$(a, b) (b, b) (a, b)^{-1} = (aba^{-1},
+				bbb^{-1}) = (aba^{-1}, b)$$
+				Since $ab \neq ba$ we know $(ab)a^{-1} \neq
+				baa^{-1} = b$ which means
+				$$(a, b) (b, b) (a, b)^{-1} = (aba^{-1}, b)
+				\notin D$$
+			\item 
+				Let $\varphi: G \times G$ be defined as
+				$\varphi(a, b) = ab^{-1}$, we have 
+				$$\varphi(a,b)\varphi(c,d) = ab^{-1}cd^{-1} =
+				ac(bd)^{-1} = \varphi(ac,bd)$$
+				So $\varphi$ is a homomorphism. $D$ is
+				precisely the kernel of $\varphi$ since
+				$\varphi(a,b) = e \Leftrightarrow ab^{-1} = e
+				\Leftrightarrow a = b$. Therefore by the
+				fundamental theorem we have 
+				$$(G\times G)/D \cong G$$
+		\end{enumerate}
 \end{ques}
 
 \begin{ques}
 	\textbf{13.11}
+		\begin{enumerate}
+			\item
+				We can define a homomorphism $\varphi: G \to
+				G/H \times G/K$ with $\varphi(g) = (gH, gK)$.
+				To show it is a homomorphism we have for $a,b
+				\in G$:
+				$$\varphi(a)\varphi(b) = (aH, aK)(bH, bK) =
+				(abH, abK) = \varphi(ab)$$
+				We know that ker($\varphi$) $= H \cap K$ since
+				$\varphi(g) = (H, K) \Leftrightarrow g \in K$
+				and $g \in H$. Therefore by the Fundamental Theorem we have
+				$$G/(H \cap K) \cong \varphi(G)$$
+				We know $\varphi(G)$ must be a subgroup of $G/H
+				\times G/K$ since the image of a homomorphism
+				is a group. And so we are done
+			\item 
+				If $G = HK$ we can show the $\varphi$ from part
+				$a$ is surjective which would imply
+				$\varphi(G)= G/H \times G/K$. For any $(aH,bK) \in G/H
+				\times G/K$. Since $G = HK$, $a = h_ak_a,
+				b=h_bk_b$ where $h_a,h_b \in H, k_a, k_b \in K$. 
+				Now since $H,K$ are normal:
+				$$(h_ak_aH, h_bk_bK) = (h_aHk_a, h_bK) = (k_aH, h_bK)$$
+				and so we have
+				$$\varphi(k_ah_b) = (k_aH, h_bK)$$
+				And so $\varphi$ is surjective.
+		\end{enumerate}
 \end{ques}
 
 \begin{ques}
 	\textbf{13.16} 
+		They are isomorphic. We have
+		$$\frac{G \times H}{A \times B} = \{(a, b)(G, H): (a, b) \in A
+		\times B\} = \{(aG, bH): a \in A, b \in B\} = G/A \times H/B$$
 \end{ques}
 
 \begin{ques} 
 	\textbf{13.20} 
+		We can commpose $\varphi$ with the canonical homomorphism $\rho
+		: K \to K/J$. The composition of a homomorphism is a
+		homomorphism so $\varphi \circ \rho$ is a homomorphism.
+		Therefore by the Fundamental Theorem 
+		$$\frac 1 2$$
 \end{ques}
 
 \begin{ques} 

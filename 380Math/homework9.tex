@@ -33,18 +33,64 @@ Gylys-Colwell}}
 
 \begin{ques}
 	\textbf{1.} 
+		I will say the cliff is to the right of the drunk for convention
 		\begin{enumerate}
 			\item
-				The probability is $1$ since
-
+				If we let $X(p)$ be the probablity that the drunk
+				will eventually end up one square to his left
+				(and fall from his original position) we have
+				$X(p) = X(p) + (1-p)X(p)^2$ since there is a $X(p)$
+				probablity he will just step right and fall,
+				otherwise he will step left with probablity
+				$(p-1)$ and from there can end up back where he
+				started with probablity $X(p)$ and end up off the
+				cliff with probablity $X(p)$ again. Therefore
+				solving the quadratic we have  $X(p)$
+				is either $1$ or $\frac{p}{1-p}$. We know with
+				$p = 1$, $X(1) = 1$ and with $p = 0$, $X(0) =
+				0$. Assuming $X(p)$ is a continuous function of
+				$p$, it would follow that 
+				$$X(p) = \begin{cases}
+					1 & \frac{1}{2} \leq p \leq 1\\
+					\frac{p}{1-p} & 0 \leq p \leq
+					\frac{1}{2}
+				\end{cases}$$
+				Since $1 = \frac{p}{1 - p}$ at $p =
+				\frac{1}{2}$ and from the bounds established at
+				$p=0, p= 1$ we know what $X(p)$ will be on
+				either side of $\frac{1}{2}$
 			\item
-				We want to find all the walks where number of
-				steps he has taken away from the cliff (we will
-				call $A$) is $\geq$ the number of steps taken
-				towards the cliff (we will call $B$) except for
-				on his $k$th step in which case $A - B = -1$
-				$$P_k = \frac{1}{2}(P_1P_{k-2} + P_3P_{k-4} +
-				\dots P_{k-2}P_1)$$
+				We can reduce the number of different paths he
+				can take to fall on precisely the $k$th step ($P_k$)
+				to a recursive formula based on previous steps.
+				$$P_k = P_1P_{k-2} + P_3P_{k-4} +
+				\dots P_{k-2}P_1$$
+				The explination for this recursision formula is
+				because after he takes his first step to the
+				left, we can look at the number of ways he can
+				first return to his original position. There
+				are $P_i$ ways he first returns on precisely
+				the $i$th step, once he is there, he has $k-i - 1$
+				steps remaining and so there are precisely
+				$P_{k-i - 1}$ ways for him to fall on the $k$th
+				step, now we just sum up all these ways. Notice
+				that $P_k$ is $0$ if $k$ is even since his
+				displacement from his original position to the
+				cliff is an odd number of steps and an even
+				total number of steps would result in an even
+				displacement.\\
+				This recersive form is equivalent to the
+				Catalyn numbers defenition with some
+				reindexing: $C_k = P_{2k - 1}$. Catalyn numbers
+				have the closed form
+				$$P_k = C_{(k+1)/2} =
+				\frac{1}{(k+1)/2+1}\binom{2(k+1)/2}{(k+1)/2} =
+				\frac{1}{k/2 + 3/2}\binom{k+1}{(k+1)/2}$$
+				We know that in total he must take $\frac{k +
+				1}{2}$ steps right and $\frac{k-1}{2}$ steps
+				left, so the total probablity of falling after $k$ steps is
+				$$\frac{1}{k/2 + 3/2}\binom{k+1}{(k+1)/2}
+				p^{\frac{k+1}{2}}(1-p)^{\frac{k-1}{2}}$$
 		\end{enumerate}
 
 \end{ques}
@@ -83,7 +129,7 @@ Gylys-Colwell}}
 \end{ques}
 
 \begin{ques}
-	\textbf{4.} 
+	\textbf{4.}   %donnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnne
 		For a given $P$, the probablity that our rectangle is inside
 		$C$ is the area of the rectangle inscribed in $C$ with one of
 		the corners being $P$ and its sides parallel to the axis
