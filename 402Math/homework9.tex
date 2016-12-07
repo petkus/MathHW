@@ -147,13 +147,47 @@ Gylys-Colwell}}
 \begin{ques} 
 	\textbf{13.20} 
 		We can commpose $\varphi$ with the canonical homomorphism $\rho
-		: K \to K/J$. The composition of a homomorphism is a
+		: K \to K/J$. The composition of homomorphisms is a
 		homomorphism so $\varphi \circ \rho$ is a homomorphism.
-		Therefore by the Fundamental Theorem 
-		$$\frac 1 2$$
+		Now we can use the Fundamental Theorem, letting $f = \varphi
+		\circ \rho$ we have $f: G \to K/J$ is a homomorphism and is
+		surjective since $\rho$ is surjective and $\varphi$ is
+		surjective.
+		$$G/\ker(f) \cong K/J$$
+		And $\ker(f)$ is some normal subgroup $H$ of $G$.
 \end{ques}
 
 \begin{ques} 
 	\textbf{13.25} 
+		\begin{enumerate}
+			\item
+				We have for $D_3$, the symmetry group of the
+				triangle which is not abelian, we established
+				in class $H = \{e, FR\}$ is a normal subgroup
+				and $H$ is abelian since there is only two
+				elements and one of them is $e$.  We also know
+				$D_3/H$ is abelian since $D_3/H = \{eH, RH,
+				R^2H\}$ and all the $R$s commute. So $D_3$ is
+				metablelian. 
+			\item
+				Let $H$ be the subgroup of $G$ that is
+				abelian along with $G/H$ being abelian. We know
+				$\varphi(H)$ is an abelian subgroup of $K$ that
+				is normal since the image of an abelian group
+				is an abelian group for any homomorphism and
+				from thm 13.3 we get normality. We will call
+				$\varphi(H)$ $J$ for convienence. We have
+				that $K/J$ is abelian since for any
+				$aJ, bJ \in K/J$ since $\varphi$ is
+				surjective there is some $a_g, b_g \in G:
+				\varphi(a_g) = a, \varphi(b_g) = b$ and so we
+				have 
+				$$aJbJ = abJ = \varphi(a_g)\varphi(b_g)J =
+				\varphi(a_gb_gH)$$
+				and since $G/H$ is abelian
+				$$= \varphi(b_ga_gH) = baJ = bJaJ$$
+				And so $K$ is metablelian
+
+		\end{enumerate}
 \end{ques}
 \end{document}
