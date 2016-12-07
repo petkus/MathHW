@@ -139,9 +139,17 @@ Gylys-Colwell}}
 
 \begin{ques}
 	\textbf{13.16} 
-		They are isomorphic. We have
-		$$\frac{G \times H}{A \times B} = \{(a, b)(G, H): (a, b) \in A
-		\times B\} = \{(aG, bH): a \in A, b \in B\} = G/A \times H/B$$
+		We can define $\varphi: G \times H \to G/A \times H/B$ with
+		$\varphi(g,h) = (gA, hB)$. We have that $\varphi$ is a
+		homomorphism since $\varphi(g_1, h_1)\varphi(g_2, h_2) = (g_1A,
+		h_1B)(g_2A, h_2B)$ since $A, B$ are normal, $= (g_1g_2A,
+		h_1h_2B) = \varphi(g_1g_2, h_1h_2)$. We also know
+		$\ker(\varphi) = A \times B$ since $\varphi(a, b) = (A, B)$ iff
+		$a \in A, b \in B$. We know $\varphi$ is surjective since for
+		any $(gA, hB)$ we know there is a $g \in G, h \in H$ such that
+		$\varphi(g, h) = (gA, hB)$. Therefore by the fundamental thm we
+		have our result:
+		$$\frac{G \times H}{A \times B} \cong G/A \times H/B$$
 \end{ques}
 
 \begin{ques} 
