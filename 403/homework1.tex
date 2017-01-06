@@ -130,13 +130,44 @@ Gylys-Colwell}}
 	\textbf{C}
 		$\mathbb Z_{10}$ is not an integral domain. Consider
 		$$2 \cdot 5 = 0$$
-		and so $2$ and $5$ are non-zero zero-divisors.
-
+		and so $2$ and $5$ are non-zero zero-divisors. Observing that
+		$S$ is the set of all even integers in $R$ we know that $S$ is
+		closed under addition and multiplication since multiplying or
+		adding to even numbers yields an even number. Addition is still
+		commutative in $S$. Therefore $S$ is a subring of $R$. \\
+		$S$ is an integral domain since for any $s \in S$ in order for
+		$s \cdot a = 0$, $10$ must divide $sa$ and so $2 \cdot 5$ must
+		divide $sa$. However since $s$ is even if it also has a factor
+		of $5$ then it is a multiple of $10$ since it has a factor of
+		both $5$ and $2$. If $s \neq 0$ mod $10$ then, $a$ must have a
+		factor of $5$ and so if $a \in S$ then $a$ is $0$ since $a$
+		would have a factor of $5$ and a factor of $2$. Therefore there
+		is no non-zero term $a \in S$ such that $sa = 0$.\\
+		$S$ is a field since $S$ is commutative (since $R$ is
+		commutative) and each term is a unit with $6$ the
+		multiplicative identity: $2 \cdot 8 = 6$, $4 \cdot 4 = 6$, $6
+		\cdot 6 = 6$, $6 \cdot 2 = 2$, $6 \cdot 4 = 4$, and $6 \cdot 8
+		= 8$.
 \end{ques}
 
 \begin{ques}
 	\textbf{D}
-		
+		We in order for $\left[\begin{array}{cc} a & b \\ c & d
+		\end{array}\right]$ to be in the center we have for any $w,x,y,z
+		\in \mathbb R$:
+		$$\left[\begin{array}{cc} a & b \\ c &
+		d \end{array}\right]\left[\begin{array}{cc} w &
+		x \\ y & z \end{array}\right] =
+		\left[\begin{array}{cc} w & x \\ y & z
+		\end{array}\right]\left[\begin{array}{cc}
+		a & b \\ c & d \end{array}\right]$$
+		$$= \left[\begin{array}{cc} aw + by & ax + bz
+		\\ cw + dy & cx + dz \end{array}\right] =
+		\left[\begin{array}{cc} wa + xc & wb + xd
+		\\ yx + zc & yb + zd \end{array}\right] $$
+		Equating the top left and bottom right corners gives us $by =
+		cx$. The only way for those quantities be equal for any $x,y$ is if
+		$b= c= 0$.
 \end{ques}
 
 \begin{ques}
