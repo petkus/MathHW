@@ -177,11 +177,31 @@ Gylys-Colwell}}
 
 \begin{ques}
 	\textbf{E}
-	We already know the addition operation is commutative, so we just have
+	We already know the addition operation is commutative and the
+	operations have the distributive property, so we just have
 	to show $S$ is closed under addition and multiplication.\\
 	For any 
 	$$A = \left[\begin{array}{cc} a & b \\ -b & a \end{array}\right], B =
 	\left[\begin{array}{cc} c & d\\ -d & c \end{array}\right] \in S$$
-	$$A + B = \left[\begin{array}{cc} c & d\\ -d & c \end{array}\right]$$
+	$$A + B = \left[\begin{array}{cc} a + c & b + d\\ -(b + d) & a + c
+	\end{array}\right] \in S$$
+	$$AB = \left[\begin{array}{cc} ac - bd & ad + bc\\ -(ad + bc) & -bd + ac
+	\end{array}\right] \in S$$
+	Therefore $S$ is a subring of $M_2(\mathbb R)$. To show $S \cong
+	\mathbb C$ we define the bijection $\varphi:$ 
+	$$\varphi \left(\left[\begin{array}{cc} a & b\\ -b &
+	a\end{array}\right]\right) = a + bi$$
+	To show that its a homomorphism we have using the multiplaction
+	equalities above
+	$$\varphi(A)\varphi(B) = (a + ib)(c + id) = ac - bd + (ad + bc)i = \varphi(AB)$$
+	As well as
+	$$\varphi(A) + \varphi(B) = a + ib + c + id = (a + c) + (b + d)i =
+	\varphi(A + B)$$
+	And finally we know that $\varphi$ is bijective since for any $a + ib
+	\in \mathbb C$ the matrix $\left[\begin{array}{cc} a & b \\ -b & a
+	\end{array}\right]$ will map to that number, and if any two matricies
+	map to the same number then the two numbers that determine their
+	entries must be the same so they must be the same matrix
+
 \end{ques}
 \end{document}
