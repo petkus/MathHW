@@ -13,6 +13,7 @@
 \newtheorem{Wp}{Writing Problem}
 \newtheorem{Ep}{Extra Credit Problem}
 
+\renewcommand{\theenumi}{\alph{enumi}}
 \oddsidemargin-1mm
 \evensidemargin-0mm
 \textwidth6.5in
@@ -31,25 +32,78 @@ Gylys-Colwell}}
 \vspace{1cm}
 \begin{ques}
 	\textbf{1}
-		If there is a given bitartite graph $G = X \cup Y$ with the
-		given degree sequence. With $X, Y$ the disjoint vertix sets. We know
-		that the sum of the degrees of a one 
+	If there is a given bipartite graph $G = X \cup Y$ with the
+	given degree sequence. With $X, Y$ the vertix sets that are not
+	connected within eachother. We know that the sum of the degrees
+	of verticies in $X$ must equal the sum of the degrees of
+	verticies in $Y$. However this cannot be the case, since the sum of
+	degrees of verticies that contains the degree $5$ will be $2$
+	modulo $3$ since all the other degrees are $0$ mod $3$, and the
+	sum from the other set will be $0$ mod $3$. Because the two
+	sums are unequal mod $3$, they must be unequal in general. And
+	so no bipartite graph with the given degree sequence can exist.
 \end{ques}
 
 \begin{ques}
 	\textbf{2}
+	We can induct on $d$:\\
+	The base case is where $d$ = 1, in which case there is $1$ perfect
+	matching (as proven in class.\\
+	For the inductive step, given a bipartite graph $G = (X, Y)$ with all
+	verticies having degree $d + 1$. We have proved in class that such a
+	graph has a perfect matching $M$. If we consider the graph $H = G - M$
+	where we remove all the edges in $M$ from $G$, by the definition of a
+	perfect matching, every vertex in $G$ is connected to exactly $1$ edge
+	in $M$, therefore removing $M$ would lower the degree of every vertex
+	by $1$. Therefore $H$ is a bitartite graph with all verticies having
+	degree $d$, which by the inductive hypothesis has $d$ distinct perfect
+	matchings. Since $M$ is does not intersect with the set of edges in
+	$H$, $M$ cannot intersect with any of the perfect matchings of $H$.
+	Therefore these matchings of $H$ and $M$ make up $d + 1$ distinct
+	perfect matchings of $G$
 \end{ques}
 
 \begin{ques}
 	\textbf{3}
+	For any nonempty subset $S \subseteq X$, since every vertex has degree
+	$\geq 4$, we know that $|N(S)| \geq 4$ since all verticies in $X$ has
+	$4$ neighbors. Therefore the Hall thm conditions is satisified for $|S|
+	< 5$. For $|S| = 5$ we have $S = X$. Since all verticies in $Y$ have
+	degree $\geq 1$ we know that $|N(X)| = |Y| > |X|$. Therefore the Hall
+	thm is satisified for all subsets of $X$ which means there exists a
+	perfect matching of $X$ to $Y$
 \end{ques}
 
 \begin{ques}
 	\textbf{4}
+	Letting $G = (M,W)$ be the bipartite graph where $M$ are the nodes of
+	men, $W$ the nodes of women, and an edge represents whether the man and
+	woman know each other. If we make a new graph $G'$ by adding two
+	verticies to $W$ and edges between these new two verticies and every node
+	in $M$, then the conditions in the problem imply that for every $2 \leq
+	k \leq N$, every $k$ nodes in $X$ have at least $k$ neighbors in $G'$
+	(we add two since every node in $X$ is connected to the two new added
+	nodes in $W$). Every subset of size $1$ of $X$ in $G'$ has a neighbor
+	set of size $\geq 1$ as well since every node in $X$ is connected to
+	the added nodes. Therefore the conditions of Halls thm are satisified
+	for $G'$ and so there exists a perfect matching $M$ from $X$ to $W \cup
+	\{v_1, v_2\}$ where $v_1, v_2$ are the added verticies. When we remove
+	$v_1, v_2$ and the edges connected to them from $M$, we also remove two
+	verticies in $X$ from $M$, and so we are left with a matching $M'$ with
+	$N-2$ verticies in $X$ and edges and verticies contained within $G$,
+	which corresponds to the desired result: a matching of $N-2$ of the men
+	to the women they know.
 \end{ques}
 
 \begin{ques}
 	\textbf{5}
+	\begin{enumerate}
+		\item
+
+
+		\item
+
+	\end{enumerate}
 \end{ques}
 
 \begin{ques}
