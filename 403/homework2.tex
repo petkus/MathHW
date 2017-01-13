@@ -47,26 +47,52 @@ Gylys-Colwell}}
 	\textbf{A}
 	\begin{enumerate}
 		\item
-		By definition of $1$, $1 \cdot 1 = 1$ so $1$ is an idempotent.
-		For any $a \in R$
+		We have
+		$$a^2 = a \Rightarrow a^2 - a = 0 \Rightarrow a(a - 1) = 0$$
+		Since $R$ is an integral domain, $a(a-1) = 0$ if and only if
+		either $a$ or $a-1$ is zero, and since the additive inverse is
+		unique, that means $a$ is either $1$ or $0$.
 		\item
-
+		The idempotents are $1$, $5$, and $6$.
 		\item
-
-
+		For any $(a,b) \in
+		\mathbb Z \times \mathbb Z$ we have 
+		$$(a, b)(a, b) = (a, b) \Rightarrow (a^2 - a, b^2 - b) = (0,0)
+		\Rightarrow a^2 - a =0, b^2 - b = 0$$
+		And since $\mathbb Z$ is an integral domain, that means $a,b
+		\in \{0, 1\}$ and so the idempotents are $(0,0), (1,1), (1,0),
+		(0,1)$
 	\end{enumerate}
 \end{ques}
 
 \begin{ques}
 	\textbf{B}
+	We can deduce the set of idempotents in $S$ is a subset of
+	the idempotents in $R$ since $s \in S \Rightarrow s \in R$ and the
+	conditions in either set is the same: $s^2 = s$.\\
+	As shown in problem Aa, the only idempotents in $R$ are $1_R$ and $0_R$\\
+	Subrings of an integral domain is an integral domain as well so $S$
+	also has the property that the idempotents in $S$ are $1_S$ and $0_R$.
+	Therefore we have.
+	$$\{0_S, 1_S\} \subseteq \{0_R, 1_R\}$$
+	From basic group theory we know the identity of a subgroup is equal to
+	the identity of the containing group. Therefore $0_S = 0_R$ since $0$
+	is the identity of the groups $R, S$ over additition. So we have $1_S
+	\neq 0_S \Rightarrow 1_S \neq 0_R$. The only other element in $\{0_R,
+	0_S\}$ that $1_S$ can be is $1_R$
 \end{ques}
 
 \begin{ques}
 	\textbf{C}
+	
 \end{ques}
 
 \begin{ques}
 	\textbf{D}
+	True:\\
+	Consider the subring
+	$$S = 5\mathbb Z _{25} = \{0, 5, 10, 15, 20\}$$
+	This is a subring since for any $a, b \in S$, $ab$
 \end{ques}
 
 \begin{ques}
