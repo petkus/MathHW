@@ -89,9 +89,9 @@ Gylys-Colwell}}
 	for $G'$ and so there exists a perfect matching $M$ from $X$ to $W \cup
 	\{v_1, v_2\}$ where $v_1, v_2$ are the added verticies. When we remove
 	$v_1, v_2$ and the edges connected to them from $M$, we also remove two
-	verticies in $X$ from $M$, and so we are left with a matching $M'$ with
-	$N-2$ verticies in $X$ and edges and verticies contained within $G$,
-	which corresponds to the desired result: a matching of $N-2$ of the men
+	verticies in $X$ from $M$, and so we are left with a matching $M'$
+	contained in $G$ with $N-2$ verticies in $X$ which corresponds to the
+	desired result: a matching of $N-2$ of the men
 	to the women they know.
 \end{ques}
 
@@ -99,14 +99,61 @@ Gylys-Colwell}}
 	\textbf{5}
 	\begin{enumerate}
 		\item
-
-
+		Let $d > 0$ be the smallest degree of the verticies in $X$.
+		Looking at any nonempty subset $S \subseteq X$, we deduce the
+		following. If we look at all the edges connecting $S$ to
+		$N(S)$, there are at least $d|S|$ edges coming from $S$ since
+		every vertex in $S$ has degree at least $d$. The number of
+		degrees coming from $S$ must be equal to the number of degrees
+		coming from $N(S)$ to $S$ so the number of edges coming from $N(S)$ to
+		$S$ is at least $d|S|$. Since every vertex in $Y$ has degree at
+		most $d$, in order for the edges coming from $N(S)$ to be $\geq
+		d|S|$, there must be at least $|S|$ verticies in $N(S)$. And so
+		$|N(S)| \geq |S|$. Therefore the conditions for Hall's thm are
+		satisified, so there is a perfect matching from $X$ into $Y$
 		\item
-
+		We can show that the smallest degree of the verticies in $X$ is
+		$\geq$ the largest degree of the verticies in $Y$, thus from
+		5a, it would be concluded that there exists a perfect matching
+		from $X$ into $Y$. For any $x \in X$ with $x = \{x_1, x_2,
+		\dots x_k\}$, there are $n - k$ $k+1$ sized subsets that contain $x$,
+		since it is the count of adding one element $1 \leq x_{k+1}
+		\leq n$ with $x_{k+1} \notin x$ to $x$ to make it a $k+1$ sized
+		subset. Therefore every vertex in $X$ has degree $x - k > n/2$.
+		While the number of $k$ subsets of any element $y \in Y$ is
+		precisely $k+1$ since it is the count of all the ways of
+		removing one element from $y$. Therefore the degree of $y$ is
+		$k+1 \leq n/2$. And so the degree of every vertex in $Y$ is $<
+		$ the degree of every vertex in $X$, which means $G$ satisfies
+		the conditions in 5a.
 	\end{enumerate}
 \end{ques}
 
 \begin{ques}
 	\textbf{6}
+		We can construct a bipartite graph $G = (A,B)$ on the sets of
+		$A_1, \dots A_m, B_1, \dots B_m$ with an edge between $A_i$ and
+		$B_j$ being in $G$ if and only if $A_i \cap B_j \neq \emptyset$.
+		If we look at any nonempty subset $S \subseteq A$, if we look
+		at the size of the union of all the elements in $S$:
+		$$\left|\bigcup_{\{A_i \in S\}}A_i\right| = |S|n$$
+		The reason for this is because all the sets $A_i$ are disjoint
+		and the size of the union of disjoint sets is equal to the sum
+		of the size of the sets. If we look at $N(S)$ we have from the same logic:
+		$$\left|\bigcup_{\{B_i \in N(S)\}}B_i\right| = |N(S)|n$$
+		We also know that 
+		$$\bigcup_{\{A_i \in S\}}A_i \subseteq \bigcup_{\{B_i \in N(S)\}}B_i$$
+		The reason for that is if for any $a \in \bigcup_{\{A_i \in
+		S\}}A_i$, by the definition of edges in $G$ that implies that
+		the set $B_i$ that contains $a$ is in $N(S)$ so $a \in
+		\bigcup_{\{B_i \in N(S)\}}B_i$. Therefore we have
+		$$\left|\bigcup_{\{A_i \in S\}}A_i\right| \leq
+		\left|\bigcup_{\{B_i \in N(S)\}}B_i\right|$$
+		And so 
+		$$|S|n \leq |N(S)|n$$
+		So $|S| \leq |N(S)|$, which means $G$ satisfies the Hall thms
+		criteria, so there exists a perfect matching from $A$ into $B$.
+		Which means we can reorder the $B_i$ so the $i$ matches with
+		the $A_i$ in this perfect matching.
 \end{ques}
 \end{document}
