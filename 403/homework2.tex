@@ -33,14 +33,41 @@ Gylys-Colwell}}
 
 \begin{ques}
 	\textbf{16.24} Only do a,b,c
+	\begin{enumerate}
+		\item
+
+		\item
+
+		\item
+
+	\end{enumerate}
 \end{ques}
 
 \begin{ques}
 	\textbf{17.1}
+	\begin{enumerate}
+		\item
+		This is a subring since it is closed under multiplication:
+		$$\begin{matrix} 0 & b \\ c & d \end{matrix} $$
+
+		\item
+
+		\item
+
+	\end{enumerate}
 \end{ques}
 
 \begin{ques}
 	\textbf{17.20}
+	If $aR = R$ then since $1 \in R$ there must be $1 \in aR$ which means
+	there must be some $a^{-1}$ such that $aa^{-1} =1$ which means $a$ is a
+	unit. For implication in the other direction, we have for any $x \in
+	R$, assuming $a$ is a unit with multiplicative inverse $a^{-1}$, we
+	have $a^{-1}x \in R$ and $a (a^{-1}x) = x \in aR$. Therefore every element of
+	$R$ is an element of $aR$ and so $R \subseteq aR$, and since $R$ is
+	closed under multiplication, for any $x \in R$, $ax \in R$, so $aR
+	\subseteq R$ and so it follows 
+	$$R = aR$$
 \end{ques}
 
 \begin{ques}
@@ -92,7 +119,17 @@ Gylys-Colwell}}
 	True:\\
 	Consider the subring
 	$$S = 5\mathbb Z _{25} = \{0, 5, 10, 15, 20\}$$
-	This is a subring since for any $a, b \in S$, $ab$
+	This is a subring since we have $x|5 \Leftrightarrow x \in S$ and for
+	any $a, b \in S$, $ab | 5$ so $ab \in S$. We also have $a + b |5$ so $a
+	+b \in S$. Thererfore $S$ is closed under addition and multiplication
+	and is finite, so it is a subring. $S$ is isomorphic to $\mathbb Z _5$,
+	let $\varphi: S \to \mathbb Z_5$ with $\varphi(5x) = x$. We have
+	$$\varphi(5x)\varphi(5y) = xy = \varphi(5xy)$$
+	and
+	$$\varphi(5x) + \varphi(5y) = x + y = \varphi(5(x + y))$$
+	So $\varphi$ is a homomorphism. We have $\varphi(0) = 0, \varphi(5) =
+	1, \varphi(10) = 2, \varphi(15) = 3, \varphi(20) = 4$, and so $\varphi$
+	is a bijections so an isomorphism.
 \end{ques}
 
 \begin{ques}
