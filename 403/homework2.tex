@@ -35,11 +35,38 @@ Gylys-Colwell}}
 	\textbf{16.24} Only do a,b,c
 	\begin{enumerate}
 		\item
-
+		for any $a + bi, c + di, e + fi \in \mathbb Z [i]$, we have
+		$$(a + bi) + (c + di) = (a + c) + (b + d)i = (b + di) + (a +
+		bi) \in \mathbb Z [i]$$
+		as well as
+		$$(a + bi)(c + di) = ac - bd + (ad + bc)i = (c + di)(a + bi)
+		\in \mathbb Z [i]$$
+		Finally
+		$$(a + bi + c + di)(e + fi) = (a + bi)e + (c + di)e + (a +
+		bi)fi + (c + di)fi = (a + bi)(e + fi) + (c + di)(e + fi)$$
+		And
+		$$1(a + bi) = (a + bi)1 = a + bi$$
+		Which means $\mathbb Z [i]$ satisfies all the properties to be
+		a commutative ring with unity $1$.
 		\item
-
+		For $r = a + bi, s = c + di \in  \mathbb Z [i]$ we have
+		$$N(rs) = N(ac - bd + (ad + bc)) = (ac - bd)^2 + (ad + bc)^2 =
+		(ac)^2 - 2abcd + (bd)^2 + (ad)^2 + 2abcd + (bc)^2$$
+		$$(ac)^2 + (bd)^2 + (ad)^2 + (bc)^2 = a^2(c^2 + d^2) + b^2(c^2
+		+ d^2) = (a^2 + b^2)(c^2 + d^2) N(r)N(s)$$
 		\item
-
+		In order for $a$ to be a unit, there must be some $a^{-1} \in
+		\mathbb Z [i]$ such that 
+		$$aa^{-1}= 1$$
+		Applying the norm to both sides we have
+		$$N(aa^{-1}) = N(a)N(a^{-1}) = N(1) = 1$$
+		However since the terms in $a$ and $a^{-1}$ are integers, the
+		norms must be integers. Therefore in order for the product of
+		their norms to be $1$, both norms must be $1$. Therefore $N(a)
+		= 1$. Looking at the other direction, we can ceck every element
+		with norm 1:\\
+		$1, -1, i, -i$. Each of these terms have the respective inverse
+		$1, -1, -i, i$. And so every element with norm one is a unit.
 	\end{enumerate}
 \end{ques}
 
@@ -47,13 +74,30 @@ Gylys-Colwell}}
 	\textbf{17.1}
 	\begin{enumerate}
 		\item
-		This is a subring since it is closed under multiplication:
-		$$\begin{matrix} 0 & b \\ c & d \end{matrix} $$
-
+		This is not a subring since it is not closed under multiplication:
+		$$\left(\begin{matrix} 0 & 1 \\ 1 & 1
+		\end{matrix}\right)\left(\begin{matrix} 0 & 1 \\ 1 & 1
+		\end{matrix}\right) = \left(\begin{matrix} 1 & 1 \\ 1 & 2
+		\end{matrix}\right) \notin S $$
 		\item
-
+		This is a subring since it is closed under multiplication and
+		addition, and every element has an addative inverse:
+		$$\left(\begin{matrix} a & 0 \\ b & c
+		\end{matrix}\right)\left(\begin{matrix} d & 0 \\ e & f
+		\end{matrix}\right) = \left(\begin{matrix} ad & 0 \\ be + cf & cf
+		\end{matrix}\right) \in S $$
+		$$\left(\begin{matrix} a & 0 \\ b & c
+		\end{matrix}\right) + \left(\begin{matrix} d & 0 \\ e & f
+		\end{matrix}\right) = \left(\begin{matrix} a + d & 0 \\ b + e & c + f
+		\end{matrix}\right) \in S $$
 		\item
-
+		As established last quarter, $S$ is a group under
+		multiplication and a group under division, and therefore is
+		closed under multiplication, and so satisfies the requirements
+		to be a subring.
+		\item
+		We have $S = M_2(\mathbb R)$, which has been established to be
+		a ring. Therefore $S$ is a subring.
 	\end{enumerate}
 \end{ques}
 
@@ -86,7 +130,7 @@ Gylys-Colwell}}
 		\mathbb Z \times \mathbb Z$ we have 
 		$$(a, b)(a, b) = (a, b) \Rightarrow (a^2 - a, b^2 - b) = (0,0)
 		\Rightarrow a^2 - a =0, b^2 - b = 0$$
-		And since $\mathbb Z$ is an integral domain, that means $a,b
+		And since $\mathbb Z$ is an integral domain, from question Aa it means $a,b
 		\in \{0, 1\}$ and so the idempotents are $(0,0), (1,1), (1,0),
 		(0,1)$
 	\end{enumerate}
@@ -111,7 +155,8 @@ Gylys-Colwell}}
 
 \begin{ques}
 	\textbf{C}
-	
+	$U(R) = \{(1,1), (-1, 1), (1, -1), (-1,-1)\}$ since the only units in
+	$\mathbb Z$ is $1$ and $-1$.
 \end{ques}
 
 \begin{ques}
@@ -134,5 +179,16 @@ Gylys-Colwell}}
 
 \begin{ques}
 	\textbf{E}
+	The four ideals are $R$, $R_r = \{(0,x): x \in \mathbb R\}, R_l =
+	\{(x,0): x \in \mathbb R\}, \{(0,0)\}$. Since the idempotents of $R$
+	are $(0,0), (1,0), (0,1), (1,1)$ and we know that the multiplicative
+	identity of a subring must be one of these terms. If the identity is
+	$(0,0)$ we get the subring $\{(0,0)\}$ since every term in $R$
+	multiplies with $(0,0)$ to $(0,0)$. If the identity is $(1,1)$, then
+	for any $(x,y) \in R$ $(1,1)(x,y) = (x,y)(1,1) = (x,y)$, and so the
+	subring would have to be $R$ to satisfy the ideal property. If the
+	identity is $(1,0)$ then for any $(x,y) \in R$ we have $(1,0)(x,y) =
+	(x,y)(1,0) = (x,0)$ therefore the group would be $R_l$, and by symmetry
+	for the identity being $(0,1)$, the group would be $R_r$.
 \end{ques}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.27)  17 JAN 2017 11:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.27)  17 JAN 2017 22:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -229,31 +229,63 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+Overfull \hbox (32.84604pt too wide) detected at line 46
+\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 bi \OT1/
+cmr/m/n/12 + \OML/cmm/m/it/12 c \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 di\OT1/cmr/m
+/n/12 )(\OML/cmm/m/it/12 e \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 fi\OT1/cmr/m/n/12
+ ) = (\OML/cmm/m/it/12 a \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 bi\OT1/cmr/m/n/12 )
+\OML/cmm/m/it/12 e \OT1/cmr/m/n/12 + (\OML/cmm/m/it/12 c \OT1/cmr/m/n/12 + \OML
+/cmm/m/it/12 di\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 e \OT1/cmr/m/n/12 + (\OML/cmm/
+m/it/12 a \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 bi\OT1/cmr/m/n/12 )\OML/cmm/m/it/1
+2 fi \OT1/cmr/m/n/12 + (\OML/cmm/m/it/12 c \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 d
+i\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 fi \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 a \OT
+1/cmr/m/n/12 + \OML/cmm/m/it/12 bi\OT1/cmr/m/n/12 )(\OML/cmm/m/it/12 e \OT1/cmr
+/m/n/12 + \OML/cmm/m/it/12 fi\OT1/cmr/m/n/12 ) + (\OML/cmm/m/it/12 c \OT1/cmr/m
+/n/12 + \OML/cmm/m/it/12 di\OT1/cmr/m/n/12 )(\OML/cmm/m/it/12 e \OT1/cmr/m/n/12
+ + \OML/cmm/m/it/12 fi\OT1/cmr/m/n/12 )
+ []
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./homework2.aux) ) 
+
+Overfull \hbox (41.73553pt too wide) detected at line 54
+\OML/cmm/m/it/12 N\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 rs\OT1/cmr/m/n/12 ) = \OML/
+cmm/m/it/12 N\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ac \OMS/cmsy/m/n/12 ^^@ \OML/cmm
+/m/it/12 bd \OT1/cmr/m/n/12 + (\OML/cmm/m/it/12 ad \OT1/cmr/m/n/12 + \OML/cmm/m
+/it/12 bc\OT1/cmr/m/n/12 )) = (\OML/cmm/m/it/12 ac \OMS/cmsy/m/n/12 ^^@ \OML/cm
+m/m/it/12 bd\OT1/cmr/m/n/12 )[] + (\OML/cmm/m/it/12 ad \OT1/cmr/m/n/12 + \OML/c
+mm/m/it/12 bc\OT1/cmr/m/n/12 )[] = (\OML/cmm/m/it/12 ac\OT1/cmr/m/n/12 )[] \OMS
+/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 abcd \OT1/cmr/m/n/12 + (\OML
+/cmm/m/it/12 bd\OT1/cmr/m/n/12 )[] + (\OML/cmm/m/it/12 ad\OT1/cmr/m/n/12 )[] + 
+2\OML/cmm/m/it/12 abcd \OT1/cmr/m/n/12 + (\OML/cmm/m/it/12 bc\OT1/cmr/m/n/12 )[
+]
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./homework2.aux) 
+) 
 Here is how much of TeX's memory you used:
  2489 strings out of 494953
  32459 string characters out of 6180976
- 90425 words of memory out of 5000000
+ 93425 words of memory out of 5000000
  5743 multiletter control sequences out of 15000+600000
  9298 words of font info for 35 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,6n,26p,236b,174s stack positions out of 5000i,500n,10000p,200000b,80000s
-</u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/symbols/msbm10.pfb>
-Output written on homework2.pdf (2 pages, 88384 bytes).
+ 37i,7n,26p,236b,187s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb>
+Output written on homework2.pdf (3 pages, 102851 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 54 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
