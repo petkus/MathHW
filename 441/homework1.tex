@@ -6,9 +6,7 @@
         {\vspace{2 ex}}
 
 %\newenvironment{ques}{\vspace{2 ex}}
-%Numbered environment 
-\newcounter{ques}[section]
-\newenvironment{ques}[1]{\textbf{Exersise #1} \vspace{1mm}}{\medskip}
+	\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
 
 \renewcommand{\theenumi}{\alph{enumi}}
 
@@ -36,19 +34,44 @@ Gylys-Colwell}}
 \vspace{1cm}
 
 \begin{ques}{\S 1, 9}
-	
+	For any $s \in S = A - (B \cup C)$ we have $s \in A$ and $s \notin B$,
+	as well as $s \in A$ and $s\notin B$. Therefore $s \in R = (A - B) \cap
+	(A - C)$ and so $S \subseteq R$. For any $r \in R$ we have $r \in A -
+	B$ as well as $r \in A-C$ so $r$ must be in $A$. Also since $r \in
+	A-B$, $r \notin B$ and similarly since $r \in A-C$, $r\notin C$.
+	Therefore $R \subseteq S$, and so $R = S$\\ 
+	\\
+	For the other law we have
+	for any $s \in S = A- (B\cap C)$ we have $s \in A$ and $s$ is not in
+	both $B$ and $C$. Therefore $s$ must not be in either $B$ or $C$ so $s
+	\in A-B$ or $s \in A-C$ whcih means $s \in R = (A-B)\cup (A-C)$.
+	Therefore $S \subseteq R$. We also have for any $r \in R$, $r$ is in $A
+	- B$ or $A -C$ which means $r \in A$ and $r$ is not in both $B$ and $C$
+	which means $r \in S$. Therefore $R \subseteq S$ and so $R = S$
 
 \end{ques}
 
 \begin{ques}{\S 2, 1}
 	\begin{enumerate}
 		\item
+			For any $a \in A_0$, by definition we have $f(a) \in f(A_0)$ and therefore 
+			$$a \in f^{-1}(f(A_0))$$
+			which means $A_0 \subseteq f^{-1}(f(A_0))$. If $f$ is
+			injective then if there exists $b \notin A_0$ with $b
+			\in A_0 - f^{-1}(f(A_0))$ then $f(b) \in f(A_0)$ which
+			means there exists $a \in A_0$ such that $f(b) = f(a)$
+			which contradicts injectivity. Therefore $A_0 -
+			f^{-1}(f(A_0)) = \emptyset$ and so $A_0 =
+			f^{-1}(f(A_0))$
 
 		\item
-
-		\item
-
-		\item
+			For any $b \in B_0$ we have by definition $f(f^{-1}(b))
+			\subseteq B_0$ and so $f(f^{-1}(B_0)) \subseteq B_0$.
+			If $f$ is surjective then for any $b \in B_0$ there is
+			a $a \in A$ such that $f(a) = b$ and therefore $a \in
+			f^{-1}(b)$ and so $b \in f(f^{-1}(b)) \subseteq
+			f(f^{-1}(B_0))$ and therefore $B_0 \subseteq
+			f(f^{-1}(B_0))$. This means that $B_0 = f(f^{-1}(B_0))$
 
 	\end{enumerate}
 \end{ques}
