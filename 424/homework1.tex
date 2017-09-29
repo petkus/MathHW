@@ -8,8 +8,7 @@
 %\newenvironment{ques}{\vspace{2 ex}}
 %Numbered environment 
 \newcounter{ques}[section]
-\newenvironment{ques}[1][]{\refstepcounter{ques}\par\medskip
-   \noindent \textbf{Problem~\theques. #1} \rmfamily}{\medskip}
+\newenvironment{ques}[1]{\textbf{Exersise #1} \vspace{1mm}}{\medskip}
 
 \renewcommand{\theenumi}{\alph{enumi}}
 
@@ -30,31 +29,63 @@
 \pagestyle{empty}
 \begin{document}
 
-\noindent \textit{\textbf{Math 504, Fall 2017}} \hspace{1.3cm}
+\noindent \textit{\textbf{Math 424, Fall 2017}} \hspace{1.3cm}
 \textit{\textbf{HOMEWORK $\#$1}} \hspace{1.3cm} \textit{\textbf{Peter
 Gylys-Colwell}} 
 
 \vspace{1cm}
 
-\begin{ques}
+\begin{ques}{7}
+	\begin{enumerate}
+		\item
+			For any even integer $n$ we can write it as the product
+			$n = 2k$ for some $k \in \mathbb{Z}$. Therefore $n^2 =
+			(2k)^2 = 4k^2$ and therefore $4$ divides $n^2$
+
+		\item
+			For any even integer $n$ we can write it as the product
+			$n = 4k$ for some $k \in \mathbb{Z}$. Therefore $n^3 =
+			(2k)^3 = 8k^3$ and therefore $8$ divides $n^3$
+
+		\item
+			In the prime factorization of twice and odd cube,
+			$2k^3$ where $k$ odd, we know $2$ does not divide $k$
+			and therefore does not divide $k^3$ and so there is
+			only $2^1$ in the prime factorization of $2k^3$.
+			Therefore $8$ cannot divide $2k^3$ since $8 = 2^3$ does
+			not divide the powers of $2$ in the prime factorization
+			of $2k^3$
+
+		\item
+			Suppose for contradiction $\sqrt[3]{2} = \frac a b$
+			where $a,b$ are relatively prime. Then we have $2b^3 =
+			a^3$. Since $2b^3$ is even, $a^3$ is even. The only way
+			it is possible for $a^3$ to be divisible by $2$ is if
+			$2$ divides $a$. Therefore $a$ must be even, which
+			means $a = 2n$ for some $n \in \mathbb z$ so $a^3 =
+			8n^3 = 2b^3$, So $b^3 = 4n^3$. Therefore $b^3$ is even
+			which means $b$ must be even
+	\end{enumerate}
 
 \end{ques}
 
-\begin{ques}
+\begin{ques}{10}
 \end{ques}
 
-\begin{ques}
+\begin{ques}{13}
 \end{ques}
 
-\begin{ques}
+\begin{ques}{1}
+	\begin{enumerate}
+		\item
+			$$\{x \in \mathbb Q: x^2 = 2\} = \emptyset$$
+		\item
+			If $x \in \mathbb Q$ and $x > 0$ then $\exists \ n \in
+			\mathbb N$ such that $\frac 1 n < x$
+
+	\end{enumerate}
 \end{ques}
 
-\begin{ques}
-\end{ques}
-
-\begin{ques}
-\end{ques}
-
-\begin{ques}
+\begin{ques}{2}
 \end{ques}
 \end{document}
