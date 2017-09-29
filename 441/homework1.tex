@@ -54,7 +54,8 @@ Gylys-Colwell}}
 \begin{ques}{\S 2, 1}
 	\begin{enumerate}
 		\item
-			For any $a \in A_0$, by definition we have $f(a) \in f(A_0)$ and therefore 
+			For any $a \in A_0$, by definition we have $f(a) \in
+			f(A_0)$ and therefore 
 			$$a \in f^{-1}(f(A_0))$$
 			which means $A_0 \subseteq f^{-1}(f(A_0))$. If $f$ is
 			injective then if there exists $b \notin A_0$ with $b
@@ -79,12 +80,98 @@ Gylys-Colwell}}
 \begin{ques}{\S 2, 2}
 	\begin{enumerate}
 		\item
+			Given any $b \in B_0$, since $B_0 \subseteq B_1$ we
+			know $b \in B_1$. By the definition of $f^{-1}(B_1)$ we
+			have that $f^{-1}(b) \subseteq f^{-1}(B_1)$ since $b
+			\in B_1$. And since $f^{-1}(B_0)$ is a unioun of
+			these preimages which are contained in  $B_1$, we know
+			$f^{-1}(B_0) \subseteq f^{-1}(B_1)$
 
 		\item
+			Given any $a \in A$ with $a \in f^{-1}(B_0 \cup B_1)$
+			or equivalently $f(a) \in B_0 \cup B_1$ we know that
+			$f(a)$ must be in either $B_0$ or $B_1$ and so $a$ is
+			in either $f^{-1}(B_0)$ or $f^{-1}(B_1)$. Therefore $a
+			\in f^{-1}(B_0) \cup f^{-1}(B_1)$ and so $f^{-1}(B_0
+			\cup B_1) \subseteq f^{-1}(B_0) \cup f^{-1}(B_1)$.
+			Conversly if $f(a)$ is in $B_0$ or in $B_1$ then $f(a)
+			\in B_0 \cup B_1$ and so $f^{-1}(B_0) \cup f^{-1}(B_1)
+			\subseteq f^{-1}(B_0 \cup B_1)$. Therefore we
+			have equality
 
 		\item
+			Given any $a \in A$ with $a \in f^{-1}(B_0 \cap B_1)$
+			or equivalently $f(a) \in B_0 \cap B_1$ we know that
+			$f(a)$ must be in both $B_0$ and $B_1$ and so $a$ is
+			in $f^{-1}(B_0)$ and $f^{-1}(B_1)$. Therefore $a
+			\in f^{-1}(B_0) \cap f^{-1}(B_1)$ and so $f^{-1}(B_0
+			\cap B_1) \subseteq f^{-1}(B_0) \cap f^{-1}(B_1)$.
+			Conversly if $f(a)$ is in $B_0$ and in $B_1$ then $f(a)
+			\in B_0 \cap B_1$ and so $f^{-1}(B_0) \cap f^{-1}(B_1)
+			\subseteq f^{-1}(B_0 \cap B_1)$. Therefore we
+			have equality
 
 		\item
+			Given any $a \in A$ with $a \in f^{-1}(B_0 - B_1)$
+			or equivalently $f(a) \in B_0 - B_1$ we know that
+			$f(a)$ must be in $B_0$ and not $B_1$ and so $a$ is
+			in $f^{-1}(B_0)$ and $f^{-1}(B_1)$. Therefore $a
+			\in f^{-1}(B_0) - f^{-1}(B_1)$ and so $f^{-1}(B_0
+			- B_1) \subseteq f^{-1}(B_0) - f^{-1}(B_1)$.
+			Conversly if $f(a)$ is in $B_0$ and not in $B_1$ then $f(a)
+			\in B_0 - B_1$ and so $f^{-1}(B_0) - f^{-1}(B_1)
+			\subseteq f^{-1}(B_0 - B_1)$. Therefore we
+			have equality
+
+		\item
+			Given any $b \in f(A_0)$ we know there exists some $a
+			\in A$ with $f(a) = b$, since $a \in A_0 \subseteq A_1$
+			we have that $a \in A_1$ and so $f(a) \in f(A_1)$.
+			Therefore $f(A_0) \subseteq f(A_1)$
+
+		\item
+			Given any $b \in f(A_0 \cup A_1)$ we know there exists
+			$a \in A_0 \cup A_1$ with $f(a) = b$ and so $a$ is
+			either in $A_0$ or $A_1$ so $f(a) \in f(A_0) \cup
+			f(A_1)$ and so $f(A_0 \cup A_1) \subseteq f(A_1) \cup
+			f(A_0)$.  Conversly for any $f(a) \in f(A_0) \cup
+			f(A_1)$ we know $f(a)$ is in either $f(A_0)$ or
+			$f(A_1)$ and so $a \in A_0$ or $a \in A_1$ therefore $a
+			\in A_0 \cup A_1$ and therefore $f(a) \in f(A_0 \cup
+			A_1)$. Therefore we have equality
+		\item
+			Given any $b \in f(A_0 \cap A_1)$ we know there exists
+			$a \in A_0 \cap A_1$ with $f(a) = b$ and therefore
+			since $a$ is in $A_0$ and $A_1$, $f(a) \in f(A_0)$ and
+			$f(a) \in f(A_1)$ so $f(a) f(A_0) \cap f(A_1)$.
+			Therefore $f(A_0 \cap A_1) \subseteq f(A_0) \cap
+			f(A_1)$. If $f$ is injective, for any $b \in f(A_0)
+			\cap f(A_1)$ we know $b$ is in both $f(A_0)$ and in
+			$f(A_1)$. Therefore there exists elements $a_0 \in A_0,
+			a_1 \in A_1$ such that $f(a_0) = b \in f(A_0)$ and
+			$f(a_1) = b \in f(A_1)$. Since $f$ is injective however
+			$a_0 = a_1$ and we know $a = a_0 = a_1$ is in both
+			$A_0$ and $A_1$. Therefore $f(a) \in f(A_0 \cap A_1)$,
+			and thus $f(A_0) \cap f(A_1) \subseteq f(A_0 \cap A_1)$
+			and we have equality of the sets
+
+		\item
+			 For any $b \in f(A_0) - f(A_1)$ we know $b$ is in
+			 $f(A_0)$ and not $f(A_1)$. Since $b \in f(A_0)$ we
+			 know there exists $a \in A_0$ such that $f(a) = b$.
+			 Since $f(a) \notin f(A_1)$, we know $a \notin A_1$ and
+			 so $a \in A_0 - A_1$, thus $f(a) \in f(A_0 - A_1)$ and
+			 thus $f(A_0) - f(A_1) \subseteq f(A_0 - A_1)$. If $f$
+			 is injective, given any $b \in f(A_0 - A_1)$ we know
+			 there exists $a \in A_0 - A_1$ with $f(a) = b$ and
+			 therefore since $a$ is in $A_0$ and not $A_1$, $f(a)
+			 \in f(A_0)$. We also have $f(a) \notin f(A_1)$ since
+			 if there exists $a_1 \in A_1$ with $f(a_1) = f(a)$
+			 then $a = a_1$ since $f$ is injective, but this is not
+			 possible since $a \notin A_1$ while $a_1 \in A_1$.
+			 Thus $f(a) \in f(A_0) - f(A_1)$.  Therefore $f(A_0 -
+			 A_1) \subseteq f(A_0) - f(A_1)$. Thus we have equality
+			 of the sets
 
 	\end{enumerate}
 \end{ques}
@@ -92,6 +179,7 @@ Gylys-Colwell}}
 \begin{ques}{\S 2, 4}
 	\begin{enumerate}
 		\item
+			For any $a \in (g \circ f)^{-1}(C_0)$ there must exist a $c \in C_0$ such that $g \circ f (c) = a$
 
 		\item
 
@@ -116,6 +204,8 @@ Gylys-Colwell}}
 \end{ques}
 
 \begin{ques}{\S 3, 4}
+
+
 \end{ques}
 
 \end{document}
