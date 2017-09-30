@@ -179,13 +179,51 @@ Gylys-Colwell}}
 \begin{ques}{\S 2, 4}
 	\begin{enumerate}
 		\item
-			For any $a \in (g \circ f)^{-1}(C_0)$ there must exist a $c \in C_0$ such that $g \circ f (c) = a$
+			For any $a \in (g \circ f)^{-1}(C_0)$ there must exist
+			a $c \in C_0$ such that $g \circ f (a) = c$. Therefore
+			$f(a) \in g^{-1}(c)$ and thus $a \in
+			f^{-1}(g^{-1}(c))$. Therefore $(g \circ f)^{-1}(C_0)
+			\subseteq f^{-1}(g^{-1}(C_0))$. Conversly if $a \in
+			f^{-1}(g^{-1}(C_0))$ then there exists a $b \in
+			g^{-1}(C_0)$ such that $f(a) = b$, and then there must
+			exist a $c \in C_0$ such that $g(b) = c$. Therefore
+			$g(f(a)) = c$. Therefore $a \in f^{-1}(g^{-1}(c))$.
+			Thus we have $f^{-1}(g^{-1}(C_0)) \subseteq (g \circ
+			f)^{-1}(C_0)$. Thus we have equality of the sets
 
 		\item
+			For any $a, \bar a \in A$ with $a \neq \bar a$
+			then $f(a) \neq f(\bar a)$ since $f$ is injective.
+			Since  $f(a) \neq f(\bar a)$ we have $g(f(a)) \neq
+			g(f(\bar a))$ since $g$ is injective. Therefore $g
+			\circ f (a) \neq g \circ f (\bar a)$ and so $g \circ f$
+			is injective
 
 		\item
+			If $g \circ f$ is injective then $f$ must be injective and $g$ must
+			be injective on $f(A)$. If there exists $a, \bar a \in A$ with $a
+			\neq \bar a$ and $f(a) = f(\bar a)$ then we would have
+			$g(f(a)) = g(f(\bar a))$ which would contradict
+			injectivity of $g \circ f$. If there exists $b, \bar b
+			\in f(A)$ with $b \neq \bar b$ and $g(b) = g(\bar b)$
+			then since $b, \bar b \in f(A)$ there exists $a, \bar a
+			\in A$ with $f(a) = b, f(\bar a) = \bar b$ and thus
+			$g(f(a)) = g(f(\bar a))$ which contradicts injectivity
+			of $g \circ f$
 
 		\item
+			If $f, g$ are surjective then $f(A) = B$, $g(B) = C$.
+			Therefore we have $g(f(A)) = g(B) = C$ and thus $g
+			\circ f$ is surjective.
+		\item
+			$g$ must be surjective on $f(A)$. This is because
+			$g(f(A)) = C$. Not much can be said about surjectivity
+			of $f$ for instance we could have $A = \mathbb Z, B =
+			\mathbb Z, C = \{1\}$ and have $f = 1$, $g(x) = x$.
+
+		\item
+			\textbf{Theorem: } $g \circ f$ is bijective if and only
+			if $g$ is bijective on $f(A)$ and $f$ is injective
 
 	\end{enumerate}
 \end{ques}
@@ -193,19 +231,80 @@ Gylys-Colwell}}
 \begin{ques}{\S 2, 5}
 	\begin{enumerate}
 		\item
+			For any $a, \bar a \in A$ with $a \neq \bar a$, if $f$
+			has a left inverse $g$ and $f(a) = f(\bar a)$ then we
+			would have $g(f(a)) = g(f(\bar a))$ but $g(f(a)) = a
+			\neq \bar a = g(f(\bar a))$ which is not possible,
+			therefore $f(a) \neq f(\bar a)$ and so $f$ is injective.\\
+			For any $b \in B$, if $f$
+			has a right inverse $h$ then $f(h(b)) = b$ which means
+			$b \in f(A)$ therefore $B \subseteq f(A)$ and since
+			$f(A) \subseteq B$ we have $f(A) = B$, so $f$ is surjective.
 
 		\item
+			let $A = \{0, 1\}$ and $B = \mathbb Z$, and $f(x) = x$. We
+			have the left inverse
+			$$g(x) = \begin{cases} 
+				0 & x\leq 0 \\
+				1 & x\geq0 \\
+			\end{cases}$$
+			but $f$ is not
+			surjective so cannot have a right inverse
 
 		\item
+			let $A = \mathbb Z$ and $B = \{1\}$, and $f(x) = 1$. We
+			have the right inverse $h(x) = 1$, but $f$ is not
+			injective so cannot have a left inverse
 
 		\item
+			There can be multiple left inverses and right
+			inverses. From my answer to problem $b$ there is another
+			possible left inverse:
+			$$g(x) = \begin{cases} 
+				0 & x \in 2\mathbb Z \\
+				1 & x\notin 2\mathbb Z \\
+			\end{cases}$$
+			This $g$ has the right inverse $f$ from problem $b$ as well as the right inverse
+			$$f(x) = x + 2$$
+			
+		\item
+			We already know that if $f$ has a left inverse then it
+			is injective, and if it has a right then it is
+			surjective. Therefore $f$ is bijective. To show $g =
+			h$, for any $b \in B$, since $f$ is bijective we know
+			there exists one and only one $a \in A$ with $f(a) =
+			b$. Therefore $a = f^{-1}(b)$. By definition we have
+			$g(f(a)) = g(b) = a = f^{-1}(b)$. Similarly $f(h(b)) =
+			b$ and so $h(b) \in f^{-1}(b) = \{a\}$ so $h(b) = a$.
+			Therefore $g = h= f^{1}$
 
 	\end{enumerate}
 \end{ques}
 
 \begin{ques}{\S 3, 4}
+	\begin{enumerate}
+		\item
+			Checking properties:\\
+			Reflexivity: $f(x) = f(x)$ so $x \sim x$\\
+			Symmetry: $f(x) = f(y)$ then $f(y) = f(x)$ so $x \sim y$ means $y\sim x$\\
+			Transitivity: $f(x) = f(y)$ and $f(y) = f(z)$ then
+			$f(x) = f(z)$, so $x \sim y$ and $y \sim z$ then $x \sim z$
 
-
+		\item
+			We can define a mapping $f^* : A^* \to B$ with $f^*(r)
+			= f(a)$ for any $a \in r$.  This mapping is well
+			defined since $f^*(r) = f(a) = f(b)$ for any $a, b \in
+			r$. This mapping is surjective since for any $b \in B$,
+			since $f$ is surjective there is a $a \in A$ with $f(a)
+			= b$, therefore letting $a^*$ be the equivalence class
+			of $a$ we have $f^*(a^*) = b$. If $f^*(a^*) = f^*(b^*)$
+			for some $a^*, b^* \in A^*$ then for any $a \in a^*$
+			and $b \in b^*$ we have $f(a) = f(b)$ and therefore $a$
+			and $b$ must be in the same equivalently class: $a^* =
+			b^*$ so $f^*$ is injective. Therefore $f^*$ is a
+			bijection
+			
+	\end{enumerate}
 \end{ques}
 
 \end{document}
