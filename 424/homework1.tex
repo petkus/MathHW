@@ -74,11 +74,60 @@ Gylys-Colwell}}
 	\mathbb Q : \text{ for some } b \in B, \text{ not the smallest element
 	of }B, r = -b\}$ and $D$ is the rest of $\mathbb Q$. By definition we
 	have $x + (-x) = E|F$ where $E = \{r \in \mathbb Q: \text{ for some } a
-	\in A \text{ and some } c \in C \text{ we have } a + c = r\} $= \{r \in
-	\mathbb Q: r < 0\}|\{r \in \mathbb Q: r \geq 0\}$
+	\in A \text{ and some } c \in C \text{ we have } a + c = r\}$ and $F$
+	is the rest of $\mathbb Q$. Since $0^* = N|M = \{r \in \mathbb Q: r <
+	0\}|\{r \in \mathbb Q: r \geq 0\}$, we wish to show $N = E \Rightarrow
+	x + (-x) = 0$. For any $e \in E$ we have $e = a + c$ for some $a \in A$
+	and $c \in C$. From how $C$ was defined we know $c = -b$ for some $b
+	\in B$. By definition of a cut we know $a < b$, therefore (subtracting
+	$b$ on both sides) we have $a - b < 0$. And so from how $N$ was defined
+	we have that $e = a + (- b) \in N$, and therefore $E \subseteq N$. Now
+	take any element $n \in N$. We know that $n < 0$. Let $a$ be an element of
+	$A$ chosen such that $a + |n/2|$ is not in $A$. We know such an $a$
+	exists since if we start with any element of $A$ and iteratively add
+	$|n/2|$ we will get arbitrarily large, since $A$ is bounded from
+	above by some element of $B$ there must be a iteration which is no
+	longer in $A$, and so the previous iteration is our desired $a$.
+	Therefore we have $a + |n/2| \in B$ and so (since $n < 0$) we have $x =
+	a \in A$ and $y = a - n \in B$.  We have $x + (-y) \in E$ and $x
+	+ (-y) = a - (a - n) = n$ so $n \in E$ which means $N \subseteq E$ and
+	thus we have equality of the two sets. Thus $x + (-x) = 0^*$
 \end{ques}
 
 \begin{ques}{13}
+	\begin{enumerate}
+		\item
+			If there was no $s \in S$ such that $b - \epsilon < s$
+			then by definition $b - \epsilon$ would be an upper
+			bound of $S$. However $b - \epsilon < b$ and thus
+			contradicting $b$ being a least upper bound. Therefore
+			there must exist $s \in S$ with $b - \epsilon < s$
+		\item
+			Yes, as I have proven in part a
+		\item
+			To show that $x$ is an upper bound:\\
+			For any $a \in A$ with $a = A^*|B^*$ and $a \neq x$ we
+			have that $A^* = \{q \in \mathbb Q: q < a$. If there
+			was $b \in A^*$ with $b \notin A$ then $b < a$, $b \in
+			B$ but that contradicts every element of $B$ being
+			larger than every element of $A$, therefore $\forall b
+			\in A^*, b \in A$ and so $A^* \subset A \Rightarrow a
+			<x$.\\
+			To show that $x$ is the least upper bound:\\
+			If there exists $s < x$ with $s$ an upper bound of $A$.
+			Let $s^* = C|D$, since $s < x$ we have $C \subset A$.
+			Therefore there exists $a \in A$ with $a \notin C$.
+			Since $a \notin C$, $a \in D$ and so $a > c$ for all $c
+			\in C$. Letting $a^* = E|F$ we have that $E = \{q \in
+			\mathbb Q: q < a\}$. Therefore $C \subseteq E$ and so
+			$a \geq s$ since $s$ is an upperbound of $A$, $a = s$,
+			which contradicts $A$ not containing any upperbounds
+			(condition 3 of cuts). Therefore such an $s$ cannot
+			exist
+
+
+
+	\end{enumerate}
 \end{ques}
 
 \begin{ques}{1}
@@ -93,5 +142,13 @@ Gylys-Colwell}}
 \end{ques}
 
 \begin{ques}{2}
+\begin{enumerate}
+		\item
+			Let $x = A|B$. We know by definition $B$ is nonempty
+			and therefore there exists $y \in B$ with $y \in
+			\mathbb Q$, to avoid the case with $y = x$, let
+		\item
+
+	\end{enumerate}
 \end{ques}
 \end{document}
