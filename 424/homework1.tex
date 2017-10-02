@@ -146,8 +146,28 @@ Gylys-Colwell}}
 		\item
 			Let $x = A|B$. We know by definition $B$ is nonempty
 			and therefore there exists $y \in B$ with $y \in
-			\mathbb Q$, to avoid the case with $y = x$, let
+			\mathbb Q$. If it is the case that $y = x$ we know that
+			$x + 1 \in \mathbb Q$ and we know how ordering works
+			with rational numbers well enough to conclude $x +1 >
+			x$. Otherwise we have $y = C|D$. For any $a \in  A$ we
+			know $y > a$ since $y \in B$. We have by definition $C
+			= \{a \in \mathbb Q: a < y\}$ and therefore $a \in C$
+			so $A \subseteq C$ and so $y > x$
 		\item
+			Letting $x = A|B$ we know by definition of $0$ that $x
+			> 0 \Rightarrow C \subseteq A$ where $C = \{a \in \mathbb
+			Q: a < 0\}$ and $\exists y \in A, y\notin C$. Even
+			stronger we can say $\exists z \in A, z > 0$ since if
+			$0$ was the only element in $A$ not in $C$ then $A$
+			would contain an upperbound since $0$ would be $\geq a \ 
+			\forall a \in A$. Therefore $z > 0$. $z$ is less than
+			$x$ since $z \in A$ so the set $E$ defined by the cut
+			$z = E|F$ is contained in $A$. This is because $E = \{q
+			\in \mathbb Q: q < z\}$ and for any $q < z$ we have $q \in A$
+			since $q \in B$ would contradict elements of $B$ being
+			larger than elements of $A$. If $z = x$ then $E = A$,
+			and yet $z \in A = E$ which contradicts how rational
+			cuts are defined. Therefore $0 < z < x$
 
 	\end{enumerate}
 \end{ques}

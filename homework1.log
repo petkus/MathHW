@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  1 OCT 2017 20:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  1 OCT 2017 21:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**homework1.tex
-(./homework1.tex
+**424/homework1.tex
+(./424/homework1.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -234,13 +234,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./homework1.aux) ) 
 Here is how much of TeX's memory you used:
- 2493 strings out of 494953
- 32485 string characters out of 6180977
+ 2494 strings out of 494953
+ 32497 string characters out of 6180977
  95451 words of memory out of 5000000
  5747 multiletter control sequences out of 15000+600000
  9298 words of font info for 35 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,8n,26p,236b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,8n,26p,240b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
 </u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/t
