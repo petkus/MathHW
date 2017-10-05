@@ -37,18 +37,64 @@ Gylys-Colwell}}
 	Given $x_0 \in \mathbb R^n$ and any $\epsilon > 0$, let $\delta =
 	\epsilon$. For any $x \in B(x_0, \delta)$ we have $\lVert x
 	- x_0 \rVert < \delta = \epsilon$. We also have $| f(x) - f(x_0)
-	|= | \lVert x \rVert - \lVert x_0 \rVert |$. By the triangle inequality
-	we know $\lVert x \rVert - \lVert x_0 \rVert \leq \lVert x - x_0
-	\rVert$. And so $| \lVert x \rVert - \lVert x_0 \rVert | \leq $
+	|= | \lVert x \rVert - \lVert x_0 \rVert |$. \\
+	We know that we have $| \lVert x \rVert - \lVert x_0 \rVert | = \lVert
+	x \rVert - \lVert x_0 \rVert$ or $-(\lVert x \rVert - \lVert x_0
+	\rVert) = \lVert x_0 \rVert - \lVert x \rVert$. By the triangle
+	inequality we know both $\lVert x \rVert - \lVert x_0 \rVert \leq \lVert x -
+	x_0 \rVert$ and $\lVert x_0 \rVert - \lVert x \rVert \leq \lVert x_0 -
+	x \rVert = \lVert x - x_0 \rVert$. And so $| f(x) - f(x_0)| = | \lVert
+	x \rVert - \lVert x_0 \rVert | \leq \lVert x - x_0 \rVert < \epsilon$\\
+	Thus $f$ is continuous
 \end{ques}
 
 \begin{ques}{3.9}
+	\begin{enumerate}
+		\item
+			If there exists some $N$ such that $x_j = x_k$ for all
+			$j,k > N$ then $\delta(x_j, x_k) = 0 < \epsilon$ for
+			all $\epsilon > 0$, and so by definition $x_n$
+			converges. Conversly if $x_n$ converges, let $\epsilon
+			= 1/2$. We have that for some $N$, $\delta(x_j,x_k) <
+			1/2$ for all $j,k > N$. Since $\delta(x_j,x_k) >
+			\epsilon$ if and only if $x_j \neq x_k$, we have that
+			$x_j = x_k$ for all $j,k > N$
+		\item
+			For any $x_0 \in X$ and any $\epsilon > 0$, let $\delta
+			= 1/2$. We have that $\delta(x,x_0) < \delta$ if and
+			only if $x = x_0$, by definition of the discrete
+			metric. Therefore $B_(x_0,\delta) = \{ x_0\}$ and as
+			one of the properties of the metric, we have $d(f(x_0),
+			f(x_0)) = 0 < \epsilon$. Therefore by definition $f$ is continuous
+	\end{enumerate}
 \end{ques}
 
 \begin{ques}{3.11}
+	For a given $\epsilon > 0$, $f$ continuous means for that given $\epsilon > 0$
+	there exists a $\delta > 0 $ such that $d(x,x_i) < \delta$ implies $\rho
+	(f(x) , f(x_i)) < \epsilon$. $x_n \to x$ means there is a $N > 0$ such
+	that for $k > N$, $d(x_k,x) < \delta$ and therefore for $k > N$, $\rho
+	(f(x) , f(x_k)) < \epsilon$. Thus $f(x_n) \to f(x)$
 \end{ques}
 
 \begin{ques}{3.14}
+	For any $\theta_0 \in [0,2\pi)$, given $\epsilon > 0$ let $\delta = $.
+	For any $\theta \in [0,2\pi)$ with $|\theta - \theta_0| < \delta$ we
+	have 
+	$$\lVert f(\theta) - f(\theta_0) \rVert = \sqrt{(\cos(\theta) -
+	\cos(\theta_0))^2 + (\sin(\theta) - \sin(\theta_0)^2}$$
+	$$= \sqrt{\cos^2(\theta) - 2\cos(\theta_0)\cos(\theta) +
+	\cos^2(\theta_0) +\sin^2(\theta) - 2\sin(\theta_0)\sin(\theta) +
+	\sin^2(\theta_0)}$$
+	$$= \sqrt{2(1 - (\cos(\theta_0)\cos(\theta) + \sin(\theta_0)\sin(\theta)))}$$
+	Using the sum formula ($\cos(a - b) = \cos a\cos b + \sin a \sin b$) we have:
+	$$= \sqrt{2(1 - \cos(\theta - \theta_0))}$$
+	A common property of $\sin$ is that $|\sin x| < |x|$ since $|x|$ is the arc
+	length while $\sin$ is the vertical length of point on the unit circle.
+	Therefore $\sin^2 (\theta - \theta_0) = 1 - \cos^2 (\theta - \theta_0)
+	< (\theta - \theta_0)^2 < \delta^2$. And so we have
+	$$\lVert f(\theta) - f(\theta_0) \rVert < $$ 
+	
 \end{ques}
 
 \begin{ques}{3.17}
