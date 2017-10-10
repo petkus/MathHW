@@ -34,6 +34,8 @@
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
+\newcommand{\T}{\mathfrak{T}}
+
 \pagestyle{empty}
 \begin{document}
 
@@ -108,12 +110,87 @@ Gylys-Colwell}}
 \end{ques}
 
 \begin{ques}{3.17}
+	\begin{enumerate}
+		\item
+			By definition of open for metric spaces, we have that
+			for any $a \in \emptyset$, for any $\epsilon > 0$,
+			$B(a, \epsilon)$ is itself the empty set since $a$ does
+			not exist so $B(a, \epsilon ) \subseteq \emptyset$.
+			Thus the empty set is open
+		\item
+			For any $a \in X$ and $\epsilon > 0$ we have that $B(a,
+			\epsilon) = \{x \in X: \delta(x,a) < \epsilon\}$ thus
+			$B(a,\epsilon) \subseteq X$ and so $X$ is open
+		\item
+			For any $a \in B(x, \epsilon)$, let $ \epsilon' =
+			\epsilon - \delta(x, a)$. Thus we have for any $y \in
+			B(a, \epsilon')$ we have $\delta(y,a) < \epsilon' =
+			\epsilon - \delta(x,a)$. Thus from the triangle
+			inequality we have:
+			$$\delta(y,x) \leq \delta(x,a) + \delta(a,y) < \epsilon$$
+			Thus $y \in B(x, \epsilon)$, so $B(a, \epsilon')
+			\subseteq B(x, \epsilon)$. Thus $B(x, \epsilon)$ is open
+		\item
+			For any $x \in U_1 \cap \dots \cap U_k$, since each
+			$U_i$ is open there exists for each $U_i$ $\epsilon_i >
+			0$ where $B(x, \epsilon_i) \subseteq U_i$. Let
+			$\epsilon = \min \{\epsilon_1, \epsilon_2, \dots
+			\epsilon_k \}$. We have that $B(x, \epsilon) \subseteq
+			B(x, \epsilon_i)$ for all $i$. This is because we have
+			for any $a \in B(x, \epsilon)$ we have that
+			$\delta(a,x) < \epsilon \leq \epsilon_i$ and thus $a
+			\in B(x, \epsilon_i)$. Therefore $B(x, \epsilon)
+			\subseteq U_i$ for all $i$, so $B(x, \epsilon)
+			\subseteq U_1 \cap U_2 \cap \dots U_k$. Thus $U_1 \cap
+			\dots U_k$ is open
+	\end{enumerate}
 \end{ques}
 
 \begin{ques}{\S 13, 3}
-
+	In example 4 we have $X - X = \emptyset$ which is countable so $X \in
+	\T_c$, and $X - \emptyset = X$ so $\emptyset \in \T_c$.\\
+	For any collection of sets $A \subseteq \T_c$ we have from Demorgans laws:
+	$$X - \l(\bigcup_{U \in A}U \r) = \bigcap_{U \in A} (X - U)$$
+	Intersections of countable sets are countable, therefore $\l(\bigcup_{U
+	\in A}U \r) \in \T_c$.\\
+	For a finite collection $A \subset \T_c$ we have from Demorgans laws:
+	$$X - \l(\bigcap_{U \in A}U \r) = \bigcup_{U \in A} (X - U)$$
+	Finite unions of countable sets are countable. Therefore $\bigcup_{U
+	\in A} (X - U) \in \T_c$. Thus all the axioms of a topology are
+	satisfied, so $\T_c$ is a topology.\\
+	However we have $\T_\infty$ is not necessarily a topology:\\
+	Let $X = \Z$. Let $U = \{x \in \Z: x < 0\}$ and $V = \{x \in \Z: x >
+	0\}$. We have that $X - U = \{x \in \Z: x \geq 0\}$ is an infinite set
+	and $X-V = \{x \in Z: x \leq 0\}$ is an infinite set, so $U,V \in
+	\T_\infty$. However we have
+	$$X - \l(V \cup U\r) = \{0\}$$
+	Is not infinite. Thus $U \cup V \notin \T_\infty$. So $\T_\infty$ does
+	not satisfy the axioms of a topology.
+	
 \end{ques}
 
 \begin{ques}{\S 13, 4}
+	\begin{enumerate}
+		\item
+			We have that $X, \emptyset \in \T_\alpha$ for all $\alpha$,
+			so $X, \emptyset \in \bigcap \T_\alpha$\\
+			We have that for any collection of sets $A \subseteq
+			\bigcap \T_\alpha$, we have that for  each
+			$\T_\alpha$,  $A \subseteq \T_\alpha$, and thus since
+			$\T_\alpha$ is a topolgy
+			$$\bigcup_{U \in A} U \in \T_\alpha$$
+			so $\bigcup_{U \in A} U \in \bigcap\T_\alpha$.\\
+			For a finite collection $A \subseteq \bigcap
+			\T_\alpha$, we again have that for  each
+			$\T_\alpha$,  $A \subseteq \T_\alpha$, and thus since
+			$\T_\alpha$ is a topolgy, we have that 
+			$$\bigcap_{U \in A} U \in \T_\alpha$$
+			So $\bigcap_{U \in A} U \in \bigcap\T_\alpha$.\\
+			$\bigcup \T_\alpha$ is a topology.
+		\item
+
+			The largest topology 
+		\item
+	\end{enumerate}
 \end{ques}
 \end{document}
