@@ -28,9 +28,13 @@
 \newcommand{\R}{\mathbb R}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
 
 \newcommand{\s}{\sin}
 \renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
@@ -82,30 +86,55 @@ Gylys-Colwell}}
 \end{ques}
 
 \begin{ques}{3.11}
-	For a given $\epsilon > 0$, $f$ continuous means for that given $\epsilon > 0$
+	For a given $\epsilon > 0$, $f$ continuous means that 
 	there exists a $\delta > 0 $ such that $d(x,x_i) < \delta$ implies $\rho
 	(f(x) , f(x_i)) < \epsilon$. $x_n \to x$ means there is a $N > 0$ such
-	that for $k > N$, $d(x_k,x) < \delta$ and therefore for $k > N$, $\rho
+	that for $k > N$, $d(x_k,x) < \delta$. Therefore for $k > N$ we have $\rho
 	(f(x) , f(x_k)) < \epsilon$. Thus $f(x_n) \to f(x)$
 \end{ques}
 
 \begin{ques}{3.14}
-	For any $\theta_0 \in [0,2\pi)$, given $\epsilon > 0$ let $\delta = $.
+	For any $\theta_0 \in [0,2\pi)$, given $\epsilon > 0$ let $\delta =
+	\min(\epsilon, 1)$.
 	For any $\theta \in [0,2\pi)$ with $|\theta - \theta_0| < \delta$ we
 	have 
 	$$\lVert f(\theta) - f(\theta_0) \rVert = \sqrt{(\cos(\theta) -
-	\cos(\theta_0))^2 + (\sin(\theta) - \sin(\theta_0)^2}$$
+	\cos(\theta_0))^2 + (\sin(\theta) - \sin(\theta_0))^2}$$
 	$$= \sqrt{\cos^2(\theta) - 2\cos(\theta_0)\cos(\theta) +
 	\cos^2(\theta_0) +\sin^2(\theta) - 2\sin(\theta_0)\sin(\theta) +
 	\sin^2(\theta_0)}$$
 	$$= \sqrt{2(1 - (\cos(\theta_0)\cos(\theta) + \sin(\theta_0)\sin(\theta)))}$$
 	Using the sum formula ($\cos(a - b) = \cos a\cos b + \sin a \sin b$) we have:
 	$$= \sqrt{2(1 - \cos(\theta - \theta_0))}$$
-	A common property of $\sin$ is that $|\sin x| < |x|$ since $|x|$ is the arc
-	length while $\sin$ is the vertical length of point on the unit circle.
-	Therefore $\sin^2 (\theta - \theta_0) = 1 - \cos^2 (\theta - \theta_0)
-	< (\theta - \theta_0)^2 < \delta^2$. And so we have
-	$$\lVert f(\theta) - f(\theta_0) \rVert < $$ 
+	We can use the Taylor series of $\c \theta$ to get a bound 
+	$$= \sqrt{2\l(1 - \l(1 - \frac {(\t - \t_0)^2}{2} + \frac{(\t -
+	\t_0)^4}{4!} - \dots \r )\r ) }$$
+	Since we know $|\t - \t_0| < 1$ (since $\delta \leq 1$) we know that
+	$(\t - \t_0)^2 \geq \l(\frac{(\t - \t_0)^4}{12} - \dots \r )$ since a
+	convergent alternating series terms are always greater than the sum of
+	the terms following it. Therefore we have
+	$$ = \sqrt{\l((\t - \t_0)^2 - \frac{(\t -
+	\t_0)^4}{12} + \dots \r )} \leq \sqrt{(\t - \t_0)^2} = |\t - \t_0| <
+	\delta \leq \epsilon$$
+	And so $F$ is continous.\\
+	$F$ is surjective since for any $p = (x,y) \in S^1$, we let $\t$ be the
+	angle that $p$ makes with the origin and the point $(1,0)$ and from the
+	geometric definition of $\s$ and $\c$ we have that $\s \t = y$, $\c \t
+	= x$ and so $F(\t) = p$. $F$ is injective since if $F(\t) = F(\a)$,
+	then we have $\s \t = \s \a$, since $\t, \a \in [0, 2\pi)$ we know that
+	$\t = \pi - \a$ or $\t = \a$, then we have that $\c \t = \c \a$ which
+	means that $\t = 2\pi - \a$ or $\t = \a$. We cannot have $\pi - \a = \t
+	= 2\pi - \a$ since then $0 = \pi$ therefore $\t = \a$.\\
+	Therefore $F$ is bijective and so has an inverse mapping $F^{-1}$.\\
+	However we have that $F^{-1}(1,0) = 0$, but for $\epsilon = \pi$ and
+	any $\delta > 0$, letting $a < \min \{1/2, \delta\}$ we have that for
+	$$ p = \l(-\sqrt{1 - \frac{a^2}{4}} , \frac a 2 \r) \in S^1$$
+	with $\norm{p - 0} < \delta$ and $F^{-1}(p) = \t$ where
+	$$\t = \sin^{-1}\l(-\sqrt{1 - \frac{a^2}{4}}\r), \t = \c^{-1} \l( \frac a 2 \r) $$
+	We have that $\t > \pi$ since $\l(-\sqrt{1 - \frac{a^2}{4}}\r) < 0$ and
+	$\s^{-1} \a > \pi$ for any $\a \in (0, -1)$.\\
+	Therefore $|F^{-1}(p) - F^{-1}(0)| > \epsilon$. So $F^{-1}$ is not
+	continous
 	
 \end{ques}
 
@@ -186,11 +215,55 @@ Gylys-Colwell}}
 			$\T_\alpha$ is a topolgy, we have that 
 			$$\bigcap_{U \in A} U \in \T_\alpha$$
 			So $\bigcap_{U \in A} U \in \bigcap\T_\alpha$.\\
-			$\bigcup \T_\alpha$ is a topology.
+			$\bigcup \T_\alpha$ is not necessarily a topology:\\
+			Consider $X = \{a, b, c\}$. We have the topolgies
+			$$\T_1 = \{ \emptyset, X, \{a\}, \{a, c\}\}, \T_2 = \{
+			\emptyset, X, \{b\}, \{b, c\}\}$$
+			$$\T_1 \cup \T_2 = \{ \emptyset, X, \{a\}, \{b\}, \{a,
+			c\}, \{b, c\}\}$$
+			However $\{a, c\} \cap \{b, c\} = \{c\} \notin \T_1
+			\cup \T_2$. So $\T_1 \cup \T_2$ is not a topology
 		\item
+			The largest topology contained in all $\T_\alpha$ is 
+			$$\bigcap \T_\alpha$$
+			This follows directly from the conditions. $\bigcap
+			\T_\alpha$ is contained in all $\T_\alpha$ and any
+			topology that is contained in all $\T_\alpha$ must be
+			contained in their intersection.\\
+			The smallest topology that contains each $\T_\alpha$ is
+			the Topology $\T$ that consists of all the sets of
+			$\bigcup \T_\a $ as well as the sets obtained by taking
+			any sequence of unions and finite intersections of
+			sets in $\bigcup \T_\a $. From this construction it is clear that $\T$
+			contains all $\T_\a$. It is also clear $\T$ is a
+			topology as well since taking any union or finite
+			intersection of sets of $\T$ will again produce a set obtained
+			by taking a sequence of unions and finite
+			intersections of sets in $\bigcup \T_\a$\\
+			The reasoning that $\T$ is the smallest of the desired
+			Topologies, and is unique is as follows:\\
+			If there exists a smaller topology $G \subset \T$ where
+			$\T_\a \subset G$ for each $\T_\a$ then there must be
+			some $A \in \T$ with $A \notin G$. We know $A$ has the
+			form
+			$$A_1 \cup A_2 \dots \cap A_i \cap \dots \cup A_k
+			\dots$$
+			Where each $A_i \in \T_\a$ for some $\T_a$. However,
+			this means that $G$ is not a topology since we would
+			have that $A$ is union of sets in $G$ that is not in
+			$G$. This also implies that if there is a topology $F$
+			that contains each $\T_\a$ then $F \cap \T = \T$ since
+			for any $A \in \T$ with $A \notin F$ we have the same
+			problem. Thus $\T$ must be unique, since for any $F
+			\neq \T$ we have $ \T \subset F$ so $\T$ is smaller
+			than $F$.
 
-			The largest topology 
+			
 		\item
+			The smallest topology containing $\T_1, \T_2$ would be
+			$$\T_1 \cup \T_2 = \{\emptyset, X, \{a\}, \{b\}, \{a, b\} \{b, c\}\}$$
+			The largest topology containing $\T_1, \T_2$ would be
+			$$\T_1 \cap \T_2 = \{\emptyset, X, \{a\}\}$$
 	\end{enumerate}
 \end{ques}
 \end{document}
