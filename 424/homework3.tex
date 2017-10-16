@@ -159,7 +159,14 @@ Gylys-Colwell}}
 	\sigma(x - h -k, x - h + k)}{h}$$
 	from our result in part c we have that $\sigma(x + h -k, x + h + k) \geq
 	\sigma(x - h -k, x - h + k)$. Thus $f''(x) \geq 0$.\\
-	Conversly if $f''(x) \geq 0 \forall x \in (a,b)$,
+	Conversly if $f''(x) \geq 0 \forall x \in (a,b)$, if there was $v < w \in (a,b)$
+	with a point $u = tv + (1-t)w$ with $f(u) > tf(v) + (1-t)f(w)$. We can use
+	the mean value thm:\\
+	There exists $g \in (v,u)$ and $h \in (u,w)$ where  $g < h$ and $f'(g) = \frac{f(u) -
+	f(v)}{u-v} > 0$ and $f'(h) = \frac{f(w) - f(u)}{w-u} < 0$. Thus we have
+	from the mean value thm that there exists $d \in (g, h)$ such that $f''(d)
+	= \frac{f'(h) - f'(g)}{h - g} < 0$. Thus we have a contradiction, so $f(x)$
+	must be convex.
 	
 \end{enumerate}
 \end{ques}
