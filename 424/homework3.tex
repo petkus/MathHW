@@ -1,0 +1,212 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 424, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{28}
+\begin{enumerate}
+\item
+	This can be proven with induction on the number of points: \\
+	Base case, for $2$ points $w_1, w_2$ we have that any point on the the
+	convex combination is of the form $w_1 t + w_2(t-1)$ where $t \in [0,1]$.
+	Therefore by definition of convex, we know that $E$ contains all of these
+	points.\\
+	Inductive step:\\
+	For $w_1, \dots w_{k+1}$ we have that any point $w$ in the convex combination
+	is of the form
+	$$w =s_1w_1 + \dots s_{k+1}w_{k+1}$$
+	Let $t = \frac{-1}{s_{k+1} - 1}$. We have that 
+	$$m = (1 - t)w_{k+1} + tw = \frac{1}{1 - s_{k+1}}(s_1w_1 + \dots s_kw_k +
+	(s_{k+1} - s_{k+1})w_{k+1})$$
+	Since $w$ is in the convex combination we have that $s_1 + \dots s_k = 1 -
+	s_{k+1}$. Thus we have that the coeffecients of $m$ add up to $1$ and the
+	$w_{k+1}$ term is zero, so $m$ is in the convex combination of the $k$
+	points $w_1 \dots w_k$, thus by inductive hypothesis is
+	in $E$. We have that
+	$$w = \frac{1}{t}m - \frac{1 - t}{t} w_{k+1}$$
+	where $\frac 1 t = 1 - s_{k+1} \leq 1$ and $\frac {1-t}{t} = 1 - \frac 1
+	t$. Thus $w$ lies on the line from $m$ to $w_{k+1}$ and thus must be in $E$
+	since $E$ is convex
+
+\item
+	The converse is fairly obvious because if a set contains the convex
+	combination of any two points then we have that any point on the the
+	convex combination is of the form $w_1 t + w_2(t-1)$ where $t \in [0,1]$,
+	which by definition means that $E$ is convex
+\end{enumerate}
+\end{ques}
+
+\begin{ques}{29}
+\begin{enumerate}
+\item
+	$E$ is the unit ball for the dot product defined by $\langle (x, y, z) , (x',
+	y', z') \rangle = \frac{xx'}{a^2} +  \frac{yy'}{b^2} +  \frac{zz'}{c^2}$. It is
+	clear that the axioms of a inner product are satisfied:
+	$$(x, y, z) \cdot (x', y', z') = \frac{xx'}{a^2} +  \frac{yy'}{b^2} +
+	\frac{zz'}{c^2} = (x', y', z') \cdot (x, y, z)$$
+	$$(x, y, z) \cdot (sx', sy', sz') = \frac{sxx'}{a^2} +  \frac{syy'}{b^2} +
+	\frac{szz'}{c^2} = s(x, y, z) \cdot (x', y', z') $$
+	$$(x, y, z) \cdot (x, y, z) = \frac{x^2}{a^2} +  \frac{y^2}{b^2} +
+	\frac{z^2}{c^2} > 0 \text{ and } = 0 \Leftrightarrow x = y= z = 0$$
+	Thus using the norm defined by $\norm x  = \sqrt{\langle x, x\rangle}$, we
+	have $E = \{x \in \R ^3: \norm x \leq 1$. Thus we have that for any $a, b
+	\in E$ with the point $c = at + b(1-t)$ for some $t \in [0,1]$ we can use the
+	triangle inequality
+	$$\norm c = \norm {at +b(1-t)} \leq \norm {at} + \norm{b(1-t)} = t\norm a +
+	(1-t)\norm b$$
+	and thus since $\norm a \leq 1, \norm b \leq 1$
+	$$\norm c\leq t + 1-t = 1$$
+	so $c \in E$, thus $E$ is convex
+	
+\item
+	Letting $E = [a_1,b_1] \times [a_2,b_2] \times \dots [a_m, b_m]$ we have that
+	for any $x = (x_1, x_2 \dots x_m), y = (y_1, y_2 \dots y_m) \in E$ with the
+	point $z = xt + z(1-t)$ for some $t \in [0,1]$ we have that with $z = (z_1,
+	z_2 \dots z_m)$, for each $i$, $a_i \leq x_i, y_i \leq b_i$, so 
+	$$ta_i + (1-t)a_i \leq tx_i + (1-t)y_i \leq tb_i (1-t)b_i$$
+	so since $z-i = tx_i + (1-t)y_i$, we have
+	$$a_i \leq z_i \leq b_i$$
+	For all $i$. Thus $z \in E$, so $E$ is convex
+
+\end{enumerate}
+\end{ques}
+
+
+\begin{ques}{30}
+\begin{enumerate}
+\item
+	for any $v = (v_1,v_2), w = (w_1,w_2) \in S$ with the point $u = tv + (1-t)w =
+	(u_1, u_2)$, we have that
+	$$f(u_1) = f\l(tv_1 + (1-t)w_1\r)  \leq tf(v_1) + (1 - t)f(w_1) \leq tv_2 +
+	(1-t)w_2 = u_2$$
+	Thus $S$ is convex if $f$ is convex. Conversly, if there exists $x,y \in (a,b)$
+	with $s,t\in [0,1]$ and $s+t = 1$ where
+	$$f(sx + ty) > sf(x) + tf(y)$$
+	then we have that for $(x,f(x)), (y,f(y)) \in E$, we have the point on the
+	line between them $(sx + ty, sf(x) + tf(y))$ with 
+	$$f(sx + ty) > sf(x) + tf(y)$$
+	Therefore we have $(sx + ty, sf(x) + tf(y)) \notin E$ so $E$ would not be
+	convex
+
+\addtocounter{enumi}{1}
+\item
+	Suppose we have $a< x< x' < u < u' <b$. We can write
+	$$\sigma(x,u) = \frac{f(u) - f(x)}{u - x}$$
+	We can write
+	$$u = \frac{u - x}{u' - x}u' + \l(1 - \frac{u - x}{u' - x}\r)x$$
+	Letting $t = \frac{u - x}{u' - x}$ we have $0 \leq t \leq 1$. And so
+	$$\frac{f(u) - f(x)}{u - x} = \frac{f(tu' + (1-t)x) - f(x)}{tu' + (1-t)x - x}$$
+	using convexity of $f$ we have
+	$$\leq \frac{tf(u') + (1-t)f(x) - f(x)}{tu' + (1-t)x - x} = \frac{tf(u')
+	-tf(x)}{tu' -tx}$$
+	$$= \frac{f(u') - f(x)}{u'-x}$$
+	Similarly letting $t = \frac{x' - x}{u-x}$ we have $0 \leq t \leq 1$. We
+	have $x' = ut + (1-t)x$ So we have
+	$$\frac{f(u) - f(x')}{u - x'} = \frac{f(u) - f(tu + (1-t)x)}{u - (tu + (1-t)x)}$$
+	using convexity of $f$ we have
+	$$\geq \frac{f(u) - (tf(u) + (1-t)f(x))}{u - (tu + (1-t)x)} = \frac{tf(u)
+	-tf(x)}{tu -tx}$$
+	$$= \frac{f(u) - f(x)}{u-x}$$
+\item
+	If $f$ is convex we can use the previous result:\\
+	$$f''(x) = \lim_{h \to 0} \lim_{k \to 0} \frac{\sigma(x + h -k, x + h + k) -
+	\sigma(x - h -k, x - h + k)}{h}$$
+	from our result in part c we have that $\sigma(x + h -k, x + h + k) \geq
+	\sigma(x - h -k, x - h + k)$. Thus $f''(x) \geq 0$.\\
+	Conversly if $f''(x) \geq 0 \forall x \in (a,b)$,
+	
+\end{enumerate}
+\end{ques}
+
+\begin{ques}{39}
+	(a) \ We have that every algebraic number is a root of some polinomial over $\Z$
+	therefore there is a surjective mapping from the set of polinomials to the
+	set of algebraic numbers. Thus showing there are a countable number of
+	polinomials will show the algebraic numbers are countable.\\
+	We can define a surjective mapping $\phi$ from the denumerable union of finite
+	cartesian products of denumerable sets:
+	$$S = \bigcup_{i \in \Z} \Z^i$$
+	Which by corollary 18 and thm 17 is denumerable, to the set of polinomials.\\
+	We define for any $(a_0, a_1, a_2, \dots a_n) \in \Z^n$, $\phi(a_0, a_1,
+	a_2, \dots a_n) = a_nx^n + a_{n-1}x^{n-1} \dots + a_0$. $\phi$ is surjective since
+	for any polinomial $p = a_nx^n + a_{n-1}x^{n-1} + \dots a_1x + a_0$ we have
+	$\phi(a_0, a_1, a_2, \dots a_n) = p$. Thus the set of polinomials is
+	countable, and thus the set of algebraic numbers is countable
+	
+\end{ques}
+
+\begin{ques}{47}
+	(a) \ We can use the bilinearity of the dot product:
+	$$|x + y|^2 + |x - y|^2 = (x + y) \cdot (x + y) + (x-y) \cdot (x-y) = x
+	\cdot (x + y) + y \cdot (x + y) + x \cdot (x-y) - y \cdot (x - y)$$
+	$$= x \cdot x + 2 x \cdot y + y \cdot y + x \cdot x - 2x \cdot y + y \cdot x
+	= |x|^2 + |y|^2$$
+\end{ques}
+
+\begin{ques}{1}
+\begin{enumerate}
+\item
+	This follows directly from the triangle inequality, which follows from the
+	Cauchy-Shwartz inequality which applies to all inner products:
+	$$|(1-t)x + ty| \leq |(1-t)x| + |ty| = (1-t)|x| + t|y| = 1 - t + t = 1$$
+	
+\item
+	For the first norm, let $x = (1, 0, 0, 0 \dots 0), y = (0, 1, 0, 0
+	\dots 0)$, $|x| = |y| = 1$. We have $|1/2 x + 1/2 y| = |(1/2, 1/2, 0, 0
+	\dots 0)| = 1 \not <
+	1$.  For the second norm we have $x = (1, 0, 0, 0 \dots 0), y = (1, 1, 0, 0
+	\dots 0)$, we have $|x| = |y| = 1$ and $|1/2x + 1/2 y| = |(1, 1/2, 0, 0,
+	\dots 0)| = 1 \not < 1$
+	Thus the norms cannot be of the form
+	$\sqrt{\langle \cdot, \cdot \rangle}$
+	since they are not strictly convex
+
+\end{enumerate}
+\end{ques}
+\end{document}
