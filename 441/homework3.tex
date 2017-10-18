@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig, mathtools}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+\newcommand\ceil[1]{\lceil#1\rceil}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 441, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{\S 16, 1}
+	We have that the topology $\T_X$ of $A$ inherited as a subspace of $X$ is
+	the set of open sets of $X$ intersected with $A$. The topology $T_Y$ of $A$
+	inherited as a subspace of $Y$ is the set of open sets of $Y$ intersected
+	with $A$. We have that each open set of $Y$ is an open set of $X$
+	intersected with $Y$. Therefore for any open set $V \in \T_X$ we have that
+	$V = U \cap A$ where $U$ is an open set of $X$. Since $A \subseteq Y$ we
+	have that $U \cap A \subseteq Y$ so $V = U \cap A = Y \cap (U \cap A) = (Y \cap
+	U) \cap A$. We have that $Y \cap U$ is an open set of $Y$ so $V \in \T_Y$.
+	Thus $\T_X \subseteq \T_Y$. Conversly if $V \in \T_Y$ we have that $V = U
+	\cap A$ for an open set $U$ of $Y$. By definition we have that $U = Y \cap
+	W$ where $W$ is an open set of $X$, thus $V = (Y \cap W) \cap A = W \cap (Y
+	\cap A)$ and since $A \subseteq Y$ we have $Y \cap A = A$ so $V = W \cap
+	A$, and thus $V \in \T_X$. So $\T_Y \subseteq \T_X$. And so $\T_X = \T_Y$
+\end{ques}
+
+\begin{ques}{\S 16, 6}
+	We will call $\T$ the collection described in the problem. For any $x =
+	(x_1, x_2) \in \R^2$, we have that 
+	$$ x \in (\floor{x_1} - 1, \ceil{x_1} + 1) \times (\floor{x_2} - 1,
+	\ceil{x_2} + 1) \in \T$$
+	Thus there is an elt in $\T$ that contains $x$ for any $x \in \R^2$.\\
+	Letting $A = (a,b) \times (c,d)$ and $B = (e,f) \times (g,h)$ with $A, B
+	\in \T$ we have that
+	$$A \cap B = \{(x,y): \max\{a,e\} < x < \min\{b,f\}, \max\{c, g\} < y <
+	\min\{d,h\}\}$$
+	Since $a,b,c,d,e,f,g,h \in \Q$ we know that each of these max and mins are
+	in $\Q$ thus we have that $A \cap B \in \T$, therefore for any $x \in A
+	\cap B$ we have $x \in A \cap B \in \T$ with $A \cap B \subseteq A \cap B$.
+	Thus all the conditions of being a basis are satisfied, so $\T$ is a basis.
+	
+\end{ques}
+
+\begin{ques}{\S 17, 1}
+	We have $X - X = \emptyset, X - \emptyset = X$.\\
+	We can use demorgans law, for any arbitrary union:
+	$$\bigcup (X - C_i) = X - \bigcap C_i = X - C \in \T$$
+	for some $C \in \mathcal C$. For a finite intersection:
+	$$\bigcap_{i \in [n]} (X - C_i) = X - \bigcup_{i \in [n]} C_i = X - C \in \T$$
+	for some $C \in \mathcal C$.\\
+	Thus all the axioms of a topology are satisfied
+\end{ques}
+
+\begin{ques}{\S 17, 2}
+	We have that $Y - A$ is an open set in $Y$ and thus $Y - A = U \cap Y$
+	where $U$ is an open set in $X$. Since $Y$ is closed, $X - Y$ is open, we have that
+	$$X - A = (Y - A) \cup (X - Y) = U \cup (X - Y)$$
+	and thus $X - A$ is the union of open sets in $X$ and so $A$ is a closed in
+	$X$.
+\end{ques}
+\end{document}
