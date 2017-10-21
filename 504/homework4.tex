@@ -1,0 +1,158 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 504, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$4}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{3.1}
+	(1)\ We can define the following isomorphism:
+	$\phi : H \rtimes_\varphi K \to  H \rtimes_{\varphi \circ \lambda} K$\\
+	With $\phi(h,k) = (h, \lambda^{-1}(k))$. It is clear $\phi$ is bijective since
+	we can define the inverse mapping $\phi^{-1}(h,k) = (h,\lambda(k))$. $\phi$
+	is a homomorphism as follows:
+	$$\phi \l( (h, k)(h', k') \r) = \phi (h\varphi(k)(h'), kk') =
+	(h\varphi(k)(h'),\lambda^{-1}(kk'))$$
+	$$=(h\varphi(\lambda(\lambda^{-1}(k)))(h'),\lambda^{-1}(kk')) = (h,
+	\lambda^{-1}(k))(h', \lambda^{-1}(k')) = \phi (h, k) \phi (h', k') $$
+	Thus  $\phi$ is an isomorphism and thus $H \rtimes_\varphi K \cong H
+	\rtimes_{\varphi \circ \lambda} K$\\
+	\\
+	(2)\ We can define the isomorphism:
+	$\phi : H \rtimes_\varphi K \to  H \rtimes_{\psi \circ \varphi \circ \psi^{-1}} K$\\
+	With $\phi(h,k) = (\psi(h), k)$. It is clear $\phi$ is bijective since
+	we can define the inverse mapping $\phi^{-1}(h,k) = (\psi^{-1}(h),k)$. $\phi$
+	is a homomorphism as follows:
+	$$\phi \l( (h, k)(h', k') \r) = \phi (h\varphi(k)(h'), kk') =
+	(\psi(h\varphi(k)(h')),kk')$$
+	$$=(\psi(h)\psi(\varphi(\psi^{-1}(\psi(k))))\psi(h'),kk') = (\psi(h),
+	k)(\psi(h'), k') = \phi (h, k) \phi (h', k') $$
+	Thus  $\phi$ is an isomorphism and thus $H \rtimes_\varphi K \cong H
+	\rtimes_{\psi \circ \varphi \circ \psi^{-1}} K$\\
+\end{ques}
+
+\begin{ques}{3.2}
+	(1) \ Consider the canonical homomorphism: 
+	$\pi : R \to R/I_1 \times \dots \times R/I_k$ where $\pi(r) = r + I_1
+	\times \dots \times r + I_k$.\\
+	We have that $r \in \ker(\pi)$ iff $r \in I_1 \cap \dots \cap I_k$. Thus if
+	we can show that $\pi$ is surjective and $I_1 \cap \dots \cap I_k$ = $I_1
+	\dots I_k$ Then we have proven the claim. We will use induction on the
+	number of ideals:\\
+	Base case, ($k=2$):\\
+	It is clear that $I_1I_2 \subseteq I_1 \cap I_2$ for the other direction we
+	have that since $I_1 + I_2 = R$ there exists $x \in I_1$ and $y \in I_2$
+	with $x + y = 1$. Thus for any $a \in I_1 \cap I_2$ we have that $a = ax +
+	ay \in I_1I_2$ thus $I_1I_2 = I_1 \cap I_2$. Additionaly we have with the same
+	$x, y$, for any $(a, b) \in R/I_1 \times R/I_2$, $\pi(x + y) =
+	\pi(1) = (1, 1)$, $\pi(x) + \pi(y) = (1, 1)$, since $x \in I_1$ we know
+	$\pi(x)$ is zero in the $I_1$ component, same goes with $y$ for the $I_2$
+	component and thus $\pi(x) = (0,1)$, $\pi(y) = (1,0)$. So
+	$$\pi(bx + ay) =(a, b)$$
+	So $\pi$ is surjective, proving the base case.\\
+	We can reduce the $k+1$ step to the $k$ step in the following manner:\\
+	Define $\mathcal I = I_1 I_2 \dots I_k$. We have to show that
+	$\mathcal I + I_{k+1} = R$ and then we can apply our base case reasoning.
+	$I_i + I_{k+1} = R$ for each $I_i \neq I_{k+1}$ and so there exists $x_i
+	\in I_i, y_i \in I_{k+1}$ with $x_i + y_i = 1$, we have that
+	$$1 = (x_1 + y_1)(x_2 + y_2) \dots (x_k + y_k)$$
+	Factoring the product on the right we have each term is multiplied by an
+	$x_i$ and thus an element of $I_{k+1}$ except for the $y_1y_2 \dots y_k$
+	term wich is an elt of $\mathcal I$. Thus $1 \in \mathcal I + I_{k+1}$, and
+	since if an Ideal contains $1$ it is $R$ we have $\mathcal I + I_{k+1} = R$.\\
+	Thus we have from our inductive hypothesis
+	$$R/I_1 \cap \dots \cap I_{k+1} = R/\mathcal I \cap I_{k+1} \cong
+	R/\mathcal I \times R/I_{k+1} \cong R/ I_1 \times R/I_2 \dots \times R/I_{k+1} $$
+	(2) \ We can use the chinese remainder theorem:\\
+	Let $I_i = p_i^{a_i}$ for each $i$. For any $I_i, I_j$ with $i \neq j$ we
+	have that the $\gcd (p_i^{a_i},p_j^{a_j}) = 1$ and thus from the euclidean
+	algorithm we know there exists $n, m \in \Z$ with $np_i^{a_i} + mp_j^{a_j}
+	= 1$ and thus $1 \in I_i + I_j \Rightarrow I_i + I_j = \Z$. The last thing
+	to check is that $n\Z = I_1\cap I_2 \cap\dots \cap I_k$. Since for each
+	$i$, $p_i^{a_i}|n$, it is clear $n\Z \subseteq I_1\cap I_2 \cap\dots \cap
+	I_k$. For any $x \in I_1\cap I_2 \cap\dots \cap I_k$ we have that
+	$p_i^{a_i}|x$ for all $i$ and so $n|x \Rightarrow I_1\cap I_2 \cap\dots
+	\cap I_k \subseteq n\Z$. Thus $I_1\cap I_2 \cap\dots \cap I_k = n\Z$, and so
+	all the conditions of the chinese remainder thm are satisfied:
+	$$\Z/n\Z \cong \Z/I_1 \times \dots \times \Z/I_k$$
+	(3) \ 
+
+
+\end{ques}
+
+\begin{ques}{3.3}
+\end{ques}
+
+\begin{ques}{3.4}
+	Let $R$ be a ring
+\end{ques}
+
+\begin{ques}{3.5}
+	(1) \ We have by definition that $Z(R)$ is commutative and since $R$ is a
+	division ring every non-zero
+	elt is a unit. Thus all we have to check is that $Z(R)$ is closed under
+	multiplcation, addition, and inverses.\\
+	We have for any $x, y \in Z(R)$ and arbitrary $r \in R$
+	$$(x + y)r = xr + yr = rx + ry = r(x + y) \Rightarrow x + y \in Z(R)$$
+	$$(xy)r = r(xy) \Rightarrow xy \in Z(R)$$
+	$$x^{-1}r = x^{-1}rxx^{-1} = rx^{-1}\Rightarrow x^{-1} \in Z(R)$$
+	$$(-x)r = (-1)xr = r(-x)\Rightarrow -x \in Z(R)$$
+	Thus $Z(R)$ is a field\\
+	\\
+	(2) \ The center of $M_n(R)$ consists of all diagonal matricies with
+	entries in $Z(R)$.
+\end{ques}
+
+\begin{ques}{3.6}
+	(1) \ We have that
+	$$(1 + x)^{-1} = \sum^{\infty}_{n=0} (-1)^nx^n$$
+	Since
+	$$(1 + x)\sum^{\infty}_{n=0} (-1)^nx^n = 1 + (x - x) + (-x^2 + x^2) + (x^3
+	- x^3) \dots = 1$$
+	(2)
+\end{ques}
+\end{document}
