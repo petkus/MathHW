@@ -119,16 +119,156 @@ Gylys-Colwell}}
 	\cap I_k \subseteq n\Z$. Thus $I_1\cap I_2 \cap\dots \cap I_k = n\Z$, and so
 	all the conditions of the chinese remainder thm are satisfied:
 	$$\Z/n\Z \cong \Z/I_1 \times \dots \times \Z/I_k$$
-	(3) \ 
+	(3) \ If we have $\pi : R \to R_1 \times R_2$ is an isomorphism, let $e_1 =
+	\pi^{-1}(1,0), e_2 = \pi^{-1}(0,1)$. We have in $ R_1
+	\times R_2$ that $(1,0)^2 = (1,0)$, $(0,1)^2 = (0,1)$, $(0,1)(1,0) =
+	(0,0)$, $(1,0) + (0,1) = (1,1)$ and so composing $\pi^{-1}$ with these
+	equalities yields $e_1^2 = e_1, e_2^2 = e_2, e_1e_2 = 0$, $e_1 + e_2 = 1$.\\
+	Conversly if $\exists e_1, e_2 \in R$ with the described properties, then
+	consider the ideals $I_1 = e_1R, I_2 = e_2R$. We have that $e_1 + e_2 = 1
+	\in I_1 + I_2$ and so $I_1 + I_2 = R$. We also have that 
+	$$I_1I_2 = \{\sum_{k=1}^n e_1x_ke_2y_k: x_k,y_k \in R, n \in \Z^+\}$$
+	Since $e_1x_ke_2y_k = e_1e_2x_ky_k = 0$ we have $I_1I_2 = \{0\}$ and thus from
+	the chinese remainder thm we have
+	$$R \cong R/I_1I_2 \cong R_1 \times R_2$$
+	where $R_1 = R/I_1$, $R_2 = R/I_2$
 
 
 \end{ques}
 
 \begin{ques}{3.3}
+	We will define $\lambda: S^{-1}R \to A$ as $\lambda(a,b) =
+	\psi(a)\psi(b)^{-1}$. We must check that $\lambda $ is well defined, is a
+	homomorphism, commutes as $\varphi \circ \lambda = \psi$, and is unique.\\
+	Checking $\lambda$ is well defined:\\
+	We have for $(a,b) = (c,d) \in S^{-1}R$, then for some $t \in S$ $t(ad -
+	bc) = 0$ so $\psi(t)(\psi(ad) - \psi(bc)) = 0$, since $\psi(t)$ is a unit,
+	we have $\psi(ad) = \psi(bc)$ and so $\lambda(a,b) = \psi(a)\psi(b)^{-1} =
+	\psi(c)\psi(d)^{-1} = \lambda(c,d)$\\
+	Checking $\lambda$ is homomorphism:\\
+	For any $(a,b), (c,d) \in S^{-1}R$ we have 
+	$$\lambda((a,b)(c,d)) = \lambda(ac,bd) = \psi(ac)\psi(bd)^{-1} =
+	\lambda(a,b)\lambda(c,d)$$
+	$$\lambda((a,b)+ (c,d)) = \lambda(ad + bc, bd) = \psi(ad + bc)\psi(bd)^{-1}
+	= \psi(ad)\psi(bd)^{-1} + \psi(bc)\psi(bd)^{-1} = \lambda(ad, bd) + \lambda(bc, bd)$$
+	We have $adb - adb = 0$ so $(ad, bd) \sim (a,b)$ and $(bc,bd) \sim (c,d)$ so
+	$$= \lambda(a,b) + \lambda(c,d)$$
+	Thus $\lambda$ is a homomorphism
+	\\
+	Checking $\lambda \circ \varphi = \psi$:\\
+	We have that for any $r \in R$, $\lambda(\varphi(r)) = \lambda(r,1) =
+	\psi(r)\psi(1)^{-1} = \psi(r)$. Thus $\lambda \circ \varphi = \psi$
+	\\
+	Checking uniqueness:\\
+	If there exists $\lambda':S^{-1}R \to A$ such that $\lambda' \circ \varphi
+	= \psi$, we have that for any $r \in R$, $\lambda' \circ \varphi(r) =
+	\lambda'(r,1) = \psi(r)$. Thus $\lambda ' (r,1) = \lambda(r,1) \forall r
+	\in R$. However we have that $1r - r1 = 0$ so $\lambda'(1,r)\lambda'(r,1) =
+	\lambda'((1,r)(r,1)) = \lambda'(r,r) = \lambda'(1,1) = 1$ Thus we have
+	$\lambda'(1,r) = \lambda'(r,1)^{-1} = \psi(r)^{-1} = \lambda(1,r)$. Thus
+	for any $(a,b) \in S^{-1}R$, $\lambda'(a,b) = \lambda'(a,1)\lambda'(1,b) =
+	\lambda(a,1)\lambda(1,b) = \lambda(a,b)$. So $\lambda' = \lambda$ and so
+	$\lambda$ is unique
+
+
 \end{ques}
 
 \begin{ques}{3.4}
-	Let $R$ be a ring
+	(1) \ If we consider the canonical homomorphism $\pi: R \to R/I$, with
+	$\pi(r) = r + I$, we have the
+	bijection from prime ideals in $R$ containing $I$ to prime ideals of $R/I$
+	by taking $P \subset R$ to $\pi(P)$. First we have to check this mapping
+	actually takes prime ideals to prime ideals:\\
+	If $P$ is a prime ideal of $R$ we have that for any $p + I \in \pi(P)$
+	(letting $p \in P$), $a + I, b + I \in R/I$, $(p + I)(a + I) = pa + I \in
+	\pi(P)$ since $pa \in P$ so $\pi(P)$ is an ideal. If $(a + I)(b + I) = ab + I \in
+	\pi(P)$ then we have that $ab + i = p$ for some $i \in I$, $p \in P$. Since
+	$I \subseteq P$ we have $ab = p - i \in P$ and so either $a$ or $b$ is in
+	$P$. Thus $\pi(P)$ is prime. \\
+	Now we have to check injectivity and surjectivity.\\
+	If we have prime ideals $P, Q \subseteq R$ containing $I$ with $\pi(P) =
+	\pi(Q)$ then for any $p \in P$ we have $p + I \in \pi(Q)$ so $p + i = q$
+	for some $i \in I, q \in Q$. We have $q - i \in Q$ so $p \in Q$, thus $P
+	\subseteq Q$, this argument could be repeated switching the labels of $P$
+	and $Q$ to get $Q \subseteq P$ and thus $P = Q$ so our mapping is
+	injective. \\
+	If $Q$ is a prime ideal of $R/I$ then if we consider the pullback $P =
+	\pi^{-1}(Q)$, if we prove that $P$ is a prime ideal containing $I$, then by
+	definition of the pullback we have $\pi(P) = Q$ and so our mapping is
+	surjective. For any $p, a, b \in R$ with $p \in P$ and $a, b \in R$ we have
+	that $\pi(pa) = \pi(p)\pi(a) \in Q$ since $\pi(p) \in Q$, thus $pa \in P$
+	and so $P$ is an ideal. If $ab \in P$ then$\pi(ab) =  \pi(a)\pi(b) \in Q$
+	and since $Q$ is prime, either $\pi(a)$ or $\pi(b)$ is in $Q$ so $a$ or $b$
+	is in $P$, so $P$ is prime. Finally we have that $\pi(I) = 0 + I \in Q$ so
+	$I \subseteq P$ and thus $P$ is a prime ideal containing $I$ with $\pi(P)=
+	Q$. So we have surjectivity.\\
+	\\
+	(2) \ If we consider the homomorphism $\pi: R \to S^{-1}R$ with $\pi(r) =
+	(r,1)$ then we have the bijective mapping from prime ideals of $R$ to prime
+	ideals of $S^{-1}R$ by taking $P$ to the extension $(S^{-1}R)\pi(P)$(the
+	ideal generated by $\pi(P)$). I will use the notation $P^e$ to signify this
+	extension, and for an Ideal $I \subset S^{-1}R$, I will say $I^c$ to
+	signify the contraction $\pi^{-1}(I)$. This is the same notation used in
+	Dummit and Foot.\\
+	We have to check that this mapping actually takes prime ideals to prime
+	ideals, We will also show that there is an inverse mapping (and thus our
+	mapping is bijective).\\
+	First we will show for prime ideal $P \subseteq R$ with $P \cap S =
+	\emptyset$, we have $P^e = \{(x,y): x \in P, y \in S\}$. For any elt $(a,b)
+	\in P^e$ we have from definition that $(a,b) = (p_1, 1)(c_1,d_1) + (p_2,
+	1)(c_2,d_2) + \dots (p_n, 1)(c_n, d_n)$ with $p_i \in P$ for each $p_i$,
+	thus using the definition of addition in $S^{-1}R$ we get
+	$$a = p_1c_1(d_2d_3 \dots d_n) + p_2c_2(d_1d_3 \dots d_n) + \dots + p_nc_n(d_1
+	\dots d_{n-1})$$
+	Therefore $a \in P$ since it is a sum of terms in $P$, and thus $P^e =
+	\{(x,y): x \in P, y \in S\}$\\
+	Now we can show $P^e$ is prime. We have
+	that for any $(a, b), (c,d) \in S^{-1}R$, if $(a,b)(c,d) \in P^e$ then
+	$(ac, bd) \in P^e$ we have that $ac \in P$ since $P^e =
+	\{(x,y): x \in P, y \in S\}$. Therefore either $a \in P$ or $c \in P$, so
+	either $(a,b) \in P^e$ or $(c,d) \in P^e$ so $P^e$ is prime.\\
+	The inverse mapping of taking the extensions is taking the contraction. By
+	showing $(P^e)^c = P$ we have completed our proof. For any $p \in P$ we
+	have that $\pi(p) \in P^e$ and so $p \in \pi^{-1}(P^e)$, thus $p \in
+	(P^e)^c$ so $P \subseteq (P^e)^c$. For any $r \in (P^e)^c$ we have that
+	$\pi(r) \in P^e$ and thus $(r, 1) \in P^e$. Thus we have that
+	$$(r,1) \sim (p,s)$$
+	For some $p \in P$, $s \in S$. So for some $t \in S, t(rs - p) = 0$. Thus we have
+	$r(ts) = pt$. $pt \in P$ so $r(ts) \in P$, since $ts \in S$ and $S \cap P =
+	\emptyset$ we have that $ts \notin P$ so $r \in P$. Thus $(P^e)^c \subseteq
+	P$ so $P = (P^e)^c$\\
+	\\
+	(3) \ In part (1) we do have a bijection: for any maximal ideal $M$
+	containing $I$ we have that $\pi(M)$ is maximal in $R/I$. The reasoning is
+	that if we follow the proof written for part (1), it follows that for any
+	ideal $I'$ containing $I$, $\pi(I')$ is an ideal. Therefore $\pi(M)$ is an
+	ideal, if there exists an ideal $S$ with $\pi(M) \subset S \subset R/I$
+	then $\pi^{-1}(S)$ is an ideal $\subset R$ and $M \subset \pi^{-1}(S)$,
+	which is contradicts $M$ maximal, thus $\pi(M)$ is maximal. This is because
+	for any $a \in R, b \in \pi^{-1}(S)$ we have that $\pi(ab) = \pi(a)\pi(b)
+	\in S$ so $ab \in \pi^{-1}(S)$ so $\pi^{-1}(S)$ is an ideal. For $s \in S,
+	s \notin \pi(M)$ we have that $\pi^{-1}(s) \not \subset M$ and for $m \in
+	M$, $\pi(m) \in S$ so $m \in \pi^{-1}(S)$ so $M \subset \pi^{-1}(S)$.\\
+	Our proof of injectivity for maximal ideals is the same as proven in part
+	(1) since primality was never used. For surjectivity we have shown that the
+	pullback of a maximal ideal is an ideal already. We also know it is maximal
+	since if $S$ is maximal in $R/I$ then if $\pi^{-1}(S) \subset M \subset R$
+	then $S \subset \pi(M) \subset R/I$.\\
+	For part (2) we also have a bijection.\\
+	All maximal ideals are prime ideals, so we have already illustrated our inverse
+	mapping is well defined for maximal ideals (and thus we have bijectivity)
+	we just have to check our mapping maps maximal ideals to maximal ideals:\\
+	For any Maximal ideal $M$ of $R$ with $M \cap S = \emptyset$ we have that
+	$M^e$ is maximal in $S^{-1}R$. If there exists a maximal ideal $A \subset
+	S^{-1}R$ with $M^e \subset A$ then we have from our established
+	correspondence that $A^c$ is a prime ideal in $R$. We already know then
+	that $\pi^{-1}(M^e) = M \subseq \pi^{-1}(A)$ since $M^e \subset A$. We have
+	that $M \subset A^c$ since $\exists (a,b) \in A$ where $(a,b) \notin M^e$
+	we have that $(a,1) = (a,b)(b,1) \in A$ and $(a,1) \notin M^e$ since $M^e$
+	is prime yet $(a,b)$ and $(b,1) \notin M^e$ we know that $a = \pi^{-1}(a,
+	1) \subset A^c$ but $\pi^{-1}(a, 1) \not \subset M$. This contradicts $M$
+	maximal. So $M^e$ must be maximal.\\
+	
 \end{ques}
 
 \begin{ques}{3.5}
@@ -140,11 +280,39 @@ Gylys-Colwell}}
 	$$(x + y)r = xr + yr = rx + ry = r(x + y) \Rightarrow x + y \in Z(R)$$
 	$$(xy)r = r(xy) \Rightarrow xy \in Z(R)$$
 	$$x^{-1}r = x^{-1}rxx^{-1} = rx^{-1}\Rightarrow x^{-1} \in Z(R)$$
-	$$(-x)r = (-1)xr = r(-x)\Rightarrow -x \in Z(R)$$
+	$$(x + (-x))r = 0, r(x + (-x)) = 0 \Rightarrow xr + (-x)r = 0, rx + r(-x) =
+	0  $$
+	$$\Rightarrow (-x)r = -(rx) = r(-x) \Rightarrow -x \in Z(R)$$
 	Thus $Z(R)$ is a field\\
 	\\
-	(2) \ The center of $M_n(R)$ consists of all diagonal matricies with
-	entries in $Z(R)$.
+	(2) \ The center consists of all $Z(M_n(R)) = \{aI : a \in Z(R)\}$ where $I$ is the
+	identity matrix. It is clear that these matricies commute with $M_n(R)$
+	since left multiplication by $aI$ is the same as scaling each row by $a$ on
+	the left, while right multiplcation scales each column by $a$ on the right.
+	The result in both cases is the same: multiplying each entry of the multiplied
+	matrix by $a$ (multiplying by $a$ on the left vs the right is the same since $a
+	\in Z(R)$). \\
+	To show that no other matricies are in the center, we first show elts of
+	$Z(M_n(R))$ must be diagonal. For any $D \in M_n(R)$, if $D_{i,j} \neq 0$
+	for some $i \neq j$, then we choose $A \in M_n(R)$ where $A_{j,i} = 1$ and
+	every other entry of $A$ is $0$. We have
+	$$(DA)_{i,i} = \sum_{k=1}^n D_{i,k}A_{k,i} = D_{i,j}$$
+	While
+	$$(AD)_{i,i} = \sum_{k=1}^n A_{i,k}D_{k,i} = 0 \neq (DA)_{i,i}$$
+	Thus $DA \neq AD$, so $D \notin Z(M_n(R))$.\\
+	Now we must show that only diagonal matricies of the form $aI$ can be in
+	the center.\\
+	If $D \in M_n(R)$ is a diagonal matrix with $D_{i,i} neq D_{j,j}$ then
+	choose $A \in M_n(R)$ with $A_{i,j} = 1$ and every other entry $0$.
+	We then have 
+	$$(DA)_{i,j} = \sum_{k=1}^n D_{i,k}A_{k,j} = D_{i,i}$$
+	$$(AD)_{i,j} = \sum_{k=1}^n A_{i,k}D_{k,j} = D_{j,j} \neq (DA)_{i,j}$$
+	Thus $DA \neq AD$ so $D \notin Z(M_n(R))$. Thus all the diagonal entries of
+	matricies of the center must be the same elt of $R$.\\
+	Finally we know that if $aI \in Z(M_n(R))$ then $a \in Z(R)$ since if $ar
+	\neq ra$ for some $r \in R$ then we can choose $rI \in M_n(R)$ and we have 
+	$$(aI)(rI) = arI \neq raI = (rI)(aI)$$
+
 \end{ques}
 
 \begin{ques}{3.6}
@@ -153,6 +321,14 @@ Gylys-Colwell}}
 	Since
 	$$(1 + x)\sum^{\infty}_{n=0} (-1)^nx^n = 1 + (x - x) + (-x^2 + x^2) + (x^3
 	- x^3) \dots = 1$$
-	(2)
+	(2) \ For any $A = \sum_{n=0}^\infty a_nx^n \neq 0$, $B =
+	\sum_{n=0}^\infty b_nx^n \neq 0$, let $k$ be the first
+	index where $a_k \neq 0$ and $j$ the first index where $b_j \neq 0$.\\
+	If we have $AB = \sum_{n=0}^\infty c_nx^n$ then we have 
+	$$c_{j + k} = \sum_{i = 0}^{j + k} a_ib_{j+k - i}$$
+	We have that for $i < k$, $a_i = 0$ and for $i > k$, $b_{j+k-i} = 0$. So we have that
+	$$C_{j+k} = a_kb_j$$
+	and since $R$ is an integral domain, $c_{j+k} \neq 0$ so $AB \neq 0$ so
+	$R[[x]]$ is an integral domain.
 \end{ques}
 \end{document}

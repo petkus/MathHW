@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  19 OCT 2017 23:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  22 OCT 2017 23:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -237,15 +237,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--70
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 143--149
+Overfull \hbox (63.29945pt too wide) detected at line 153
+\OML/cmm/m/it/12 ^^U\OT1/cmr/m/n/12 ((\OML/cmm/m/it/12 a; b\OT1/cmr/m/n/12 ) + 
+(\OML/cmm/m/it/12 c; d\OT1/cmr/m/n/12 )) = \OML/cmm/m/it/12 ^^U\OT1/cmr/m/n/12 
+(\OML/cmm/m/it/12 ad \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 bc; bd\OT1/cmr/m/n/12 )
+ = \OML/cmm/m/it/12  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ad \OT1/cmr/m/n/12 + \OM
+L/cmm/m/it/12 bc\OT1/cmr/m/n/12 )\OML/cmm/m/it/12  \OT1/cmr/m/n/12 (\OML/cmm/m/
+it/12 bd\OT1/cmr/m/n/12 )[] = \OML/cmm/m/it/12  \OT1/cmr/m/n/12 (\OML/cmm/m/it/
+12 ad\OT1/cmr/m/n/12 )\OML/cmm/m/it/12  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 bd\OT
+1/cmr/m/n/12 )[] + \OML/cmm/m/it/12  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 bc\OT1/c
+mr/m/n/12 )\OML/cmm/m/it/12  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 bd\OT1/cmr/m/n/1
+2 )[] = \OML/cmm/m/it/12 ^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ad; bd\OT1/cmr/m/
+n/12 ) + \OML/cmm/m/it/12 ^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 bc; bd\OT1/cmr/m
+/n/12 )
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 176--221
 
  []
 
-[2] [3] (./homework4.aux) ) 
+[3]
+! Undefined control sequence.
+l.265 	that $\pi^{-1}(M^e) = M \subseq
+                                       \pi^{-1}(A)$ since $M^e \subset A$. W...
+
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--271
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--271
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 285--299
+
+ []
+
+[5] [6] (./homework4.aux) ) 
 Here is how much of TeX's memory you used:
  2490 strings out of 494953
  32463 string characters out of 6180977
- 93463 words of memory out of 5000000
+ 95463 words of memory out of 5000000
  5744 multiletter control sequences out of 15000+600000
  9298 words of font info for 35 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -263,10 +300,10 @@ onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on homework4.pdf (3 pages, 126454 bytes).
+Output written on homework4.pdf (6 pages, 146848 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 75 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
