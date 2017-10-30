@@ -1,0 +1,167 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 424, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$4}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{7}
+	For any convergent sequence $(p_n)$, let $p$ be the limit of $(p_n)$. We
+	can choose $\epsilon = 1$ and from the definition of convergent there
+	exists $N$ such that $\delta(p_n,p) < 1$ for all $n > N$, the number of
+	numbers $\delta(p_i, p)$s with $i < N$ is finite therefore we  can choose
+	the $p_k$ with the largest $\delta(p_i,p)$. Therefore we have that $(p_n)$
+	is bounded by $B = 1 + \delta(p_k, p)$ around $p$ since for any $p_i$ if $i >
+	N$ then $\delta(p_i,p) < 1 < B$ and if $i \leq N$ then from how $p_k$ was
+	chosen we know $\delta(p_i,p) \leq \delta(p_k,p) < B$.
+\end{ques}
+
+\begin{ques}{8}
+\begin{enumerate}
+	\item 
+		For any $\epsilon > 0$ we have by definition there exists a limit $x$
+		and a $N >0$ such that $|x - x_n| < \epsilon$ for all $n > N$. We have
+		that $||x| - |x_n|| = |x| - |x_n|$ or $|x_n| - |x|$ depending on if $x
+		> x_n$ or $x \leq x_n$. From the triangle ineq we have $|x| - |x_n|
+		\leq |x - x_n|$ and $|x_n| - |x| \leq |x - x_n|$ thus $||x| - |x_n||
+		\leq |x - x_n|$. Therefore for all $n > N$ we have $||x| - |x_n|| <
+		\epsilon$ and thus $(|x_n|)$ converges to $|x|$
+	\item
+		If $(|x_n|)$ converges in $\R$ then $(x_n)$ converges in $\R$
+	\item
+		This is not true. Consider the sequence $(a_n) = (-1)^n$. We have that
+		$(|a_n|) = (1) \to 1$ while for any $N >0$ we can choose $\epsilon = 1$
+		and there exists $a_n, a_{n+1}$ with $n > N$ and $|a_n - a_{n+1}| >
+		\epsilon$ thus $(a_n)$ is not Cauchy and so not convergent
+\end{enumerate}
+\end{ques}
+
+
+\begin{ques}{14}
+\begin{enumerate}
+	\item
+		If we have the isometry $f: M \to N$, for any open set $U \subseteq N$
+		and any point in the preimage $x \in f^{-1}(U)$, since $U$ is open we
+		know there exists $r \in \R^+$ such that $B_r(f(x)) \subset U$. I claim
+		that $B_r(x) \subseteq f^{-1}(U)$ and thus $f^{-1}(U)$ is open so $f$ is
+		continuous. The argument is the following:\\
+		We have that for any point $p \in B_r(x)$ that $d_M(x,p) <r$ and we
+		have that $d_M(x, p) = d_N(f(x), f(p)) < r$ thus 
+		$$f(p) \in B_r(f(x)) \Rightarrow f(p) \in U \Rightarrow p \in f^{-1}(U)
+		\Rightarrow B_r(x) \subseteq f^{-1}(U)$$
+	\item
+		Notice that since $f$ is bijective, $f^{-1}$ is a well defined
+		function. $f^{-1}$ is also an isometry since we have that for any
+		$x, y \in N$ there exists $p,q \in M$ where $f(p) = x, f(q) = y$ so
+		$$d_N(x,y) = d_N(f(p),f(q)) = d_M(p, q) \Rightarrow
+		d_M(f^{-1}(x),f^{-1}(y)) = d_M(p, q) = d_N(x,y)$$
+		Therefore $f^{-1}$ is continuous as we have proven in (a) so $f$ is a
+		homeomorphism as it fits the topological definition of a homeomorphism.
+	\item
+		If there exists an isometry $f: [0,1] \to [0,2]$ then since $f$ is
+		surjective there exists $a,b \in [0,1]$ where $f(a) = 0, f(b) = 2$
+		however we have that $\delta(a,b) \leq 1$, however
+		$\delta(f(a),f(b)) = \delta(0, 2) > 1$. Therefore
+		$\delta(a,b) \neq \delta(f(a),f(b))$ which contradicts $f$ being an isometry.
+		
+\end{enumerate}
+\end{ques}
+
+\begin{ques}{25}
+	The only possible sequence of points in the singleton set $\{p\}$ is the
+	constant sequence $(p_n)n: p_n = p \forall n$, which converge to $p$. Thus
+	a singlton set contains all its limit points and so is closed.\\
+	Every finite set of points is a finite union of singletons which are
+	closed, since the finite union of closed sets is closed, the finite set of
+	points is closed.
+\end{ques}
+
+\begin{ques}{26}
+	If none of $U$s points are limits of its complement, then its complement
+	contains all of its limit points, and thus is closed. The complement of a
+	closed set is open so $U$ must be open. Conversly if $U$ is open then the
+	complement of $U$ is closed so the complement contains all of its limit
+	points, since $U$ and its complement are disjoint, this means that $U$ does
+	not contain any of its complement's limit points.
+\end{ques}
+
+\begin{ques}{27}
+	(a) \ For any point $p \in \bar S$, we have that that there exists a
+	sequence $(p_n)_n$ contained in $S$ such that $(p_n)_n \to p$ since $S
+	\subset T$, $(p_n)_n$ is a sequence of points in $T$ as well and thus $p$
+	is a limit point in $T$, therefore $p \in \bar T$ so $\bar S \subset \bar
+	T$\\
+	(b) \ For any point $p \in \interior S$, we have that there exists an $r$
+	such that $B_r(p) \subset S$ since $S \subset T$ we have that $B_r(p)
+	\subset T$ and therefore $p \in \interior T$ so $\interior S \subset
+	\interior T$
+\end{ques}
+
+\begin{ques}{19}
+	$\Q$ is not homeomorphic to $\N$. \\
+	We have that every subset of $\N$ is open. The reason is because for any
+	point in any subset $p \in T \subset \N$ we let $r = 1$ then $B_r(p) =
+	\{p\} \subset T$.\\
+	Therefore for any bijection $f:\Q \to \N$ the inverse image of a singleton
+	is a singlton: $f^{-1}(\{p\}) = \{q\}$ and in $\N$ $\{p\}$ is open, but
+	singletons in $\Q$ are not open, so the inverse image of an open set is not
+	open, therefore $f$ is not continuous so not a homeomorphism.
+\end{ques}
+
+\begin{ques}{30}
+	If there exists a metric $\delta$ that defined $\T$ then by the axioms of
+	metrics, we know $\delta(a,b) \neq 0$ since $a \neq b$ thus for $r =
+	\delta(a,b)$, from the way topologies are defined by a metric we have that
+	$B_r(a) \in \T$ however $B_r(a) = \{a\}$ since $\delta(a,b) \not < r$ so $b
+	\notin B_r(a)$ thus $\{a\} \in \T$ which is a contradiction.
+\end{ques}
+
+\end{document}
