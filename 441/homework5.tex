@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 441, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$5}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{\S 19, 3}
+	% (finite products only)
+	For finite products (which we are considering) the box and product
+	topologies are the same.\\
+	For any $y, x \in \prod_{\a \in [n]} X_\a$ with $y \neq x$, we can consider the
+	components of $x$ and $y$:
+	$$x = (x_1, x_2, \dots x_n), y = (y_1, y_2, \dots y_n)$$
+	where $x_i, y_i \in X_i$. Since $y \neq x$ there exists some $k$ such that
+	$x_k \neq y_k$. Since $X_k$ is Hausdorf there exists open sets $U_k, V_k
+	\subseteq X_k$ such that $U_k \cap V_k = \emptyset$ and $x_k \in U_k, y_k
+	\in V_k$. We can the open sets 
+	$$U = U_k \times \prod_{\a \in [n], \a \neq k} X_\a, V = V_k \times \prod_{\a
+	\in [n], \a \neq k} X_\a$$
+	From the definition of box and product topologies it is clear that these
+	are open sets. We also know that $x \in U, y \in V$ since their $k$th
+	compenent is contained in the $k$th component of the open set and any other
+	$i$th component is contained in $X_i$. Thus if we have that $U \cap V =
+	\emptyset$ then the product topologies is Hausdorf.\\
+	We have that $U \cap V = \emptyset$ since if $s \in U$ and $s \in V$ then
+	we have that the $k$th component of $s$ is contained in $U_k$ and $V_k$
+	which is not possible since $U_k$ and $V_k$ are dsijoint.
+\end{ques}
+
+\begin{ques}{\S 20, 3}
+	(a) \ We know that $d$ is continous if the inverse image of every basis elt
+	is open. A basis of $\R$ is the set of open intervals of the form $I =
+	(a,b): a < b$.  Considering any $I$, for any elt $x \in d^{-1}(I)$ we have
+	that if $b \leq 0$ then $d^{-1}(I) = \emptyset$ is open since $d$ maps to
+	nonegative numbers. Otherwise, for any $(x,y) \in d^{-1}(I)$, we can define
+	the following radius:
+	$$r_{x,y} = \min \{ d(x,y) - a, b - d(x,y)\}$$
+	We can consider the open set in $X \times X$ of the product of balls of
+	radius $r$ centered around $x$ and $y$:  $U_{x,y} = B_{r/2}(x) \times B_{r/2}(y)$.
+	We have that $U_{x,y} \subseteq d^{-1}(I)$ the reason is because for any
+	$(s,t) \in U_{x,y}$ we have from the triangle inequality that $d(s,t) \leq
+	d(s,x) + d(x,y) + d(y,t)$ and $d(s,x) + d(y,t) \leq r$ so 
+	$$d(s,t) < r + d(x,y) \leq b$$
+	And we also have $d(x,y) \leq d(x,s) + d(s,t) + d(t,y)$ so
+	$$d(s,t) \geq d(x,y) - d(x,s) - d(y,t) > d(x,y) - r \geq a$$
+	Thus $d(s,t) \in I$ so $(s,t)
+	\in d^{-1}(I)$. Therefore we have that $U_{x,y} \subseteq d^{-1}(I)$. We
+	have that $d^{-1}(I)$ is the union of these open sets for each arbitrary
+	$(x,y) \in d^{-1}(I)$ and thus open:
+	$$d^{-1}(I) = \bigcup_{(x,y) \in d^{-1}(I)} U_{x,y}$$
+	This is clear since for each $p = (x,y) \in d^{-1}(I)$ there is a $U_{x,y}$
+	which contains $p$ and each of these $U_{x,y}$ is contained in $d^{-1}(I)$
+	so the union is contained in $d^{-1}(I)$. Therefore $d$ is continous\\
+	\\
+\end{ques}
+
+\begin{ques}{\S 21, 1}
+	The question is asking if $d|A \times A$ generates the same topology as the
+	subspace topology.\\
+	We can show that the basis for each topology are contained within the
+	other, and thus the topologies contain each other so are equal. The basis of
+	the subspace topology is the intersections of the
+	basis elements of $X$ with $A$. Therefore the basis consists of sets of the
+	form $B_r(x) \cap A$. For the metric topology we have the basis $B'_r(x) =
+	\{p \in A: d(p,x) < r\}$. We have that $B'_r(x) = B_r(x) \cap A$ so it is
+	clear that the metric topology is contained in the subspace topology. For
+	any $B_r(x)$, if $x \in A$ then $B_r(x) \cap A = B'_r(x)$. If $x \notin A$
+	then for any $y \in B_r(x) \cap A$ we have that $B'_{r - d(y,x)}(y)
+	\subseteq B_r(x)$ therefore we have
+	$$B_r(x) \cap A = \bigcup_{y \in B_r(x) \cap A} B'_{r - d(y,x)}(y)$$
+	So $B_r(x) \cap A$ is contained in the topology of of the metric space
+	since it is a union of open sets.
+\end{ques}
+
+\begin{ques}{\S 22, 2}
+	(a) \ We know that $p$ is surjective since for any $y \in Y$ we have
+	$p(f(y)) = y$. Thus all we have to check is the converse of continuity. For any
+	$U \subseteq Y$ we have the following
+	$$f^{-1}(p^{-1}(U)) = U$$
+	The reason for this is because for any $u \in U$, $p(f(u)) = u$ so $f(u)
+	\in p^{-1}(u)$ so $u \in f^{-1}(p^{-1}(u))$ so $U \subseteq
+	f^{-1}(p^{-1}(U))$ and conversly if for some $x \in f^{-1}(p^{-1}(U))$ we
+	have $f(x) \in p^{-1}(U)$ then $p(f(x)) \in U \Rightarrow x \in U$ so
+	$f^{-1}(p^{-1}(U)) \subseteq U$. Therefore since $f$ is continous, if
+	$p^{-1}(U)$ is open, then $f^{-1}(p^{-1}(U))$ is open so $U$ must be open.
+	Therefore $p$ is a quotient map.\\
+	\\
+	(b) \ We know that $r$ is surjective and continous, thus we only have to
+	check the converse of continuity.\\
+	For any set $S \subseteq A$, if $r^{-1}(S)$ is open, since
+	$r(S) = S$ and $r(A - S) \cap S = \emptyset$, we have $r^{-1}(S) \cap A =
+	S$ so
+	$$r^{-1}(S) = (r^{-1}(S) \cap A) \bigcup (r^{-1}(S) \cap (X - A) ) = S
+	\cup R$$
+	Where $R = r^{-1}(S) \cap (X - A)$ so $R \cap A = \emptyset$. Therefore we
+	have that $f^{-1}(S) = R \cup S$ is open and $f^{-1}(S) \cap A = S$ is open
+	in $A$ thus we have the converse of continuity: $f^{-1}(S)$ open
+	$\Rightarrow S$ open 
+\end{ques}
+
+\begin{ques}{\S 22, 3}
+	$q$ is a quotent map as follows. For any basis element $I = (a,b)$ of $\R$
+	we have that 
+	$$q^{-1}(I) = (I \times R) \cap A$$
+	$I \times R$ is open in $\R \times \R$ is open so $q^{-1}(I)$ is open in
+	$A$, thus $q$ is continous. We have that the saturated open sets of $q$ are of
+	the form $U = (V \times \R) \cap A$ where $V$ is an open set of $\R$. This is
+	because any open set $S \subseteq \R \times \R$ can be written as the union
+	of a product of open sets:
+	$$S = \bigcup M_\a \times V_\a$$
+	So we have 
+	$$\pi_1^{-1}(\pi_1(S)) = \pi^{-1}_1\l (\bigcup M_a \r ) = \l
+	(\bigcup M_a \r) \times \R = V \times \R$$
+	For some open set $V$ in $\R$. Thus the open sets which are the preimage of
+	their image for $\pi_1$ are as the described form. Saturated sets of the
+	restriction of $\pi_1$ to $A$ would therefore be saturated sets intersected
+	with $A$. We have that for any open saturated set $U = V \times \R$, $q(U)
+	= V$ which is open in $\R$. Thus $q$ maps opens saturated sets to open
+	saturated sets, and thus is a quotent map.\\
+	\\
+	$q$ is not open since the open set $B_1(0,2) \cap A$ gets mapped to $[0,1)$
+	which is not open in $\R$. $q$ is not closed since it maps the closed set 
+	$$C = \{(x,y) \in A: x \neq 0, y = \frac 1 x\}$$
+	To the open set $(0,\infty)$.
+\end{ques}
+
+\begin{ques}{\S 22, 4}
+	(a) \ We have from the definition of quotient space there exists the quotient map
+	$p:X \to X^*$ with $p(x,y) = [x,y]$ where $[x,y]$
+	is the equivalence class of $(x,y)$. We also have that the map $g:X \to \R$
+	with $g(x,y) = x + y^2$ is constant on $p^{-1}([x,y])$ since $(x,y) \sim (x',y')
+	\Leftrightarrow g(x,y) = g(x',y')$. Therefore from Corollary 22.3 if $g$ is
+	a quotient map, then $X^*$ is homeomorphic to $\R$.\\
+	From Lemma 21.4 we know that $g$ is continous. For
+	checking the converse of continuity, we have that $g$ is an open map:\\
+	For any basis element of $X$: $I_1 \times I_2 = (a,b) \times (c,d)$ we have that 
+	$$g(I_1 \times I_2) = (a + \inf_{y \in I_2}\{ y^2\}, b + \sup_{y \in I_2}\{y^2\})$$
+	Which is a open set. Therefore $g$ is a quotient map. \\
+	\\
+	(b) \ We have from the definition of quotient space there exists the quotient map
+	$p:X \to X^*$ with $p(x,y) = [x,y]$ where $[x,y]$
+	is the equivalence class of $(x,y)$. We also have that the map $g:X \to
+	\R^+ \cup \{0\}$ with $g(x,y) = x^2 + y^2$ is constant on $p^{-1}([x,y])$
+	since $(x,y) \sim (x',y') \Leftrightarrow g(x,y) = g(x',y')$. Therefore
+	from Corollary 22.3 if $g$ is a quotient map, then $X^*$ is homeomorphic to
+	$\R^+ \cup \{0\}R$.\\
+	From Lemma 21.4 we know that $g$ is continous. For
+	checking the converse of continuity, we have that $g$ is an open map:\\
+	For any basis element of $X$: $I_1 \times I_2 = (a,b) \times (c,d)$ we have
+	two possible cases, if $0 \notin I_1$ or $\notin I_2$ then 
+	$$g(I_1 \times I_2) = (\inf_{x \in (a,b)} \{x^2\} + \inf_{y \in (c,d)}
+	\{y^2\}, b + \sup_{y \in I_2}\{y^2\})$$
+	Otherwise if $0 \in I_1$ and $0 \in I_2$ then 
+	$$g(I_1 \times I_2) = [0, \sup\{a^2, b^2\} + \sup\{c^2, d^2\})$$
+	Which is a open set in $R^+ \cup \{0\}$. Therefore $g$ is a quotient map. \\
+	
+\end{ques}
+\end{document}
