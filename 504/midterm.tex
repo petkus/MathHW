@@ -1,0 +1,239 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Problem #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\F}{\mathbb F}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 504, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$5}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{1.1}
+	We have that $|G| = 385 = 11 \cdot 7 \cdot 5$. Therefore from Sylow's theorems we
+	know there is an element of order $11$, an element of order $7$ and another
+	of order $5$. We have that the number of Sylow $11$-subgroups, $n_{11}$, is
+	equal to $1 + 11k$ for $k \geq 0$ and $n_{11}$ divides $7 \cdot 5$ since
+	its the index of the normalizer. Since $7,5,35 \not \equiv 1 \pmod {11}$ we
+	know that $n_{11} = 1$. Therefore the subgroup of size $11$ is normal. Thus
+	$$G \cong  Z/ 11\Z \rtimes H$$
+	Where $H$ is a subgroup of order $35$. We have already classified all
+	groups of order $pq$ in lecture. Thus since $5$ does not divide $7
+	- 1$, we know that $H \cong Z/35\Z$.
+	% Ask about if we can use the pq in lecture
+	Now we can consider all the homomorphisms $\varphi :Z/11\Z \to
+	\text{Aut}(H)$. We have that $\phi$ must map the generator of $\Z/11\Z$ to an
+	element of order $11$. However the order of $\text{Aut}(H)$ is $34$ and so
+	no element has order $11$ except the identity. Therefore the only possible
+	homomorphism is the trivial $\varphi(g) = 0$ $\forall g \in \Z_{11}$. Thus
+	the only possibility is
+	$$G \cong \Z/11\Z \times \Z/35\Z \cong \Z/385\Z$$
+\end{ques}
+
+\begin{ques}{1.2}
+	(1) \ We have that $C_G(H) = H$, it is a commonly known fact that the
+	diagonal matricies over a field commute since multiplying by a diagonal matrix
+	scales the columns or rows by the diagonal.\\
+	To show that no other matricies are in the center, for any $A \in G$,
+	if $A_{i,j} \neq 0$ for some $i \neq j$, then we choose $D \in H$ such that
+	$D_{i,i} \neq D_{j,j}$. We have that
+	$$(DA)_{i,j} = D_{i,i}A_{i,j} \neq D_{j,j}A_{i,j} = (AD)_{i,j}$$
+	Thus $DA \neq AD$. \\
+	\\
+	(2) \ The normalizer is all the permutation matricies multiplied by an
+	element of $H$: 
+	$$N_G(H) = \{PD \in G: D \in H, \exists \sigma \in S_3, P_i =
+	e_{\sigma(i)}\} = S$$
+	Permutation matricies normalize $H$ since left multiplication by a
+	permutation matrix permutes the rows while while inverse right
+	multiplication applys the permutation to the columns. Thus applying
+	$PDP^{-1}$ to $D \in H$ for $P \in S$ will permute the diagonals:
+	$$(PDP^{-1})_{j,j} = D_{\sigma(j), \sigma(j)}$$
+	While every other zero entry will stay zero. Thus we get another Diagonal
+	matrix. No other matrix can be in the normalizer since if we have a matrix
+	$A$ where $A_{i,j} \neq 0$ and $A_{i, k} \neq 0$ with $j \neq k$, then for
+	any $D \in H$, we have that 
+	$$(DA)_{i,j} = D_{i,i}A_{i,j}, (DA)_{i,k} = D_{i,i}A_{i,k}$$
+	However if we choose $D' \in H$ with $D'_{j,j} \neq D'_{k,k}$ we have
+	$$(AD')_{i,j} = D'_{j,j}A_{i,j}, (AD')_{i,k} = D'_{k,k}A_{i,k}$$
+	Thus it $AD' \neq DA$ for all $D \in H$ since the entries of $(AD')_{i,j}$
+	and $(AD')_{i,k}$ are not $A_{i,j}$ and $A_{i,k}$ scaled by the same amount
+	as the the same entries of every $DA$ must satisfy.\\
+	\\
+	(3) \ This quotient is isomorphic to $S_3$.\\
+	Consider the homomorphism $\phi : N_G(H) \to S_3$ where for any $PD \in
+	N_G(H)$ with $PD = \{D \in H, \sigma \in S_3, P_i = e_{\sigma(i)}\}$,
+	$\phi(PD) = \sigma$. This is a homomorphism since multiplying by two
+	permutation matricies is the same as composing the permutations of the
+	matricies. $\phi$ is clearly surjective since we can choose a matrix $P \in
+	N_G(H)$ for any $\sigma \in S_3$ where $P_i = e_{\sigma(i)}$ and so
+	$\phi(P) = \sigma$. The kernel of $\phi$ is clearly the diagonal matricies
+	$H$ since they are the elements of $N_G(H)$ where they do not permute the
+	columns at all. Thus we have that $\phi$ induces an isomorphism from
+	$N_G(H)/H \to S_3$
+
+\end{ques}
+
+\begin{ques}{1.3}
+	Letting $r$ signify the rotation element and $s$ signify the reflextion, we
+	have that the only normal subgroups of $D_{12}$ are $\langle r \rangle$,
+	$\langle r^2 \rangle$, $\langle r^3 \rangle$, $\langle s, r^2 \rangle$, and
+	$\langle rs, r^2 \rangle$. We have that $\langle r^2 \rangle$ and $\langle
+	r^3 \rangle$ are not maximal since they are contained in $\langle r
+	\rangle$. Thus the composition series are
+	$$1 \lhd \langle r^3 \rangle \lhd \langle r\rangle\lhd D_{12}$$
+	$$1 \lhd \langle r^2 \rangle \lhd \langle r \rangle \lhd  D_{12}$$
+	$$1 \lhd \langle r^2 \rangle \lhd \langle s,r^2 \rangle \lhd  D_{12}$$
+	$$1 \lhd \langle r^2 \rangle \lhd \langle rs,r^2 \rangle \lhd  D_{12}$$
+	(I checked the subgroups of $\langle s,r^2 \rangle$ and $\langle rs,r^2
+	\rangle$ to find the only normal subgroup is $\langle r^2 \rangle$)
+
+\end{ques}
+
+\begin{ques}{1.4}
+	For any group $G$ with $|G| = p^2q$ we have from Sylows theorems there
+	exists a subgroup $N_{p^2}$ of order $p^2$. We know that the index of the
+	normalizer of the $p$-group, $n_p$, satisfies $n_p = 1 + pk, k \geq 0$ and
+	$n_p | q$. Since $q$ is prime $n_p$ is either $1$ or $q$ If $n_p$ is $1$,
+	the $p$-group is normal.\\
+	Thus we have that $G \cong \Z/q \rtimes N_{p^2}$ where $N_{p^2}$ is the group of
+	size $p^2$, thus we have that $|G/N_{p^2}| = q$ and so must be cyclic,
+	hence abelian. In lecture we established that all groups of order $p^2$
+	are abelian. Thus we have the series
+	$$1 \lhd N_{p^2} \lhd G$$
+	If $n_p = q$ then we have that $q \equiv 1 \pmod p$.  From Sylows Theorems
+	we know that there is a $q$-subgroup $N_q$ of order $q$ with the index of
+	the normalizer, $n_q$, satisfying $n_q \equiv 1 \pmod q$ and $n_q | p^2$.
+	Thus $n_q$ is either $1, p, $ or $p^2$\\
+	$n_q$ cannot be $p$ since $q \equiv 1 \pmod p$ and $p \equiv 1 \pmod q$ is
+	not possible for any primes $p, q$. (This is because one has to be smaller
+	than the other and thus will themselves mod the other) \\
+	$n_q = p^2$ leads to a simple case from similar reasoning. We have that
+	$p^2 \equiv 1 \pmod q$ so $p \equiv \pm 1 \pmod q$ and $q \equiv 1 \pmod
+	p$. We know that $p \equiv 1 \pmod q$ is not possible, if $p \equiv -1
+	\pmod q$. If $p < q$ then $p = q - 1$ so $p$ must be even, so $p = 2$, and $q
+	= 3$. If $q < p$ then $q = 1$ which is a contradiction. We will handle the
+	$p = 2, q= 3$ case in the end.\\
+	\\
+	If $n_q$ is $1$ then $N_q \lhd G$ so we have the composition series
+	$$1 \lhd N_q \lhd G$$
+	$N_q$ is of prime order so abelian, $G/N_q$ is of order $p^2$. All
+	groups of order $p^2$ are abelian as is established in lecture\\
+	Finally if $q = 3, p = 2$ then $G$ is a group of order $12$. Dummit and
+	Foote classify all groups of order $12$, two are abelian (and thus
+	solvable). The rest are the following:
+	$D_{12}$ which has the composition series with abelian factors 
+	$$1 \lhd \langle r \rangle \lhd D_{12}$$
+	$A_4$ which has the composition series 
+	$$1 \lhd \langle(1 2)(3 4), (1 3)(2 4)\rangle \lhd A_4$$
+	And finally the Dicyclic group $D = \langle a, b, c|a^3 = b^2 = c^2 =
+	abc\rangle$ which has the composition series
+	$$1 \lhd \langle b, c \rangle \lhd D$$
+\end{ques}
+
+\begin{ques}{1.5}
+	(1) \ We have that $|GL_3(\F)| = (2^3 - 1)(2^3 - 2)(2^3-2^2)= 7 \cdot 3 
+	\cdot 2^3$ therefore a Sylow 7-group has order $7$. The size of $GL_3(\F)$
+	was determined by counting all the possible nonzero vectors for the first
+	column. There are $2^3$ possible vectors and $1$ zero vector. Then counting
+	all the nonzero vectors in the 2nd column that is not
+	a linear combination of the first vector. There are $2$ possible vectors
+	that is zero or the previous vector. Finally counting all the independent
+	vectors for the third column. There are $4$ vectors that are a linear
+	combination of the two previous vectors.\\
+	We have that the elt
+	$$A = \begin{bmatrix}
+		0 & 1 & 1 \\
+		0 & 0 & 1 \\
+		1 & 0 & 0
+	\end{bmatrix}$$
+	has order $7$. I have verified that $A^7 = 1$ and thus $\langle A \rangle$
+	is a $7$-subgroup.\\
+\\
+	(2) \ 
+\end{ques}
+
+\begin{ques}{1.6}
+	(1) \ We can show that $k[x,y,z,w]/(xy - zw)$ is an integral domain, and
+	thus $(xy-zw)$ is prime\\
+	Consider the homomorphism $\phi :k[x,y,z,w] \to k[\frac{zw}{y}, y, z, w]$.
+	Where $k[\frac{zw}{y}, y, z, w]$ is the ring of polinomials in $k[x,y,z,w]$
+	with $\frac{zw}{y}$ plugged into $x$ in every polinomial. We define
+	$\frac{zw}{y}$ by localizing $k[x,y,z,w]$ at $y$. Localizations of integral
+	domains are integral domains, so we know that $k[\frac{zw}{y}, y, z, w]$ is
+	an integral domain.\\
+	We define $\phi$ with the cononical mapping $\phi(x) = \frac{zw}{y},
+	\phi(y) = y, \phi(z) = z, \phi(w) = w$ and with $\phi$ the identity on $k$.
+	$\phi$ is clearly a homomorphism since
+	$$\phi(f(x,y,z,w)g(x,y,z,w)) = f(\frac{zw}{y}, y, z, w)g(\frac{zw}{y}, y,
+	z, w) = \phi(f)\phi(g)$$ 
+	$$\phi(f(x,y,z,w) + g(x,y,z,w)) = f(\frac{zw}{y}, y, z, w) +
+	g(\frac{zw}{y}, y, z, w) = \phi(f) + \phi(g)$$ 
+	$\phi$ is surjective since every monomial $\l(\frac{zw}{y}\r)^{n_1} y^{n_2}
+	z^{n_3} w^{n_4}$ is mapped to by $x^{n_1} y^{n_2} z^{n_3} w^{n_4}$. If we
+	show the kernel of $\phi$ is the ideal $(xy-zw)$ then we have shown that
+	$k[x,y,z,w]/(xy -zw)$ is an integral domain.\\
+	We have that for any $p(x,y,z,w) \in k[x,y,z,w]$ with $\phi(p) = 0$ then
+	$$p(\frac{zw}{y},y,z,w) = 0$$
+	So we have that $x = \frac{zw}{y}$ 
+
+\\
+	(2) \ $x$ is irreducible in $k[x,y,z,w]$ since when considering the degree
+	of a polinomial with respect to any of the variables, degrees of a product
+	of polinomials is equal to the sum of the degrees. In order for $x =
+	f(x,y,z,w)g(x,y,z,w)$ It would have to be the case that one of the
+	polinomials was degree zero with respect to all of the variables, and thus
+	is an elt of $k$ so a unit.\\
+	$x$ is not prime since $x$ divides $zw$ in the quotient since $xy - (xy -
+	zw) = zw$, however $x$ does not divide $z$ or $w$. $x$ does not divide $z$
+	or $w$  because the argument for showing $x$ is irreducible works for
+	showing that both $z$ and $w$ are irreducible.
+
+\end{ques}
+
+\end{document}
