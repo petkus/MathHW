@@ -64,9 +64,9 @@ Gylys-Colwell}}
 
 \begin{ques}{23}
 	We know that $(0,1)$ is open in $\R$ as proven in class. For any $r$, we
-	have that $(0,r/2) \in B_r(0,0)$ but $(0,r/2) \notin (0,1) \times \{0\}$
-	therefore $B_r(0,0) \not \subseteq (0,1) \times \{0\}$. Therefore $(0,1)
-	\times \{0\}$ is not open.
+	have that $(1/2,r/2) \in B_r(1/2,0)$ but $(1/2,r/2) \notin (0,1) \times \{0\}$
+	therefore $B_r(1/2,0) \not \subseteq (0,1) \times \{0\}$. Therefore $(0,1)
+	\times \{0\}$ is not open. 
 \end{ques}
 
 
@@ -81,11 +81,11 @@ Gylys-Colwell}}
 	(c) \ Yes. Since $f$ is bijective it has an inverse $f^{-1}$. For any open
 	set $U$, the pullback of $f^{-1}$ of $U$ is just $f(U)$ which is open. Thus
 	$f^{-1}$ is continous. So $f$ is a homeomorphism. \\
-	(d) \ Not necessarily. Consider the map  $f :\R^2 \to [0, 2\pi)$ where
-	$f(\c(\t), \s(\t)) = \t$. This is the inverse map as the example used in
-	(a). Thus it is bijective, specifically surjective. However the same open
-	set in the example does not map to an open set
-
+	(d) \ Not necessarily. Consider the map $f(x) = \frac 1 3 x^3 - x$. We know all
+	polinomials are continous, and $f$ is clearly surjective. The 'humps' where
+	the derivative is zero is $1, -1$, thus the open sets $(-1 -\epsilon, 1 +
+	\epsilon)$ for small $\epsilon$ will be mapped to the closed set $[-\frac 2
+	3, \frac 2 3]$
 \end{ques}
 
 % done
@@ -106,21 +106,30 @@ Gylys-Colwell}}
 	For any closed set $L \subset N$ with $N$ closed from the inheritance
 	principle we know $L = C \cap N$ for some closed set $C \subset M$.
 	Intersections of closed sets are closed. Thus $L$ is closed in $M$.
+	Conversly if $L$ is closed in $M$ then $L = N \cap L$ so $L$ is closed in
+	$N$\\
 	Similarly if $U \subset N$ is open and $N$ is open,  then from the
 	inheritance principle $U = V \cap N$ where $V$ is open in $M$. Finite
 	intersections of open sets are open, thus $U$ is open in $M$.
+	Conversly if $L$ is open in $M$ then $L = N \cap L$ so $L$ is open in
+	$N$
 \end{ques}
 
 \begin{ques}{38}
 	For $d_E$:  \\
-	We have that $d_E(p,p') = \sqrt{\langle p, p' \rangle}$ with the inner
-	product $\langle p , p'\rangle = d_X(x,x')^2 + d_Y(y,y')^2$ 
+	Checking all the axioms of metrics:\\
+	$\sqrt{a^2 + b^2}$ is clearly nonegative for all $a,b \in \R$\\
+	$\sqrt{d_X(a_x,c_x)^2 + d_Y(a_y,c_y)^2} = 0$ iff $d_X(a_x,c_x) =
+	d_Y(a_y,c_y) = 0$ iff $x = c$
+	It is clear $d_E(x,y) = d_E(y,x)$\\
+	For $d_E(a, c) \leq d_E(a,b) + d_E(b,c)$ we have $\sqrt{d_X(a_x,c_x)^2 +
+	d_Y(a_y,c_y)^2}$\\ 
+	$\leq \sqrt{(d_X(a_x,b_x) + d_X(b_x,c_x))^2 +
+	(d_X(a_x,b_x) + d_X(b_x,c_x))^2} \leq \sqrt{d_X(a_x,c_x)^2 + d_Y(a_y,c_y)^2} +
+	\sqrt{d_X(a_x,c_x)^2 + d_Y(a_y,c_y)^2}$ \\ 
 	For $d_\text{max}$:\\
-	We have that $d_\text{max}(p,p') = \sqrt{\langle p, p' \rangle}$ with the inner
-	product $\langle p , p'\rangle = $ 
+
 	For $d_\text{sum}$:\\
-	We have that $d_\text{sum}(p,p') = \sqrt{\langle p, p' \rangle}$ with the inner
-	product $\langle p , p'\rangle = $ 
 
 \end{ques}
 
