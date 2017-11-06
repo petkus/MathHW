@@ -118,26 +118,68 @@ Gylys-Colwell}}
 \begin{ques}{38}
 	For $d_E$:  \\
 	Checking all the axioms of metrics:\\
-	$\sqrt{a^2 + b^2}$ is clearly nonegative for all $a,b \in \R$\\
-	$\sqrt{d_X(a_x,c_x)^2 + d_Y(a_y,c_y)^2} = 0$ iff $d_X(a_x,c_x) =
-	d_Y(a_y,c_y) = 0$ iff $x = c$
+	$d_E(x,y) \geq 0$ since $\sqrt{a^2 + b^2}$ is clearly nonegative for all
+	$a,b \in \R$\\
+	For $d_E(x,y) = 0$, $\sqrt{d_X(a_x,b_x)^2 + d_Y(a_y,b_y)^2} = 0$ iff $d_X(a_x,b_x) =
+	d_Y(a_y,b_y) = 0$ iff $a = b$\\
 	It is clear $d_E(x,y) = d_E(y,x)$\\
-	For $d_E(a, c) \leq d_E(a,b) + d_E(b,c)$ we have $\sqrt{d_X(a_x,c_x)^2 +
-	d_Y(a_y,c_y)^2}$\\ 
-	$\leq \sqrt{(d_X(a_x,b_x) + d_X(b_x,c_x))^2 +
-	(d_X(a_x,b_x) + d_X(b_x,c_x))^2} \leq \sqrt{d_X(a_x,c_x)^2 + d_Y(a_y,c_y)^2} +
-	\sqrt{d_X(a_x,c_x)^2 + d_Y(a_y,c_y)^2}$ \\ 
+	For $d_E(a, c) \leq d_E(a,b) + d_E(b,c)$ we have 
+	$$\sqrt{d_X(a_x,c_x)^2 + d_Y(a_y,c_y)^2} \leq \sqrt{(d_X(a_x,b_x) +
+	d_X(b_x,c_x))^2 + (d_X(a_x,b_x) + d_X(b_x,c_x))^2}$$
+	Iff
+	$$d_X(a_x,c_x)^2 + d_Y(a_y,c_y)^2$$
+	$$\leq d_X(a_x,b_x)^2 + d_Y(a_y,b_y)^2 + d_X(b_x,c_x)^2 + d_Y(b_y,c_y)^2$$
+	$$+ 2\sqrt{(d_X(a_x,b_x)^2 + d_Y(a_y,b_y)^2) (d_X(b_x,c_x)^2 +
+	d_Y(b_y,c_y)^2)}$$
+	From the Cauchy shwartz it follows that this inequality is true. Since this
+	is the same as taking the standard inner product on $\R$\\
 	For $d_\text{max}$:\\
-
+	Checking all the axioms of metrics:\\
+	$d_\text{max}(x,y) \geq 0$ since $\max( |a|, |b| )$ is clearly nonegative for all
+	$a,b \in \R$\\
+	For $d_\text{max}(x,y) = 0$, $\max( |d_X(a_x,b_x)|, |d_Y(a_y,b_y)| )= 0$ iff
+	$d_X(a_x,b_x) = d_Y(a_y,b_y) = 0$ which is the case iff $a = b$.\\
+	It is clear $d_\text{max}(x,y) = d_\text{max}(y,x)$\\
+	For $d_\text{max}(a, c) \leq d_\text{max}(a,b) + d_\text{max}(b,c)$ we have 
+	$$\max (|d_X(a_x,c_x)| , |d_Y(a_y,b_y)|) \leq \max (|d_X(a_x,b_x) +
+	d_X(b_x,c_x)| , |d_Y(a_y,b_y) + d_Y(b_y,c_y)|)$$
+	$$\leq \max(d_X(a_x, b_x) , d_Y(a_y, b_y)) + \max(d_X(b_x,c_x) , d_Y(b_y,c_y))$$
 	For $d_\text{sum}$:\\
-
+	Checking all the axioms of metrics:\\
+	$d_\text{sum}(x,y) \geq 0$ since $a + b$ is clearly nonegative for all
+	$a,b \in \R^+$\\
+	For $d_\text{sum}(x,y) = 0$, $d_X(a_x,b_x) + d_Y(a_y,b_y) = 0$ iff
+	$d_X(a_x,b_x) = d_Y(a_y,b_y) = 0$ which is the case iff $a = b$.\\
+	It is clear $d_\text{sum}(x,y) = d_\text{sum}(y,x)$\\
+	For $d_\text{sum}(a, c) \leq d_\text{sum}(a,b) + d_\text{sum}(b,c)$ we have 
+	$$d_X(a_x,c_x) + d_Y(a_y,b_y) \leq d_X(a_x,b_x) + d_X(b_x,c_x) +
+	d_Y(a_y,b_y) + d_Y(b_y,c_y)$$
 \end{ques}
 
 \begin{ques}{52}
-	(a) \ Letting 
+	(a) \ We know that the intersection cannot contain $2$ or more points since
+	if there exists $x, y$ in the intersection with $x \neq y$ then $d(x,y) >
+	0$, we have that every interval must contain these two points.  Therefore
+	from the definition of the diameter, we have that the diameter of every
+	interval is $\geq d(x,y) > 0$ which contradicts the diameter converging to
+	$0$ (we set $\epsilon = d(x,y)$ and then for all $N$ we have that dia$(I_n)
+	\geq \epsilon$ for all $n > N$)\\
+	Now we show its nonempty. For each $I_n$ we choose a point $a_n$ in $I_n$.
+	We have that the sequence of points $(a_n)_n$ is Cauchy since for any
+	$\epsilon > 0$ we have that there exists $N$ such that diam$(I_n) <
+	\epsilon$ for $n > N$ so for all $a_k, a_n$, $n,k > N$ we have that $a_k,
+	a_n \in I_{\min(k,n)}$ so $d(a_n,a_k) \leq $ dia$(I_{\min(k,n)}) \leq \epsilon$.\\
+	We have that every interval contains the limit point $a$ of the Cauchy
+	sequence since for each $I_k$ we have the subsequence of $(a_n)_n$ starting
+	at $k$ which is also Cauchy and since $I_k$ is closed, it contains the
+	limit point. Therefore $a$ is in the intersection, so the intersection is
+	non-empty.
 \end{ques}
 
 \begin{ques}{Additional Problem 1}
-	
+	Since $S$ is bounded we have that there exists $r > 0, x \in S$ with $S
+	\subseteq B_r(x)$, where $B_r$ is the closed ball of radius $r$. We have
+	that the lim $S$ is contained $B_r$ since we know that it is contained in
+	every closed set that contains $S$. Thus it is bounded
 \end{ques}
 \end{document}
