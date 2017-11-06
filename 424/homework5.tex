@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 424, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$5}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{22}
+	It does follow. For any Cauchy sequence $(a_n)_n$ with the limit $a$ (if it
+	exists), we have that the set $S = (a_n)_n \cup \{a\}$ is closed and
+	bounded (We know that every Cauchy sequence is bounded). From our midterm
+	problem we know that any subsequence of $(a_n)_n$ converges to $a$.
+	Therefore in order for $S$ to be compact, $a$ must exist in $S$ and so
+	exists in $M$
+\end{ques}
+
+\begin{ques}{23}
+	We know that $(0,1)$ is open in $\R$ as proven in class. For any $r$, we
+	have that $(0,r/2) \in B_r(0,0)$ but $(0,r/2) \notin (0,1) \times \{0\}$
+	therefore $B_r(0,0) \not \subseteq (0,1) \times \{0\}$. Therefore $(0,1)
+	\times \{0\}$ is not open.
+\end{ques}
+
+
+\begin{ques}{28}
+	(a) \ Not necessarily. Consider the map from the unit circle $f : S^1 \to
+	[0, 2\pi)$ where $f(\c(\t), \s(\t)) = \t$. We have that the inverse image
+	of the open set $[0,\epsilon)$ is the closed set $\{(\c(\t),\s(\t)): \t \in
+	[0, \epsilon)\}$\\
+	(b) \ Yes. Since $f$ has a continous inverse mapping $f^{-1}$ for any open
+	set $U \subseteq M$ we have that the pullback of $f^{-1}$ of an open set is
+	open. Thus $f(U) = (f^{-1})^{-1}(U)$ is open.\\
+	(c) \ Yes. Since $f$ is bijective it has an inverse $f^{-1}$. For any open
+	set $U$, the pullback of $f^{-1}$ of $U$ is just $f(U)$ which is open. Thus
+	$f^{-1}$ is continous. So $f$ is a homeomorphism. \\
+	(d) \ Not necessarily. Consider the map  $f :\R^2 \to [0, 2\pi)$ where
+	$f(\c(\t), \s(\t)) = \t$. This is the inverse map as the example used in
+	(a). Thus it is bijective, specifically surjective. However the same open
+	set in the example does not map to an open set
+
+\end{ques}
+
+% done
+\begin{ques}{32}
+	For any point $p \in \N$ we have that for $r = 1$, by definition the set
+	$B_r(p) = \{p\}$ is open.\\
+	Therefore singletone points are open in $\N$, so any set $S \subseteq \N$
+	is open since
+	$$S = \bigcup_{s \in S} \{s\}$$
+	And we know arbitrary unions of open sets are open. Therefore we have that
+	$S^{c}$ is open as well. The complement of an open set is closed so we know
+	that $S$ is closed as well. Therefore every set $S \subseteq \N$ is clopen.\\
+	This means that every function $f: \N \to M$ is continous since the inverse
+	image of any open set $U \subseteq M$ will be open.
+\end{ques}
+
+\begin{ques}{34}
+	For any closed set $L \subset N$ with $N$ closed from the inheritance
+	principle we know $L = C \cap N$ for some closed set $C \subset M$.
+	Intersections of closed sets are closed. Thus $L$ is closed in $M$.
+	Similarly if $U \subset N$ is open and $N$ is open,  then from the
+	inheritance principle $U = V \cap N$ where $V$ is open in $M$. Finite
+	intersections of open sets are open, thus $U$ is open in $M$.
+\end{ques}
+
+\begin{ques}{38}
+	For $d_E$:  \\
+	We have that $d_E(p,p') = \sqrt{\langle p, p' \rangle}$ with the inner
+	product $\langle p , p'\rangle = d_X(x,x')^2 + d_Y(y,y')^2$ 
+	For $d_\text{max}$:\\
+	We have that $d_\text{max}(p,p') = \sqrt{\langle p, p' \rangle}$ with the inner
+	product $\langle p , p'\rangle = $ 
+	For $d_\text{sum}$:\\
+	We have that $d_\text{sum}(p,p') = \sqrt{\langle p, p' \rangle}$ with the inner
+	product $\langle p , p'\rangle = $ 
+
+\end{ques}
+
+\begin{ques}{52}
+	(a) \ Letting 
+\end{ques}
+
+\begin{ques}{Additional Problem 1}
+	
+\end{ques}
+\end{document}
