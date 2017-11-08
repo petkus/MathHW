@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 441, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$6}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{\S 23, 3}
+	We have that 
+	$$A \cup \l(\bigcup A_\a \r) = \bigcup \l( A \cup A_\a \r)$$
+	We know that $A \cap A_\a$ is nonempty for each $\a$ so from Thm 23.3 each
+	$A \cup A_\a$ is connected. Since $A$ is nonempty we have that there
+	exists $p \in A$ so
+	$$p \in \bigcap \l( A \cup A_\a \r)$$
+	Thus from thm 23.3 we know that 
+	$$\bigcup \l( A \cup A_\a \r)$$
+	is connected.
+\end{ques}
+
+\begin{ques}{\S 23, 5}
+	If $X$ has the discrete topology and $A \subseteq X$ is a subspace with
+	more than two points $a, b \in A$, $a \neq b$, we have the seperation $A =
+	\{a\} \cup (A - \{a\}$ where $A - \{a\}$ is nonempty since $b \in A -
+	\{a\}$. Both these sets are open since every subset of the discrete
+	topology is open. It is clear that one-point sets are connected since in
+	order for $\{x\} = U \cup V$ where $U \cap V = \emptyset$, either $U$ or
+	$V$ must be empty.\\
+	$\Q$ is totally disconnect since for any subspace $A \subseteq \Q$ with two
+	points $a,b \in A$, since the irrationals are dense there exists an
+	irrational $r \in [a,b]$, and thus we have the seperation 
+	$$A = \l(A \cap (-\infty, r)\r) \cup \l(A \cap (r, \infty)\r)$$
+\end{ques}
+
+\begin{ques}{\S 23, 9}
+	Let us choose a point $(x,y) \in (X \times Y) - (A \times B)$ where $x
+	\notin A, y \notin B$. We define the set $T = (\{x\} \times Y) \cup (X
+	\times \{y\})$. This set is connected since $\{x\} \times Y$, $X \times
+	\{y\}$ are homeomorphic to $Y$ and $X$ respectively, and thus since the
+	intersection of these sets is $(x,y)$ (nonempty) from thm 23.3, $T$ is
+	connected. \\ Now for any $(a,b) \in (X \times Y) - (A \times B)$ we have
+	that either $a \notin A$ or $b \notin B$. Therefore we have that $T_a = \{a\}
+	\times Y$ or $T_b = X \times \{b\}$ is contained in $(X \times Y) - (A \times
+	B)$. Define $T_{(a,b)}$ as one of these sets which is contained in $(X \times
+	Y) - (A \times B)$. Letting $M = (X \times Y) - (A \times B)$, we have that
+	$$M = \bigcup_{(a,b) \in M} T_{(a,b)}$$
+	This is clear since every $(a,b) \in M$ is contained in a $T_{(a,b)}$ and
+	every $T_{(a,b)}$ is contained in $M$. It is clear that each $T_{(a,b)}$ is
+	connected since it is homeomorphic to $X$ or $Y$. Finally we have that for
+	each $(a,b)$, $T_{(a,b)} \cap T = (x,b)$ or $(a,y)$ and thus is not empty.
+	Therefore we can use problem 23.3 to conclude that $M$ is connected.
+\end{ques}
+
+\begin{ques}{\S 24, 1}
+	(a) \ If there exists a homeomorphism $f$ from  $[0,1]$ or $(0,1]$ to
+	$(0,1)$, then $f(1) = a$ for some $a \in (0,1)$. However then we have that
+	$f$ restricted to $[0,1] / \{1\}$ and $(0,1] / \{1\}$ is a homeomorphism to
+	$(0,1) / \{a\}$. However $[0,1] / \{1\}$ and $(0,1] / \{1\}$ are connected
+	while $(0,a) \cup (a,1)$ is disconnected which is a contradiction since
+	homeomorphisms conserve connectivity. Similarly if there exists a
+	homeomorphism $f$ from $[0,1]$ to $(0,1]$ then we have that $f(0) \neq
+	f(1)$ so we have either $f(0)$ or $f(1)$ $ \neq 1$. WLOG we will say $f(0)
+	= a \neq 1$. Then we have that the restriction of $f$ from $[0,1] / \{0\}$
+	to $(0,a)\cup (a,1]$ is a homeomorphism. However it does not preserve
+	connectivity, which is a contradiction.\\
+	(b) \ Let $X = (0,1)$, $Y = [0,1]$. We already know $X$ is not homeomorphic
+	to $Y$. however $X$ is homeomorphic to any open interval contained in $Y$
+	(we proved in lecture all open intervals of $\R$ are homeomorphic) and thus
+	there exists an imbedding from $X$ to $Y$. Similarly we know $Y$ is
+	homeomorphic to any closed interval in $X$ and thus there exists an
+	imbedding from $Y$ to $X$\\
+	(c) \ We have that if there exists a homeomorphism $f : \R^n \to \R$ then
+	letting $a \in \R^n$ be the point where $f(a) = 0$ then the restriction $f
+	: \R^n / \{a\} \to \R / \{0\}$. However we have that $\R / \{0\}$ is
+	disconnected while $\R^n / \{a\}$ is not which is a contradiction. $\R^n /
+	\{a\}$ is not disconnected since we can apply Exercise 23.9 with $X = \R$,
+	$Y = \R$, $A = \{a_x\}$ and $B = \{a_y\}$
+\end{ques}
+
+\begin{ques}{\S 24, 2}
+	We can define the continous map $g(x) = f(x) - f(-x)$. This is continous
+	since it is the composition and sum of continous functions.\\
+	Notice that $g(x) = 0 \Rightarrow f(x) = f(-x)$, and thus if we show $g$
+	must equal zero at some point, we are done. Also notice that $g(x) =
+	-g(-x)$. Since $g$ maps connected sets to contected sets, we have
+	that the connected set $A = S^1 \cap \{x + iy \in \C, x \geq 0$ gets mapped to
+	a connected set. Therefore we have that $g(i)$ is either positive or
+	negative (or zero in which case we are done). Then $g(-i)$ is also in the
+	image and the opposite sign of $g(i)$. Thus we have a positive value and a
+	negative value in $g(A)$. If $0 \notin g(A)$ then we get the seperation $g(A)
+	= (g(A) \cap (-\infty, 0)) \cup ((0, \infty) \cap g(A))$ which contradicts
+	$g(A)$ being connected. Thus $0 \in g(A)$ so $f(x) = f(-x)$ for some $x \in
+	A$.
+\end{ques}
+
+\begin{ques}{\S 24, 10}
+	We have proven the general result for $\R^n$ in lecture. Therefore it is
+	true for $n = 2$
+\end{ques}
+\end{document}
