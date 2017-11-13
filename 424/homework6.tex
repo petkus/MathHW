@@ -44,6 +44,8 @@
 
 \newcommand{\T}{\mathfrak{T}}
 
+\newcommand{\dist}{\text{dist}}
+
 \pagestyle{empty}
 \begin{document}
 
@@ -85,17 +87,24 @@ Gylys-Colwell}}
 	y_n \in \R$ where $G$ is the graph of $f$ with the limit $(m_n,y_n) \to
 	(m,y)$, we have that $y_n = f(m_n)$. Thus since $f$ is continuous we have
 	that $f(m) = f(y)$ and thus $(y,m) \in G$, so $G$ is closed\\
+	\\
 	(b) \ For any sequence $(m_n, y_n)_n \in G, m_n \in M,
 	y_n \in \R$, since $M$ is compact, there exists a convergent subsequence
 	$(m_{n_k})$ of $(m_n)_n$, and thus $(m_{n_k},y_{n_k}) \to
 	(m,y)$, we have that $y_n = f(m_n)$. Thus since $f$ is continuous we have
 	that $f(m) = f(y)$ and thus $(y,m) \in G$, so $G$ is compact\\
+	\\
 	(c) \ Suppose for contradiction there is a convergent sequence $m_n \in M$
 	with limit $m$ where $f(m_n)$ does not converge. Thus there exists a
 	$\epsilon > 0$ where we can choose a subsequence $y_{n_k} = f(m_{n_k})$
 	such that $d(y_{n_k}, f(m)) > \epsilon$. However no subsequence of 
-	$(m_{n_k}, y_{n_k})$ converges since we know that $m_{n_k} \to m$ so 
-	Thus we contradict compactness.\\
+	$(m_{n_k}, y_{n_k})$ converges since if we have any convergent subsequence
+	$(m_{n_{k_l}}, y_{n_{k_l}})_l$ then we have that $m_{n_{k_l}} \to m$ yet
+	$y_{n_{k_l}} \to y \neq f(m)$. Therefore $G$ would not contain the limit
+	point of $(m_{n_{k_l}}, y_{n_{k_l}})_l$ which would contradict $G$ being
+	closed (which is implied by compactness).  Thus we contradict
+	compactness.\\
+	\\
 	(d) \ We can define the discontinous function
 	$$f(x) = \begin{cases} 
       0 & x = 0 \\
@@ -132,18 +141,49 @@ Gylys-Colwell}}
 \begin{ques}{55}
 	(a) \ If $p$ is a limit, then we have a sequence $(p_n)_n \in S$ where for each
 	$\epsilon > 0$ we can choose a $p_n$ where $d(p_n,p) < \epsilon$ and 
-	the inf$\{d(p_n,p)\} = 0$ we have inf$\{d(p_n,p)\} \geq$ dist$(S,p) \geq
-	0$, thus dist$(S,p) = 0$. Conversely if dist$(S,p) = 0$ then for $\epsilon =
+	the inf$\{d(p_n,p)\} = 0$ we have inf$\{d(p_n,p)\} \geq \dist(S,p) \geq
+	0$, thus  $\dist(S,p) = 0$. Conversely if $\dist(S,p) = 0$ then for $\epsilon =
 	\frac 1 n$ we can choose $p_n \in S$ such that $d(p_n,p) < \epsilon$. Thus
 	we have that the sequence $(p_n)_n$ converges to $p$.\\
-	(b) \ For any $p \in M$ with 
+	\\
+	(b) \ For any $\epsilon > 0$ let $\delta = \epsilon$. For any $p, q$ with
+	$d(p,q) < \delta$ we have that for any $s \in S$
+	$$d(q,s) \leq d(p,q) + d(p,s) \Rightarrow d(q,s) - d(p,s) \leq d(p,q) < \epsilon$$
+	relabeling $q$ and $p$ yields the other inequality: $d(p,s) - d(q,s) \leq
+	\epsilon$. Thus we have that $|d(p,s) - d(q,s)| < \epsilon$ for all $s \in
+	S$. We have that 
+	$$|\dist(p,S) - \dist(q,S)| = |\inf\{ d(p,s), s \in S\} -
+	\inf\{ d(q,s), s \in S\}| \leq \inf\{|d(p,s) - d(q,s)|, s \in S\} \leq \epsilon$$
+	We have the first inequality since for any $d(p,s_1) - d(q,s_2)$ we have
+	that $|d(p,s_1) - d(q,s_2)| \leq |d(p,s_1) - d(q,s_1)|$. Thus we have that
+	$\dist(p,S)$ is uniformly continuous.
+
 \end{ques}
 
 \begin{ques}{Additional Problem 1}
-	We can construct a sequence $(a_n)_n \in $
+	Suppose for contradiction that $A/(U_1 \cup \dots U_n)$ is not empty for
+	all $n$. Then we can choose a sequence $(a_n)_n$ where $a_n \in A/(U_1 \cup
+	\dots U_n)$. Since $A$ is compact, there exists a subsequence $(a_{n_k})_k
+	\in A$ which converges to $a$. We have that $a \in U_N$ for some $N$ since
+	$A$ is a union of the $U_i$s. Since $U_N$ is open there is a $r$ such that
+	$B_r(a) \subset U_N$. However this is a contradiction of convergence of
+	$a_{n_k}$ since for all $n_k >N$ we have that $a_{n_k} \notin U_N$ and thus
+	not in $B_r(a)$. Thus we have that $A/(U_1 \cup \dots \cup U_N) =
+	\emptyset$ so $A \subset (U_1 \cup \dots \cup U_N)$.
 \end{ques}
 
 \begin{ques}{Additional Problem 2}
-	
+	We know the norm is continuous, thus $|f(x)|$ is a continuous function
+	mapping to $\R$. We know the preimage of open sets are open. We can use
+	these facts as follows: \\
+	Suppose for contradiction $f$ was unbounded. We have that 
+	$$\R = (-1,1) \cup (-2,2) \cup (-3,3) \cup \dots (-n,n) \cup \dots$$.
+	Thus if we take the preimage of $f$ we get a union of open sets
+	$$A = U_1 \cup U_2 \cup \dots \cup U_n \cup \dots $$
+	We have that $A/(U_1 \cup U_2 \cup \dots U_N) \neq \emptyset $ for all $N$
+	and thus $A$ is not a finite union of open sets which is a contradiction.
+	We know that $A/(U_1 \cup U_2 \cup \dots U_N) \neq \emptyset $ since $f$ is
+	unbounded there exists $a \in A$ such that $|f(a)| > N$ and thus $f(a)
+	\notin (-N, N)$ which means $a$ is not in the preimages $U_1 \dots U_N$
 \end{ques}
 \end{document}
