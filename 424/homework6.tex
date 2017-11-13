@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 424, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$5}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{41}
+	Let us define the metric $d(x,y) = |x - y|$. Then $B = \{x \in \R^m : d(x,0)
+	\leq 1\}$. For any convergent sequence $(a_n)_n \in B$ with limit $a$, we have
+	that $a \in B$ since if $d(a,0) = 1 + \epsilon$ then for any $N > 0$ and $n >
+	N$ we have that $d(a_n, a) \leq d(a_n, 0) + d(a,0) \Rightarrow d(a_n,a)  -
+	d(a_n,0) \geq d(a,0)$ so $d(a_n,a) \geq \epsilon$ which cotradicts
+	convergence. Thus $B$ is closed. $B$ is clearly bounded since $d(x,0) \leq
+	1 \forall x \in B$. Thus since $B$ is closed, bounded, and a subset of
+	$\R^m$, it is compact.
+\end{ques}
+
+\begin{ques}{42}
+	The problem is that it is not necessarily true that the convergent
+	subsequences in $(a_n)_n$ and $(b_n)_n$ will have the same indicies. So we
+	dont necessarily have that $(a_{n_k}, b_{n_k})$ exists as a convergent
+	subsequence of $(a_n, b_n)$ 
+\end{ques}
+
+\begin{ques}{43}
+	For any sequences $(a_n)_n \in A$, $(b_n)_n \in B$, since $A \times B$ is
+	compact we have that the sequence $(a_n,b_n)$ has a
+	convergent subsequence $(a_{n_k},b_{n_k})$. We know that a sequence in $M \times
+	N$ converges iff the components in $M$ and $N$ converge. Therefore
+	$a_{n_k}$ and $b_{n_k}$ are convergent subsequences for $(a_n)_n, (b_n)_n$
+	respectivly. Thus $A, B$ are compact.
+\end{ques}
+
+\begin{ques}{44}
+	(a) \ For any convergent sequence $(m_n, y_n)_n \in G, m_n \in M,
+	y_n \in \R$ where $G$ is the graph of $f$ with the limit $(m_n,y_n) \to
+	(m,y)$, we have that $y_n = f(m_n)$. Thus since $f$ is continuous we have
+	that $f(m) = f(y)$ and thus $(y,m) \in G$, so $G$ is closed\\
+	(b) \ For any sequence $(m_n, y_n)_n \in G, m_n \in M,
+	y_n \in \R$, since $M$ is compact, there exists a convergent subsequence
+	$(m_{n_k})$ of $(m_n)_n$, and thus $(m_{n_k},y_{n_k}) \to
+	(m,y)$, we have that $y_n = f(m_n)$. Thus since $f$ is continuous we have
+	that $f(m) = f(y)$ and thus $(y,m) \in G$, so $G$ is compact\\
+	(c) \ Suppose for contradiction there is a convergent sequence $m_n \in M$
+	with limit $m$ where $f(m_n)$ does not converge. Thus there exists a
+	$\epsilon > 0$ where we can choose a subsequence $y_{n_k} = f(m_{n_k})$
+	such that $d(y_{n_k}, f(m)) > \epsilon$. However no subsequence of 
+	$(m_{n_k}, y_{n_k})$ converges since we know that $m_{n_k} \to m$ so 
+	Thus we contradict compactness.\\
+	(d) \ We can define the discontinous function
+	$$f(x) = \begin{cases} 
+      0 & x = 0 \\
+      \frac{1}{x} & x \neq 0
+   \end{cases}$$
+   We have the graph is the union of three closed sets in $\R^2$ the singleton
+   $\{0\}$, and two curves $\{(x,y): y = \frac 1 x, x > 0\}$ and $\{(x,y): y =
+   \frac 1 x, x < 0\}$ which are closed, thus the graph is closed.
+\end{ques}
+
+\begin{ques}{46}
+	We have that $A \times B$ is the product of compact sets and thus compact.
+	We know that the distance function $d$ is continuous, and thus $d: A \times
+	B \to \R$ maps to a compact set. Thus $d(A \times B)$ is compact so it
+	contains its smallest value. Thus we have that $\exists (a,b) \in A \times
+	B$ with $d(a,b) \leq d(a_0,b_0)$ for all $(a_0,b_0) \in A \times B$\\
+\end{ques}
+
+\begin{ques}{53}
+	This is true. For each $K_n$ choose two points points $a_n,b_n \in K_n$
+	where $d(a_n,b_n) = $diam $K_n$. We have the sequence $(a_n,b_n)_n \in
+	K_1^2$. Since $K_1$ is compact we know that there exists a subsequence
+	$(a_{n_k}, b_{n_k})_k$ which converges to $(a,b)$. We have the limits
+	for the components (since a sequence conveges iff its components converge)
+	$a,b \in K$ since each $K_i$ contains the tail of the subsequences
+	$a_{n_k}, b_{n_k}$ for $n_k > i$ (which has the same limit) and since
+	each $K_i$ is closed, it must contain the limit thus each $K_i$
+	contians $a,b$.  Now we have that $d(a_{n_k},b_{n_k})$ is a convergent
+	sequence converging to $d(a,b)$ since $d$ is continuous. Since
+	$d(a_{n_k},b_{n_k}) \geq \mu$ we know that its limit $d(a,b) \geq \mu$.
+	Thus diam $K \geq \mu$
+\end{ques}
+
+\begin{ques}{55}
+	(a) \ If $p$ is a limit, then we have a sequence $(p_n)_n \in S$ where for each
+	$\epsilon > 0$ we can choose a $p_n$ where $d(p_n,p) < \epsilon$ and 
+	the inf$\{d(p_n,p)\} = 0$ we have inf$\{d(p_n,p)\} \geq$ dist$(S,p) \geq
+	0$, thus dist$(S,p) = 0$. Conversely if dist$(S,p) = 0$ then for $\epsilon =
+	\frac 1 n$ we can choose $p_n \in S$ such that $d(p_n,p) < \epsilon$. Thus
+	we have that the sequence $(p_n)_n$ converges to $p$.\\
+	(b) \ For any $p \in M$ with 
+\end{ques}
+
+\begin{ques}{Additional Problem 1}
+	We can construct a sequence $(a_n)_n \in $
+\end{ques}
+
+\begin{ques}{Additional Problem 2}
+	
+\end{ques}
+\end{document}
