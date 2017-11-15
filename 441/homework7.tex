@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 441, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$7}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{\S 26, 3}
+	If $\mathcal A = \bigcup A_n$ is a finite union of compact sets, for any
+	covering $A = \bigcup U_\a$, we have that this is also a covering of each
+	$A_n$ since $A_n \subset A \subseteq \bigcup U_\a$. Thus for each $A_n$
+	there is a finite subcovering $\bigcup U_{k,n}$. Since there is a
+	finite number of $U_{k,n}$ for each $A_n$ and there is a finite number of
+	$A_n$, we have that the collection of every $U_{k,n}$ for every $A_n$ is
+	finite. Thus we have the finite subcovering for $\mathcal A$:
+	$$\mathcal A \subseteq \bigcup U_{n,k}$$
+	This is true since for every $a \in A$ we have that $a \in A_n$ for some
+	$A_n$ and thus $n \in U_{n,k}$ for some $U_{n,k}$
+\end{ques}
+
+\begin{ques}{\S 26, 4}
+	Every metric space is Hausdorf, thus from theorem 26.3 we know that every
+	compact subspace is closed. Every compact subspace is bounded since if we
+	choose some $x \in C$ where $C$ is our compact subspace, we have the
+	covering
+	$$C \subseteq \bigcup_{n \in \N} B_n(x)$$
+	Thus since $C$ is compact we have a finite union $\bigcup
+	B_{n_k}(x)$ containing $C$. Since $B_n(x) \subseteq B_{m}(x)$ for all $n,m
+	\in \N$ we have that $C \subseteq \bigcup B_{n_k}(x) = B_{\max{n_k}}(x)$.
+	Thus $C$ is bounded.\\
+	If we consider $\R$ with the discrete metric topology, then $\R$ is closed and
+	bounded since $d(x,y) \leq 1$ $\forall x,y \in \R$. $\R$ is not compact since
+	$$\R = \bigcup_{x \in \R} \{x\}$$
+	And clearly no finite subunion equals $\R$
+\end{ques}
+
+\begin{ques}{\S 26, 5}
+	For any $a \in A$ from lemmma 26.4 we can create a neighborhood $U_a$ and
+	open set $V_a$ disjoint where $a \in U_a, B \subseteq V_a$. Thus we have the covering
+	$$A \subseteq \bigcup_{a \in A} U_a$$
+	Since $A$ is compact there exists a finite subcovering (we will call $U$):
+	$$A \subseteq \bigcup_{a_n \in A} U_{a_n} = U$$
+	Thus we have that $V = \bigcap_{a_n \in A} V_{a_n}$ is open since it is a
+	finite intersection of open sets. $B \subseteq V$ since $B \subseteq
+	V_{a_n}$ for all $a_n$, and $V \cap U = \emptyset$ since if $v \in V$ then
+	$v \in V_{a_n}$ for all $a_n$ since, $V_{a_n} \cap U_{a_n} = \emptyset$ we
+	have that $v \notin U_{a_n}$ for all $a_n$ and thus $v \notin U$. Thus we
+	are done.
+	
+	% the same way it was constructed in the proof of theorem 26.3. To recall: for
+	% every $b \in B$ we have disjoint neighborhoods $V_b, U_b$ with $b \in V_b,
+	% a \in U_b$. Thus $B \subseteq \bigcup_{b \in B} V_b$ so there exists a
+	% finte covering $B \subseteq \bigcup_{b_n \in B} V_{b_n}$. Thus we have that
+	% $U_a = \bigcap U_{b_n}$ is open since it is a finite intersection of open
+	% sets. It contains $a$ and is disjoint from $V$ as well. \\
+	% Thus we have the covering
+	% $$A \subseteq \bigcup_{a \in A} U_a$$
+\end{ques}
+
+
+
+
+
+
+\end{document}
