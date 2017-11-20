@@ -333,25 +333,18 @@ Gylys-Colwell}}
 \end{ques}
 
 \begin{ques}{7.6}
-	(1) \ If we consider any nonzero ideal $I$, then there is an $A \in I$ with
-	$\det A \neq 0$. The reason for this is because if $B \in I$ with $\det B =
-	0$ then we can perform row operations (which works the same as in
-	the vector space case) to get $B$ in diagonalized form. This diagonalized
-	form $B'$ is still in $I$ since it is the product of row operation
-	matricies with an element in $I$. 
-	$$B' = \begin{bmatrix}
-	b_1 & 0 & \dots & \dots &0\\
-	0 & b_2 & \dots & \dots &0\\
-	\vdots & 0 & \ddots &\dots & \vdots\\
-	0& \dots & 0 & b_m &  \ddots\\
-	0 & \dots & 0 & 0 \ddots & \vdots\\
-	\end{bmatrix}
-	$$
-	
-	we now have that $AR \subseteq I$ and $RA \subseteq I$. However $A$ is a
-	unit and thus $R = AR = RA = I$. The reason $A$ is a unit is because we can
-	perform row operations in $D$ the same as over a vector space until we get
-	the identity matrix since $A$ has invertable determinant.\\
+	(1) \ If we consider any nonzero ideal $I$, then there is a unit $G \in I$.
+	The reason for this is because if $B \in I$ with $B \neq 0$ then we can
+	perform row operations (which works the same as in
+	the vector space case) to multiply every column and row except for the row
+	and column of some nonzero entry of $B$ by $0$. This new matrix $B'$ is
+	still in $I$ since it is the product of row operation matricies with an
+	element in $I$ and it has only one entry $b$ that is nonzero. Thus by
+	performing column and row swaps we get matricies $B_1, B_2, B_3 \dots B_n \in I$
+	where $B_i$ has the $(i,i)$ entry be the nonzero entry $b$ while every
+	other entry is $0$. Thus $G = \sum_{i=1}^n B_i$ is the identity matrix
+	multiplied by $b$. Since $D$ is a division ring $G$ is a unit since
+	$b^{-1}$ multiplied by the identity matrix is the inverse of $G$. Thus $I = R$\\
 	\\
 	(2) \ It is clear that $I_k$ is closed under addition since we add
 	component-wise so the columns that are not the $k$th column will stay zero.\\
