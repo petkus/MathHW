@@ -1,0 +1,210 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 424, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$7}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{31}
+	(a) \ We can write $U$ as a disjoint union of intervals through the
+	following iterative method.\\
+	For any point $x \in U$ we define $U_x = (a_x,b_x)$ where $a_x = \inf \{(a
+	\in \R: (a,x) \subseteq U\}$, $b_x = \sup \{(b \in \R: (x,b) \subseteq
+	U\}$. Now we can construct our union of intervals. Letting $I = U \cap \Q$
+	we have that
+	$$U = \bigcup_{q \in I} U_q$$
+	This is a countable union of intervals since $I \subset \Q$.\\
+	To prove this equality we have that $\bigcup_{q \in I} U_q \subseteq U$
+	since each $U_q \subseteq U$. We know $U_q \subseteq U$ since for any $p
+	\in U_x$ we have that $|p - a|, |p-b| < \epsilon$ for some small $\epsilon
+	> 0$ so $(x,p + \epsilon) \subseteq U$ or $(p-\epsilon , x) \subseteq U$
+	thus $p \in U$.\\
+	We know that $U \subseteq \bigcup_{q \in I} U_q$ since for any $p \in U$ we
+	have either $p \in \Q$ in which case $p \in U_p$ or $p \in \R - \Q$ in
+	which case since $U$ is open there exists $B_r(p) \subseteq U$. Since $\Q$
+	is dense we know $B_r(p) \cap \Q \neq \emptyset$ so $\exists q \in B_r(p)$
+	and we have that $B_r(p) \subset U_q$ thus $p \in U_q$.\\
+	We can make this union of intervals disjoint using the axiom of choice. We
+	have that if $q \in U_p$, then $U_p = U_q$ since $(a,q) \subset U
+	\Leftrightarrow (a,p) \subset U$ so $a_p = a_q$ and vice versa $b_p = b_q$.\\
+	Thus we can iterativly choose $q \in I$ then remove $p \in I$ such that $p
+	\in U_q$. Once we have done this for every element in $I$ we have a
+	disjoint union since if $U_q \cap U_p \neq \emptyset$ then $U_q = U_p$
+	because then there exists $x \in U_q \cap U_p, x \in \Q$ so $U_x = U_p, U_x = U_q$
+	which means $q = p$.\\
+	\\
+	(b) \ We have uniqueness since if
+	$$U = \bigcup U_i = \bigcup V_j$$
+	yet $\exists U_i = (a,b) \notin \{V_j\}$ then since $U_i \subset \bigcup
+	V_j$ there exists $V = (c,d) \in \{V_j\}$ and $x \in U$ such that $x \in V,
+	x \in U_i$.  However we will run into a contradiction: since $V \neq U_i$
+	we know $a \neq c$ or $b \neq d$, WLOG we assume $a \neq c$ and WLOG we say
+	$a < c$ then we have that $c \in (a,x)$ so $c \in U$ however there is not
+	$V_j \in \{V_j\}$ where $c \in V_j$ which would mean $c \notin U$ which is
+	a contradiction. We know $c \notin V_j \forall j$ since if $c \in V_j$ then
+	is $V_j$ is open so there exist $B_r(c) \subset V_j$. Thus we have $V_j
+	\cap V \neq \emptyset$ since $B_r(c) \cap V = (c, \inf(c + r, d)) \neq
+	\emptyset$ which contradicts the $V_j$s being disjoint.
+\end{ques}
+
+\begin{ques}{60}
+	(a) \ If $f$ is not constant, then we have $x, y \in f(M)$, $x < y$. Thus
+	we have that $M =  f^{-1}(-\infty, y - 1/2) \cup f^{-1}(y - 1/2, \infty)$.
+	This is a contradiction on $M$ being connected since $f^{-1}(-\infty, y -
+	1/2)$ and $f^{-1}(y - 1/2, \infty)$ are clopen and nonempty since both are
+	the preimage of an open set of a continous function and are the complements
+	of each other (so closed).\\
+	\\
+	(b) \ Again $f$ must be constant. If $f$ is not constant, then we have $x,
+	y \in f(M)$, $x < y$. Since the rational numbers are dense there exists $q
+	\in (x,y) \cap \Q$. Thus we have $M =  f^{-1}(-\infty, q) \cup
+	f^{-1}(q, \infty)$.  This is a contradiction on $M$ being connected
+	since $f^{-1}(-\infty, q)$ and $f^{-1}(q, \infty)$ are clopen
+	and nonempty since both are the preimage of an open set of a continous
+	function and are the complements of each other (so closed).\\
+
+\end{ques}
+
+\begin{ques}{66}
+	(a) \ If $U$ is our connected open set in $\R^m$, consider a point $x \in
+	U$ (if $U$ is empty we are trivially done). Consider the set $S$ defined as
+	the set of points $p \in U$ that there exists a path from $x$ to $p$. We
+	have that $S$ is open since for any $p \in S$ there exists $B_r(p) \subset
+	U$.  We have that $B_r(p) \subset S$ as well. The reason for this is as
+	follows. Since we have proven $B_r(p)$ is path connected in lecture we have
+	continous functions $f:[0,1] \to \R^m$ and $g:[0,1] \to \R^m$ with $f(0) = x,
+	f(1) = p$ and $g(0) = p, g(1) = q$ for every $q \in B_r(p)$. Thus we have
+	the continous function $h:[0,1] \to \R^m$ with $h(t) = tg(t) + (1-t)f(t)$.
+	Thus $h(0) = x$ and $h(1) = q$.\\
+	We have that $S^c$ is open as well. Thus $S$ is clopen and nonempty so
+	since $U$ is connected, $U = S$ so $U$ is path connected. $S^c$ is open
+	since for any $p \in S^c$ there exists $B_r(p) \subseteq U$ and we have
+	that $B_r(p) \subset S^c$ since if there is any $q \in B_r(p)$ with $q
+	\notin S^c$ then $q \in S$. However we then could construct a path from $x$
+	to $p$ using the paths from $x$ to $q$ and from $q$ to $p$ the same as
+	before. This contradicts $p \in S^c$ so we must have $B_r(p) \subset S^c$
+\end{ques}
+
+\begin{ques}{71}
+	(a) \ If $M \times N = U \sqcup V$ where $U,V$ are clopen. then one of the
+	sets is nonempty. WLOG we have $(x,y) \in U$. If we consider the subspace
+	$M' = M \times \{y\}$. We know that $M'$ is connected since it is
+	homeomorphic to $M$. We have that $M' = (M' \cap U) \sqcup (M' \cap V)$
+	where both sets are clopen. Thus since $M' \cap U$ is nonempty, we know $M'
+	\cap U = M'$. We have that $M \times N = U$ and thus $M \times N$ is
+	connected. The reason $M \times N = U$ is as follows. If there existed
+	$p = (w,v) \in V$ then we have that $N' = \{w\} \times N$ is connected
+	since it is homeomorphic to $N$. We have that $N' = (N' \cap U) \sqcup (N'
+	\cap V)$ and thus since $N'$ is connected and $N' \cap V$ is nonempty we
+	know $N' = N' \cap V$. This is not possible however since $(w,y) \in M'
+	\cap N'$ so $(w,y) \in M' \subset U$ and $(w,y) \in N' \subset V$ which
+	contradicts $U \cap V = \emptyset$\\
+	\\
+	(b) \ The converse is also true. If we have $M = U \sqcup V$ where $U,V$
+	clopen in $M$ then we have $M \times N = (U \times N) \sqcup (V \times N)$
+	is a clopen disjoint union. Thus either $U$ or $V$ must be empty. Switching
+	the labels yields the same result for $N$.\\
+	\\
+	(c) \ (a) \ For any $p = (a,b), q = (x,y) \in M \times N$ since $M,N$ are path
+	connected there exists continous $f:[0,1] \to M, g:[0,1] \to N$ with $f(0)
+	= a, f(1) = x, g(0) = x, g(1) = y$. We can define the continous function
+	$h: [0,1] \to M \times N$ where $h(s) = (f(s), g(s))$. We know $h$ is
+	continous since it is continous in its components. We have that $h(0) = p$
+	and $h(1) = q$ thus $M \times N$ is path connected.\\
+	(b) This is true since we know the projection map $\pi : M \times N \to
+	M$ where $\pi(m,n) = m$ is continous. Thus for any $x, y \in
+	M$ we choose any $n \in N$ so we have the points  $(x,n),(y,n) \in M \times
+	N$. There exists a path $f: [0,1] \to M \times N$ with $f(0) = (x,n)$,
+	$f(1) = (y,n)$. We have that $\pi \circ f$ is our path from $x$ to $y$ and
+	thus $M$ is path connected. Relabeling our argument would yield $N$ is path
+	connected as well.
+\end{ques}
+
+\begin{ques}{124}
+	(a) \ We have that $\delta S = \bar S - \i S$. Thus we have $S \subseteq
+	\bar S$ so $S - \delta S = S - (\bar S - \i S) = \i S$\\
+	\\
+	(b) \  $(\overline {S^c})^c \subseteq S$ since $\overline {S^c}$ contains
+	$S^c$ so the complement is contained in $S$. We have $\i S \subseteq
+	(\overline {S^c})^c$ since $(\overline {S^c})^c$ is open and $(\overline
+	{S^c})^c \subseteq S$ (since $S^c \subseteq \overline{S^c}$) and the
+	interior is the largest open set contained in $S$.  \\
+	\\
+	(c) \ We know that $\i U = U$ for any open set $U$. Thus since $\i S$ is
+	open we have $\i \i S = \i S$\\
+	\\
+	(d) \ We know $ \i S \cap \i T \subseteq \i (S \cap T) $ since $ \i S \cap
+	\i T$ is an open set contained in $S$ and contained in $T$ and thus
+	contained in $S \cap T$ so containment follows from maximality of interior.
+	Conversly $\i (S \cap T) \subseteq \i S \cap \i T$ since for any $p \in \i
+	(S \cap T)$ there exists $B_r(p)$ where $B_r(p) \subset S \cap T$ thus
+	$B_r(p) \subset S$, $B_r(p) \subset T$ so $p \in \i S \cap \i T$
+\end{ques}
+
+\begin{ques}{125}
+	(a) \ By definition of boundary in Ch 2.6 we have $\delta S = \bar S - \i
+	S$. It is always the case that $\i S \subseteq S \subseteq \bar S$. Thus
+	$\delta S = \emptyset \Leftrightarrow \i S = \bar S = S$. We know that $\i
+	S = S$ iff $S$ is open and $\bar S = S$ iff $S$ is closed. Thus $\delta S =
+	\emptyset$ iff $S$ is clopen.\\
+	\\
+	(b) \ This follows directly from the definition of boundary stated in the
+	problem. A point $p$ is in $\delta S$ iff $\forall r > 0, B_r(p) \cap S
+	\neq \emptyset$ and $B_r(p) \cap S^c \neq \emptyset$. This is equivalent to
+	the condition that $B_r(p) \cap S^c \neq \emptyset$ and $B_r(p) \cap
+	(S^c)^c \neq \emptyset$. Thus $p \in \delta S \Leftrightarrow p \in \delta
+	S^c$
+	 
+\end{ques}
+\end{document}

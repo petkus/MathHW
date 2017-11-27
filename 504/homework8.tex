@@ -1,0 +1,174 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\H}{\mathbb H}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ann}{\text{Ann}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 504, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$6}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{8.1}
+	Notice that the set of left proper ideals of $R$ form a partialy ordered
+	set $P$ with inclusion as the ordering relation ($K \leq J \Leftrightarrow
+	K \subseteq J)$. We know that $P$ is not empty since $I \in P$.\\
+	If we show that every chain in $P$ has an upper bound in $P$ since then by
+	Zorn's Lemma $P$ has a maximal element (which is a maximal ideal).
+	Considering any chain of proper ideals.
+	$$I_1 \subseteq I_2 \subseteq I_3 \subseteq \dots $$
+	we have that
+	$$U = \bigcup_{i = 1}^\infty I_i \in P$$
+	$U$ is an ideal since for any $x,y \in U, r \in R$, there exists $I_n$ such that $x,
+	y \in I_n$ then $x + y \in I_n \subseteq U, rx \in I_n \subseteq R$. $U$ is proper
+	since $1 \notin I_i \forall i$ so $1 \notin U$. We have that 
+	$$I_1 \subseteq I_2 \subseteq I_3 \subseteq \dots \subseteq U$$
+	So every chain is bounded. Thus we are done.
+\end{ques}
+
+\begin{ques}{8.2}
+	(a) \ For any $a \in D$, if we consider the set $1, a, a^2, a^3, \dots
+	a^{n}$ where $n$ is the dimension of $D$ over $k$. We have $n+1$ elements
+	and thus they are linearly dependent. So there exists a nonzero polinomial 
+	$$f(a) = k_{n}a^{n} + k_{n - 1}a^{n - 1} + \dots k_1a + k_0 = 0$$
+	(b) \ $D = k$ since for any $a \in D$ and $f \in k[x]$, $f(a) = 0$ we can
+	factor $f$ completely since $k$ is completely
+	$$f(a) = (a - a_n)(a - a_{n-1}) \dots (a - a_0)$$
+	Where $a_n, a_{n-1}, \dots a_0 \in k$. Since $D$ is a domain we know $a =
+	a_i$ for one of the $a_i$ and thus $a \in k$
+\end{ques}
+
+\begin{ques}{8.3}
+	If $M$ is some $k[G]$ module with submodule $N \subset M$, we have the
+	surjective homomorphism $\pi : M \to M/N$. Since $k$ is a subring of $k[G]$
+	$M$ and $M/N$ are $k$ vectorspaces. We have a $k$ linear section $s :
+	M/N \to M$ such that $\pi \circ s =$ id. The reason for this is because
+	$M/N$ has a basis $B$ as a vectorspace so for each $b \in B$ there is some
+	$m \in M$ with $\pi(m) = b$ then we define $s(b) = m$. $s$ is a fully
+	defined $k$ linear map from where it sends its basis. We have that
+	$$s'(x) = \frac{1}{|G|} \sum_{g \in G}e_gs(e_{g^{-1}}x)$$
+	is a $k[G]$ module homomorphism. Checking the properties:\\
+	$s'(x + y) = s'(x) + s'(y)$, we can use the fact that $s(x + y) = s(x) + s(y)$
+	$$s'(x + y) = \frac{1}{|G|} \sum_{g \in G}e_gs(e_{g^{-1}}(x+y)) =
+	\frac{1}{|G|} \sum_{g \in G}e_gs(e_{g^{-1}}x)+ e_gs(e_{g^{-1}}y)) = s'(x) +
+	s'(y)$$
+	For $s'(rx) = rs'(x)$ for $r \in k[G]$ we have that $r = e_{g_1}k_1 +
+	e_{g_2}k_2 + \dots e_{g_n}k_n$ so 
+	$$s'(rx) = s'(e_{g_1}k_1x + e_{g_2}k_2x + \dots e_{g_n}k_nx) =
+	k_1s'(e_{g_1}x) + k_2s'(e_{g_2}x) + \dots k_ns'(e_{g_n}x)$$
+	We know $s'$ is k linear since 
+	$$s'(kx) = \frac{1}{|G|} \sum_{g \in G}e_gs(e_{g^{-1}}kx) = \frac{1}{|G|}
+	\sum_{g \in G}e_gks(e_{g^{-1}}x) = ks'(x)$$
+	Thus we must only check that $s'(e_hx) = e_hs'(x)$. \\
+	$$s'(e_hx) = \frac{1}{|G|} \sum_{g \in G}e_gs(e_{g^{-1}h}x) $$
+	We can relabel $z = h^{-1}g$ and $z^{-1} = g^{-1}h$. Since $h^{-1}G = G$ we
+	have the same sum
+	$$\frac{1}{|G|} \sum_{z \in G}e_{hz}s(e_{z^{-1}}x) = \frac{e_h}{|G|}
+	\sum_{z \in G}e_{z}s(e_{z^{-1}}x) = e_hs'(x)$$
+	Thus $s'$ is a $k[G]$ module homomorphism.\\
+	Letting $Q = s'(M/N)$ we have that $M = N \oplus Q$ and thus $M$ is
+	semisimple. We can show $M = N \oplus Q$ by showing $Q \cap N = 0$ and $Q +
+	N = M$ thus from the chinese remainder theorem $M \cong M/N \oplus M/Q$
+
+\end{ques}
+
+\begin{ques}{8.4}
+	Consider $R = \Z$ for some prime $p$ we have the chain of $R$ modules
+	$$0 \to \Z/(p) \to \Z/(p^2) \to (\Z/(p^2)) / (\Z/(p)) \cong \Z/(p) \to
+	0$$
+	We know $\Z/(p)$ is simple, yet $\Z/(p^2) \not \cong \Z/(p) \oplus \Z/(p)$
+	since the generator must map to an element of order $p^2$, so
+	$\Z/(p^2)$ is not simple
+\end{ques}
+
+\begin{ques}{8.5}
+	(a) \\
+	$(i \Rightarrow ii)$\\
+	This follows directly from the definition. Letting $N = P$, $\pi = p$, $f =
+	$id. By the definition of a projective there exists $s: P \to M$ with $p
+	\circ s = $id.\\
+	$(ii \Rightarrow iii)$\\
+
+	$(iii \Rightarrow i)$\\
+	For any R module $M$, $N$, surjective homomorphism $\pi : M \to N$ and
+	homomorphism $f: P \to N$ we can extend $f$ as $f:(P \oplus Q) \to N$ by
+	setting $f(0 \oplus Q) =
+	0$. We have that $P \oplus Q$ is free so has some generators $g_1, g_2,
+	\dots$. Since $\pi$ is surjective, there exists $m_1, m_2, \dots \in M$
+	where $\pi(m_1) = f(g_1), \pi(m_2) = f(g_2) \dots $. Thus we can define a
+	homomorphism using the universal propertiy of free modules
+	$$g: P \oplus Q \to M \text{ where } g_1 \to m_1, g_2 \to m_2 \dots$$
+	We have that $\pi(g(g_i)) = g_i$ and thus since homomorphisms from free
+	modules are entirely determined by the image of the generators, $\pi \circ
+	g =$ id. Thus if we restrict $g$ to the submodule $P$ we get the mapping
+	showing $P$ is projective.\\
+	\\
+	(b) \\
+	$(i \Rightarrow ii)$\\
+	This follows directly from the definition. To use the same notation in the
+	assignments description of injective, letting $M = I$, $N = M$, $\pi = s$, $f =
+	$id it follows from the definition of injective there exists $p: M \to I$ with $p
+	\circ s = $id.\\
+	$(ii \Rightarrow i)$\\
+
+\end{ques}
+
+\begin{ques}{8.6}
+	(a) \ 
+	(b) \ 
+	(c) \ 
+
+\end{ques}
+
+\begin{ques}{8.7}
+	$(i \Rightarrow ii)$\\
+	$(ii \Rightarrow iii)$\\
+	$(iii \Rightarrow i)$\\
+
+\end{ques}
+\end{document}
