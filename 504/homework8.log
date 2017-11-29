@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  26 NOV 2017 13:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  29 NOV 2017 01:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -232,56 +232,73 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 106--108
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--136
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 145--158
+Underfull \hbox (badness 10000) in paragraph at lines 176--197
+
+ []
+
+[3]
+Overfull \hbox (11.66182pt too wide) in paragraph at lines 197--202
+\OT1/cmr/m/n/12 In the mod-ule $(\OML/cmm/m/it/12 N \OMS/cmsy/m/n/12 ^^B \OML/c
+mm/m/it/12 I\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 =Q$ \OT1/cmr/m/n/12 we have the e
+quiv-a-lent cosets $(\OML/cmm/m/it/12 ^^Y\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m\OT
+1/cmr/m/n/12 )\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0) = (\OML/cmm/m/it/12 ^^Y\OT1
+/cmr/m/n/12 (\OML/cmm/m/it/12 m\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; \OT1/cmr/m/n
+/12 0) \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^Y\OT1/cmr/m/n/1
+2 (\OML/cmm/m/it/12 m\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; \OMS/cmsy/m/n/12 ^^@\O
+ML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 m\OT1/cmr/m/n/12 )) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--158
+Underfull \hbox (badness 10000) in paragraph at lines 235--270
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 281--293
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--172
+Underfull \hbox (badness 10000) in paragraph at lines 293--305
 
  []
 
-[3] (./homework8.aux) ) 
+[5] [6] (./homework8.aux) ) 
 Here is how much of TeX's memory you used:
- 2492 strings out of 494953
- 32469 string characters out of 6180977
- 92482 words of memory out of 5000000
- 5746 multiletter control sequences out of 15000+600000
+ 2493 strings out of 494953
+ 32471 string characters out of 6180977
+ 95489 words of memory out of 5000000
+ 5747 multiletter control sequences out of 15000+600000
  9298 words of font info for 35 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,8n,26p,236b,126s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/symbols/msbm10.pfb>
-Output written on homework8.pdf (3 pages, 129366 bytes).
+ 37i,8n,26p,305b,134s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb>
+Output written on homework8.pdf (6 pages, 148183 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 75 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
