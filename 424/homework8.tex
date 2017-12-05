@@ -106,6 +106,92 @@ Gylys-Colwell}}
 	\overline B \subset \overline A$. Thus $A$ is dense in $C$
 \end{ques}
 
+\begin{ques}{1}
+	We have that for all $x$
+	$$f'(x) = \lim_{t \to x} \frac{f(x) - f(t)}{x-t}$$
+	From what we are givien however we have that 
+	$$\frac{|f(x) - f(t)|}{|x-t|} \leq |x-t|$$
+	Thus
+	$$-|x-t| \leq f'(x) = \frac{f(x) - f(t)}{x-t} \leq |x-t|$$
+	Thus as $t \to x$ we get $0 \leq f'(x) \le 0 \Rightarrow f'(x) = 0$ for all
+	$x$. Thus $f$ is constant
+\end{ques}
+
+\begin{ques}{2}
+	(a) \ Given any $\varepsilon > 0$, let $\delta =
+	\l(\frac{\varepsilon}{H}\r)^{1/\a}$. We have that for any $x,t \in (a,b)$
+	where $|x - t| \le \delta$, $|f(x) - f(t)| \le H|x - t|^\a \le H\delta^\a
+	= \varepsilon$, thus $f$ is uniformly continuous.\\
+	We can thus extend $f$ by letting $f(a) = \lim_{x \to a} f(x)$, and $f(b) =
+	\lim_{x \to b} f(x)$. This extension of $f$ is also $\a$-Holder since if we
+	fix $u \in (a,b)$ and consider the limits  $\lim_{x\to a} |f(x) - f(u)|
+	\leq \lim_{x \to a} H|x - u|^\a$, since these functions are continuous at $a$
+	and we have the inequality $|f(x) - f(u)| \le H|x-u|^\a$ for all $x < a$,
+	the inequality holds at $a$. This same argument can be applied to $b$
+	(as well as now $x= a, u = b$ since we showed it holds for $u = a$ and $x \in
+	(a,b)$) by relabeling the terms.\\
+	\\
+	(b) \ This is the Lipshitz condition.\\
+	\\
+	(c) \ We have that for all $x$
+	$$f'(x) = \lim_{t \to x} \frac{f(x) - f(t)}{x-t}$$
+	From what we are givien however we have that 
+	$$\frac{|f(x) - f(t)|}{|x-t|} \leq |x-t|^{\a - 1}$$
+	Thus
+	$$-|x-t|^{\a - 1} \leq f'(x) = \frac{f(x) - f(t)}{x-t} \leq |x-t|^{\a - 1}$$
+	Thus as $t \to x$ we get $0 \leq f'(x) \le 0 \Rightarrow f'(x) = 0$ for all
+	$x$. Thus $f$ is constant
+\end{ques}
+
+\begin{ques}{3}
+	(a) \ Suppose for contradiction there exists $x,y \in (a,b)$ with $x < y$ and
+	$f(x) \ge f(y)$. However from the mean value theorem (since $f$ is
+	differentiable on $[x,y] \subset (a,b)$ the mvt holds) we have that
+	$\exists \t \in (x,y)$ such that 
+	$$f'(\t) = \frac{f(y) - f(x)}{y-x}$$
+	However $f(y) - f(x) \le 0$ and $y-x > 0$ thus $f'(\t) \le 0$ which is a
+	contradiction.\\
+	\\
+	(b) \ $f$ is monotone increasing by similar reasoning:\\
+	Suppose for contradiction there exists $x,y \in (a,b)$ with $x < y$ and
+	$f(x) > f(y)$. However from the mean value theorem (since $f$ is
+	differentiable on $[x,y] \subset (a,b)$ the mvt holds) we have that
+	$\exists \t \in (x,y)$ such that 
+	$$f'(\t) = \frac{f(y) - f(x)}{y-x}$$
+	However $f(y) - f(x) < 0$ and $y-x > 0$ thus $f'(\t) < 0$ which is a
+	contradiction.\\
+\end{ques}
+
+\begin{ques}{9}
+	(a) \ let us define $g(x) = x - f(x)$. Notice that $g'(x) = 1 - f'(x) > 1 -
+	L > 0$ for all $x$, let $\epsilon = 1- L$. Notice that for any $x$, $g(x) =
+	0  \Leftrightarrow f(x) = x$, thus if we find a unique $0$ of $g(x)$ we are
+	done.\\
+	For existence:\\
+	Suppose $g(0) = A < 0$ (if $A = 0$ we are done). We have from the mvt
+	$$\frac{g(x) - g(0)}{x} = g'(\t) > \epsilon$$
+	for all $x$ and some $\t \in (0,x)$. Rearranging the inequality yields
+	$$g(x) > \epsilon x + A$$
+	Thus if we choose $x > A/\epsilon$ we get $g(x) > 0$ thus we have $g(x) > 0
+	> g(0)$ and so from the intermedite value theorem there exists $\a \in
+	(0,x)$ where $g(\a) = 0$\\
+	If $g(0) = A > 0$ then now
+	$$\frac{g(0) - g(x)}{-x} = g'(\t) > \epsilon$$
+	and thus rearranging we get
+	$$-g(x) > -x\epsilon - g(0) \Rightarrow g(x) < x\epsilon + A$$
+	Thus choosing $x > -A/\epsilon$ we get $g(x) > 0$ and thus from intermedite
+	value theorem we get $\exists \alpha \in (0,x)$ such that $g(\a) = 0$.\\
+	Uniqueness:\\
+	If there exists $\alpha \neq \beta \in \R$ where $g(\alpha) = g(\beta) = 0$
+	then from the mean value theorem there exists $\t \in (\alpha, \beta)$ where
+	$$g'(\t) = \frac{g(\a) - g(\beta)}{\a - \beta} = 0$$
+	But this contradicts $g'(\t) > \epsilon$. Thus this is not possible
+\\
+	\\
+	(b) \ Let $f(x) = x + e^{-x}$. We have that $x \neq x + e^{-x}$ for all $x$
+	and $f'(x) = 1 - e^{-x} < 1$ for all $x$ 
+\end{ques}
+
 \begin{ques}{Additional Problem 1}
 	Given any sequence $x_n \in K$ we can define the chain $A_1 \supset A_2
 	\supset \dots $ of relatively closed sets in $K$ as $A_n = \overline{B_n}
