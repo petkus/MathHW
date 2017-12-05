@@ -1,0 +1,169 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+
+\renewcommand{\b}{\setminus}
+
+\newcommand{\id}{\text{id}}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 441, Fall 2017}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$9}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+
+% Do this later with path homotopy instead 
+\begin{ques}{1}
+	Checking equivalence relation axioms for any paths $f, g, h : [a,b] \to Y$
+	from $x$ to $y$ in $Y$:\\
+	Reflexivity:\\
+	For $f$, we define $H : [a,b] \times I \to Y$ as $H(s,t) = f(s)$. $H$ is
+	continous since it is equal to the composition of the continous maps
+	$\id_{[a,b]} : {[a,b]} \times I \to {[a,b]}$ and $f: {[a,b]} \to Y$. We
+	have that $H$ is a path homotopy from $f$ to $f$ since $H(s,0) = f(s) =
+	H(s,1)$, $H(a,t) = f(a) = x, H(b,t) = f(b) = y$ and thus $f \sim f$\\
+	Symmetry:\\
+	If $f \sim g$ then there exists $H: {[a,b]} \times I \to Y$ where $H(s,0) =
+	f(s)$ and $H(s,1) = g(s)$, $H(a,t) = x, H(b,t) = y$. We can define $H':
+	{[a,b]} \times I \to Y$ where $H' = H \circ (\id_{[a,b]}, 1 -\id_I)$. $H'$
+	is continous since $(\id_{[a,b]}, 1 - \id_I)$ is component-wise continous
+	and so continous and thus $H'$ is the composition of continous functions.
+	We have that $H'$ is a path homotopy from $g$ to $f$ since $H'(s,0) = H(s,1
+	- 0) = g(s)$, $H'(s,1) = H(s,1-1) = f(s)$ and $H'(a,t) = H(a,1-t) = x,
+	G'(b,t) = H(b,1-t) = y$. Thus $g \sim f$\\
+	Transitivity:\\
+	If there exists a path homotopy $H$ from $f$ to $g$ and path homotopy $G$
+	from $g$ to $h$ ($f \sim g, g \sim h$) we can define the homotopy
+	$F:{[a,b]} \times I \to Y$ using the pasting lemma as follows.\\ Consider
+	$H':{[a,b]} \times [0,1/2] \to Y$ as $H' = H \circ (\id_{[a,b]}, \frac 1
+	2\id_I)$ and $G': {[a,b]} \times [1/2, 1] \to Y$ as $G' = G \circ
+	(\id_{[a,b]}, \frac 1 2 + \frac 1 2 \id_I)$. Both these mappings are
+	continous since they are the composition of continous mappings, and their
+	domains intersect on $S = {[a,b]} \times \{1/2\}$. We have that $H'(S) =
+	G'(S)$ since $H'(s,1/2) = H(s,1) = g(s) = G(s,0) = G'(s,1/2)$. Thus we
+	define $F: {[a,b]} \times I \to Y$ using the pasting lemma. $F$ is a
+	path homotopy from $f$ to $h$ since $F(s,0) = H'(s,0) = H(s,0) = f(s)$ and
+	$F(s,1) = G'(s,1) = G(s,1) = h(s)$. Also $F(a,t) = H(a,1/2 t) = x$ or $=
+	G(a,1/2 + 1/2 t) = x$ and $F(b,t) = F(b,t) = H(b,1/2 t) = y$ or $= G(b,1/2
+	+ 1/2 t) = y$. Thus $f \sim h$
+\end{ques}
+
+\begin{ques}{2}
+	If there exists $\t : S^1 \to \R$ such that $p \circ \t = \id_{S^1}$, from
+	Exercise $\S 24, 2$ we know there exists $t \in S^1$ such that $\t(t) =
+	\t(-t)$. Then we have $p(\t(t)) = p(\t(-t))$ which is a contradiction since
+	that implies $t = -t$.
+\end{ques}
+
+\begin{ques}{3}
+	We have the map $f: [0,2\pi] \to S^1$ with $f(\theta) = (\cos(\t),
+	\s(\t))$. We know that $f$ is continous, and $[0, 2\pi] $ is simply
+	connected, however $S^1$ is not simply connected. Conversly we have the
+	constant map $g: S^1 \to \{0\}$ where $g(s) = 0$. $g$ is continous and
+	$\{0\}$ is simply connected, while $S^1$ is not.
+\end{ques}
+
+\begin{ques}{4}
+	We can assume $S_1$ is the circle with center $\{(0,0)\}$ not in the set
+	since shifting and scaling $\R^2$ are homeomorphisms, thus $A$ is
+	homeomorphic to such a set. We have the inclusion mapping $i:S^1 \to A$
+	which is the the continous identity mapping of $S^1 \subset A$. There exists the
+	retraction $\rho: A \to S^1$ with $\rho(x) = \frac x {|x|}$. $\rho$ satisfies
+	$\rho \circ i = \id$ since every $x \in S^1$ has norm $1$ so $\frac x {|x|}
+	= x$. We have that any loop $f:[a,b] \to S^1$ based at $x \in S^1$ that is
+	not null homotopic invokes a loop based at $i(x)$ that is not null
+	homotopic in $A$ and thus $A$ is multiply connected since $S^1$ multiply
+	connected implies there exists non null homotopic loops in $A$. We get this
+	loop in $A$ as $f' = i \circ f$. We have that $f'$ cannot be null homotopic
+	since if there existed a homotopy $H': [a,b] \times I \to A$ from $f'$ to
+	the constant loop, then we would have the homotopy $H: [a,b] \times I \to
+	S^1$ from $f$ to the constant loop defined as $H(s,t) = \rho(H'(s,t))$
+	which would be a contradiction. Checking $H$ is the described homotopy:\\
+	$H(a,t) = \rho(H'(a,t)) = x = H(b,t) = \rho(H'(b,t)) = H(b,t)$\\
+	$H(s,0) = \rho(H'(s,0)) = \rho(i(f(s))) = f(s)$\\
+	$H(s,1) = \rho(H'(s,1)) = \rho(i(x)) = x$\\
+	And thus we are done
+\end{ques}
+
+\begin{ques}{7}
+	We already know the direct product of connected spaces is connected, thus
+	$X_1 \times \dots \times X_n$ is connected.\\
+	For any loop $f: I \to X_1 \times \dots \times X_n$ based at $x = (x_1,
+	\dots x_n)$, we will show $f$ is null homotopic and thus $X_1 \times \dots
+	\times X_n$ is simply connected. If we consider the compotnents of $f:$
+	$f_1, f_2, \dots f_n$, these are loops in $X_1, X_2, \dots X_n$ based at
+	$x_1, x_2, \dots x_n$ respectively. Thus since $X_1, X_2, \dots X_n$ are
+	simply connected there exists path homotopies $H_1, H_2, \dots H_n : [a,b]
+	\times I \to X_1, X_2, \dots X_n$ from $f_1,f_2 \dots f_n$ to the constant
+	loops. We have that $H = (H_1, H_2, \dots H_n): $ is a path homotopy from
+	$f$ to the constant loop and thus $f$ is null homotopic. Checking $H$ is a
+	path homotopy:\\
+	$H(a,t) = (H_1(a,t), H_2(a,t), \dots H_n(a,t)) = x = (H_1(b,t), H_2(b,t),
+	\dots H_n(b,t)) = H(b,t)$,\\
+	$H(s, 0) = (H_1(s,0), H_2(s,0), \dots H_n(s,0)) = (f_1(s),f_2(s), \dots
+	f_n(s)) = f(s)$\\
+	$H(s, 1) = (H_1(s,1), H_2(s,1), \dots H_n(s,1)) = (x_1,x_2, \dots
+	x_n) = x$\\
+
+\end{ques}
+
+\begin{ques}{8}
+	We can define the continous map $f:S^{n-1} \times \R^+ \to R^n \b \{0\}$
+	with $f(x,r) = rx$. Notice this mapping is the same as the polar coordinate
+	representation of $R^n$. $f$ has the continous inverse $f^{-1}(x) =
+	(\frac{x}{|x|}, |x|)$ and thus is a homeomorphism. Thus since $S^{n-1}$ and
+	$\R^+$ are simply connnected for $n \geq 3$ we know that $\R^n$ is simply
+	connected.
+\end{ques}
+
+\begin{ques}{9}
+	If we have some homeomorphism $f:\R^2 \to \R^n$ for $n \geq 3$, we can
+	consider the restriction $f':\R^2\b \{0\} \to \R^n\b \{f(0)\}$. This
+	restriction must be a homeomorphism, however this is not possible since
+	$\R^2 \b \{0\}$ is not simply connected yet $\R^n \b \{f(0)\} \cong \R^n \b
+	\{0\}$ is simply connected as proven in Exercise 8. 
+\end{ques}
+\end{document}
