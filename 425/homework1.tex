@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\newcommand{\osc}{\text{osc}}
+\newcommand{\diam}{\text{diam} \ }
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 425, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$1}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{19}
+	(a) \ Consider any limit point $x$ of $D_k$. We will
+	show $\osc(x) \geq 1/k \Rightarrow x \in D_k$ so $D_k$ is closed. (We will
+	use the diameter definition of $\osc$, where $\osc(x) = \lim_{r \to 0}
+	\diam f(B_r(x))$)\\
+	For any $r > 0$, since $x$ is a limit point of $D_k$, there exists $y \in
+	B_r(x) \cap D_k$. Since $B_r(x)$ is open there exists $B_s(y) \subset B_r(x)$.
+	Since $y$ in $D_k$ we know that diam $f(B_s(y)) \geq 1/k$. Since $B_s(y)
+	\subset B_r(x)$ we have 
+	$$\diam f(B_r(x)) \geq \diam f(B_s(y)) \geq 1/k$$
+	Thus for every $r > 0$ $\diam f(B_r(x)) \geq 1/k$ so we know 
+	$$\osc(x) = \lim_{r \to 0} \diam f(B_r(x)) \geq 1/k$$
+	\\
+	(b) \ Since every discontinuity point has $\osc > 0$, the discontinuity set
+	can be written as a countable union of $D_k$ where each $D_k$ is closed as
+	proven in part a.
+	$$D = \bigcup_{k=1}^\infty D_k$$
+	\\
+	(c) \ Since the continuity set is the complement of the discontinuity set,
+	we have
+	$$C = [a,b] \backslash \l(\bigcup_{k=1}^\infty D_k\r)$$
+	From Demorgans law
+	$$C = \bigcap_{k=1}^\infty\l( [a,b] \backslash D_k\r)$$
+	Which is a countable intersection of open sets (since the complement of
+	closed sets are open so $[a,b] \backslash D_k$ is open)
+\end{ques}
+
+\begin{ques}{27}
+	(b)\ Consider the indicator function on the rationals $\chi_\Q: [0,1] \to
+	\R$. We have that for any $n \in \N$, 
+	$$x_k^* = \frac{2a + (2k -1)(b-a)}{2n} \in \Q$$ 
+	Thus $\chi_\Q(x_k^*) = 1$ for all $k,n$ so our calc limit yields $1$, while
+	$\chi_\Q$ is not Riemann integrable since it is continuous nowhere
+\end{ques}
+
+\begin{ques}{28}
+	$(i \Rightarrow ii):$ This follows directly from the definition of a zero
+	set. If $Z$ is a zero set, then for each $\epsilon > 0$ there is a
+	countable couvering of $Z$ by open intervals  $(a_i,b_i)$ with total length
+	$\sum b_i - a_i < \epsilon$. We can replace $(a_i, b_i)$ with $[a_i,b_i]$
+	and since $(a_i,b_i) \subset [a_i,b_i]$ this is still a covering of $Z$,
+	and the lengths are the same.\\
+	$(ii \Rightarrow i):$ Given $\epsilon > 0$ from $ii$ there exists a countable
+	covering $C_i = [a_i,b_i]$ with total length $\sum b_i - a_i < \epsilon / 2$.
+	Since the covering is countable we can replace each $C_i = [a_i,b_i]$ with
+	$U_i = (a_i - \frac \epsilon 2\frac 1 {4^i}, b_i +\frac \epsilon 2 \frac 1 {4^i})$. The $U_i$ make up a
+	covering since each $C_i \subset U_i$ so $Z \subset \bigcup C_i \subset
+	\bigcup U_i$. The total length is 
+	$$\sum_{i=1}^\infty b_i +\frac \epsilon 2 \frac 1 {4^i} - (a_i -\frac
+	\epsilon 2 \frac 1 {4^i}) = \sum b_i - a_i +\frac \epsilon 2
+	\sum_{i=1}^\infty \frac 1 {2^i} = \frac \epsilon 2 + \sum b_i - a_i < \epsilon$$
+\end{ques}
+
+\begin{ques}{Additional Problem 1}
+	For any $\epsilon > 0$ and $x \in [0,1] \backslash \Q$ we have that there
+	exists $k \in \N$ such that $\frac 1 k < \epsilon$. We have that there are
+	only finitely many $\frac p q \in \Q$ where $q < k$ (we can bound the
+	number of these rational points from above by the sum of denominators less
+	than $k$ which is finite). Thus there exists a minimum distance $d > 0$
+	from these numbers and $x$ (this is because there are a finite number of
+	distances, each of which are $ > 0 $ since $x \notin  \Q$ so not equal to
+	any of these numbers). We have that $\forall y \in B_d(x)$, $f(y) <
+	\epsilon$ and thus $f$ is continuous at $x$. The reason for this is as
+	follows, if $y \notin \Q$ then $f(y) = 0$ and we are done. If $y \in \Q$
+	then we have $|y - x| < d$ thus $y$ cannot have denominator $< k$ since
+	otherwise we would contradict the minimality of $d$. Thus $f(y) \leq \frac
+	1 k < \epsilon$ so $f(y) < \epsilon$.
+\end{ques}
+
+\begin{ques}{Additional Problem 2}
+	If $x \in \partial S$, then for all $r > 0$, we have $B_r(x) \cap S, B_r(x)
+	\cap S^c \neq \emptyset$. Thus there exists $y,z \in B_r(x)$ where
+	$\chi_S(y) = 0$ and $\chi_S(z) = 1$. Thus $\diam \chi_S(B_r(x)) \geq 1$
+	since $\chi_S$ cannot take any values besides $1$ and $0$, we have
+	equality:  $\diam \chi_S(B_r(x)) = 1$ for all $r > 0$ 
+	$$\osc(x) = \lim_{r \to 0} \diam \chi_S(B_r(x)) = 1$$
+	If $x \notin \partial S$ then there exists $r > 0$ such that $B_r(x)
+	\subset S$ or $S^c$. We thus have $\chi_S(B_r(x)) = \{1\}$ or $\{0\}$ which
+	are sets with diameter $0$. Thus $\osc (x) = 0$
+\end{ques}
+\end{document}
