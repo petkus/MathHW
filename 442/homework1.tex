@@ -1,0 +1,289 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\det}{\text{det}}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 442, Winter 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$1}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{1-4, 5}
+	By definition of $\wedge$:
+	$$(p-p_1)\wedge (p-p_2)\cdot (p-p_3) = \det(p-p_1,p-p_2,p-p_3)$$
+	Notice that $p=p_1,p_2,p_3$ satisfy the equation since one of the vectors
+	is zero and thus the determinant is zero. Since the det is a linear
+	equation, the equation must be a plane or be a trivial equation (which
+	describes all of $\R^3)$. The equation cannot be trivial however since
+	$p_1,p_2,p_3$ are not colinear
+\end{ques}
+
+\begin{ques}{1-4 6}
+	Consdier any point satisfying the equation $p = ut + p_0$ (where $p_0 =
+	(x_0,y_0, z_0)$). Plugging $p$ into either plane equation yields
+	$$p \cdot v_i - d_i = u \cdot v_i t + p_0 \cdot v_i - d_i = (v_1 \wedge
+	v_2) \cdot v_i +(p_0\cdot v_i - d_i)$$
+	We have $(v_1 \wedge v_2) \cdot v_i = 0$ and since $p_0$ is a point in both
+	planes, $p_0$ satisfies the plane equation for both planes $p_0 \cdot v_i -
+	d_i = 0$. Thus $p \cdot v_i - d_i = 0$, the line is the intersection of the planes
+\end{ques}
+
+\begin{ques}{1-4 10}
+	We have
+	$$
+	\begin{pmatrix}
+		u \cdot u & u \cdot v \\
+		u \cdot v & v \cdot v 
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		u_1 & u_2\\
+		v_1 & v_2
+	\end{pmatrix}
+	\begin{pmatrix}
+		u_1 & v_1\\
+		u_2 & v_2
+	\end{pmatrix}
+	$$
+	Which is easily verified by multiplying out the matricies on the right\\
+	The book establishes 
+	$$
+	\begin{vmatrix}
+		u \cdot u & u \cdot v \\
+		u \cdot v & v \cdot v 
+	\end{vmatrix} = A^2
+	$$
+	Thus since determinant is invariant by transposition
+	$$
+	\begin{vmatrix}
+		u_1 & u_2\\
+		v_1 & v_2
+	\end{vmatrix}
+	=
+	\begin{vmatrix}
+		u_1 & v_1\\
+		u_2 & v_2
+	\end{vmatrix}
+	$$
+	$$A^2 = 
+	\begin{vmatrix}
+		u \cdot u & u \cdot v \\
+		u \cdot v & v \cdot v 
+	\end{vmatrix} 
+	=
+	\begin{vmatrix}
+		u_1 & u_2\\
+		v_1 & v_2
+	\end{vmatrix}
+	\begin{vmatrix}
+		u_1 & v_1\\
+		u_2 & v_2
+	\end{vmatrix}
+	=
+	\begin{vmatrix}
+		u_1 & u_2\\
+		v_1 & v_2
+	\end{vmatrix}^2
+	$$
+\end{ques}
+
+\begin{ques}{1-4 11a}
+	We have that $|(u \wedge v) \cdot w| = \det(u,v,w)$. It is a commonly known
+	fact that the volume of the parallel pipet spanned by $u,v,w$ is
+	$\det(u,v,w)$. This can be geometrically established by noticing that $|u
+	\wedge v|$ is the area of the quadralateral spanned by $u,v$ and $u \wedge
+	v$ is the perpendicular vector to this quadralateral. We have that the dot
+	product of $w$ with $u \wedge v$ is the length of the projection of $w$ to
+	$u \wedge v$ multiplied by $|u \wedge v|$ which is precisely the area of
+	the parallel pipet
+\end{ques}
+
+\begin{ques}{1-4 12}
+	($\Rightarrow$) If there exists $u$ such that $u \wedge v = w$. We have
+	that $w \cdot v = (u \wedge v) \cdot v = \det(u,v,v) = 0$. Thus $v$ and $w$
+	are perpendicular\\
+	($\Leftarrow$) If $w,v$ are perpendicular, define $u = \frac{v \wedge w}{|v|^2}$.
+	Since $u,v$ are perpendicular to $w$, we know that $w, u \wedge v$ are
+	colinear. Notice that (since $u$ and $v$ are perpendicular) $|u \wedge v| = |u||v| =
+	\frac{|w||v|^2}{|v|^2} = |w|$. Thus $w = \pm (u \wedge v)$. By the right
+	hand rule we have that $w = u \wedge v$ since $u = v \wedge w$. This choice
+	of $u$ was unique
+\end{ques}
+
+\begin{ques}{1-4 13}
+	By the product rule for $\wedge$:
+	$$\frac d {dt} (u(t) \wedge v(t)) = u'(t) \wedge v(t) + u(t) \wedge v'(t)$$
+	By bilinearity of $\wedge$:
+	$$= a(u(t) \wedge v(t)) + b(v(t) \wedge v(t)) + c(u(t) \wedge u(t)) -
+	a(u(t) \wedge v(t))$$
+	$v(t) \wedge v(t) = u(t) \wedge u(t) = 0$ yields
+	$$= a(u(t) \wedge v(t) - u(t) \wedge v(t)) = 0$$
+	Thus the derivative is zero for all $t$ so $u(t) \wedge v(t)$ is constant
+\end{ques}
+
+\begin{ques}{1-5 1}
+	(a) \ Calculating $|\a '(s)|:$
+	$$|\a'(s)| = \sqrt{\frac{a^2}{c^2}\sin^2 \frac s c + \frac{a^2}{c^2}\cos^2
+	\frac s c + \frac {b^2}{c^2}} = \sqrt{\frac{a^2(\s^2\frac s c + \c^2\frac s
+	c) + b^2}{c^2}} = \sqrt{ \frac{a^2 + b^2}{c^2}} = 1$$
+	Thus $\a$ is parameterized by arclength\\
+	\\
+	(b) \ Curvature is $|\a''(s)|$. 
+	$$\kappa = |\a''(s)| = \sqrt{\frac{a^2}{c^4}\cos^2 \frac s c + \frac{a^2}{c^4}\sin^2
+	\frac s c} = \frac a {c^2}$$
+	Torsion is $\tau = |\frac d {ds}(\a'(s) \wedge \frac{\a''(s)}{\kappa})|$:\\
+	We have
+	$$\frac {\a''(s)}{\kappa} = (-\cos\frac s c, -\sin \frac s c, 0)$$
+	$$\a'(s) = (\frac{-a}{c}\sin \frac s c, \frac a c \cos \frac s c, \frac b c)$$
+	$$\a' \wedge \frac {\a''}{\kappa} = (0,0,\frac a c \sin^2 \frac s c + \frac
+	a c \cos^2 \frac s c) = (0,0,\frac a c)$$
+	Thus 
+	$$\tau(s) = 0$$
+	\\
+	(c) \ We already found the binormal vector:
+	$$b(s) = \a' \wedge \frac {\a''}{\kappa} = (0,0,\frac a c)$$
+	We have that the plane is
+	$$0 = (p - \a(s)) \cdot b(s) = \frac a c (z - \frac{bs}{c})$$
+	\\
+	(d) \ We have the normal vector is
+	$$n(s) = \frac{\a''(s)}{\kappa} = (-\c \frac s c, - \s \frac s c, 0)$$
+	Since the third component is zero,
+	$$n(s) \cdot e_3 = 0$$
+	so $n(s)$ is always perpendicular to the z axis (meets the axis at an angle
+	of $\pi/2$).\\
+	we know the line $tn(s) + \a(s)$ always intersects the $z$ axis since we
+	can choose $t$ to be $a$ and we get $an(s) + \a(s) = (0,0,\frac{bs}{c})$\\
+	\\
+	(e) \ We know the tangent line direction vector is
+	$$t(s) = \a'(s) = (\frac{-a}{c}\sin \frac s c, \frac a c \cos \frac s c, \frac b c)$$
+	We have that
+	$$t(s) \cdot e_3 = \frac b c$$
+	is constant, thus the angle between the two vectors is constant
+	% $$\tau = |\frac a {c^2} (0, 0, 2\sin \frac s c \cos \frac s c - 2 \cos
+	% \frac s c \sin \frac s c) |  = |\frac {2a(\sin \frac s c \cos
+	% \frac s c - \cos \frac s c \sin \frac s c)}{c^2} |$$
+\end{ques}
+
+\begin{ques}{1-5 2}
+	From lecture and in the book we have the following identities
+	$$\a'(s) = t(s)$$
+	$$\a''(s) = \kappa(s)n(s)$$
+	$$\a'''(s) = \kappa'(s)n(s) + \kappa(s)n'(s)$$
+	$$n'(s) = -\tau(s)b(s) - \kappa(s)t(s)$$
+	So we have
+	$$-\frac{\a'(s) \wedge \a''(s) \cdot \a'''(s)}{|\kappa(s)|^2} = -\frac{\kappa(s)t(s)
+	\wedge n(s) \cdot (\kappa'(s)n(s) + \kappa(s)n'(s))}{|\kappa(s)|^2}$$
+	$t(s) \wedge n(s) \cdot n(s) = 0$ so we have
+	$$= - \frac{\kappa(s)t(s) \wedge n(s) \cdot \kappa(s)n'(s)}{|\kappa(s)|^2} =
+	- \frac{\kappa^2(s)(t(s) \wedge n(s)) \cdot (-\tau(s)b(s) -
+	\kappa(s)t(s))}{|\kappa(s)|^2}$$
+	$t(s) \wedge n(s) \cdot t(s) = 0$ so
+	$$= \tau(s) t(s) \wedge n(s) \cdot b(s)$$
+	Since $b(s)$ is defined as $t(s) \wedge n(s)$ and the norm is $1$, this yields
+	$$= \tau(s)b(s) \cdot b(s) = \tau(s)$$
+
+\end{ques}
+
+\begin{ques}{1-5 4}
+	Letting $\a(s)$ be the curve parameterized by arc length and $p$ the point,
+	there exists a scalar function $c(s)$ where $c(s)n(s) + \a(s) = p$.
+	Differentiating both sides yields, 
+	$$c'(s)n(s) + c(s)n'(s) + \a'(s) = 0$$
+	We have the identity $n' = -\kappa t - \tau b$
+	$$c'(s)n(s) + c(s)(-\kappa(s) t(s) - \tau(s) b(s)) + t(s) = 0$$
+	$$c'(s)n(s) + (-\kappa(s)c(s) + 1) t(s) - c(s)\tau(s) b(s) = 0$$
+	Notice that this is a sum of the linear independent vectors $n, t, b$ equal
+	to zero. Thus it must be the case that $c'(s) = - \kappa(s)c(s) + 1 =
+	c(s)\tau(s) = 0$. This shows that $\tau(s) = 0$ which  means $\a$ is
+	contained in a plane (as we established in lecture). We have that $c'(s) =
+	0$ so $c(s)$ is constant and so since $-\kappa(s)c(s) + 1$, $\kappa(s)$ is
+	constant, which we know means $\a$ is contained in a circle
+\end{ques}
+
+\begin{ques}{1-5 5}
+	(a) \ Letting $p$ be the point, there exists a scalar function $c(s)$ where
+	$c(s)t(s) + \a(s) = p$. Differentiating yields 
+	$$c'(s)t(s) + c(s)t'(s) + \a'(s) = 0$$
+	$$(c'(s) + 1)t(s) +  c(s)\kappa(s)n(s) = 0$$
+	Since $t,n$ are linearly independent, $c'(s) + 1 = \kappa(s)c(s) = 0$.
+	Since $c'(s) \neq 0 $, it must be the case that $c(s) \neq 0$ so $\kappa(s)
+	= 0$. Thus $\a''(s) = 0$, solving this differential equation yields $\a(s)
+	= c_1t + c_0$ for some constants $c_0, c_1$. Thus $\a$ is a line\\
+	\\
+	(b) \ Not necessarily, consider the curve
+	$$\a(t) = (|t|, t, 0)$$
+	This curve is not contained in a line, yet the tangent line (when defined)
+	crosses the orgin
+\end{ques}
+
+\begin{ques}{1-5 6}
+	(a) By definition of $|\cdot |$ and orthogonal transformations: $|p(u)| =
+	\sqrt{p(u) \cdot p(u)} = \sqrt{u \cdot u} = |u|$. We have
+	$\cos(\theta_p)|p(u)||p(v)| = |p(u)\cdot p(v)| = |u \cdot v| =
+	|u||v|\cos(\theta)$. Since norms are invariant we get $\cos(\theta_p) =
+	\cos(\theta)$ since $0 \leq \theta \leq \pi$ this implies $\theta = \theta_p$
+	\\
+	\\
+	(b) Since $p$ is linear, it suffices to show it is true for the basis $e_1,
+	e_2, e_3$ since we have $p(v) = v_1p(e_1) + v_2p(e_2) + v_3p(e_3)$. So
+	$$p(v) \wedge p(w) = \sum_{i,j \in [3]}v_iw_kp(e_i) \wedge p(e_k)$$
+	We have that since $p(e_j) \cdot p(e_k) = e_j \cdot e_k$, We have that
+	$p(e_1),p(e_2),p(e_3)$ are still all orthogonal to eachother. Thus the
+	vector product of two must be the other. (Not the negative of the other
+	since the transformation is orientation preserving).  Thus $p(e_i) \wedge
+	p(e_j) = p(e_k) = p(e_i \wedge e_j)$\\
+	\\
+	(c) Since each of the described quatities is obtained by taking derivatives
+	and norms of a parameterized curve, it suffices to show differentiation is
+	invariant.\\
+	By Linearity we have
+	$$p(\frac d {ds} \a(s)) = p(\a_1'(s)e_1 + \a_2'(s)e_2 + \a_3'(s)e_3)$$
+	$$= p(\a_1'(s)e_1) + p(\a_2'(s)e_2) + p(\a_3'(s)e_3)= \a_1'(t)p(e_1)+
+	\a_2'(s)p(e_2) + \a_3'(s)p(e_3) = \frac{d}{ds}p(\a(s))$$
+	
+\end{ques}
+\end{document}
