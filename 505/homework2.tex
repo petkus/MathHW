@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+\newcommand{\tensor}{\otimes}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ann}{\text{Ann}}
+\newcommand{\End}{\text{End}}
+
+\newcommand{\id}{\text{id}}
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 505, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$1}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{2.1}
+	We have
+	$$x^5 + x^2 - x - 1 = (x - 1)(x + 1)(x^3 + x + 1)$$
+	The roots are 
+	$$\pm 1, \frac{\a}{3^{2/3}} - \frac{1}{3^{1/3}\a},
+	\zeta_3^2\frac{1}{3^{1/3}\a}-\zeta_3\frac{\a}{3^{2/3}},
+	\zeta_3\frac{1}{3^{1/3}\a}-\zeta_3^2\frac{\a}{3^{2/3}}$$ 
+	where
+	$\zeta_3 = \frac 1 2 + \frac {\sqrt 3} {2}$ is the third root of unity and
+	$$\a = \sqrt[3]{\frac{\sqrt{93} - 9}{2}}$$
+	(I found these values using wolfram alpha for the roots of $x^3 + x + 1$,
+	then plugged in the values to verify). From this we get the splitting field
+	is $$\Q(\a, \sqrt[3] 3, \zeta_3)$$ Since $\sqrt[3] 3 = 2(\zeta_3 - 1/2) \in
+	\Q(\zeta_3)$, $$= \Q(\a, \zeta_3)$$ we have $$[\Q(\a,\zeta_3) : \Q] =
+	[\Q(\a,\zeta_3) : \Q(\a)][\Q(\a):\Q]$$ $[\Q(\a): \Q] = 3$ since the degree
+	of the irreducible polynomial is 3.  $\zeta_3 \notin \Q(\a)$ since $\Q(\a)
+	\subset \R$ while $\zeta_3 \notin \R$, so $[\Q(\zeta_3,\a) : \Q(\a)] \geq
+	2$. Over $\Q$ the irreducible polynomial of $\zeta_3$ is $x^2 + x + 1$,
+	thus we have $2 = [\Q(\zeta_3) : \Q] \geq [\Q(\zeta_3,\a) : \Q(\a)]$, So
+	$[\Q(\zeta_3,\a):\Q(\a)] = 2$.\\ Thus
+	$$[\Q(\a,\zeta_3):\Q] = 6$$
+\end{ques}
+
+\begin{ques}{2.2}
+	For any element $a \in D$, since $D$ is finite dimensional over $k$ (lets
+	say of degree $n$) the $n +1$ vectors $1, a, a^2 \dots a^n$ are linearly
+	dependent and thus there exists $k_0, k_1, \dots k_n \in k$ where
+	$$k_0 + k_1a + \dots k_na^n = 0$$
+	Thus $a$ is algebraic over $k$. Since $k$ is algebraically closed, this
+	means $a \in k$. Thus $D \subseteq k$ so $D = k$
+\end{ques}
+
+\begin{ques}{2.3}
+\end{ques}
+
+\begin{ques}{2.4}
+	($\Leftarrow$)\ for any 
+	($\Rightarrow$)\
+	
+\end{ques}
+
+\begin{ques}{2.5}
+	We can consider the group structure of multiplication over the units of
+	$\F_p$. By Lagrange's Theorem, for any unit $\a \in \F_p$, $\a^p = \a$,
+	thus $\a$ is a root of $x^p - x$. Thus all $p$ elements of $\F_p$
+	(including $0$ since $0^p - 0 = 0$) are roots of $x^p - x$. Since $x^p - x$
+	can have at most $p$ roots (since polynomials have at most their degree
+	number of roots), there can be no multiple roots since it has $p$ distinct
+	roots.
+\end{ques}
+
+\begin{ques}{2.6}
+	($\Rightarrow$) suppose $\a$ is a root of multiplicity $\geq 2$. We have
+	that $\a^n = 1$, by Lagranges theorem applied to the group of units with
+	multiplication in the prime field of $k$ we know that either $\a = 1$ or $n|p$.\\
+	If $\a \neq 1$ and $n|p$ then we have $x-\a$ divides $x^n - 1$ which yields
+	$$x^n - 1 = (x - \a)(x^{n-1} + \a x^{n-2} + \a^2x^{n-3} + \dots \a^{n-1})$$
+	$\a$ must be a root of the second polynomial, which means
+	$$\a^{n-1} + \a^{n-1} + \dots \a^{n-1} = n\a^{n-1} = 0$$
+	Since $\a^n = 1, \a^{n-1} = \a^{-1} \neq 0$. Thus it must be the case that
+	$n = 0 \Rightarrow p|n$\\
+	\\
+	If $\a = 1$ then $x - 1$ divides $x^n - 1$ yielding
+	$$x^n - 1 = (x - 1)(x^{n-1} + x^{n-2} + x^{n-3} + \dots 1)$$
+	In order for $1$ of multiplicity $\geq 2$ it must be a root of 
+	$$x^{n-1} + x^{n-2} + x^{n-3} + \dots 1$$
+	plugging in $1$ yields a sum of $n$ $1$s. In order for that sum to be zero,
+	it must be the case that $p|n$
+	\\
+	($\Leftarrow$) \ If $p | n$, again we have
+	$$x^n - 1 = (x - 1)(x^{n-1} + x^{n-2} + \dots + x + 1)$$
+	$1$ is a root of multiplicity $\geq 2$ since $1$ is a root of $x - 1$ and
+	a root of $x^{n-1} + \dots + x + 1$. Again this is because plugging in $1$ we get
+	a sum of $n$ $1$s and since the characterstic divides $n$, that sum is $0$
+\end{ques}
+\end{document}
