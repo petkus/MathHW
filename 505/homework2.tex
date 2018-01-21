@@ -98,18 +98,27 @@ Gylys-Colwell}}
 
 \begin{ques}{2.4}
 	($\Leftarrow$)\ If every irreducible polynomial in $k[x]$ that has root in
-	$K$ splits over $K$
+	$K$ splits over $K$ and $K$ is a finite extention of $k$, let $\a_1, \a_2
+	\dots \a_n$ be the basis of $K$ over $k$. Since each are algebraic, each
+	has corresponding minimal polynomials $p_1, p_2, \dots p_n \in k[x]$. Since
+	$p_1 \dots p_n$ is irreducible they split over $K$. Thus the polynomial $p
+	= \prod p_i$ splits over $K$. It is the case that $K$ is the splitting
+	field of $p$ over $k$. We must show that no smaller field extention $K'|k$
+	splits $p$. This is true because if $K' \subsetneq K$ as a vector space of
+	$k$, then $K'$ has a strict subset of the basis of $K$ which means there is
+	$\a_i \notin K'$. Since $\a_i$ is a root of $p$, $p$ does not split over $K'$.
+	\\
 	\\
 	($\Rightarrow$)\ If $K$ is the splitting field for $f$ and $g$ is any
 	irreducible polynomial over $k$ with roots $\a \in K$ and $\beta$, we have
 	that $k(\a) \cong k(\beta)$. The isomorphism $\sigma: k(\a) \to k(\beta)$
 	fixes $k$, and thus $f = \sigma(f)$. From the theorem proved in
 	lecture, letting $K'$ be the splitting field of $f$ over $k(\beta)$, we
-	know that this induces an isomorphism of field extentions $$K|k(\alpha)
-	\cong K'|k(\beta)$$ Where $K \cong K'$. Since both $K$ and $K'$ are the
-	splitting field of $f$ over $k$, they must be equal.  Thus $k(\beta)
-	\subset K$ so $\beta \in K$
-	
+	know that $\sigma$ induces an isomorphism of field extentions $$K|k(\alpha)
+	\cong K'|k(\beta)$$ Where $K \cong K'$. Since for both $K$ and $K'$, $k
+	\subset K, K'$ and $K,K'$ and they are isomorphic, they are the splitting
+	field of $f$ over $k$ which is unique so they must be equal.  Thus
+	$k(\beta) \subset K$ so $\beta \in K$
 \end{ques}
 
 \begin{ques}{2.5}
@@ -123,27 +132,18 @@ Gylys-Colwell}}
 \end{ques}
 
 \begin{ques}{2.6}
-	($\Rightarrow$) suppose $\a$ is a root of multiplicity $\geq 2$. We have
-	that $\a^n = 1$, by Lagranges theorem applied to the group of units with
-	multiplication in the prime field of $k$ we know that either $\a = 1$ or $n|p$.\\
-	If $\a \neq 1$ and $n|p$ then we have $x-\a$ divides $x^n - 1$ which yields
+	($\Rightarrow$) suppose $\a \neq 0$ is a root of multiplicity $\geq 2$. We have
+	that $x-\a$ divides $x^n - 1$ which yields
 	$$x^n - 1 = (x - \a)(x^{n-1} + \a x^{n-2} + \a^2x^{n-3} + \dots \a^{n-1})$$
 	$\a$ must be a root of the second polynomial, which means
 	$$\a^{n-1} + \a^{n-1} + \dots \a^{n-1} = n\a^{n-1} = 0$$
 	Since $\a^n = 1, \a^{n-1} = \a^{-1} \neq 0$. Thus it must be the case that
 	$n = 0 \Rightarrow p|n$\\
 	\\
-	If $\a = 1$ then $x - 1$ divides $x^n - 1$ yielding
-	$$x^n - 1 = (x - 1)(x^{n-1} + x^{n-2} + x^{n-3} + \dots 1)$$
-	In order for $1$ of multiplicity $\geq 2$ it must be a root of 
-	$$x^{n-1} + x^{n-2} + x^{n-3} + \dots 1$$
-	plugging in $1$ yields a sum of $n$ $1$s. In order for that sum to be zero,
-	it must be the case that $p|n$
-	\\
-	($\Leftarrow$) \ If $p | n$, again we have
+	($\Leftarrow$) \ If $p | n$, we have
 	$$x^n - 1 = (x - 1)(x^{n-1} + x^{n-2} + \dots + x + 1)$$
 	$1$ is a root of multiplicity $\geq 2$ since $1$ is a root of $x - 1$ and
-	a root of $x^{n-1} + \dots + x + 1$. Again this is because plugging in $1$ we get
+	a root of $x^{n-1} + \dots + x + 1$. This is because plugging in $1$ we get
 	a sum of $n$ $1$s and since the characterstic divides $n$, that sum is $0$
 \end{ques}
 \end{document}
