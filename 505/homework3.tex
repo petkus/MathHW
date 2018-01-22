@@ -1,0 +1,114 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+\newcommand{\tensor}{\otimes}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ann}{\text{Ann}}
+\newcommand{\End}{\text{End}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\orb}{\text{orb}}
+
+\newcommand{\id}{\text{id}}
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 505, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{3.1}
+	The algebraic closure of $\F_p$ is the infinite vectorspace over $\F_p$
+	$$K = \bigcup_{n=1}^\infty \F_{p^n}$$
+	We know that the algebraic closure must contain the splitting field of
+	$x^{p^n} - x$ and thus each $\F_{p^n}$ is contained in the closure.
+	Therefore the algebraic closure necessarily contains $K$. \\
+	Conversly every algebraic extension of $\F_p(\alpha)/\F_p$ is a finite
+	vectorspace over $\F_p$ and thus letting $n = [\F_p(\a):\F_p]$ it is the
+	case that $\F(\a) \cong \F_{p^{n}}$ and thus is a subfield of $K$. Thus $K$
+	contains all algebraic extensions of $\F_p$ which means $K$ contains the
+	algebraic closure.
+	% Conversly we know that the algebraic closure must be a vectorspace over
+	% $\F_p$ with a countable basis.  We know the basis is countable since the
+	% way the closure was contructed was by repeatedly adjoining the roots of the
+	% countable set of irriducible polynomials. Thus the basis is a subset of the
+	% countable union of countable roots. A countable union of countable sets is
+	% countable, so the basis is countable. Any subfield of the closure with a
+	% finite number of basis $n$ must be the splitting field of $x^{p^n} - x$ and
+	% thus must be a subfield of $K$. Thus the algebraic closure must be
+	% contained in $K$ since every algebraic extension of $\F_p$
+\end{ques}
+
+\begin{ques}{3.2}
+	We have that $[\F_p(\sqrt \a):\F_p] = [\F_p(\sqrt \b):\F_p] = 2$. Therefore
+	$|\F_p(\sqrt \a)| = |\F_p(\sqrt \b)| = p^2$. As we have established in
+	lecture it is necessarily the case that they are the splitting field of
+	$x^{p^2} - x$ over $\F_p$ and are thus isomorphic to $\F_{p^2}$.
+\end{ques}
+
+\begin{ques}{3.3}
+	
+\end{ques}
+
+\begin{ques}{3.4}
+	As we have established in lecture, every finite field is of the form
+	$\F_{p^n}$ which is the splitting field for the seperable polynomial
+	$x^{p^n}-x$ over $\F_p$. Thus since $x^{p^n}-x$ is seperable,
+	$\F_{p^n}/\F_p$ is Galois $|\Aut(\F_{p^n}/\F_p)| = n$. Since the orbit of
+	$F \in \Aut(\F_{p^n}/\F_p)$ is of size $n$, it must be the case
+	$\Aut(\F_{p^n}/\F_p) = \text{orb}(F)$
+\end{ques}
+
+\begin{ques}{3.5}
+\end{ques}
+
+\begin{ques}{3.6}
+\end{ques}
+\end{document}

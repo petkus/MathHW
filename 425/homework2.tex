@@ -61,19 +61,85 @@ Gylys-Colwell}}
 \vspace{1cm}
 
 \begin{ques}{51}
+	If $f(x) < g(x)$ for all $x \in [a,b]$ then we have that $h(x) = g(x) -
+	f(x)$ is a sum of riemann integrable functions, and thus riemann
+	integrable. Leting $p$ be a point of continuity for $h$, we can choose a
+	partition $P= \{x_0 = a, x_1, \dots x_n = b\}$ such that $p \in (x_1,x_2)$
+	and $h(x_1,x_2) \subset B_{h(p)/2}(h(p))$. (in other words, $h(x) > h(p)/2$
+	for all $x \in (x_1,x_2)$). We have the inequality
+	$$\int_a^b h(x) \ dx \geq \sum_{i=1}^n m_i(x_i - x_{i-1}) > 0$$
+	We have that $m_i \geq 0$ for all $i$, and $m_1 \geq h(p)/2 > 0$. Thus we
+	have strict inequality.\\
+	We know that integration preserves addition and subtraction:
+	$$\int_a^b g(x) \ dx - \int_a^b f(x) \ dx = \int_a^b h(x) \ dx > 0$$
+	Thus
+	$$\int_a^b g(x) \ dx > \int_a^b f(x) \ dx$$
 \end{ques}
 
 \begin{ques}{53}
+	We have that the discontinuity points $D(\max(f,g))$, $D(\min(f,g))$ are
+	subsets of $D(f) \cup D(g)$. Since the finite union of zero sets is a zero
+	set, this implies riemann integrablility.\\
+	Showing the set inclusion above is equivalent to showing that if $f,g$ are
+	continuous at $x$, then $\max(f,g), \min(f,g)$ are continuous at $x$. This
+	was proven in homework for Math 424 using the epsilon delta definition of
+	continuity
 \end{ques}
 
 \begin{ques}{62}
+	$$2^ka_{2^k} = a_{2^k}+ a_{2^k}+ \dots + a_{2^k} \leq a_{2^{k-1}+1} +
+	a_{2^{k-1}+2} + a_{2^{k-1}+3} + \dots a_{2^k} = \sum_{i=2^k+1}^{2^k} a_i$$
+	Thus 
+	$$\sum_{i=1}^{2^n} a_i = \sum_{k=1}^n\sum_{j=2^{k-1} + 1}^{2^k}a_j \geq
+	\sum_{k = 1}^n 2^ka_k$$
+	So by comparison $\sum_{k = 1}^n 2^ka_k$ converges if $\sum_{i=1}^{2^n}
+	a_i$ converges which converges iff $\sum a_i$ converge. Conversly
+	$$2^ka_{2^k} = a_{2^k}+ a_{2^k}+ \dots + a_{2^k} \geq a_{2^{k}} +
+	a_{2^{k}+2} + a_{2^{k}+3} + \dots a_{2^{k + 1} - 1} =
+	\sum_{i=2^k}^{2^{k+1}-1} a_i$$
+	so now we have
+	$$\sum_{i=1}^{2^n - 1} a_i = \sum_{k=1}^n\sum_{j=2^{k}}^{2^{k+1}-1}a_j \leq
+	\sum_{k = 1}^n 2^ka_k$$
+	Thus $\sum_{i=1}^{2^n - 1} a_i$ converge if $\sum_{k = 1}^n 2^ka_k$
+	converge.
 \end{ques}
 
 \begin{ques}{Additional Problem 1}
+	For any $x_j > x_{j-1} \in (a,b)$, from the mean value theorem there exists
+	$x \in (x_j,x_{j-1})$ where 
+	$$f'(x)(x_j - x_{j-1}) = f(x_j) - f(x_{j-1})$$
+	Using the standard definition of $m_j, M_j$ established in lecture, we have
+	$m_j \leq f'(x) \leq M_j$. Thus
+	$$m_j(x_j - x_{j-1}) \leq f(x_j) - f(x_{j-1}) \leq M_j(x_j - x_{j-1})$$
+	Thus for any partition of $(a,b)$ $P = \{x_0 = a, x_1, \dots x_{n-1}, x_n =
+	b\}$ we have
+	$$\underline{I}(P) = \sum_{i = 1}^n m_i(x_i - x_{i-1}) \leq \sum_{i=1}^n
+	f(x_i) - f(x_{i-1}) = f(b) - f(a)$$
+	$$\overline{I}(P) = \sum_{i = 1}^n M_i(x_i - x_{i-1}) \geq \sum_{i=1}^n
+	f(x_i) - f(x_{i-1}) = f(b) - f(a)$$
+	Thus since $\int_a^bf'(x) \ dx = \sup_P \{\underline{I}(P)\} = \inf_P
+	\{\overline{I}(P)\}$. The first inequality yields $\int_a^b f'(x) \ dx \leq
+	f(b) - f(a)$ and the second yields $\int_a^b f'(x) \ dx \geq f(b) - f(a)$.
+	So $\int_a^b f'(x) \ dx = f(b) - f(a)$
 \end{ques}
 
 \begin{ques}{Additional Problem 2}
-	(a) \ 
-	(b) \ 
+	(a) \ Since $k>0$, we can choose $x_0 > 0$ large enough so $x_0^k > y$. By
+	the intermediate value theorem there exists $x \in (0, x_0)$ such that $x^k
+	= y$ since $y \in (0^k, x_0^k)$. There is only one such $x$ since if there
+	existed $x_1, x_2 > 0$ where $x_1^k = x_2^k = y$ then by the mean value
+	theorem there exists $x \in (x_1,x_2)$ where 
+	$$\frac d {dx} x^k = \frac{x_2^k - x_1^k}{x_2 - x_1} = 0$$
+	$$kx^k = 0$$
+	but this is the case iff $x = 0$ which is not true\\
+	\\
+	(b) \ Suppose for contradiction $\lim_{k \to \infty} y^{1/k} \neq 1$. This
+	would mean there exists $r \neq 1$ such that for some $K$, $1 > r >
+	y^{1/k}$ or $y^{1/k} > r > 1$ for all $k > K$\\
+	Taking $k$ powers (since taking a $k \in \N$ power of positive numbers
+	preserves inequalities)
+	$$1 > r^k > y \text{ or } y > r^k > 1$$
+	For all $k > K$. This is a contradiction since we know $\lim_{k \to \infty}
+	r^k = 0$ or $\infty$ which cannot be the case for $y$
 \end{ques}
 \end{document}
