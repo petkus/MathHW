@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+\newcommand{\tensor}{\otimes}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ann}{\text{Ann}}
+\newcommand{\End}{\text{End}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Gal}{\text{Gal}}
+\newcommand{\orb}{\text{orb}}
+
+\newcommand{\id}{\text{id}}
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 505, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$4}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{4.1}
+	We have the root $\a = \sqrt[4]{-2} = \zeta_8\sqrt[4]{2}$ and every other root is
+	of the form $\zeta_4^n\a$ where $\zeta_4 = i, \zeta_8 = \frac 1 {\sqrt 2} +
+	i \frac 1 {\sqrt 2}$ are roots of unity.\\
+\end{ques}
+
+\begin{ques}{4.2}
+	
+\end{ques}
+
+\begin{ques}{4.3}
+	
+\end{ques}
+
+\begin{ques}{4.4}
+	We have that $K = \Q(\zeta_n) \cap \Q(\zeta_m)$ is an extentsion of $\Q$.
+	From the correspondences of Galois theory, we know that $\Aut(K/\Q)$ must be the
+	a subgroup of $\Gal(\Q(\zeta_m)/\Q)$ as well as $\Gal(\Q(\zeta_n)/\Q)$.
+	However we have
+	$$\Gal(\Q(\zeta_m)/\Q) \cong C_m, \Gal(\Q(\zeta_n)/\Q) \cong C_n$$
+	Every subgroup of $C_m$ is of the form $C_d$ where $d|m$ thus the only
+	possible subgroup of $C_m, C_n$ is $C_1$
+\end{ques}
+
+\begin{ques}{4.5}
+	We can use strong induction, first establishing a base case:\\
+	For $n = 1$ we have
+	$$\Phi_1(-x) = -x - 1 = -\Phi_2(x)$$
+	for $n = 3$:
+	$$\Phi_3(-x) = x^2 - x + 1 = \Phi_6(x)$$
+	For the inductive step we use the well established identity:
+	$$x^n - 1 = \prod_{d | n} \Phi_d(x)$$
+	We can reorder the product for $2n$ since each divisor of $n$ must be odd:
+	$$x^{2n} - 1 = \prod_{d|2n}\Phi_d = \prod_{d|n}\Phi_d(x) \Phi_{2d}(x) $$
+	We also have the factorization $x^{2n} - 1 = (x^n - 1)(x^n + 1)$. Since $n$
+	is odd, $x^n + 1 = -((-x)^n - 1)$:
+	$$= -(x^n - 1)((-x)^n - 1) = -\prod_{d | n} \Phi_d(x)\prod_{d | n}
+	\Phi_d(-x) $$
+	So we have
+	$$\prod_{d|n}\Phi_d(x) \Phi_{2d}(x) =-\prod_{d | n} \Phi_d(x)\prod_{d | n}
+	\Phi_d(-x) $$
+	From our inductive hypothesis, for each $d < n, d \neq 1$ we have
+	$\Phi_d(-x) = \Phi_{2d}(x)$, thus we can divide on both sides
+	$$\Phi_{2n}(x)\Phi_1(x)\prod_{d|n} \Phi_d(x) \prod_{d|n, 1 < d <
+	n}\Phi_{d}(-x) =-\prod_{d | n} \Phi_d(x)\prod_{d | n} \Phi_d(-x) $$
+	$$\Phi_{2n}(x)\Phi_1(x) = -\Phi_2(-x)\Phi_n(-x)$$
+	Since $\Phi_1(x) = -\Phi_2(-x)$ we get our equality
+	$$\Phi_{2n}(x) = \Phi_n(-x)$$
+\end{ques}
+
+\begin{ques}{4.6}
+\end{ques}
+\end{document}

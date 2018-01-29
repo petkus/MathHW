@@ -1,0 +1,164 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\renewcommand{\sup}{\text{sup} \ }
+\newcommand{\osc}{\text{osc}}
+\newcommand{\diam}{\text{diam} \ }
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 425, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{1}
+	(a) \ For pointwise convergence we choose an $x \in M$ and we say $f_n \to
+	f$ if the sequence $f_n(x)$ converges to $f(x)$. For uniform convergence we
+	say $f_n \to f$ if given $\epsilon > 0$ there is an $N$ such that for all
+	$n \geq N$, $x \in M$, $|f_n(x) - f(x)| < \epsilon$
+\end{ques}
+
+\begin{ques}{2}
+	Given $\epsilon > 0$, since $f_n$ converges uniformly to $f$, there exists
+	$N$ such that $d(f(m),f_N(m)) < \epsilon / 3$ for all $m \in M$. For any
+	point $x \in M$ since $f_N$ is continuous we can choose $r > 0$ such that
+	for all $y \in B_r(x)$, $d(f_N(x),f_N(y)) < \epsilon / 3$. From the
+	triangle inequality this yields
+	$$d(f(x),f(y)) \leq d(f(x),f_N(x)) + d(f_N(x),f_N(y)) + d(f_N(y),f(y)) \leq
+	\epsilon$$
+	For any $y \in B_r(x)$. Thus $f$ is continuous
+\end{ques}
+
+\begin{ques}{3}
+	(a)\ 
+	Given $\epsilon > 0$, since $f_n$ converges uniformly to $f$, there exists
+	$N$ such that $d(f(m),f_N(m)) < \epsilon / 3$ for all $m \in M$. Since
+	$f_N$ is continuous at $x_0$ we can choose $r > 0$ such that for all $y \in
+	B_r(x_0)$, $d(f_N(x_0),f_N(y)) < \epsilon / 3$. From the triangle
+	inequality this yields
+	$$d(f(x_0),f(y)) \leq d(f(x_0),f_N(x_0)) + d(f_N(x_0),f_N(y)) +
+	d(f_N(y),f(y)) \leq \epsilon$$
+	For any $y \in B_r(x_0)$. Thus $f$ is continuous at $x$\\
+	\\
+	(b)\ Piecewise continuity is not necessarily true. Consider the function
+	$f:[0,1] \to \R$ with $f(x) = \frac 1 n$ for $x \in [1/(n+1), 1/n)$ for all
+	$n \in \N$ and $f(0) = 0$. $f$ is not piecewise continuous since it is
+	discontinous at all $1/n$. $f$ is however the uniform limit of the
+	piecewise continuous functions
+	$$f_n = \chi_{[1/n,1]} \cdot f$$
+\end{ques}
+
+\begin{ques}{4}
+	(a) This follows from the same argument for continuity:\\
+	Given $\epsilon > 0$, since $f_n$ converges uniformly to $f$, there exists
+	$N$ such that $d(f(m),f_N(m)) < \epsilon / 3$ for all $m \in M$. For any
+	point $x \in M$ since $f_N$ is uniformly continuous we can choose $r > 0$ such that
+	for all $x \in \R$ and $y \in B_r(x)$, $d(f_N(x),f_N(y)) < \epsilon / 3$. From the
+	triangle inequality this yields
+	$$d(f(x),f(y)) \leq d(f(x),f_N(x)) + d(f_N(x),f_N(y)) + d(f_N(y),f(y)) \leq
+	\epsilon$$
+	For any $y \in B_r(x)$. Thus $f$ is uniformly continuous
+\end{ques}
+
+\begin{ques}{Additional Problem 1}
+	(a)\ Consider any convergent sequence 
+	$$f_n \in C_0(\R), f_n \to f$$
+	For any $\epsilon > 0$ there exists $N$ such that $|f(x) - f_N(x)| <
+	\epsilon / 2$ for all $x \in \R$. Since $f_n \in C_0(\R)$, there exists $R
+	> 0$ such that $|x| > R \Rightarrow |f_N(x)| < \epsilon$. From the triangle
+	inequality this yields
+	$$|f(x)| \leq |f(x) - f_N(x)| + |f_N(x)| < \epsilon$$
+	For all $|x| > R$. Thus $f \in C_0(\R)$\\
+	\\
+	(b)\ Given $\epsilon > 0$ let $R > 0$ be chosen such that $|f(x)| <
+	\epsilon/2$ for all $|x| > R$. $[-R, R]$ is compact and thus $f$ is uniformly
+	continuous on $[-R,R]$: $\exists \delta_0$ such that $\forall x,y \in
+	[-R,R]$, $|x-y| \leq \delta_0 \Rightarrow |f(x) - f(y)| < \epsilon$. We have
+	that for all $x,y \notin [-R,R]$, $|f(x) - f(y)| \leq |f(x)| + |f(y)| <
+	\epsilon$. The final case is if $x \in [-R,R]$, $y \notin [-R,R]$. In order
+	for $|x-y| < \delta_0$ it must be the case that $x,y \in [-R - \delta_0,-R +
+	\delta_0] \cup [R - \delta_0,R + \delta_0]$. This is a compact set, and thus
+	there is a $\delta_1$ such that $|x-y| \leq \delta_1 \Rightarrow |f(x) - f(y)|
+	< \epsilon$. Thus by setting $\delta = \min (\delta_0,\delta_1)$, we have
+	uniform continuity: $\forall x,y \in \R, |x - y| \leq \delta \Rightarrow
+	|f(x) - f(y)| < \epsilon$\\
+	\\
+	(c) We have $f(x) = \sin(x^2)$ is not uniformly continuous\\
+	The reason for this is because for any $\delta > 0$ we can choose $x, x+
+	\delta$ to get $|f(x) - f(x + \delta)|$ arbitrarily large. By the mean
+	value theorem there exists $x' \in [x,x+ \delta]$ where
+	$$f(x) - f(x + \delta) = \delta f'(x') = \delta x'\sin(x'^2)$$
+	Which is unbounded for choice of $x$ such that $x'^2$ is close to $\pi + n\pi$
+\end{ques}
+
+\begin{ques}{Additional Problem 2}
+	For convergence we have for $|x| < |R|$
+	$$ \l|\frac{f^{(k)}(0)}{k!} x^k\r| \leq \l|\frac{Ck!}{R^kk!} x^k\r| = C\l|\frac
+	x R\r|^k$$ 
+	Thus we have the series bounded by the power series
+	$$\sum_{k=0}^N \l|\frac{f^{(k)}(0)}{k!} x^k\r| \leq \sum_{k=0}^N
+	C\l|\frac x R\r|^k$$
+	Since $\l|\frac x R\r| < 1$ the power series converges, thus the taylor series
+	converges. \\
+	We can show that the series converges to $f(x)$ using the Taylor error
+	bound established in Math 424 (Chapter 3 of Pugh):\\
+	Letting $R_r(x) = f(x) - P_r(x)$ (where $P_r(x)$ denotes the $r$th order
+	taylor series centered at zero) we have for some $\theta \in (0, x)$
+	$$R_r(x) = \frac{f^{(r+1)}(\theta)}{(r+1)!}x^{r+1}$$
+	Thus since $|f^{(r+1)}(\t)| \leq \frac{C(r+1)!}{R^{r+1}}$, and $|x| < R$
+	$$|R_r(x)| < C\l(\frac{x}{R}\r)^{r+1} \to 0$$
+	Thus
+	$$\lim_{r \to \infty} P_r(x) - f(x) = 0 \Rightarrow \lim_{r \to \infty}
+	P_r(x) = f(x)$$
+\end{ques}
+\end{document}

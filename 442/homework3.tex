@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\det}{\text{det}}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 442, Winter 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{2-2, 1}
+	Checking all conditions:\\
+	For any $p = (x_0,y_0,z_0)$, we have the homeomorphism $f: U \subset \R^2 \to C$
+	where $C$ denotes the cylinder. We define $f$ as
+	$$f(\theta,y) = (\cos(\theta), \sin(\theta), z_0 + y)$$
+	And for $x_0 \neq -1, y_0 \neq 0$, $U = (-\pi, \pi) \times (-1,1)$,
+	otherwise $U =  (0, 2\pi) \times (-1,1)$. This map is smooth since each
+	component is differentiable. $f$ has a continuous inverse since $f$ is
+	bijective and the inverse of the compenents are continuous since locally,
+	the inverse is equal to $(\sin^{-1}(y), z - z_0)$ or $(\cos^{-1}(x), z -
+	z_0)$. The jacobian is
+	$$
+	df_{(\theta,y)} = 
+	\begin{bmatrix}
+	-\sin(\theta) & 0\\
+	\cos(\theta) & 0\\
+	0 & 1
+	\end{bmatrix}
+	$$
+	Which is linearly independent for any $(\theta, y) \in U$
+\end{ques}
+
+\begin{ques}{2-2 2}
+	$C = \{(x,y,z) \in \R^3; z = 0, x^2 + y^2 \leq 1\}$ is not regular. The reason
+	for this is because the point $(0,1,0) \in C$ cannot have a neighborhood
+	$V$ such that there is a homeomorphism $f:U \subset \R^2 \to V \cap C$. The
+	reason for this is because $V \cap C$ is homeomorphic to $C'=\{(x,y) \in \R^2;
+	x^2 + y^2 \leq 1\}$ by the map $\pi_{12}(x,y,z) = (x,y)$ (which has the
+	continuous inverse map $\pi_{12}^{-1}(x,y) = (x,y,0)$). We have that $C'$
+	is a closed set in $\R^2$. Thus composing homeomorphisms, we would get
+	$\pi_{12} \circ f : U \to C'$ is a homeomorphism from closed unit disc in
+	$\R^2$ to the open unit disc in $\R^2$. We know that such a mapping is not
+	possible since removing a point on the boundary of the closed unit disc
+	still yields a null homotopic set, while removing any point on the unit
+	open disc yields a set which is not null homotopic (we proved this in Math 441)\\
+	\\
+	For $D = \{(x,y,z) \in \R^3; z = 0, x^2 + y^2 < 1\}$ we have the homeomorphism 
+	$$f: \{x,y) \in \R^2; x^2 + y^2 < 1\} \to D$$
+	Where $f(x,y) = (x,y,0)$ which is clearly smooth with a continuous inverse
+	$f^{-1}(x,y,0) = (x,y)$ and linearly independent jacobian:
+	$$
+	df_{(x,y)} = 
+	\begin{bmatrix}
+	1 & 0\\
+	0& 1\\
+	0 & 0
+	\end{bmatrix}
+	$$
+\end{ques}
+
+\begin{ques}{2-2 7}
+	(a)\ Calculating the Jacobian:
+	$$
+	df_{(x,y,z)} = 2(x + y + z - 1)(1,1,1)
+	$$
+	Thus the critical points is the simplex $x + y + z = 1$. Evaluating $f$ at
+	any point in the simplex yields the critical value $0$.\\
+	\\
+	(b)\ We have that $f(\R^3) = \R^+$. All $\R^3 \setminus \{0\}$ are regular
+	points and thus from Prop 2, $f^{-1}(c)$ for $c > 0$ is regular. We have
+	that $f^{-1}(0)$ is regular too since
+	$$f^{-1}(0) = \{(x,y,z): x + y + z = 1\}$$
+	is a plane (which we know is regular)
+	\\
+	\\
+	(c)\ Calculating the Jacobian:
+	$$
+	df_{(x,y,z)} = (yz^2, xz^2, 2xyz)
+	$$
+	The critical points is the plane $z = 0$ union the line $y = 0, x = 0$.
+	Evaluating $f$ at any critical point yields the critical value $0$.\\
+	\\
+	For $c \in f(\R^3) \setminus \{0\}$, $c$ is regular so $f^{-1}(c)$ yields a
+	regular surface. For $c = 0$, $f^{-1}(0)$ is not regular since it is the
+	union of three normal planes $x = 0, y = 0, z = 0$ which intersect at
+	$(0,0,0)$. There is no well defined tangent vector at the point $(0,0,0)$
+
+\end{ques}
+
+\begin{ques}{2-2 8}
+	We know that $dx_q$ is one to one if and only if $\frac{\partial
+	x}{\partial u}$ and $\frac{\partial x}{\partial v}$ are linearly
+	independent. From the definition of '$\wedge$' we know that $\frac{\partial
+	x}{\partial u} \wedge \frac{\partial x}{\partial v} = 0$ if and only if the
+	vectors are linearly dependent. Thus $dx_q$ is one-to-one iff $\frac{\partial
+	x}{\partial u} \wedge \frac{\partial x}{\partial v} \neq 0$
+\end{ques}
+
+\begin{ques}{2-2 15}
+	Letting $c$ be the speed of the points, for a given $t$ we have the positions
+	$$p(t) = (0,0,ct), q(t) = (a,ct,0)$$
+	Thus the line containing $p(t),q(t)$ parameterized by $s$ is described as
+	$$p(t) + s(q(t) - p(t)) = (0,0,ct) + s(a,ct,-ct)$$
+	So for $x,y,z$ on the line we have
+	$$\frac x a = \frac{y}{ct} = \frac{z - ct}{-ct} = s$$
+	$$ct x = a y = act - az$$
+	Letting $t$ vary in $\R^+$, we will show this is the same set as $y(x-a) +
+	zx = 0$. \\
+\end{ques}
+\end{document}
