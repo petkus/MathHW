@@ -150,5 +150,28 @@ Gylys-Colwell}}
 	$$ct x = a y = act - az$$
 	Letting $t$ vary in $\R^+$, we will show this is the same set as $y(x-a) +
 	zx = 0$. \\
+	To show $\subseteq$, notice $y = \frac{ctx}{a}, z = ct - \frac{ctx}{a}$ so we have
+	$$y(x - a) + zx = \frac{ctx}{a}(x -a) + \frac{act - ctx}{a}x = 0$$
+	Thus any point $(x,y,z)$ satisfying one of the line equations satisfies the
+	closed form equation.\\
+	To show $\supseteq$, notice that for any fixed $x$, by choosing $s$ so that
+	$as = x$, we get the line $y(as - a) + asz = 0$. Thus we can choose $t$ to
+	get any $y,z$ combination satisfying the equation.\\
+	This establishes a continuous mapping from the parameterization to the surface:
+	$$f: \R^2 \to S$$
+	$$f(t,s) = p(t) + s(q(t) - p(t)) = (sa, ct, ct - cts)$$
+	Calculating the jacobian:
+	$$d_f =
+	\begin{bmatrix}
+		0 & a\\
+		sc & ct\\
+		c-sc & -ct
+	\end{bmatrix}
+	$$
+	Since $c, a \neq 0$ we have that the jacobian is surjective for all $s,c$,
+	and thus $f$ is a smooth function with nonsingular jacobian. $f$ is one to
+	one since $s$ uniquely determines the $x$ value of a point and then $t$
+	will uniquely determine the $y,z$ values.  Thus $f$ establishes $S$ to be
+	regular
 \end{ques}
 \end{document}
