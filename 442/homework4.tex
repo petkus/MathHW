@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\det}{\text{det}}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 442, Winter 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$4}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{2-3, 1}
+	$A$ is continuous since its components are continuous functions. Given any
+	point $p \in S^2$ we can choose parametarizations $x_1: U_1 \subset \R^2
+	\to S^2$, $x_2: U_2 \subset \R^2 \to S^2$ such that $p \in x_1(U_1)$, $A(p)
+	\in x_2(U_2)$.\\
+	From class we established there are the following parametarizations we can
+	choose from:
+	$$x_1,x_2 \in \{(\cos \theta \sin \varphi, \sin \t \sin \varphi, \cos
+	\varphi), (\cos \theta \sin \varphi + \pi, \sin \t \sin \varphi + \pi, \cos
+	\varphi + \pi),$$
+	$$(\cos \theta + \pi \sin \varphi, \sin \t + \pi \sin \varphi, \cos
+	\varphi) \dots\}$$
+	We must show that 
+	$$x_2^{-1} \circ A \circ x_1$$
+	is differentiable at $p$. Notice that $A = A^{-1}$ and thus by showing $A$
+	is differentiable we have shown its inverse to be differentiable. Hence
+	concluding $A$ is a diffeomorphism.\\
+	It is clear this composition is differentiable since each component
+	$$x_2^{-1} \circ A \circ x_1(p) = (x_{2,1}^{-1}(-x_{1,1}(p_1)),
+	x_{2,2}^{-1}(-x_{1,2}(p_2)), x_{2,3}^{-1}(-x_{1,3}(p_3)))$$
+	Is a composition of differentiable functions and thus differntiable
+	regardless of choice of $x_1, x_2$.
+\end{ques}
+
+\begin{ques}{2-3 3}
+	We have the diffeomorphism $f: \R^2 \to P$ with $f(x,y) = (x,y,z^2)$. To
+	establish $f$ is a diffeomorphism, notice that $f$ is also a
+	parametarization. Thus the conditions of being a diffeomorphism rely on
+	asking whether over any open set if
+	$$f^{-1} \circ f \circ \text{id}$$
+	is differntiable. This mapping is the identity mapping so clearly differntiable.
+\end{ques}
+
+\begin{ques}{2-3 4}
+	The diffeomorphism $f:S^2 \to E$ is defined by 
+	$$f(x,y,z) = \l(a x, b y, c z\r)$$
+	We have that this is a diffeomorphism since notice that for any
+	parametarization $x_1: U \subset \R^2 \to S^2$ around a point $p \in S^2$
+	we have a parametarization $x_2 = f \circ x_1$ of $E$ around $f(p)$. Thus we have
+	$$x_1^{-1} \circ f \circ x_2 = x_1^{-1} \circ f^{-1} \circ f \circ x_1 =
+	\text{id}$$
+	is differentiable
+\end{ques}
+
+\begin{ques}{2-3 6}
+	For diffeomorphism $f: S_1 \to S_2$, suppose we have the parametarizations
+	around a point $p \in S^1$ and $f(p) \in S_2$
+	$$x_1: U \subset \R^2 \to S_1, x_2: V \subset \R^2 \to S_2$$
+	$$y_1: U \subset \R^2 \to S_1, y_2: V \subset \R^2 \to S_2$$
+	We need to show that if the parametarization with $x_1, x_2$ establishes
+	$f$ to be differentiable then so does $y_1, y_2$
+\end{ques}
+
+\begin{ques}{2-3 7}
+\end{ques}
+\end{document}

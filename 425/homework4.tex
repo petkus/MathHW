@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\renewcommand{\sup}{\text{sup} \ }
+\newcommand{\osc}{\text{osc}}
+\newcommand{\diam}{\text{diam} \ }
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 425, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$4}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{9}
+	$f$ has to be constant. Given any $x,y \in \R$ for any $\epsilon > 0$ by
+	equicontinuity there exists $\delta > 0$ so that $|x - y| < \delta$ implies
+	$|f_n(x) - f_n(y)| = |f(nx) - f(ny)| < \epsilon$ for all $n$. We can do a
+	change of variables: $a = nx, b = ny$ to have that 
+	$$\frac{|a - b|}{n} < \delta \Rightarrow |f(a) - f(b)| < \epsilon$$
+	Thus we get for all $a,b \in \R$ it must be the case (by choosing $n$
+	sufficiently large) that $|f(a) - f(b)| < \epsilon $ for all $\epsilon > 0$.
+	Thus $f(a) - f(b) = 0$ so $f$ must be constant
+\end{ques}
+
+\begin{ques}{12}
+	We will show each limit point satisfy the same equicontinuity conditions as
+	every other $f \in \mathcal E$. Consider a sequence of functions $(f_n) \in
+	\mathcal E$ which uniformly converge to $f$.  Given $\epsilon > 0$. By
+	equicontinuity of $\mathcal E$, given $x \in M$ there exists $\delta > 0$
+	so that for all $y \in M$ with $d(x,y) < \delta$ we have $d(g(x),g(y)) <
+	\epsilon / 3$ for all $g\in \mathcal E$ (In particular this is true for
+	each $f_n$) thus since we can choose $N$ so that for $n > N$ we have
+	$d_u(f_n,f) < \epsilon / 3$ (where $d_u$ is the uniform metric). From the
+	triangle inequality we have that this $\delta$ works for any limit point
+	$$d(f(x),f(y)) \leq d(f(x),f_n(x)) + d(f_n(x),f_n(y)) + d(f(y),f_n(y)) <
+	\epsilon$$
+	By choosing $n$ large enough we have $d(f(x),f_n(x)),d(f(y),f_n(y)) < \epsilon / 3$
+\end{ques}
+
+\begin{ques}{13}
+	(a)\ Consider the covering of $\R$ by the compact sets $U_k = [-k,k]$. We
+	have that $f_n|_{U_k}$ is uniformly bounded and equicontinuous (in lecture
+	we established pointwise equicontinuous is the same as equicontinuous over
+	a compact set). From this it follows for $U_1$ there is a subsequence
+	$f_{1,1}, f_{2,1}, f_{3,1} \dots $ which is uniformly convergent restricted
+	to $U_1$
+	\\
+	For each $U_k$ there is a subsequence of the previous sequence $f_{1,k},
+	f_{2,k} \dots$ which, when taking the restriction to $U_k$, uniformly
+	converges to a continuous function over $U_k$. We can make a new
+	subsequence $f_{k,k}$ by taking the diagonal of the matrix of subsequences
+	$$f_{1,1}, f_{2,1}, f_{3,1}, f_{4,1} \dots $$
+	$$f_{1,2}, f_{2,2}, f_{3,2}, f_{4,2} \dots $$
+	$$f_{1,3}, f_{2,3}, f_{3,3}, f_{4,3} \dots $$
+	$$f_{1,4}, f_{2,4}, f_{3,4}, f_{4,4} \dots $$
+	$$\vdots$$
+	We have that this subsequence converges pointwise to a continuous function
+	as follows.\\
+	If we fix $x \in \R$ there is a $k$ so that $x \in U_k$. For $n > k$ we
+	have that $f_{n,n}|_{U_k}$ is a Cauchy sequence of continuous functions
+	under the uniform norm and thus the limit of $f_{n,n}|_{U_k}$ is
+	continuous at $x$. This limit is the restriction of the limit $f$ of
+	$f_{n,n}$ to $U_k$ and thus $f$ is continuous at $x$.\\
+	\\
+	(b)\ We don't necessarily have uniform convergence. Consider the sequence
+	of functions
+	$$f_n(x) = 
+	\begin{cases}
+		1 - |x - n| & x \in [n-1, n+1]\\
+		0 & x \notin [n-1, n+1]
+	\end{cases}
+	$$
+	The sequence is pointwise bounded and equicontinuous since $f_n$ is just a
+	horizontal shift of $f_1$ which is a bounded continuous function. $f_n$ converges
+	pointwise to $0$ since $\lim_{n \to \infty} f_n(x) = 0$ for any $x$ however
+	it does not converge uniformly since $|f_n - 0|_u = 1$ for all $n$
+\end{ques}
+
+\begin{ques}{15}
+	(a) \ 
+	$(\Rightarrow)$ If $f$ is uniformly continuous, we define our modulus of
+	continuity to be
+	$$\mu(s) = \sup\{|f(x) - f(y)| : x,y \in [a,b], |x - y| < s\}$$
+	We have that $\mu(s) \to 0$ as $s \to 0$ since by uniform continuity we can
+	choose $\epsilon > 0$ and then choose a $\delta >0$ so that
+	$$|f(x) - f(y)| < \epsilon \ \ \forall x,y \in [a,b]: |x-y| < \delta$$
+	Thus $\mu(\delta) < \epsilon$ we can always choose $\delta \to 0$
+	arbitrarily small as well to get $\lim_{s \to 0} \mu(s) < \epsilon$. Since
+	$\epsilon$ can be arbitrarily small, $$\lim_{s \to 0} \mu(s) = 0 $$
+	\\
+	\\
+	$(\Leftarrow)$ If $f$ has a modulus of continuity, given $\epsilon > 0$ we
+	can choose $\delta > 0$ by continuity of $\mu$ at $0$ so that 
+	$$|s-t| < \delta \Rightarrow \mu(|s-t|) < \epsilon$$
+	Thus since $|f(s) - f(t)| < \mu(|s-t|)$ we have the conditions for uniform continuity
+	$$|s-t| < \delta \Rightarrow |f(s) - f(t)| < \epsilon$$
+	\\
+	(b) \ $(\Rightarrow$) If $\mathcal E$ is equicontinuous then 
+	$$\mu(s) = \sup\{|f_n(x) - f_n(y)| : \forall n \in \N, x,y \in [a,b], |x -
+	y| < s\}$$
+	We have that $\mu(s) \to 0$ as $s \to 0$ since by equicontinuity we can
+	choose $\epsilon > 0$ and then choose a $\delta >0$ so that
+	$$|f_n(x) - f_n(y)| < \epsilon \ \ \forall n \in \N, \forall x,y \in [a,b]:
+	|x-y| < \delta$$
+	Thus $\mu(\delta) < \epsilon$ we can always choose $\delta \to 0$
+	arbitrarily small as well to get $\lim_{s \to 0} \mu(s) < \epsilon$. Since
+	$\epsilon$ can be arbitrarily small, $$\lim_{s \to 0} \mu(s) = 0 $$
+	\\
+	$(\Leftarrow$) If $\mathcal E$ has a common modules of continuity $\mu(s)$ then
+	given $\epsilon > 0$ we can choose $\delta > 0$ by continuity of $\mu$ at
+	$0$ so that 
+	$$|s-t| < \delta \Rightarrow \mu(|s-t|) < \epsilon$$
+	Thus since for any $n$ $|f_n(s) - f_n(t)| < \mu(|s-t|)$ we have the conditions for
+	equicontinuity
+	$$|s-t| < \delta \Rightarrow \forall n |f_n(s) - f_n(t)| < \epsilon $$
+
+\end{ques}
+
+\begin{ques}{19}
+	$M$ is totally bounded thus we have a finite covering of $M$ of $\delta/2$
+	balls. Let $x_1, \dots x_n$ be the centers of these balls. If these points
+	are all in $A$ then we are done. Otherwise by definition of dense there is
+	$a_1, \dots a_n \in A$ such that 
+	$$x_1 \in B_{\delta/2}(a_1), x_2 \in
+	B_{\delta/2}(a_1), \dots x_n \in B_{\delta/2}(a_n)$$
+	(this is because $M$ is the limit points of $A$)\\
+	We have that $B_{\delta/2}(x_k) \subset B_\delta(a_k)$ and thus
+	$B_\delta(a_k)$ is a covering of $M$
+\end{ques}
+
+\begin{ques}{Additional Problem 1}
+	Notice that
+	$$\l|f^{(m)}(x)\r| = \l|\sum_{k = m}^\infty a_k \frac{k!}{(k-m)!}x^{k-m}
+	\r| \leq \sum_{k = m}^\infty \frac{Ck!}{R^k(k-m)!}|x|^{k-m}$$
+	Notice that if we let $g(x) = (1 - x/R)^{-1}$ then we have the following
+	series expansion
+	$$g^{(m)}(|x|) = \sum_{k=m}^\infty \frac{k!}{(k-m)!}\frac{|x|^{k-m}}{R^k}$$
+	Thus
+	$$|f^(m)(x)| \leq Cg^{(m)}(x)$$
+	The following inductive argument shows $g^{(m)} = \frac{m!}{R^m}(g(x))^{m+1}$.\\
+	Base case:
+	$$g'(x) = R^{-1}\frac{1}{(1 - \frac x R)^2} = 1!R^{-1}g(x)^2$$
+	From the inductive hypothesis if
+	$$g^{(m)}(x) = \frac{m!}{R^m}\l(1 - \frac x R\r)^{-m - 1}$$
+	differentiating yields the desired result
+	$$g^{(m+1)}(x) = \frac{(m+1)!}{R^{m+1}}\l(1 - \frac x R\r)^{-m - 2}$$
+	Thus from our above equalities we have
+	$$\l|f^{(m)}(x)\r| \leq \frac{Cm!}{R^m}(g(|x|))^{m + 1} =
+	\frac{Cm!}{R^m}\l(1 - \frac{|x|}{R}\r)^{-m - 1}$$
+\end{ques}
+
+\end{document}
