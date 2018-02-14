@@ -1,0 +1,228 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exersise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+\newcommand{\tensor}{\otimes}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ann}{\text{Ann}}
+\newcommand{\End}{\text{End}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Gal}{\text{Gal}}
+\newcommand{\orb}{\text{orb}}
+\newcommand{\im}{\text{im}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\s}{\sigma}
+
+\newcommand{\id}{\text{id}}
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 505, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$4}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{5.1}
+	We can define
+	$$\a = \frac{1}{\Tr(\t)} \l(\b\t + (\b + \b^{\s})\t^{\s} +
+	\dots \l(\sum_{i=0}^k \b^{\s^i} \r)\t^{\s^k} + \dots +\l(\sum_{i=0}^{n-2}
+	\b^{\s^i} \r)\t^{\s^{n-2}}\r)$$
+	Where $\t \in K$ is chosen so that $\Tr(\t) \neq 0$ (this can always be
+	done since $\s, \s^2, \dots \s^n$ are linearly independent)\\
+	We have that
+	$$\a^\s = \frac{1}{\Tr(\t)} \l(\b^\s\t^\s + (\b^\s + \b^{\s^2})\t^{\s^2} +
+	\dots \l(\sum_{i=0}^k \b^{\s^{i+1}} \r)\t^{\s^k} + \dots +\l(\sum_{i=0}^{n-2}
+	\b^{\s^{i+1}} \r)\t^{\s^{n-1}}\r)$$
+	Notice that 
+	$$\Tr(\b) = \sum_{i=0}^{n-1} \b^{\s^{i}} = 0 \Rightarrow \sum_{i=0}^{n-2}
+	\b^{\s^{i + 1}} = -\b$$
+	Pairing up terms we have the following cancelation
+	$$\a - \a^\s = \frac{1}{\Tr(\t)} \l(\b\t + (\b + \b^{\s} - \b^\s)\t^{\s} +
+	\dots \l(\b + \sum_{i=1}^k \b^{\s^i} - \b^{\s^i} \r)\t^{\s^k} + \dots
+	+\b\t^{\s^{n-1}}\r)$$
+	$$= \b\frac{\Tr(\t)}{\Tr(\t)} = \b$$
+	Thus we have
+	$$\a - \a^\s = \b$$
+\end{ques}
+
+\begin{ques}{5.2}
+	Since $K/k$ is Galois, we know that $K$ is Galois over the intermediate field
+	$k' =  K \cap \ell \supseteq k$ as well since it is still the splitting
+	field of the same seperable polynomial $f$ over $k$. 
+	Letting $\a_1, \a_2, \dots \a_n \notin K \cap \ell$ be the roots of $f$ not
+	in $k'$ we have that\\
+	$$K = k'(\a_1, \a_2, \dots \a_n)$$
+	When considering the extension $K\ell / \ell$ we have that
+	$$K\ell = \ell(\a_1, \a_2, \dots \a_n)$$
+	Since $K = k'(\a_1, \dots \a_n) \subseteq \ell(\a_1, \dots \a_n)$ and $\ell
+	\subseteq \ell(\a_1, \dots \a_n)$ which leads to $K\ell \subseteq
+	\ell(\a_1, \dots \a_n)$ while conversly $\ell(\a_1 \dots \a_n)
+	\subseteq K\ell$ since $\a_1 \dots \a_n \in K$\\
+	Thus $K\ell$ is the splitting field of $f$ over $\ell$ and thus Galois\\
+	We have the isomorphism
+	$$\Phi : \Gal(K\ell/\ell) \to \Gal(K/k')$$
+	$$\varphi \to \varphi|_{K}$$
+	$\Phi$ is injective since every automorphism in both $\Gal(K\ell/\ell)$ and
+	$\Gal(K/k')$ is fully determined by the image of $\a_1 \dots \a_n$ so if
+	$\varphi|_K = \psi|_K$ then they must act the same way on $\a_1 \dots \a_n$
+	and thus must be the same automorphisms to begin with\\
+	$\Phi$ is surjective as follows:\\
+	We have that $H = \im(\Phi)$ is a subgroup of $\Gal(K/k')$. If we show that
+	the fixed field of $H$ is precisely $k'$ then from the correspondence of
+	Galois theory it must be the case $\im(\Phi) = \Gal(K/k')$\\
+	We have that for any $\a \in K \setminus k'$, we have that $\a \notin \ell$
+	and thus there is an isomorphism
+	$$\varphi : \ell(\a) \to \ell(\b)$$
+	$$\a \to \b$$
+	where $\b \neq \a$ is another root of the minimal polynomial of $\a$ over
+	$\ell$. Since $K\ell$ is a splitting field this isomorphism extends to a
+	automorphism
+	$$\psi : K\ell/\ell$$
+	Thus we have $\psi|_K \in H$ is a automorphism which does not fix $\a$.
+	Thus it must be the case the fixed field is $k'$\\
+	\\
+	We have that 
+	$$|\Gal(K\ell/\ell)| = |\Gal(K/K\cap \ell)|$$
+	so
+	$$[K\ell:\ell] = [K:K\cap \ell]$$
+	multiplying on both sides by $[\ell:k][K \cap \ell:k]$
+	$$[K\ell:\ell][\ell:k][K \cap \ell:k] = [K:K\cap \ell][\ell:k][K \cap \ell:k]$$
+	$$[K\ell:k][K \cap \ell:k] = [K:k][\ell:k]$$
+
+\end{ques}
+
+\begin{ques}{5.3}
+	We have the isomorphism
+	$$\Phi:\Gal(K_1K_2/k) \to \Gal(K_1/k) \times \Gal(K_2/k)$$
+	$$\varphi \to (\varphi|_{K_1}, \varphi|_{K_2})$$
+	$\Phi$ is injective as follows. Since, $K_1, K_2, K_1K_2$ are splitting fields,
+	$$K_1 = k(\a_1 \dots \a_n), K_2(\b_1 \dots \b_m)$$
+	$$K_1K_2 = k(\a_1 \dots \a_n, \b_1, \dots \b_m)$$
+	We have that $\varphi \in \Gal(K_1K_2/k)$ is completely determined by the
+	image of $\a_1 \dots \a_n, \b_1 \dots \b_m$, yet every element in
+	$\Gal(K_1/k)$ and $\Gal(K_2/k)$ is determined by the images of $\a_1 \dots
+	\a_n$ or $\b_1 \dots \b_m$ respectively. Thus if
+	$(\varphi|_{K_1},\varphi|_{K_2}) = (\psi|_{K_1},\varphi|_{K_2})$ then it must
+	be the case that $\varphi = \psi$ since they act the same way on $\a_1
+	\dots \a_n, \b_1 \dots \b_n$
+	\\
+	$\Phi$ is surjective as follows: \\
+	We have that $H = \im(\Phi)$ is a subgroup of $\Gal(K_1/k) \times
+	\Gal(K_2/k)$. If we define the following groups
+	$$H_1 = H \cap (\Gal(K_1/k) \times \{\id\})$$
+	and
+	$$H_2 = H \cap (\{\id\}\times \Gal(K_2/k))$$
+	If we show 
+	$$H_1 = \Gal(K_1/k) \times \{\id\}$$
+	$$H_2 = \{\id\}\times \Gal(K_2/k)$$
+	then we have shown 
+	$$H = \Gal(K_1/k) \times \Gal(K_2/k)$$
+	and thus $\Phi$ is surjective.\\
+	Under the canonacal isomorphism $H_1, H_2$ are subgroups of $\Gal(K_1/k),
+	\Gal(K_2/k)$ respectively. Thus if we show that they each have fixed field
+	$k$, then we have shown that each is isomorphic to their respective Galois group
+	and thus be able to conclude that $\Phi$ is surjective.\\
+	To show that the fixed field of $H_1$ is $k$, consider any $\a \in K_1
+	\setminus k$. There exists the isomorphism
+	$$\varphi : k(\a) \to k(\beta)$$
+	$$\a \to \b$$
+	where $\b \neq \a$ is a root of the same minimal polynomial over $k$. Since
+	$K_1K_2$ is a splitting field of $k(\a)$ this isomorphism extends to an
+	automorphism $\psi \in \Gal(K_1K_2/k)$. We have that 
+	$$(\psi|_{K_1}, \id) \in H_1$$
+	And thus $H_1$ does not fix $\a$ so the fixed field of $H_1$ must be $k$.
+	The argument for $H_2$ is the same with the appropriate relabeling
+\end{ques}
+
+\begin{ques}{5.4}
+	We will define 
+	$$\widetilde K = \bigcup_{\varphi \in \Aut(\overline k / k)} \varphi(K)$$
+	We have that $\widetilde K$ is Galois by the fact that the fixed field of
+	$\Aut(\widetilde K/k)$ is $k$. The reason for this is because for any $\a
+	\in \widetilde K \setminus k$, there exists an automorphism
+	$$\varphi:k(\a) \to k(\beta)$$
+	which extends to
+	$$\phi \in \Aut(\overline k/k)$$
+	that sends $\a$ to some other root $\b$ of the minimal polynomial of $\a$ and
+	thus does not fix $\a$. Thus $\phi|_{\widetilde K} \in \Aut(\widetilde
+	K/k)$ is an automorphism that does not fix $\a$\\
+	\\
+	We have that for any Galois extension $K'/k$ with $K \subseteq K'$ if there
+	exists $\a \in \widetilde K \setminus K'$, from how $\widetilde K$ was
+	constructed, there exists $\varphi \in \Aut(\overline k/ k)$ and $\b \in K
+	\setminus k$ so that $\a = \varphi(\b)$. This would lead to a contradiction
+	since $\a$ and $\b$ must be roots of the same minimal polynomial $m(x) \in
+	k[x]$ yet $\b \in K'$ while $\a \notin K'$ so $m(x)$ does not split over
+	$K'$ which means $K'$ is not a splitting field so not Galois.
+\end{ques}
+
+\begin{ques}{5.5}
+	We have that $\F_{p^n}^*$ is a cyclic group. The reason for this is because
+	by our classification of finite abelian groups
+	$$\F_{p^n}^* \cong \Z/n_1\Z \times \Z/n_2\Z \dots \Z/n_k\Z$$
+	with $n_1|n_2|\dots n_k$. However if $k > 1$ then the polynomial $x^{n_2} -
+	x$ would have more than $n_2$ roots which is not possible. Thus if we let
+	$\theta$ be a generator of $\F_{p^n}^*$ we have 
+	$$\F_{p^n} = \F_p(\theta)$$
+	We have that there exists an irreducible polynomial of degree $n$ over
+	$\F_p$ for any $n> 0$ we can construct the splitting field of $x^{p^n} - x$
+	and use that it is a simple extension to conclude
+	$$\F_{p^n} = \F_p(\theta) \cong \F_p[x]/(m_\theta(x))$$
+	where $m_\theta$ is the minimal polynomial of $\theta$. We have that
+	$m_\theta$ is the desired polynomial:
+	$$n = [\F_{p^n}:\F_p] = \deg(m_\theta)$$
+\end{ques}
+
+\begin{ques}{5.6}
+	$\Q(\zeta_n)/\Q$ is Galois since it is the splitting field of the
+	cyclotomic polynomial (which is irreducible and thus seperable)
+	$$\Phi_n(x)$$
+	We know that every automorphism $\varphi \in \Gal(\Q(\zeta_n)/\Q)$ is fully
+	determined by mapping $\zeta_n$ to another primitive root of unity. Thus
+	the Galois group is isomorphic to the group of units in $\Z/n\Z$
+	$$\Gal(\Q(\zeta_n)/\Q) \cong (\Z/n\Z)^*$$
+\end{ques}
+\end{document}

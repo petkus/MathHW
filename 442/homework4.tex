@@ -35,6 +35,7 @@
 
 \newcommand{\s}{\sin}
 \renewcommand{\c}{\cos}
+\newcommand{\id}{\text{id}}
 
 \renewcommand{\t}{\theta}
 \renewcommand{\a}{\alpha}
@@ -72,7 +73,7 @@ Gylys-Colwell}}
 	It is clear this composition is differentiable since each component
 	$$x_2^{-1} \circ A \circ x_1(p) = (x_{2,1}^{-1}(-x_{1,1}(p_1)),
 	x_{2,2}^{-1}(-x_{1,2}(p_2)), x_{2,3}^{-1}(-x_{1,3}(p_3)))$$
-	Is a composition of differentiable functions and thus differntiable
+	Is a composition of differentiable functions and thus differentiable
 	regardless of choice of $x_1, x_2$.
 \end{ques}
 
@@ -98,13 +99,52 @@ Gylys-Colwell}}
 
 \begin{ques}{2-3 6}
 	For diffeomorphism $f: S_1 \to S_2$, suppose we have the parametarizations
-	around a point $p \in S^1$ and $f(p) \in S_2$
+	around a point $p \in S_1$ and $f(p) \in S_2$
 	$$x_1: U \subset \R^2 \to S_1, x_2: V \subset \R^2 \to S_2$$
 	$$y_1: U \subset \R^2 \to S_1, y_2: V \subset \R^2 \to S_2$$
 	We need to show that if the parametarization with $x_1, x_2$ establishes
-	$f$ to be differentiable then so does $y_1, y_2$
+	$f$ to be differentiable then so does $y_1, y_2$\\
+	We can use the change of Parametarization Theorem. Letting 
+	$$W_1 = x_1(U) \cap y_1(U), W_2 = x_2(V) \cap y_2(V)$$
+	We have the diffeomorphisms $h_1, h_2$
+	$$h_1 = x_1^{-1} \circ y_1: y_1^{-1}(W_1) \to x_1^{-1}(W_1)$$
+	$$h_2 = x_2^{-1} \circ y_2: y_2^{-1}(W_2) \to x_2^{-1}(W_2)$$
+	Notice that $p \in W_1$ and $f(p) \in W_2$ and thus when we restrict to the
+	open set $W_2$ such that 
+	$$W_3 = x_1^{-1}(f^{-1}(W_2))\cap y^{-1}(f^{-1}(W_2)) \subset W_1$$
+	$$y_2^{-1} \circ f \circ y_1|_{W_3} = h_2^{-1} \circ x_2^{-1} \circ f \circ x_1
+	\circ h_1$$
+	Thus we have that $y_1, y_2$ establish $f$ to be a diffeomorphism under
+	this restriction since $y_2^{-1} \circ f \circ y_1|_{W_3}$ is a composition
+	of the diffeomorphic functions $h_2^{-1}, x_2^{-1} \circ f \circ x_1, h_1$
 \end{ques}
 
 \begin{ques}{2-3 7}
+	Checking the three conditions of an equivalence relation:\\
+	Reflexivity:\\
+	We have that the identity 
+	$$\id : S \to S$$
+	is a diffeomorphism and thus $S \sim S$\\
+	Transitivity:\\
+	If we have the diffeomorphisms
+	$$f_1:S_1 \to S_2, f_2:S_2 \to S_3$$
+	Then it is the case that 
+	$$f_3 = f_2 \circ f_1 :S_1 \to S_3$$
+	is a diffeomorphism. The reason for this is because for parametarizations
+	$$x_1: U_1 \to S_1, x_2: U_2 \to S_2, x_3:U_3 \to S_3$$
+	establishing that $f_1, f_2$ is diffeomorphic, we have that for a
+	sufficientnly small domain around our point $p \in U_1$ in question
+	$$x_3^{-1} \circ f_3 \circ x_1 = x_3^{-1} \circ f_2 \circ x_2 \circ
+	x_2^{-1} \circ f_1 \circ x_1$$
+	This is the composition of differentiable functions with differentiable
+	inverses $x_2^{-1} \circ f_1 \circ x_1, x_3^{-1} \circ f_2 \circ x_2$ and
+	therefore is itself a differentiable function with differentiable inverse.
+	Thus $f_3$ is a diffeomorphism so $S_1 \sim S_3$\\
+	Symmetry:\\
+	If there exists the diffeomorphism
+	$$f:S_1 \to S_2$$
+	then it is the case that $f^{-1}$ is a diffeomorphism as well and thus
+	$$f^{-1}:S_2 \to S_1$$
+	establishes $S_2 \sim S_1$
 \end{ques}
 \end{document}
