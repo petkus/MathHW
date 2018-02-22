@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{Exercise #1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\renewcommand{\sup}{\text{sup}}
+\newcommand{\osc}{\text{osc}}
+\newcommand{\diam}{\text{diam} \ }
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 425, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$5}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{26}
+	Consider the contraction
+	$$\frac 1 2 x: \R \setminus \{0\} \to \R$$
+	This is a contraction since $|\frac 1 2 x - \frac 1 2 y| \leq \frac 1 2 |x
+	- y|\ \forall x, y$\\
+	There is no fixed point since the only possible fixed point is $0$
+\end{ques}
+
+\begin{ques}{27}
+	(a)\ We have the counterexample
+	$$x^2:[0,1/2] \to \R$$
+	This is weak contraction since by the mean value theorem for some $\t \in
+	(x,y) \subset [0,1/2]$
+	$$|x^2 - y^2| = 2\t|x - y| < 2\frac 1 2 |x - y| = |x - y|$$
+	This is not a contraction however since for any $0 < L < 1$ we have that
+	for some $\t \in (L/2,1/2)$
+	$$\l|\l(\frac L 2\r)^2 - \l(\frac {1} 2\r)^2\r| = 2\t|x - y| > 2\frac L 2
+	|x - y| = L|x - y|$$
+	(b) \ Notice the above counterexample was over a compact set\\
+	\\
+	(c) \ Consider the continuous function
+	$$g:M \to M$$
+	$$g(x) = d(x,f(x))$$
+	since $g$ is over a compact set, it attains its minumum $x_0$. Thus we have
+	$$g(x_0) \leq g(f(x_0))$$
+	$x_0$ is a fixed point since if it were the case $x_0 \neq f(x_0)$ then
+	since $f$ is a weak contraction we reach the contraction
+	$$d(x_0,f(x_0)) \leq d(f(x_0),f^2(x_0)) < d(x_0,f(x_0))$$
+	$$d(x_0,f(x_0))  < d(x_0,f(x_0))$$
+	The fixed point is unique since if $x\neq y$ are fixed points then we have
+	the contraction
+	$$d(x,y) = d(f(x),f(y)) < d(x,y)$$
+\end{ques}
+
+\begin{ques}{34}
+	(a) We have that any function of the form $\gamma(t):[0,b) \to \R$ where
+	$\gamma(t) = t^2$ solves the ODE since $\gamma'(t) = 2t =
+	2\sqrt{|\gamma(t)|}$. We also have any function $\beta(t):(a,c) \to
+	\R$ where $0 \in (a,c)$ and $\beta(t) = 0$ solves the ODE since $\beta'(t) =0 =
+	2\sqrt{|\gamma(t)|}$\\
+	\\
+	(b)\\
+	\\
+	\\
+	\\
+	(c) This is not a contraction to Picard's theorem since the theorem states
+	uniqueness for each solution whose domain is an open interval $(a,b)$
+	containing the initial conditions at $0$. The nonunique solution $t^2$ is
+	not defined on the appropriate domain
+\end{ques}
+
+\begin{ques}{Additional Problem 1}
+	Since the polynomials are dense over $C^0([a,b])$, for any $\epsilon > 0$
+	there is a polynomial $q(x)$ such that $|f(x) - q(x)| < \epsilon$. Thus
+	$$|f^2(x) - f(x)p(x)| < \epsilon |f(x)| $$
+	Thus
+	$$\int_a^b f^2(x)\ dx \leq \int_a^b f(x)p(x) + \epsilon |f(x)| \ dx =
+	\epsilon\int_a^b |f(x)| \ dx$$
+	Since $\int_a^b |f(x)| \ dx$ is some fixed number $>0$ and the inequality
+	holds for all $\epsilon >0$ it must be the case
+	$$\int_a^b f^2(x)\ dx = 0$$
+	This implies that $f(x) = 0$ for all $x \in [a,b]$
+\end{ques}
+
+\begin{ques}{Additional Problem 2}
+	(a)\ Let $g(x) = f(-\log x ) : (0,1] \to \R$. We have that
+	$$g(e^{-x}) = f(-\log(e^{-x})) = f(x)$$
+	\\
+	(b)\ Given
+	$$\lim_{y \to \infty} f(y) = 0$$
+	Replacing $y = -\log(x)$ 
+	$$0 = \lim_{x \to 0} f(-\log(x)) = \lim_{x \to 0} g(x)$$
+	And thus $g$ can be extended to $C^0([0,1])$ with $g(0) = 0$\\
+	\\
+	(c)\ Since the polynomials are dense over $C^0[0,1]$, for any $\epsilon >
+	0$ there exists $p(x) = \sum_{j=1}^n a_jx^j$ such that 
+	$$\sup_{y \in [0,1]} \ \l|g(y) - \sum_{j=1}^n a_jy^j\r| < \epsilon$$
+	Since $e^{-x}$ is a homeomorphism we can replace $y = e^{-x}$
+	$$\sup_{x \in [0,\infty)} \ \l|f(x) - \sum_{j=1}^n a_je^{-jx}\r| < \epsilon$$
+\end{ques}
+
+\begin{ques}{Additional Problem 3}
+	(a)\ Fix $\epsilon > 0$. Suppose for contradiction that for each $f_n$
+	there is a $x_n$ such that $f_n(x_n) > \epsilon$. By compactness there is a
+	convergent subsequence $x_{n_k}$ with limit $x$. We have that $f_{n_k}(x) \geq
+	\epsilon$ for all $n_k$ and thus we contradict $f_n(x)$ converging
+	pointwise to $0$. The reason $f_{n_k}(x) \geq \epsilon$ is as follows:\\
+	Fixing $N = n_k$, we have that for all $i > k$, 
+	$$f_N(x_{n_i}) \geq f_{n_i}(x_{n_i}) > \epsilon$$
+	Thus the inequality is preserved in the limit:
+	$$f_N(x) \geq \epsilon$$
+	Thus we have proven through contradiction there must exist $N$ such that
+	$f_N(x) < \epsilon$ for all $x$ and since $f_K(x) < f_N(x)$ for all $K > N$
+	we have uniform convergence\\
+	\\
+	(b)\ 
+	Consider the sequence of functions
+	$$f_n(x) = 
+	\begin{cases}
+	0 & x < n\\
+	x- n & x \in (n,n+1)\\
+	1 & x > n+1
+	\end{cases}
+	$$
+	$f_n$ is a monotonically decreasing sequence of functions which converges
+	pointwise to $0$ but does not converge uniformly
+\end{ques}
+
+\end{document}

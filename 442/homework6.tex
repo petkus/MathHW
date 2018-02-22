@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+
+\renewcommand{\k}{\kappa}
+\renewcommand{\t}{\tau}
+
+\renewcommand{\det}{\text{det}}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+\newcommand{\id}{\text{id}}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 442, Winter 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$6}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{2-4, 10}
+	Calculating the tangent vectors with the parametrization $x$
+	$$x_s = ((1 - r\k (s) \c v)t(s) + (-r\t(s)\c v)b(s) + (r\t(s)\s
+	v)n(s)) $$
+	$$x_v = ((-r \s v)n(s) + (r \c v)b(s))$$
+	After numberous computations we arrive at
+	$$N(s,v) \cdot x_s = -(n(s)\c v + b(s) \s v) \cdot((1 - r\k (s) \c v)t(s) +
+	(-r\t(s)\c v)b(s) + (r\t(s)\s v)n(s)) = 0$$
+	$$N(s,v) \cdot x_v = -(n(s)\c v + b(s) \s v) \cdot((-r \s v)n(s) + (r \c
+	v)b(s)) = 0$$
+	Thus $N(s,v)$ is normal to $S$ since it is normal to both $x_s, x_v$
+\end{ques}
+
+\begin{ques}{2-4 18}
+	By problem 17 we know that if $S$ and $P$ intersect transversally, in other
+	words $P$ is not the tangent space of $S$ at $p$ then $P$ must intersect
+	$P$ by a regular curve. Thus since $S$ intersects $P$ at only a point, it
+	must be the case $P = T_p(S)$\\
+	To prove 17, we know that $S_1$ and $S_2$ are locally the graphs of some
+	smooth functions $f(x,y,z) = 0, g(x,y,z) = 0$ in a neighborhood of $p$. $0$
+	is a regular value of $f,g$. $S_1 \cap S_2$ is precisely the inverse image
+	of $0$ of the function $F(x,y,z) = (f(x,y,z), g(x,y,,z))$. Since the
+	normals of $S_1, S_2$ are not linearly dependent $(f_x,f_y,f_z),
+	(g_x,g_y,g_z)$ are linearly independent. Thus $(0,0)$ is a regular value of
+	$F$ so $S_1 \cap S_2$ is a regular curve
+\end{ques}
+
+\begin{ques}{2-4 21}
+	For any $p,q \in S$, since $S$ is connected and regular it is path
+	connected. Thus there exists a path $\a:[0,1] \to S$ from $p$ to $q$. We
+	have that
+	$$\frac d {ds} f(\a(s)) = df_{\a(s)} (\a'(s)) = 0$$
+	Thus $f(\a(s))$ is constant as a function from $\R \to \R^3$ and thus
+	$$f(p) = f(\a(0)) = f(\a(1)) = f(q)$$
+	Thus $f$ is constant
+\end{ques}
+
+\begin{ques}{2-4 24}
+	For any curve $\a:(a,b) \to S_1$ at $p$ ($\a(0) = p$) by the usual chain rule
+	$$\frac d {ds} ( \psi \circ \varphi \circ \a)$$
+	$$= d\psi_{\varphi(p)}\ d\varphi_p \a'(0)$$
+	Thus by definition of the matrix multiplied by $\a'(0)$ to get the tangent vector:
+	$$d(\psi \circ \varphi) = d\psi_{\varphi(p)}\ d\varphi_p$$
+\end{ques}
+\end{document}
