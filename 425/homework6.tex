@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\renewcommand{\sup}{\text{sup}}
+\newcommand{\osc}{\text{osc}}
+\newcommand{\diam}{\text{diam} \ }
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 425, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$5}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+\begin{ques}{Additional Problem 1}
+	We know that the limit of the Rieman sums is equal to the integral. Thus we have
+	$$\l|\int_a^b F(s) ds \r| = \l| \lim_{N \to \infty} \sum_{i = 0}^N
+	F(x_i)\Delta x_N \r|$$
+	where $\Delta x_N = \frac{b-a}{N}$ and $x_i = a + i\Delta x_N$. Since
+	$|\cdot |$ is continuous we can interchange the limit and the norm and
+	apply the triangle inequality to conclude
+	$$\leq \lim_{N \to \infty} \sum_{i = 0}^N
+	\l| F(x_i)\Delta x_N \r| = \int_{a}^b \l| F(s)\r| ds $$
+\end{ques}
+
+\begin{ques}{Additional Problem 2}
+	(a)\
+	Notice the following
+	$$\l|\gamma_{j+1}(t) - \gamma_j(t)\r| = \l|\int_0^t F(\gamma_j(s)) -
+	F(\gamma_{j-1}(s)) ds \r|$$
+	from problem 1
+	$$\leq \int_0^t \l|F(\gamma_j(s)) -
+	F(\gamma_{j-1}(s))\r| ds $$
+	By Lipshitz condition
+	$$\leq \int_0^t L\l|\gamma_j(s) -
+	\gamma_{j-1}(s)\r| ds$$
+	Now we can consisely state our inductive argument:\\
+	For the base case, notice that 
+	$$\gamma_0(t) = p$$
+	$$\gamma_1(t) = p + \int_0^t F(p)ds = p + Mt$$
+	Thus from the inequality established above
+	$$|\gamma_2(t) - \gamma_1(t)| \leq L\int_0^t |\gamma_1(s) - \gamma_0(s)| ds$$
+	$$= L\int_0^t Ms\ ds = \frac{MLt^2}{2}$$
+	For the inductive step we have
+	$$\l|\gamma_{j+1}(t) - \gamma_j(t)\r| \leq \int_0^t L\l|\gamma_j(s) -
+	\gamma_{j-1}(s)\r| ds$$
+	which by the inductive hypothesis
+	$$\leq \int_0^t L\frac{ML^{j-1}t^j}{j!} = \frac{ML^jt^{j+1}}{(j+1)!}$$
+
+	(b)\ Notice that we have a taylor series which by Taylors Theorem converges
+	$$\lim_{N \to \infty} \sum_{j=1}^N\frac{ML^jT^{j+1}}{(j+1)!} = MTe^{LT}$$
+	we have for $t \in [0,T]$
+	$$ \sum_{j=1}^N |\gamma_{j+1}(t) - \gamma_j(t)|
+	\leq \sum_{j=1}^N\frac{ML^jt^{j+1}}{(j+1)!} \leq
+	\sum_{j=1}^N\frac{ML^jT^{j+1}}{(j+1)!} $$
+	by the Weierstrass M-test we thus have uniform convergence on $[0,T]$\\
+	\\
+	(c)\ We have
+	$$\gamma(s) = \lim_{n \to \infty}\gamma_n(s) = \lim_{n \to \infty}
+	\int_0^s F(\gamma_{n-1}(t))\ dt$$
+	Since we have uniform convergence we can interchange order of limits and integration
+	$$= \int_0^s \lim_{n \to \infty} F(\gamma_{n-1}(t))\ dt = \int_0^s F(\gamma(t)) dt$$
+
+\end{ques}
+
+\begin{ques}{Additional Problem 3}
+	We have 
+	$$|T_Ax|_{\max} = \max_i|A_{i1}x_1 + A_{i2}x_2 + \dots A_{im}x_m|$$
+	For each $i$ we have
+	$$|A_{i1}x_1 + A_{i2}x_2 + \dots A_{im}x_m| \leq |A_{i1}x_1| +
+	|A_{i2}x_2| + \dots |A_{im}x_m| \leq L|x|_1$$
+	Thus 
+	$$|T_Ax|_{\max} \leq L|x|_1$$
+	$L$ is the smallest value to establish this inequality since letting
+	$A_{kl} = L$, letting $x \in \R^m$ be such that $x_l = 1$ and $x_i = 0$ for
+	$i \neq l$, we have that $|x|_1 = 1$ and
+	$$|A_{l1}x_1 + A_{l2}x_2 + \dots A_{lk}x_l + \dots A_{lm}x_m| = L = L|x|_1$$
+	and thus for this choice of $x$
+	$$|T_Ax|_{\max} = L|x|_1$$
+	For the second part 
+	$$|T_A x|_E = \sqrt{\sum_{i=1}^n \l(\sum_{j=1}^m A_{ij}x_j \r)^2 }$$
+	$$\leq \sqrt n|T_Ax|_{\max} \leq \max A_{ij} \sqrt{ nm} |x|_1 \leq \max
+	A_{ij} \sqrt{nm} |x|_E = L|x|_E$$
+	For an example where we can get a stronger bound let $T_A$ be the identity for $m =
+	n > 1$. We have
+	$$|T_Ax|_E = |x|_E < \sqrt{mn}|x|_E = L|x|_E$$
+	Thus we can choose $L = 1$\\
+	For an example where $L$ is the best bound notice that for $m = n = 1$
+	$T_Ax$ takes the form $ax$ for $a \in \R$ and thus 
+	$$|ax|_E = |a||x| = L|x|$$
+\end{ques}
+
+\begin{ques}{Additional Problem 4}
+	($\Rightarrow$)\ If $A$ is invertable then assume for contradiction we can
+	choose $x_n \neq 0$ where we can scale $|x_n|_E = 1$ so that 
+	$$|T_A x_n|_E \leq \frac 1 n |x_n|_E$$
+	Notice that the unit ball $\{x \in \R^m: |x|_E = 1\}$ is compact and thus
+	we get a convergent subsequence with a limit $x \neq 0$. We have that
+	$$|T_Ax|_E < \frac 1 n \forall n \Rightarrow T_Ax = 0$$
+	which contradicts $T_A$ have trivial nullspace\\
+	\\
+	($\Leftarrow$)\ If $A$ is not invertable then the kernel is nontrivial so
+	there is some $x \neq 0 \in \R^m$ such that
+	$$|T_Ax|_E = 0 \not \geq c|x|_E$$
+	for all $c$ (proved by contrapositive) \\
+	If (*) is true then we have
+	$$c|T_{A^{-1}}x|_E \leq |T_AT_{A^{-1}}x|_E = |x|_E$$
+	Thus
+	$$|T_{A^{-1}}x|_E \leq c^{-1}|x|_E$$
+\end{ques}
+
+\end{document}
