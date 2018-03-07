@@ -1,0 +1,164 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+
+\renewcommand{\k}{\kappa}
+\renewcommand{\t}{\tau}
+
+\renewcommand{\det}{\text{det}}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+\newcommand{\id}{\text{id}}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 442, Winter 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$8}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{2-6, 1}
+	Assume for contradiction there exists a differentiable field of unit normal vectors
+	$$N:S \to \R^3$$
+	Letting $x(u,v), y(s,t)$ be the parametrizations of
+	$V_1,V_2$, for any $p \in V_1$ we have that with appropriate reordering of $u,v$
+	$$N(p) = \frac{x_u \wedge x_v}{|x_u \wedge x_v|}$$
+	on all of $V_1$ and similarly
+	$$N(p) = \frac{y_u \wedge y_v}{|y_u \wedge y_v|}$$
+	on all of $V_2$. However since the change of coordinate jacobian from
+	$x$ to $y$ is different in sign on $W_1$ and $W_2$ and it is the case
+	$$x_u \wedge x_v = (y_u \wedge y_v) \frac{\partial x}{\partial y}$$
+	where $\frac{\partial x}{\partial y}$ is the jacobian of the coordinate
+	change, we get the contradiction
+	$$N(p) = -N(p)$$
+	for either $p \in W_1$ or $p \in W_2$
+\end{ques}
+
+\begin{ques}{2-6 2}
+	Letting $Y = \{Y_i\}$ be a family of coordinate neighborhoods which establish
+	$S_2$ to be orientable with corresponding parametrizations $y_i$. For each
+	$p \in S_1$ there is a neighborhood $V_p \subset S_1$ around $p$ such
+	that $\varphi$ is a diffeomorphism on $V_p$. Let $\varphi_p$ be this
+	diffeomorphism. We have that $\varphi_p(p)$ is contained in some $Y_i$
+	which we will call $Y_p$ with corresponding parametrization $y_p$. We have
+	the following family of coordinate functions covering $S_2$
+	$$\{f_p = \varphi_p^{-1} \circ y_p: y_p^{-1}(Y_p \cap \varphi_p(V_p)) \to S_2\}$$
+	it is clear this is a covering since each $p \in S_2$ is in the image of
+	$\varphi_p^{-1} \circ y_p$. This covering establishes $S_2$ to be
+	orientable since the change of coordinate calculation from $f_p$ to $f_q$
+	$$f_q^{-1} \circ f_p = y^{-1}_q \circ \varphi \circ \varphi^{-1} \circ y_p
+	= y_q^{-1} \circ y_p$$
+	is the same as the change of coordinates from $y_p$ to $y_q$ which has
+	positive Jacobian
+\end{ques}
+
+\begin{ques}{2-6 4}
+	Let $N_\a$, $N_\b$ be the associated normal vector fields of
+	two coordinate neighborhoods $\{U_\a\}, \{V_\b\}$ which satisfy the
+	conditions of Def 1. Notice that
+	$$F(p) = |N_\a(p) - N_\b(p)| = 
+	\begin{cases}
+	0 & N_\a(p) = N_\b(p)\\
+	2 & N_\a(p) = -N_\b(p)
+	\end{cases}$$
+	Is a continuous function $F:S \to \R$. Thus since $S$ is connected, the
+	image of $F$ is connected so is either entirely $0$ or $2$. Thus $N_\a =
+	N_\b$ or $N_\a = -N_\b$ on all of $S$. Thus there is at most two possible
+	orientations since there are at most two possible normal vectors fields (we
+	know that $U_\a$ and $V_\b$ define the same orientation if and only if they
+	define the same normal vector fields)
+\end{ques}
+
+\begin{ques}{2-6 5}
+	(a)\ Notice that $\phi$ and $\phi^{-1}$ are local diffeomorphisms. Thus
+	from problem 2 if $S_1$ is orientable then $S_2$ is orientable and
+	similarly if $S_2$ is orientable then $S_1$ is orientable\\
+	(b)\ Given a family of coordinate neighborhoods $\{U_\a\}$ which establish
+	an orientation on $S_1$ we have that $\{\varphi (U_\a)\}$ is a family of
+	coordinate neighborhood which establishes an orientation on $S_2$. The
+	reason we know this family establishes an orientation is the same reasoning
+	as in problem $2$, we have that the change of basis from $\varphi \circ
+	x_1$ to $\varphi \circ x_2$ is the same as the change of basis from $x_1$
+	to $x_2$ which has positive Jacobian\\
+	For the Sphere we will use the stereographic parametrizations
+	$$\varphi_1:U_1 \to S - \{(0,0,1)\}, \varphi_2:U_2 \to S - \{(0,0,-1)\}$$
+	we have that the normal established by this
+	parametrization has the evaluations 
+	$$(\varphi_{1,u} \wedge \varphi_{1,v}) (0,0,0) = N(0,0,1) = (0,0,1)$$
+	$$(\varphi_{2,u} \wedge \varphi_{2,v}) (0,0,0) =N(0,0,-1) = (0,0,-1)$$
+	that the differential $J$ of the Antipodal map is $-I$ (negative the identity)
+	we have that the normal at $(0,0,1)$ using the parametrizations
+	$A \circ \varphi_1, A \circ \varphi_2$. We have that $(0,0,1) =
+	A(\varphi_2(0,0,0))$ and thus our new normal is
+	$$N'(0,0,1) = ((A \circ \varphi_2)_u \wedge (A \circ \varphi_2)_v)(0,0,0)$$
+	by chain rule
+	$$= ((-I  \varphi_{2,u}) \wedge (-I \varphi_{2,v}))(0,0,0)$$
+	by bilinearity
+	$$ = (-1)^2(\varphi_{2,u} \wedge \varphi_{2,v})(0,0,0) = (0,0,-1) \neq N(0,0,1)$$
+	Thus we get a different normal and so a different orientation
+\end{ques}
+
+\begin{ques}{2-6 6}
+	The notion of orientation is that $\a(t), \b(s)$ have the same
+	orientation if the tangent vectors are the same:\\
+	When $\a(a) = \b(b) = p$, $\a'(a)= T_\a(p) = T_\b(p) = \b'(b)$\\
+	Each parametrization $\a$ induces a continuous tangent vector field $T_\a:C \to \R^3$
+	where $T_\a(p) = \a'(s)$ (where $\a(s) = p$)\\
+	Notice that we have a continuous function
+	$$F(p) = |T_\a(p) - T_\b(p)|:C \to \R$$
+	where
+	$$F(p) = 
+	\begin{cases}
+	0 & T_\a(p) = T_\b(p)\\
+	2 & T_\a(p) = -T_\b(p)
+	\end{cases}$$
+	Since $C$ is connected $F(C)$ is connected so $T_\a = T_\b$ or $T_\a =
+	-T_\b$ on all of $C$. \\
+	Thus there is at most two possible
+	orientations since there are at most two possible tangent vector fields
+	defined on $C$ (we know that $\a$ and $\b$ define the same orientation
+	if and only if they define the same tangent vector fields)
+
+\end{ques}
+\end{document}

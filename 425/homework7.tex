@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\renewcommand{\sup}{\text{sup}}
+\newcommand{\osc}{\text{osc}}
+\newcommand{\diam}{\text{diam} \ }
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 425, WINTER 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$7}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+\begin{ques}{7}
+	(c)\ Consider the sequence of functions 
+	$$f_n(x) = x^n$$
+	Notice that $|f_n|_{C^0} = 1$ and $|f_n|_{L^1} = \int_0^1 x^n dx = \frac 1
+	{n+1}$. This sequence establishes that $|\cdot|_{C^0}$ and $|\cdot|_{L^1}$
+	are not comparable since 
+	$$|f_n|_{L^1} = \frac{|f_n|_{C^0}}{n+1}$$
+	becomes an arbitrarily small ratio
+\end{ques}
+
+\begin{ques}{8}
+	(a) $T$ is linear since we know integration is linear. $T$ is continous
+	since for any convergent sequence $f_n$ under the uniform norm 
+	$$\lim_{n\to \infty} \int_0^x f_n(t) dt =  \int_0^x\lim_{n\to \infty} f_n(t) dt$$
+	and thus $T$ is sequentially continous.\\
+	We have that the norm of $T$ is given by 
+	$$|T| = \sup_{f \in C^0} \frac{\l| \int_0^x f(t) dt \r|_{C^0}}{|f|_{C^0}}$$
+	For arbitrary $f \in C^0$ and letting $M = |f|_{C^0}$ we have
+	$$\frac{\l| \int_0^x f(t) dt \r|_{C^0}}{|f|_{C^0}} \leq \max_{x \in
+	[0,1]}\frac{\int_0^x M dt}{M} = \max_{x \in [0,1]}x\frac M M = 1$$
+	Thus $|T| \leq 1$ notice that when $f$ is constant we get equality and thus
+	$|T| = 1$\\
+	(b)\ 
+	$$T(\cos(nt)) = \int_0^x \cos(nt)\ dt = \frac{\sin(nx)}{n}$$
+	(c)\ $K$ is bounded since $|f_n|_{C^0} \leq 1$ for all $n$.\\
+	$K$ is closed as follows:\\
+	We will show the only possible Cauchy sequence in $K$ is eventually
+	constant and thus $K$ is closed. For any sequence $f_{n_k}$ we have two
+	possibilities: (1) $n_k < N$ stays bounded or (2) $n_k$ becomes arbitrarily
+	large.\\
+	(1) If $n_k < N$ then we have 
+	$$\int_0^1 \cos nt - \cos mt\ dt = \frac 1 n - \frac 1 m$$
+	thus from the intermediate value theorem we can conclude
+	$$|\cos nt - \cos mt|_{C^0} \geq \l|\frac 1 n - \frac 1 m\r|$$
+	Thus we have for $n \neq m < N$
+	$$|f_{n} - f_{m}|_{C^0} = |\cos nt - \cos mt|_{C^0} \geq \min_{1
+	\geq m \neq n < N} \l|\frac 1 n - \frac 1 m\r| > 0$$
+	Thus in order to be Cauchy, the tail must be constant ($n = m$)\\
+	(2)\ 
+\end{ques}
+
+\begin{ques}{17}
+	(a)\ We have
+	$$f(q) - f(p) = (\c 2\pi, \s 2\pi) - (\c \pi, \s \pi) = (1,0) - (-1,0) =
+	(2,0)$$
+	We have that
+	$$Df_\t = (-\s \t, \c \t)$$
+	In order to satisfy $Df_\t(q-p) = f(q) - f(p)$ we have the second coordinate equality
+	$$\c \t = 0$$
+	which can only happen if $\t = 3\pi/2$. Plugging in $\t = 3\pi/2$ does not
+	yield the correct equality however
+	$$Df_\t(q-p) = (\pi,0) \neq (2,0)$$
+\end{ques}
+
+\begin{ques}{18}
+	(a)\ It follows directly from the definition of differentiability. If the limit
+	(letting $h \in \R^m)$
+	$$\lim_{h \to 0} \frac{f(p + h) - f(p)}{|h|}$$
+	exists (definition of differentiability), then letting $h = tu$ we have the limit
+	$$\lim_{t \to 0} \frac{f(p + tu) - f(p)}{|tu|} = \lim_{t \to 0} \frac{f(p +
+	tu) - f(p)}{t} $$
+	exists \\
+	(b)\ Letting $u = (a,b)$ we have 
+	$$\Delta_{(0,0)}f(u) = \lim_{t \to 0} \frac{(at)^3bt}{(at)^4 + (bt)^2} =
+	\lim_{t \to 0} \frac{a^3bt^4}{a^4t^4 + b^2t^2} = \lim_{t \to 0}
+	\frac{a^3b}{a^4 + b^2\frac{1}{t^2}} = 0$$
+	$f$ is not differentiable at $(0,0)$ however since letting $x = y^2$ we have
+	$$\lim_{x \to 0} f(y^2,y) = \lim_{y \to 0} \frac{y^6y}{y^8 + y^2} = \lim_{y
+	\to 0}\frac{1}{y + \frac{1}{y^5}} \to \infty$$
+	does not exist
+\end{ques}
+
+\begin{ques}{Additional Problem 1}
+	Notice that $\det(A)$ is a continous map. Also notice that a matrix $A$ is
+	invertable if and only if $\det(A) \neq 0$. Thus
+	$$\mathcal M = \text{det}^{-1}(\R \setminus \{0\})$$
+	$\R \setminus \{0\}$ is an open set, thus since the continous preimage of
+	an open set is open, $\mathcal M$ is open\\
+	$\mathcal M$ is dense since if we consider any noninvertable $A \in
+	\R^{n^2} - \mathcal M$, we can choose a basis so that $A$ is upper
+	triangular 
+	$$A = 
+	\begin{bmatrix}
+	a_{11} & a_{12} & a_{13} & \dots & a_{1n}\\
+	0 & a_{22} & a_{23} & \dots & a_{2n}\\
+	\vdots &  & \ddots & & \vdots\\
+	0 & 0 & \dots & a_{(n-1)(n-1)} & a_{(n-1)n}\\
+	0 & 0 & \dots & 0 & a_{nn}
+	\end{bmatrix}$$
+	Since $A$ is singular we know there are some $0$s on the diagonal\\
+	For any ball of radius $r$ around $A$ we can choose $\epsilon_1, \dots
+	\epsilon_s$ such that we replace each $0$ on a diagonal with an
+	$\epsilon_i$ to get a new matrix $A'$. This new matrix is invertable since
+	it has no zeros on its upper triangular form and the distance from $A$ to
+	$A'$ is less than $r$ by choosing $\epsilon_1, \dots \epsilon_s$ small
+	enough. Thus any ball centered around a matrix in the complement of
+	$\mathcal M$ must intersect $\mathcal M$ so $\mathcal M$ is dense
+\end{ques}
+\end{document}
