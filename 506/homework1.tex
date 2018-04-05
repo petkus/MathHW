@@ -1,0 +1,206 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig, tikz-cd, mathrsfs}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+\DeclareMathOperator\coker{coker}
+\DeclareMathOperator\coim{coim}
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+\newcommand{\tensor}{\otimes}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\vp}{\varphi}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ann}{\text{Ann}}
+\newcommand{\End}{\text{End}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Gal}{\text{Gal}}
+\newcommand{\orb}{\text{orb}}
+\newcommand{\im}{\text{im}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\s}{\sigma}
+
+\newcommand{\id}{\text{id}}
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 506, SPRING 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$8}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{1}
+	If we consider a morphism $\phi$ with kernel $k$
+	$$\begin{tikzcd}
+	K \arrow[r, "k"] & A \arrow[r, "\phi"] & B\\
+	\end{tikzcd}$$
+	For any morphisms $\varphi_1,\varphi_2:C \to K$ where $k \circ \varphi_1 =
+	k \circ \varphi_2$ which we will call $f$. We have that 
+	$$\phi \circ k \circ \varphi_1 = \phi \circ
+	k \circ \varphi_2 = \phi \circ f =0_{CB}$$
+	And thus from the universal property of the kernel there is a unique
+	$\varphi$ so that the diagram commutes
+	$$\begin{tikzcd}
+	& A \arrow[r, "\phi"] & B\\
+	C \arrow[ur, "f"] \arrow[r,dashrightarrow,"\exists ! \varphi"]& K
+	\arrow[u,"k"] \arrow[ur, "0"]& 
+	\end{tikzcd}$$
+	Thus since $\varphi_1, \varphi_2$ both are morphisms in the place of
+	$\varphi$ that make the diagram commute, they must be equal. Therefore $k$
+	is a monomorphism
+\end{ques}
+
+\begin{ques}{2}
+	It is the case every monomorphism $\phi: A \to B$ is the kernel of $\coker
+	\phi$. To prove this, we will show that $A$ is isomorphic to the image and
+	thus by definition the kernel of the cokernel. As
+	proven in problem 4 we know that the kernel of a monomorphism is the zero
+	morphism. We have the commutative diagram
+	$$\begin{tikzcd}
+	0 \arrow[r] & A \arrow[d, "\coim \phi"]\arrow[r, "\phi"] & B \arrow[r,
+	"\coker \phi"] & \coker \phi \\
+	 & \coim  \arrow[r, "v"] & \im \phi \arrow[u, "\im \phi"]
+	\end{tikzcd}$$
+	From the axioms of Abelian Categories $v$ is an isomorphism. $\coim \phi =
+	\coker \ker \phi$ and since $\id \circ 0 = 0$ from the universal property
+	$$\begin{tikzcd}
+	0 \arrow[r] & A \arrow[d]\arrow[r, "\id"] & A \\
+	 & \coim \phi \arrow[ur, "\exists ! \a"] & 
+	\end{tikzcd}$$
+	There is a unique $\a$ such that $\coim \phi \circ \a = \id$. Thus $\coim
+	\phi$ is an isomorphism and we have the isomorphism $\coim \phi \circ v :
+	A \to \im \phi$
+\end{ques}
+
+\begin{ques}{3}
+	$(\Rightarrow)$ If $\phi:A \to B$ is a monomorphism yet had nontrivial
+	kernel $K$ (not injective) then we would have the inclusion map $\pi:K
+	\to A$ and zero map $0:K \to A$ compose to the same zero map:
+	$$0 = \phi \circ \pi = \phi \circ 0$$
+	which contradicts $\phi$ be a monomorphism since $0 \neq \pi$
+	\\
+	$(\Leftarrow)$ If $\phi$ is injective then if we have
+	$$\phi \circ \varphi_1 = \phi \circ \varphi_2$$
+	Then for any element $g$ in the domain of $\varphi_1, \varphi_2$ we have
+	$$\phi(\varphi_1(g)) = \phi(\varphi_2(g))$$
+	Since $\phi$ is injective this means that $\varphi_1(g) = \varphi_2(g)$ and
+	thus $\varphi_1 = \varphi_2$ so $\phi$ is a monomorphism
+\end{ques}
+
+\begin{ques}{4}
+	The image of a zero morphism $0 \to A$ is precisely the same
+	morphism thus we have the commutative diagram
+	$$\begin{tikzcd}
+	0 \arrow[r] \arrow[dr]& A \arrow[r, "\phi"] & B\\
+	& 0 \arrow[u] \arrow[r] & \ker \phi \arrow[ul, "k"]
+	\end{tikzcd}$$
+	$(\Rightarrow)$ If the mapping $0 \to \ker \phi$ is an isomorphism then
+	$\ker \phi = 0$.\\
+	If it is the case 
+	$$\phi \circ \varphi_1 = \phi \circ \varphi_2$$
+	Then since we are in an additive category
+	$$0 = \phi \circ \varphi_1 - \phi \circ \varphi_2 = \phi \circ (\varphi_1 -
+	\varphi_2)$$
+	Thus $\varphi_1 - \varphi_2$ must factor through $\ker \phi$ but since the
+	only morphism to $0 = \ker \phi$ is the zero morphism it must be the case
+	$\varphi_1 - \varphi_2 = 0$ which means $\varphi_1 = \varphi_2$ so $\phi$
+	is a monomorphism\\
+	$(\Leftarrow)$ If $\phi$ is a monomorphism then we have 
+	$$\phi \circ 0_{\ker \phi, A} = \phi \circ k = 0_{\ker \phi, B}$$
+	Thus it must be the case $k = 0$ which means $\ker \phi = 0$ so $0 \to \ker
+	\phi$ is an isomorphism
+\end{ques}
+
+\begin{ques}{5}
+	1. Let $\mathscr C$ be a category with a zero object. The
+	cokernel of a morphism, if it exists, is an epimorphism\\
+	2. In an abelian category every epimorphism is the cokernel of a
+	morphism. Thus we can conclude in an abelian category a morphism $\phi: A \to B$
+	is an epimorphism if and only if $\phi = \coim \phi$\\
+	3. A morphism $\phi: A \to B$ in $\mathcal Ab$ is a epimorphism if and only
+	if it is surjective\\
+	4. Let $\mathscr A$ be an abelian category and $\phi:A \to B$ a morphism in
+	$\mathscr A$. We have that $\phi$ is an epimorphism if and only if the
+	sequence of morphisms $\begin{tikzcd} A \arrow[r, "\phi"] & B \arrow[r] & 0
+	\end{tikzcd}$ is exact
+\end{ques}
+
+\begin{ques}{6}
+	$(i) \Leftrightarrow (ii):$ \\
+	If we consider the sequence 
+	$$\begin{tikzcd}
+	0 \arrow[r] & A \arrow[r, "\phi"] & B \arrow[r] & 0\\
+	\end{tikzcd}$$
+	From problem $4$ we know the sequence is exact around $A$ if and only if
+	$\phi$ is a monomorphism. From the
+	dual statment of problem $4$ we get that the sequence is exact around $B$
+	if and only if $\phi$ is an epimorphism\\
+	\\
+	$(i) \Rightarrow (iii)$ \\
+	From problem $2$ we know that since $\phi$ is a monomorphism $\phi$ is the
+	kernel of $\coker \phi$ thus is the equalizer of $\coker \phi$ and $0$. It
+	is the case that any epimorphism that is an equalizer is an isomorphism and
+	thus $\phi$ is an isomorphism. The reason for this is as follows:\\
+	If $\phi: K \to A$ is an equalizer of $\varphi_1, \varphi_2 :A \to B$, then by
+	the definition of equalizer and epimorphism 
+	$$\phi \circ \varphi_1 = \phi \circ \varphi_2 \Rightarrow \varphi_1 = \varphi_2$$
+	Thus $\phi$ trivially equalizes $\varphi_1, \varphi_2$. Since the trivial
+	equalizer is the identity $\id_{A}:A \to A$ and equalizers are unique up to
+	isomorphism, it must be the case $\phi$ is an isomorphism\\
+	\\
+	$(iii) \Rightarrow (i)$\\
+	If $\phi$ is an isomorphism then there exists a $\phi^{-1}$. Thus for some
+	morphisms $\varphi_1, \varphi_2$
+	$$\varphi_1 \circ \phi =  \varphi_2 \circ \phi$$
+	it must be the case 
+	$$\varphi_1 \circ \phi \circ \phi^{-1} =  \varphi_2 \circ \phi \circ \phi^{-1}$$
+	$$\Downarrow$$
+	$$\varphi_1  =  \varphi_2 $$
+	and similarly if 
+	$$\phi \circ \varphi_1  = \phi \circ \varphi_2$$
+	$$\phi^{-1} \circ \phi \circ \varphi_1  = \phi^{-1} \circ \phi \circ \varphi_2$$
+	$$\Downarrow$$
+	$$\varphi_1  =  \varphi_2 $$
+	And thus $\phi$ is both a monomorphism and epimorphism
+\end{ques}
+
+\end{document}

@@ -85,20 +85,39 @@ Gylys-Colwell}}
 	(b)\ 
 	$$T(\cos(nt)) = \int_0^x \cos(nt)\ dt = \frac{\sin(nx)}{n}$$
 	(c)\ $K$ is bounded since $|f_n|_{C^0} \leq 1$ for all $n$.\\
-	$K$ is closed as follows:\\
 	We will show the only possible Cauchy sequence in $K$ is eventually
-	constant and thus $K$ is closed. For any sequence $f_{n_k}$ we have two
-	possibilities: (1) $n_k < N$ stays bounded or (2) $n_k$ becomes arbitrarily
-	large.\\
-	(1) If $n_k < N$ then we have 
-	$$\int_0^1 \cos nt - \cos mt\ dt = \frac 1 n - \frac 1 m$$
-	thus from the intermediate value theorem we can conclude
-	$$|\cos nt - \cos mt|_{C^0} \geq \l|\frac 1 n - \frac 1 m\r|$$
-	Thus we have for $n \neq m < N$
-	$$|f_{n} - f_{m}|_{C^0} = |\cos nt - \cos mt|_{C^0} \geq \min_{1
-	\geq m \neq n < N} \l|\frac 1 n - \frac 1 m\r| > 0$$
-	Thus in order to be Cauchy, the tail must be constant ($n = m$)\\
-	(2)\ 
+	constant and thus $K$ is closed. This also establishes $K$ is not compact
+	since a nonconstant sequence will not have any Cauchy subsequence. \\
+	% We have the Trig identity (known as the factor formulae)
+	% $$\cos(nx) - \c(mx) = 2\s \l(\frac{n+m}{2}t\r)\s \l(\frac{n-m}{2}t\r)$$
+	We can bound the integral for $m \neq n$ from below
+	$$\int (\c nt - \c mt)^2 dt = \int \c^2 nt - \c nt \c mt +  \c^2 mt\ dt$$
+	We know that if for some $c > 0$ $\int_0^1 |f_n - f_m|^2 dt > c^2$ for all
+	$m \neq n$ then $|f_m - f_n|_{C^0} > c$ and thus we cannot have a Cauchy
+	sequence when $m \neq n$\\ We have the trig identity
+	$$\c mt \c nt = \frac{\c (mt + nt) + \c (mt - nt)}{2}$$
+	Using this along with the fact $\int \c^2 x dx = \frac 1 2 x + \frac{\s 2x}{4}$
+	$$\int_0^x \c^2 nt - \frac{\c (mt + nt) + \c (mt - nt)}{2} +  \c^2 mt\ dt$$
+	$$= x + \frac{\s 2nx}{4n}+ \frac{\s 2mx}{4m} - \frac{-\s (mx + nx)}{2(m+n)}
+	+ \frac{-\s (mx - nx)}{2(m-n)}$$
+	by triangle inequality (we know WLOG $m > n \geq N$ for appropriate $N$)
+	$$\l|\frac{\s 2nx}{4n}+ \frac{\s 2mx}{4m} - \frac{-\s (mx + nx)}{2(m+n)}
+	+ \frac{-\s (mx - nx)}{2(m-n)}\r| \leq \frac 1 {4n} + \frac 1 {4m} + \frac
+	1 {2(m+n)} + \frac 1 {2(m-n)} \leq c < 1$$
+	And thus
+	$$= x + \frac{\s 2nx}{4n}+ \frac{\s 2mx}{4m} - \frac{-\s (mx + nx)}{2(m+n)}
+	\geq x - c$$
+	and thus evaluating the limit of the integral from $0$ to $1$:
+	$$\int_0^1 (\c nt - \c mt)^2 dt \geq x - c \bigg|_0^1 = 1 - c > 0$$
+	(d)\ We have that
+	$$T(K) = \l\{T(f_n) = \frac{\sin nx }{n}\r\}$$
+	is compact since any sequence in $T(K)$ either becomes arbitrarily
+	large or is bounded by some $N$ in index. If it is bounded by $N$ then
+	there is some constant $f_n$ which shows up infinitly often in the sequence and is
+	thus a convergent subsequence. Otherwise we can choose a subsequence of
+	indicies increasing to infinity. This is a convergent subsequence since
+	$|f_n|_{C^0} \leq \frac 1 n$ yields a Cauchy sequence. The closure is thus
+	compact as well since $\overline{T(K)} = T(K)$
 \end{ques}
 
 \begin{ques}{17}
