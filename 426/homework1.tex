@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\renewcommand{\sup}{\text{sup}}
+\newcommand{\osc}{\text{osc}}
+\newcommand{\diam}{\text{diam} \ }
+\renewcommand{\-}{\backslash}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 426, SPRING 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$1}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+\begin{ques}{1.4 36}
+	We have that any $\sigma$-algebra which contains intervals of the form
+	$[a,b)$ must contain all open intervals and conversley any $\sigma$-algebra
+	which contains the open intervals must contain all intervals of the form
+	$[a,b)$. Thus since the Borel sets are the smallest $\sigma$-algebra to
+	contain the open intervals, it is also the smallest $\sigma$-algebra to
+	contain intervals of the form $[a,b)$\\
+	To show this containment:\\
+	$(\subseteq):$ if $\mathcal A$ is $\sigma$-algebra containing the open
+	intervals (and thus by closure under complements the closed intervals) then
+	for any $[a,b)$ we have $(-\infty,a), [b,\infty) \in \mathcal A$ and thus
+	$$[a,b) = ((-\infty,a) \cup [b,\infty))^C \in \mathcal A$$
+	$(\supseteq):$ if $\mathcal A$ is $\sigma$-algebra containing the 
+	intervals $[x,y)$ then for any $(a,b)$ we have the collection $[a + 1/n, b) \in
+	\mathcal A$ and we have
+	$$(a,b) = \bigcup_{n=1}^\infty [a + 1/n, b) \in \mathcal
+	A$$
+\end{ques}
+
+\begin{ques}{2.1 3}
+	We can split up the union into a union of disjoint sets:
+	$$\bigcup_{k=1}^\infty E_k = \bigcup_{k=1}^\infty \l(E_k \backslash 
+	\bigcup_{i=1}^{k-1}E_i\r)$$
+	from countable additivity over disjoint sets we have
+	$$m\l(\bigcup_{k=1}^\infty E_k\r) = m\l(\bigcup_{k=1}^\infty \l(E_k \backslash 
+	\bigcup_{i=1}^{k-1}E_i\r)\r)$$
+	$$= \sum_{k=1}^\infty m\l(E_k \backslash 
+	\bigcup_{i=1}^{k-1}E_i\r)$$
+	Since 
+	$$m(E_k) = m \l(E_k \cap \l( 
+	\bigcup_{i=1}^{k-1}E_i\r)\r) + m\l(E_k \backslash 
+	\bigcup_{i=1}^{k-1}E_i\r)$$
+	we get that
+	$$m(E_k) \geq m\l(E_k \backslash \bigcup_{i=1}^{k-1}E_i\r)$$
+	and thus
+	$$m\l(\bigcup_{k=1}^\infty E_k\r) \leq \sum_{k=1}^\infty m(E_k)$$
+\end{ques}
+
+\begin{ques}{2.1 4}
+	Countably Additive:\\
+	For disjoint sets $E_1, E_2 \dots E_k \dots$, since the sets are disjoint
+	the number of elements in the union is equal to the sum of the number of
+	elements in each set. Thus
+	$$c\l(\bigcup E_k\r) = \sum c(E_k)$$
+	Translation Invariant:\\
+	If a set $E$ is translated by $y$ we have that $E + y$ has the same number
+	of elements and thus
+	$$c(E) = c(E + y)$$
+\end{ques}
+
+\begin{ques}{2.2 6}
+	We have the covering $(0,1)$ of $A$ where $\ell((0,1)) = 1$ and thus
+	$m^*(A) \leq 1$.\\
+	We also have from countable subadditivity
+	$$1 \leq m^*([0,1] \- A) + m^*(A)$$
+	It is the case $[0,1] \- A = \Q \cap [0,1]$ is a countable set and thus has
+	outer measure zero thus
+	$$1 \leq m^*(A)$$
+	So $m^*(A) = 1$
+\end{ques}
+
+\begin{ques}{2.2 9}
+	Since $B \subseteq A \cup B$ we have
+	$$m^*(B) \leq m^*(A \cup B)$$
+	by subadditivity
+	$$m^*(A \cup B) \leq m^*(B) + m^*(A \- (A \cap B))$$
+	Since $A \- (A \cap B) \subseteq A$
+	$$0 \leq m^*(A\- (A \cap B)) \leq m^*(A) = 0$$
+	$$m^*(A \cup B) \leq m^*(B)$$
+	And thus $m^*(B) = m^*(A \cup B)$
+\end{ques}
+
+\begin{ques}{2.3 14}
+	If we consider the sequence of balls $B_1, B_2, \dots$ where 
+	$$B_n = \{x \in \R: |x| \leq n\}$$
+	we have that
+	$$E = \bigcup_{n=1}^\infty E \cap B_n$$
+	from subadditivity
+	$$m^*(E) \leq \sum_{n=1}^\infty m^*(E \cap B_n)$$
+	since $m^*(E) > 0$ it must be the case $\sum_{n=1}^\infty m^*(E \cap B_n) >
+	0$ which means one of the terms $m^*(E \cap B_N)$ in the sum must be $> 0$.
+	$E \cap B_N$ is a bounded subset of $E$ with positive measure
+\end{ques}
+
+\begin{ques}{2.3 15}
+	Consider the set of intervals
+	$$\mathcal I = \{\dots \l[-2\epsilon , -\epsilon \r),
+	\l[-\epsilon, 0\r), \l[0, \epsilon\r), \l[\epsilon, 2\epsilon\r)\dots \}$$
+	Notice that $\mathcal I$ covers $\R$ and so we have
+	$$E = \bigcup_{I_k \in \mathcal I} E \cap I_k$$
+	Since $m(I_k) = \epsilon$ and $E \cap I_k \subseteq I_k$ we have the desired property
+	$$m(E \cap I_k) \leq \epsilon$$
+	Since each $I_k$ and $E$ is measurable from additivity
+	$$m(E) = \sum_{I_k \in \mathcal I} m(E \cap I_k)$$
+	thus since $m(E)$ is finite the sum converges which means for sufficiently
+	large index, the sum of the rest of the terms is less than $\epsilon$. Let
+	$E \cap I_N, E \cap I_{N+1}, E \cap I_{N+2}, \dots$ denote this tail of the
+	sum. Letting $T =
+	\bigcup_{n = N}^\infty E \cap I_n$ with 
+	$$m(T) = \sum_{n=N}^\infty m(E \cap I_n) < \epsilon$$
+	And thus we have $E$ is a finite union of measurable sets with measure less
+	than $\epsilon$
+	$$E = (E \cap I_1) \cup(E \cap I_2) \cup(E \cap I_3) \cup \dots (E \cap
+	I_{N-1}) \cup T$$
+
+
+\end{ques}
+
+\end{document}
