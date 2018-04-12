@@ -1,0 +1,232 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig, tikz-cd, mathrsfs}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+\DeclareMathOperator\coker{coker}
+\DeclareMathOperator\coim{coim}
+\DeclareMathOperator\id{id}
+
+\DeclareMathOperator\Hom{Hom}
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+\newcommand{\tensor}{\otimes}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\vp}{\varphi}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ann}{\text{Ann}}
+\newcommand{\End}{\text{End}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Gal}{\text{Gal}}
+\newcommand{\orb}{\text{orb}}
+\newcommand{\im}{\text{im}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\s}{\sigma}
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 506, SPRING 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$2}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{1}
+	We have that
+	$$k(\a) \cong k[x]/(f)$$
+	We have
+	$$K \tensor_k k(\a) \simeq K \tensor_k k[x]/(f) \simeq K[x]/(f)$$
+	as $K$ algebras. The second equivalence comes from the general fact that
+	for rings $R,S$ with $R \subset S$ and $R$-module $M$ then as $S$ algebras
+	$$S \tensor_R M \simeq M_S$$
+	Where $M_S$ is the module $M$ extended as an $S$ module (when such an
+	extention is possible)
+\end{ques}
+
+\begin{ques}{2}
+	For any $a \in A, x \in F$ ($a \neq 0$ is not a zero divisor and $x \neq 0$)\\
+	We have the module homomorphism $\phi_a :A \to A$ given by 
+	$$\phi_a(r) = ar$$
+	is injective thus we have the exact sequence
+	$$\begin{tikzcd}
+	0 \arrow[r] & A \arrow[r,"\phi_a"] & A
+	\end{tikzcd}$$
+	which corresponds to the exact sequence
+	$$\begin{tikzcd}
+	0 \arrow[r] & A \otimes_A F \arrow[r,"\phi_a\otimes \id"] & A \otimes_A F
+	\end{tikzcd}$$
+	We have that 
+	$$\phi_a\otimes \id (1 \otimes x) = a \otimes x = 1 \otimes ax$$
+	Since $\phi_a\otimes \id$ is injective it must have a trivial kernel and
+	thus $1 \otimes ax \neq 0 \Rightarrow ax \neq 0$
+\end{ques}
+
+\begin{ques}{3}
+	($\Rightarrow$):\\
+	For any ideal $I \subset A$ we have the natural embedding 
+	$$0 \to I \to A$$
+	which by definition of flatness induces the embedding
+	$$0 \to I \otimes_A F \to  A \otimes_A F$$
+	We have that $A \otimes_A F \cong F$ as $A$-modules by the isomorphism
+	$$a \tensor x \to ax$$
+	thus we have the desired exact sequence 
+	$$0 \to I \otimes_A F \to  F$$
+	($\Leftarrow$):\\
+	Since the Tensor product is left adjoint it is right exact, so we must only
+	show left exactness. For some exact sequence of $A$-modules
+	$$0 \to X \to Y$$
+	We have that $Y$ is isomorphic to a quotient of a free module
+	$$Y \cong \l(\bigoplus_{i \in S} A_i\r) /Q$$
+	From our hypothesis we know $F$ is $A$-flat (tensoring preserves injective
+	maps into $A$). We will show $F$ is $Y$-flat (and thus conclude $F$ is
+	flat) by showing that if $F$ is $M$-flat then $F$ is flat for every direct
+	sum and quotient module of $M$. Since $Y$ is a direct sum and then quotient
+	of $A$ this implies $F$ is $Y$-flat.\\
+	\\
+	Assuming $F$ is $M$-flat we have
+	$$F \tensor \l(\bigoplus_{i \in S} M_i\r) = \bigoplus_{i \in S} F \tensor M_i$$
+	and thus for an exact sequence
+	$$0 \to N \to \bigoplus_{i \in S} M_i$$
+	the injection can be factored into a direct sum of the mapping into each
+	component $M_i$. From flatness
+	of $F$ each component is an injective mapping when tensoring with $F$ and
+	thus the mapping is still injective
+	$$0 \to N \tensor F \to \bigoplus_{i \in S} F \tensor M_i$$
+	\\
+	Suppose now we have the quotient $Q$ where $F$ is $M$-flat
+	$$0 \to I \to M \to Q \to 0$$
+	Let $Q'$ be a submodule of $Q$ and $M'$ its inverse image in $M$. This
+	yields the commutative diagram
+	$$\begin{tikzcd}
+	0 \arrow[r] & I \arrow[r] & M' \arrow[d]\arrow[r] & Q' \arrow[d]\arrow[r] & 0\\
+	0 \arrow[r] & I \arrow[r] & M \arrow[r] & Q \arrow[r] & 0\\
+	\end{tikzcd}$$
+	Tensoring with $F$ yields
+	$$\begin{tikzcd}
+	& & 0 \arrow[d] & K \arrow[d] & \\
+	 & F \tensor I \arrow[r]\arrow[d] & F \tensor M' \arrow[d]\arrow[r] & F \tensor Q'
+	 \arrow[d]\arrow[r] & 0\\
+	0 \arrow[r]& F \tensor I \arrow[d] \arrow[r] & F \tensor M \arrow[r] & F
+	\tensor Q&\\
+	 & 0 & &
+	\end{tikzcd}$$
+	where $K$ is the kernel of the mapping from $F \tensor Q' \to F \tensor Q$.
+	The snake lemma yields the short exact sequence
+	$$0 \to K \to 0$$
+	and thus $K = 0$ so we have the exact sequence
+	$$0 \to F \tensor Q' \to F \tensor Q$$
+	establishing $F$ to be $Q$-flat. Thus we are done.
+
+\end{ques}
+
+\begin{ques}{4}
+	From problem $2$ we get the implication $(\Rightarrow$).\\
+	$(\Leftarrow)$ From problem $3$ we know it is sufficient to show that for
+	ever ideal $\langle a \rangle \subset A$ there is an embedding 
+	$$\langle a \rangle \otimes_A F \to F$$
+	If we consider the kernel of the natural mapping 
+	$$\langle a \rangle \otimes_A F \to F$$
+	$$ar \tensor x \to arx$$
+	we have $ar \tensor x \to arx = 0$ can be zero if and only if $ar = 0$ or
+	$x = 0$. Thus the kernel is trivial and we have an embedding\\
+	\\
+	An example of a torsion free module that is not flat is the ideal
+	$$I = \langle x, y\rangle \subset R = k[x,y]$$
+	We have the exact sequence is not preserved
+	$$0 \to I \to R$$
+	$$0 \to I \tensor I \to I \tensor R$$
+	Since 
+	$$0 \neq x \tensor y - y \tensor x \to x \tensor y - y \tensor x$$
+	and in $I \tensor R$ since $1 \in R$:
+	$$x \tensor y - y \tensor x = xy \tensor 1 - xy \tensor 1 = 0$$
+	% It is the case that $x \tensor y- y \tensor x$ is not $0$ in $I \tensor
+	% I$ since if we examine h
+\end{ques}
+
+\begin{ques}{5}
+	Given $F$ flat and the short exact sequence 
+	$$0 \to N \to M \to F \to 0$$
+	Given any $A$-module $L$ since the tensor is right exact we must only
+	show exactness around $N \tensor L$.\\
+	We have that $L$ can be written as a quotient of a flat $L'$
+	with the exact sequence
+	$$0 \to L'' \to L' \to L \to 0$$
+	(This is since every module can be written as the quotient of a free module
+	and all free modules are flat)\\
+	Thus we have the commutative diagram
+	$$\begin{tikzcd}
+	& & & 0 \arrow[d] & \\
+	& L'' \tensor N \arrow[r] \arrow[d] & L'' \tensor M \arrow[r]
+	\arrow[d] & L'' \tensor F \arrow[r]\arrow[d] & 0\\
+	0 \arrow[r] & L' \tensor N \arrow[d]\arrow[r] & L' \tensor M
+	\arrow[r]\arrow[d] & L' \tensor F & \\
+	& L \tensor N \arrow[d] \arrow[r] & L \tensor M \arrow[d] & \\
+	& 0 & 0 &
+	\end{tikzcd}$$
+	The Snake Lemma yields the exact sequence 
+	$$0 \to L \tensor N \to L \tensor M$$
+	Since the cokernels of the left two morphisms are $L\tensor
+	N$ and $L \tensor M$. Thus we are done
+\end{ques}
+
+\begin{ques}{6}
+	Since The Tensor product is left adjoint, we know that it is right exact.
+	Thus exactness will be implied by left exactness. In other words that any exact
+	sequence of $A$ -modules of the form
+	$$0 \to X \to Y$$
+	is preserved\\
+	We have the following commutative diagram 
+	$$\begin{tikzcd}
+	& & & 0 \arrow[d] & \\
+	0 \arrow[r] & X \tensor N \arrow[r] \arrow[d] & X \tensor M \arrow[r]
+	\arrow[d] & X \tensor F \arrow[r]\arrow[d] & 0\\
+	0 \arrow[r] & Y \tensor N \arrow[r] & Y \tensor M \arrow[r] & Y \tensor F\\
+	\end{tikzcd}$$
+	From flatness of $F$ we have the third vertical map is an injection. If $N$
+	is flat then the first vertical map is an injection and from the Four Lemma
+	it must be the case that the map $X \tensor M \to Y \tensor M$ is an
+	injection. Conversly if $M$ is flat then since the mapping $X \tensor N \to
+	X \tensor M \to Y \tensor M$ is injective and is equal to the mapping $X
+	\tensor N \to Y \tensor N$ composed with an injective mapping, it must be
+	the case that the mapping $X \tensor N \to Y \tensor N$ is injective
+\end{ques}
+
+\end{document}
