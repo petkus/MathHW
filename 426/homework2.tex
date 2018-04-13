@@ -111,7 +111,21 @@ Gylys-Colwell}}
 \begin{ques}{2.4 20}
 	($\Leftarrow$): This follows directly from the definition of measurable
 	with the set in question $(a,b)$\\
-	($\Rightarrow$): As we have shown in problem 18 for any $\epsilon > 0$ we can co
+	($\Rightarrow$): From the definition of outer measuer for any $\epsilon >
+	0$ we can cover $E$ by a countable collection of open intervals $I_k$ such that
+	$$\sum_{k=1}^\infty m^*(I_k) < m^*(E) + \epsilon$$
+	From hypothesis
+	$$\sum_{k=1}^\infty m^*(I_k) = \sum_{k=1}^\infty m^*(E \cap I_k) + m^*(I_k
+	\backslash E) \geq m^*\l(\bigcup_{k=1}^\infty E \cap I_k \r) +
+	m^*\l(\bigcup_{k=1}^\infty I_k \backslash E \r)$$
+	Denoting $U = \bigcup_{k=1}^\infty I_k$ the open set, the above statement
+	is equal to 
+	$$m^*(U \cap E) + m^*(U \backslash E)$$
+	since $E \subseteq U$, $U \cap E = E$ so tracing back from our first
+	inequality yields
+	$$m^*(E) + \epsilon > m^*(E) + m^*(U \backslash E)$$
+	Thus $m^*(U \backslash E) < \epsilon$ which from Theorem 11 establishes $E$
+	to be measurable
 \end{ques}
 
 \begin{ques}{2.5 25}
@@ -134,10 +148,10 @@ Gylys-Colwell}}
 	We have that for all $N > 0$,
 	$$m^*\l(\bigcup_{k=1}^\infty A \cap E_k\r) \geq m^*\l(\bigcup_{k=1}^N A
 	\cap E_k \r) = \sum_{k=1}^N m^*(A \cap E_k)$$
-	And thus
+	The second equality follows from Proposition 6.
 	$$m^*\l(\bigcup_{k=1}^\infty A \cap E_k\r) \geq \sum_{k=1}^\infty m^*(A
 	\cap E_k)$$
-	thus we can conclude equality
+	thus we can conclude equality.\\
 \end{ques}
 
 \begin{ques}{2.5 28}
