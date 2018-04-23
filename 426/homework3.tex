@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\renewcommand{\sup}{\text{sup}}
+\newcommand{\osc}{\text{osc}}
+\newcommand{\diam}{\text{diam} \ }
+\renewcommand{\-}{\backslash}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 426, SPRING 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+\begin{ques}{2.6 30}
+	We know that any choice set is not measurable, we also know that every set
+	which is countable or finite is measurable. Thus any choice set must be uncountable.
+\end{ques}
+
+\begin{ques}{2.7 34}
+	Consider the function $\Psi^{-1}$ which is the inverse of the function
+	$\Psi(x) = \varphi(x) + x$ where $\varphi$ is the Cantor-Lebesgue function.
+	This inverse function is well defined since $\Psi$ is a bijection.
+	$\Psi^{-1}$ is continuous since it is a strictly increasing surjection (it
+	is strictly increasing since the inverse of a strictly increasing function
+	is strictly increasing). By scaling the function $F(x) = \Psi(2x)$ we have
+	a function defined on $[0,1]$ which maps a measurable set of positive
+	measure onto the Cantor set
+\end{ques}
+
+\begin{ques}{2.7 37 OLD EDITION}
+	It is not true, as illustrated by the function $\Psi^{-1}(x)$ with $E =
+	[0,2]$ described in 34. We have that the pull back of $\Psi^{-1}$
+	of a subset of the Cantor set is a nonmeasurable set (the subset of the
+	Cantor set is measurable since the Cantor set is measure $0$)
+\end{ques}
+
+\begin{ques}{2.7 37}
+	Let $B$ be a measure zero set. For any $\epsilon > 0$ we can cover $B$ with
+	intervals $I_k$ such that $\sum_{k =1} ^\infty \ell(I_k) < \epsilon / c$.
+	Notice that a implication of lipchitz is
+	$$m^*(f(I_k)) \leq c \ell(I_k)$$
+	The reason for this is if $I_k = (a,b)$, letting $x = \frac{a + b}2$ we
+	have $I_k$ is a ball of radius $r = \ell(I_k)/2$ around $x$
+	$$f(I_k) = f(B_r(x)) \subseteq B_{cr}(f(x))$$
+	and $B_{cr}(f(x))$ is an interval of length $c\ell(I_k)$
+	\\
+	From this we have
+	$$m^*(f(B)) \leq m^*\l(f\l( \bigcup_{k=1}^\infty I_k \r)\r)$$
+	$$= m^*\l( \bigcup_{k=1}^\infty f\l( I_k \r)\r) \leq \sum_{k=1}^\infty
+	m^*(f(I_k)) \leq \sum_{k=1}^\infty c \ell(I_k) < \epsilon$$
+	And thus $f(B)$ is measure zero\\
+	Let $F$ be a $F_\sigma$ set. We have that $F$ is a countable union of closed sets
+	$$F = \bigcup_{i=1}^\infty C_i$$
+	We have
+	$$f(F) = \bigcup_{i=1}^\infty f(C_i)$$
+	It is the case that every lipchitz function is closed and thus $f(C_i)$ is
+	closed so $f(F)$ is a $F_\sigma$ set.\\
+	To show that Lipshitz $\Rightarrow$ closed:\\
+	for an limit point $y \in f(C)$ we have that $f(x_i) \to C$ converges to
+	$y$. Thus $f(x_i)$ is Cauchy and by the lipchitz condition we get that
+	$x_i$ is Cauchy and thus has a limit $x \in C$. Thus we have that $f(x) = y$ so
+	$y \in f(C)$\\
+	Thus since every measurable set $M = F \cup B$ is a union of a
+	$F_\sigma$ set and a zero set we have that
+	$$f(M) = f(F) \cup f(B)$$
+	is also a union of a $F_\sigma$ set and a zero set and thus measurable
+
+\end{ques}
+
+\begin{ques}{2.7 42 OLD EDITION}
+	Suppose for contradiction we have an enumeration of $X:$
+	$$X = \{x_1, x_2, x_3, \dots \}$$
+	We can construct an element in $X$ that is not enumerated in such a fashion:\\
+	Choose any two elements $a_1, a_2 \in X$ and construct the disjoint closed balls
+	$B_1, B_2$ around $a_1, a_2$ (whose radius would be $< |a_1-a_2|/2$). $x_1$
+	cannot be in both sets so denote $C_1$ as the set $x_1$ is not in. Now
+	choose $a_1,a_2$ in the interior of $C_1$ and again construct the disjoint
+	closed balls $B_1, B_2$ of $a_1,a_2$ which are also contained in the
+	interior of $C_1$. Again $x_2$ cannot be in both sets so denote $C_2$ as
+	this closed ball.\\
+	In general given a closed ball $C_n$ we choose two
+	points $a_1,a_2 \in \i C_n$ and get disjoint balls $B_1, B_2$ centered
+	around each point. We will denote $C_{n+1}$ as the ball which $x_{n+1}$ is
+	not in\\
+	From this we have the nested closed sets $C_1 \subset C_2 \subset C_3
+	\subset \dots$ which cannot be closed when taking the intersection:
+	$$\exists x \in \bigcap_{n=1}^\infty C_n$$
+	$x$ was not in the enumeration since for every $n$, $x \in C_n, x_n \notin C_n$
+\end{ques}
+
+\begin{ques}{2.7 42}
+	We know that the inverse image preserves $\sigma$-algebra operations:
+	$$f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$$
+	$$f^{-1}(\cup_{i=1}^\infty A_i) = \cup_{i=1}^\infty f^{-1}(A_i)$$
+	$$f^{-1}(A^c) = f^{-1}(A)^c$$
+	Thus since every borel set $B$ is obtained by various $\sigma$-algebra
+	operations of open sets $U_i$ and $f^{-1}$ preserves open sets, we have that
+	$f^{-1}(B)$ is obtained by various $\sigma$-algebra operations of open sets
+	$f^{-1}(U_i)$ and thus Borel
+\end{ques}
+
+\begin{ques}{3.1 2}
+	This is not the case. Consider the example
+	$$D = [0.1] \cap \Q , E = [0,1] - \Q$$
+	$D, E$ are measurable since $m^*(D) = 0$ and $E = [0,1] - D$. Consider the function
+	$$f(x) = 
+	\begin{cases}
+	1 & x \in D\\
+	0 & x \in E
+	\end{cases}$$
+	$f$ is continuous on $D$ and on $E$ but not continuous on $D \cup E =
+	[0,1]$. 
+\end{ques}
+
+\begin{ques}{3.1 4}
+	No as illustrated by this counterexample. We know that $\Psi^{-1}$
+	described in problem 34 is not a measurable function.  It is however one-to-one
+	and thus $(\Psi^{-1})^{-1}(c)$ is just a point and so measurable.
+\end{ques}
+
+\begin{ques}{3.1 8}
+	(i)
+	We know that the Borel sets are a subset of the Lebesgue sets. Thus the
+	definition have direct implications: $E$ is Lebesgue if Borel and $\{x \in
+	E|f(x) > c\}$ is Lebesgue if it is Borel\\
+	\\
+	(ii) We know that the inverse image preserves $\sigma$-algebra operations:
+	$$f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$$
+	$$f^{-1}(A^c) = f^{-1}(A)^c$$
+	We have that the Borel sets are generated by sets of the form $(c, \infty)$
+	and thus $f^{-1}(B)$ is a set obtained by $\sigma$-algebra operations of
+	sets of the form $f^{-1}(c, \infty)$ which are Borel sets since $f$ is
+	Borel measurable. Thus $f^{-1}(B)$ is a Borel set\\
+	\\
+	(iii) We have that $(f \circ g)^{-1}(c, \infty) = g^{-1}(f^{-1}(c, \infty))
+	= f^{-1}(B)$. Since $f$ is Borel measurable, $f^{-1}(c, \infty) = B$ is a
+	Borel set. From (ii) $g^{-1}(B)$ is Borel and thus $f \circ g$ is Borel
+	measurable\\
+	\\
+	(iv) We have that $(f \circ g)^{-1}(c, \infty) = g^{-1}(f^{-1}(c, \infty))
+	= g^{-1}(B)$. Since $f$ is Borel measurable, $f^{-1}(c, \infty) = B$ is a
+	Borel set. Notice that the argument for (ii) can be applied for Lebesgue
+	measurable functions as well and so $g^{-1}(B)$ is Lebesgue. Thus $f
+	\circ g$ is Lebesgue measurable
+\end{ques}
+
+\begin{ques}{3.1 10}
+	No, consider $f$ is the identity function and $g$ is continuous but not
+	measurable (for instance $\Psi^{-1}$ as described for problem 34 but
+	extended to all of $\R$ by returning $2x$ on $\R \backslash [0,1]$).
+\end{ques}
+\end{document}

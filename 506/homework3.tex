@@ -1,0 +1,200 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig, tikz-cd, mathrsfs}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+\DeclareMathOperator\coker{coker}
+\DeclareMathOperator\coim{coim}
+\DeclareMathOperator\im{im}
+\DeclareMathOperator\id{id}
+
+\DeclareMathOperator\Hom{Hom}
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+\newcommand{\tensor}{\otimes}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\vp}{\varphi}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ann}{\text{Ann}}
+\newcommand{\End}{\text{End}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Gal}{\text{Gal}}
+\newcommand{\orb}{\text{orb}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\s}{\sigma}
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 506, SPRING 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$3}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{1}
+	We have the following commutative diagram
+	$$\begin{tikzcd}
+		 & P'\arrow[dl, "\a'"] \arrow[d, two heads, "\phi'"] &
+		 \arrow[l, hook, "i'"] \ker \phi'\\
+		 P \arrow[ur, shift left = 2, "\a"] \arrow[r, two heads, "\phi"] & M\\
+		\arrow[u, hook, "i"] \ker \phi & & 
+	\end{tikzcd}$$
+	We get the mappings $\a$ and $\a'$ from projectivity since $\phi:P \to M$
+	surjects $\exists \a':P' \to P$ such that $\phi = \phi' \circ \a'$ and
+	$\exists \a:P \to P'$ such that $\phi' = \phi \circ \a$.\\
+	Since $\phi\circ \a' \circ i' = \phi' \circ i' = 0$, $\exists! s': \ker
+	\phi' \to \ker \phi$ with $\a' \circ i' = i \circ s'$\\
+	Thus we have the mappings
+	$$\begin{tikzcd}
+		P\arrow[d, "\a"] & & \ker \phi'\arrow[d, "s'"]\\
+		P' \arrow[dr] & & \arrow[dl]\ker \phi\\
+		& P' \oplus \ker \phi& \\
+	\end{tikzcd}$$
+	which induces a unique mapping $f:P \oplus \ker \phi' \to P' \oplus \ker
+	\phi$. Swapping the labeling of the above argument would also yield a
+	unique mapping $g:P' \oplus \ker \phi \to P \oplus \ker \phi'$. I am stuck
+	on where to go from here	\\
+	\\
+	An example where the condition fails is with the $\Z$ modules $P = \Z, P' =
+	\Z/(4)$ and $M = \Z/(2)$. We then have the canonical mappings with kernels
+	$$\phi:P \to M, \phi':P' \to M$$
+	$$\ker \phi = 2\Z, \ker \phi' = 2\Z/(4)$$
+	Then 
+	$$\ker \phi' \oplus P = 2\Z/(4) \oplus \Z \not \cong 2\Z \oplus \Z/(4) =
+	\ker \phi \oplus P'$$
+
+\end{ques}
+
+\begin{ques}{2}
+	Since $P$ is free of infinite rank and $P'$ is finitly generated we can
+	surject $\phi:P \to P'$.\\
+	Thus letting $M = P'$ we have the maps $\phi:P \to M$, $\id:P' \to M$ which
+	yields
+	$$P \simeq P' \oplus \ker \phi$$
+	We have that any module that is the direct summand of a free module is
+	projective. This is because if $F = M \oplus N$ is free the functor
+	$$\Hom(F,-) = \Hom(M,-) \oplus \Hom(N,-)$$
+	is exact which means the summands must be exact. We did not need the
+	hypothesis to apply for every $M$, just the case when $P' = M$
+
+	% Given any surjective $\psi: N \to M$ and any $\phi': P' \to \im \phi' \subseteq M$
+	% we can define a $\phi: P \to \im \phi'$
+	% we have the diagram
+	% $$\begin{tikzcd}
+	% 	& P' \oplus \ker \phi &\arrow[l] P'\arrow[d, "\phi'"] \\
+	% 	& & \im \phi' \\
+	% 	& N \arrow[r, two heads, "\psi"] & M 
+	% \end{tikzcd}$$
+\end{ques}
+
+\begin{ques}{3}
+\end{ques}
+
+\begin{ques}{4}
+	% From Maschke's Theorem we know that any $\C[G]$ module $I$ is the direct
+	% sum of simple modules
+	% $$I = \bigoplus_{\a \in S} V_\a$$
+	% For any injection $\phi : M \to N$ and a module homomorphism $\psi:M \to I$
+	% we have that $\psi$ factors as mappings into each component
+	% $$\psi = \bigoplus_{\a \in S} (\psi_\a:M \to V_\a)$$
+	% Since each $V_\a$ is simple each $\psi_\a$ is surjective or $0$
+
+	From Maschke's Theorem we know that any $\C[G]$ module is semisimple, thus
+	for any injection
+	$$\phi: I \to M$$
+	we have that $M \simeq I \oplus \coker \phi$ and thus $\phi$ has the left
+	inverse defined by 
+	$$\phi^{-1} \oplus 0: I \oplus \coker \phi \to I$$
+	Where $\phi^{-1}$ denotes the inverse of $\phi$ over $\im \phi$. A well
+	known equivalent definition of an injective module is that every injection
+	has a right inverse, thus we have shown $I$ to be injective.
+\end{ques}
+
+\begin{ques}{5}
+	For any embedding $N \subseteq M$ of $R$-modules and $R$-module
+	homomorphism $\a:N \to I$ we can consider the collection of pairs
+	$$\mathcal C = (D, \b)$$
+	Where $D\subseteq M$ are submodules containing $N$ and $\b:D \to I$ are
+	mappings which restricted to $N$ yield the equality $\b|_N = \a$\\
+	We have that $\mathcal C$ forms a partially ordered set where $(D_1,
+	\b_1) < (D_2, \b_2)$ iff $D_1 \subset D_2$ and $\b_1 =
+	\b_2|_{D_2}$. We have that any ascending chain
+	$$(D_1, \b_1) \leq (D_2, \b_2) \leq (D_3, \b_3) \leq \dots$$
+	has the upper bound
+	$$\l(\bigcup_{i=1}^\infty D_i, \bigcup_{i=1}^\infty \b_i \r)$$
+	Thus by Zorns lemma there is a maximal element $(M',\a')$ We have that
+	$M' = M$ and thus $\a'$ is a mapping $M \to I$ where $\a'|_N = \a$ thus
+	establishing $I$ to be injective. We have $M' = M$ as follows\\
+	Suppose for contradiction there is $m \in M \backslash M'$, then we have
+	the ideal
+	$$J = \{r \in R| rm\in M'\}$$
+	We can restrict $\a'$ to $\a'|_{Jm} : Jm \to I$. Thus this mapping extends
+	to a mapping $\a''|_{Rm}:Rm \to I$. Thus we have a new pair $(M' \cup Rm, \a'')$
+	which is strictly larger than $(M', \a')$, contradicting maximality.
+\end{ques}
+
+\begin{ques}{6}
+	$(\Rightarrow):$ If an abelian group $G$ is divisible, then as a $\Z$
+	module, we have that $G$ satisfies Baer's criterion and thus is injective.\\
+	For any ideal
+	$$J = \langle n \rangle \subset \Z$$
+	with a morphism $\phi: J \to G$ by divisiblity there exists $y$ such that
+	$ny = \phi(n)$ and thus we have the extension
+	$$\psi:\Z \to G$$
+	defined by $\psi(1) = y$\\
+	\\
+	$(\Leftarrow):$ Suppose $G$ was injective. Given any element $y \in G$ and
+	$n \in \N$ consider the subgroup $\langle y \rangle = Y
+	\subseteq G$ which has canonical inclusion map $i:Y \to G$. We will define the group
+	$$H = \Z/(n\cdot |Y|)$$
+	(if $|Y| = \infty$ then $H = \Z$). We have the injective map
+	$$f:Y \to H$$
+	where $f(a) = n$, $f(ka) = kn$ thus we have the diagram
+	$$\begin{tikzcd}
+	 & I\\
+	Y \arrow[ur, "i"] \arrow[r, "f"] & H\\
+	\end{tikzcd}$$
+	thus from injectivity there is an induced map $h:H \to I$ with $h \circ f =
+	i$. Thus $n \cdot h(1) = h(n) = h(f(a)) = i(a) = a$ so $h(1)$ is a solution
+	to $ng = y$ so $G$ is divisible
+\end{ques}
+
+\end{document}
