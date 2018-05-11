@@ -1,0 +1,318 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig, tikz-cd, mathrsfs}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+\DeclareMathOperator\coker{coker}
+\DeclareMathOperator\coim{coim}
+\DeclareMathOperator\im{im}
+\DeclareMathOperator\id{id}
+\DeclareMathOperator\pd{pd}
+\DeclareMathOperator\Ext{Ext}
+
+\DeclareMathOperator\Hom{Hom}
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+\newcommand{\tensor}{\otimes}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\vp}{\varphi}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathcal{T}}
+
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ann}{\text{Ann}}
+\newcommand{\End}{\text{End}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Gal}{\text{Gal}}
+\newcommand{\orb}{\text{orb}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\s}{\sigma}
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 506, SPRING 2018}} \hspace{1.3cm}
+\textit{\textbf{MIDTERM}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+
+\begin{ques}{1}
+	If $\mathcal X:\mathcal I \to \mathcal A$ has limit $X$, since functors
+	preserve compositions of morphisms $F(\phi \circ \psi) = F(\phi) \circ
+	F(\psi)$, it is the case that functors preserve cones. Thus $F(X) =
+	F(\lim_{i \in \mathcal I} A_i)$ is a cone of $F \circ \mathcal X$.\\
+	Suppose we have the cone $Y$ which yields the diagram
+	$$\begin{tikzcd}
+	& Y \arrow[ddr, bend left] \arrow[ddl, bend right]& \\
+	& \arrow[dl, "F(\pi_i)"'] F(X) \arrow[dr, "F(\pi_j)"] & \\
+	F(A_i) \arrow[rr, "F\mathcal X(\phi)"] & & F(A_j)
+	\end{tikzcd}$$
+	Letting $G$ be the left adjoint to $F$ we have that 
+	$$\Hom_\mathcal A (G(Y), X) \simeq \Hom_\mathcal B (Y, F(X))$$
+	We have that $G(Y)$ is a cone of $\mathcal X$ and thus there is a unique
+	morphism $G(Y) \to X$ which corresponds to a unique morphism $Y \to F(X)$
+	making the diagram commute
+	$$\begin{tikzcd}
+	& Y \arrow[d, dotted] \arrow[ddr, bend left] \arrow[ddl, bend right]& \\
+	& \arrow[dl, "F(\pi_i)"'] F(X) \arrow[dr, "F(\pi_j)"] & \\
+	F(A_i) \arrow[rr, "F\mathcal X(\phi)"] & & F(A_j)
+	\end{tikzcd}$$
+	And thus $F(X)$ is a limit of $F \circ \mathcal X:\mathcal I \to \mathcal B$
+\end{ques}
+
+%done
+\begin{ques}{2}
+	For any finite cyclic subgroup $C_n \subset \Q/\Z$ of order $n$, a
+	generator is $1/n + \Z$ and thus this cyclic group of order $n$ is unique.
+	Thus we have that the cyclic subgroups form a directed set where
+	$\langle 1/n \rangle \leq \langle 1/m \rangle$ iff $n \leq m$ and morphisms 
+	$$f_{ik}: C_i \to C_k$$
+	$$f_{ik}(1/i) = \frac{k/\gcd(k,i)}{k} = \frac{1}{\gcd(k,i)}$$
+	For any Cone $C$ of our directed set of cyclic subgroups (over the category
+	of abelian groups)
+	$$\begin{tikzcd}
+	C_i \arrow[dr, "\pi_i"] \arrow[rr, "f_{ik}"] & & C_k \arrow[dl, "\pi_k"']\\
+	& C &
+	\end{tikzcd}$$
+	We have that we can define a map $\Psi : C \to \Q/\Z$ where for every $x
+	\in C$ if $x = \pi_n(n_x)$ for some $n_x \in C_n$ (here we mean $n_x \cdot
+	g_n$ where $g_n$ generates $C_n$ and $n_x \in \Z$) setting $\Psi(x) =
+	\frac {n_x}{n}$. Let $\Psi(x) = 0$ otherwise.\\
+	This map is well defined since if $\pi_n(n_x) = \pi_m(m_x)$ then $\pi_m
+	\circ f_{nm} = \pi_n$ so $n_x = f_{nm}(m_x)$ and 
+	$$\frac{n_x}{n} = \frac{m_x}{\gcd(m,n)n} = \frac{m_x}{m}$$
+	Notice that composing is just the inclusion map $\Psi \circ \pi_n = i : C_n
+	\to \Q/\Z$ and thus $\Psi$ is $\Z$ linear and establishes $\Q/\Z$ to be the
+	limit of the directed set of cyclic subgroups.
+	\\
+	\\
+	For $M$ and arbitrary $\Z$-module we have the short exact sequence
+	$$0 \to \Z \to \Q \to \Q/\Z \to 0$$
+	which corresponds to a long exact sequence (Prop 14 of 17.1 Dummit and Foote)
+	$$\cdots \to \Tor^\Z_1(M,\Q) \to \Tor^\Z_1(M,\Q/\Z) \to M \tensor \Z \to M
+	\tensor \Q \to M \tensor \Q/\Z \to 0$$
+	Since $\Q$ is torsion free it is flat (homework 2 problem 4) and thus
+	$\Tor^\Z_1(M,\Q) = 0$ so 
+	$$\Tor_1^\Z(M, \Q/\Z) \cong \ker (M \tensor \Z \to M \tensor \Q)$$
+	The kernel is precisely $\Tor M$. The reason for this is because $M \cong M
+	\tensor \Z$  from the mapping $M \to M \tensor \Z $ where $x \to
+	x \tensor 1$. $x \in \Tor M$ iff $nx = 0$ for some $n \in \Z$, thus by our
+	mapping $M \to M \tensor \Q$ where $x \to x \tensor 1$ we have $x \tensor 1
+	= nx \tensor 1/n = 0$ so $x$ is in the kernel iff $x \in \Tor M$
+\end{ques}
+
+	% Done
+\begin{ques}{3}
+	We know that $\Q/\Z$ is injective from homework 3 problem $6$. If $x$ has
+	order $n$ then as a cyclic group $\langle x \rangle$ embeds into $\Q/\Z$
+	where $x \to 1/n$. If $x$ has infinite order let $x \to 1/2$. We have the
+	commutative diagram
+	$$\begin{tikzcd}
+	 & \Q/\Z \\
+	\langle x \rangle \arrow[ur, "x \to 1/n"] \arrow[r, hook] & M
+	\end{tikzcd}$$
+	Thus we get an induced $\phi:M \to \Q/\Z$ where $\phi(x) = 1/n$ ($1/2$ in
+	infinite case). For any nonzero $x$ we have such a $\phi$ so
+	$|\Hom_\Z(M,\Q/\Z) \backslash \{0\}| \geq 1$ if $ |M \setminus \{0\}| \geq
+	1$. Thus if $\Hom_\Z(M,\Q/\Z) = 0$ then $M = 0$
+\end{ques}
+
+%done
+\begin{ques}{4}
+	We already know $M^* = \Hom_\Z(M, \Q/\Z)$ is an abelian group. For any $\phi \in
+	\Hom_\Z(M, \Q/\Z)$ and $r \in A$ since $r \cdot -$ is a group homomorphism
+	$M \to M$ we can define $r \phi(x)$ by composition. The property to check
+	is that $r \to r \phi$ is a ring homomorphism $A \to \End\ M^*$. This is
+	the case since for $a,b \in A$ as linear maps $M \to M$, $a\cdot - + b
+	\cdot - = (a + b) \cdot -$ and $a\cdot - \circ b \cdot - = (ab) \cdot -$
+	and composition with $\phi$ will preserve these properties
+	\\
+	Thus $M^*$ is an $A$-module. \\
+	\\
+	From homework 3 problem $6$ we know $\Q/\Z$ is injective and thus $\Hom(-,
+	\Q/\Z)$ is both left and right exact so as $\Z$ modules 
+	$$0 \to N \to M \to L \to 0$$
+	is exact iff 
+	$$0 \to L^* \to M^* \to N^* \to 0$$
+	is exact. This is true as $A$-modules since we can extend our mappings
+	$\phi:B^* \to C^*$ by composing $r \phi(x) = r \cdot - \circ \phi$ which
+	makes each arrow of the commutative diagram $A$ linear while preserving
+	kernels and cokernels
+\end{ques}
+
+%done
+\begin{ques}{5}
+	$(\Rightarrow)$ If $F$ is flat then given a short exact sequence of $A$ modules
+	$$0 \to X \to Y$$
+	yields from flatness
+	$$0 \to X \tensor F \to Y \tensor F$$
+	if we consder any $\phi :X \to F^*$ we have the bilinear mapping $b: X \oplus
+	F \to \Q/\Z$ given by
+	$$(x,d) \to \phi(x) (d)$$
+	where $\phi(x):F \to \Q/\Z$. Thus there is a mapping $X \tensor F \to
+	\Q/\Z$ to make the diagram commute.
+	$$\begin{tikzcd}
+	X \tensor F \arrow[r, dotted] & \Q/\Z\\
+	X \oplus F \arrow[ur, "\phi(x)(d)"'] \arrow[u, "x \tensor d"] & 
+	\end{tikzcd}$$
+	Since $\Q/\Z$ is an injective $\Z$ module we can extend our mapping
+	$$\begin{tikzcd}
+	Y \tensor F \arrow[r, dotted] & \Q/\Z\\
+	X \tensor F \arrow[ur] \arrow[u] & X \oplus F \arrow[l, "x \tensor d"]
+	\arrow[u, "\phi(x)(d)"']\\
+	0 \arrow[u] & 
+	\end{tikzcd}$$
+	This mapping $Y \tensor F \to \Q/\Z$ is the same as a mapping $Y \to
+	\Hom_\Z(F, \Q/\Z)$ which commutes with the mapping $\phi$\\
+	\\
+	$(\Leftarrow)$ If $F^*$ is injective and again we have a short exact sequence
+	$$0 \to X \to Y$$
+	we wish to show the induced morphism is injective
+	$$X \tensor F \to Y \tensor F$$
+	suppose we have some $x \tensor d \neq 0$ $X \tensor F$. By problem 3 there
+	is a morphism $\phi:X \tensor F \to \Q/\Z$ so that
+	$\phi(x \tensor d) \neq 0$. Since $\phi$ induces a mapping $X \to F^*$ by
+	sending $x \to \phi(x):F \to \Q/\Z$ from injectivity we get a mapping $Y
+	\to F^*$ which induces a mapping $Y \tensor F \to \Q/\Z$ which makes the
+	following commute
+	$$\begin{tikzcd}
+	X \tensor F \arrow[dr, "\phi"] \arrow[r] & Y \tensor F \arrow[d, dotted]\\
+	& \Q/\Z 
+	\end{tikzcd}$$
+	Thus we have a $x \tensor d$ cannot be in $\ker(X \tensor F \to Y \tensor
+	F)$ so we have injectivity
+\end{ques}
+
+%done
+\begin{ques}{6}
+	We have that 
+	$$\pd(M) < n \Leftrightarrow \Ext^n_A(M,N) = 0\ \forall\ A\text{-modules}\
+	N \Leftrightarrow \id(M) < n$$
+	The proof for this is because for any exact sequence 
+	$$0 \to K \to P_{n-2} \to P_{n-3} \to \cdots \to P_0 \to M \to 0$$
+	where $P_i$ are projective, $\Ext^n_A(M,N) = 0$ for all A-Modules $N$ iff $K$ is
+	projective. It is also the case that $\Ext^n_A(M,N)$ can be computed by an
+	injective resolution and thus for any exact sequence
+	$$0 \to M \to I_{0} \to I_{1} \to \cdots \to I_{n-2} \to K \to 0$$
+	with $I_i$ injective, $\Ext^n_A(M,N) = 0$ for all A-Modules $N$ iff $K$ is
+	injective
+	\\
+	\\
+	Thus it must be the case that $\pd(M) = \id(M)$ since if $\pd(M) < \id(M)$
+	then we'd have the contradiction $\id(M) < \id(M)$ or vise versa. Hence
+	$$\sup\{\pd(M)|M \text{ is an A-Module}\} =
+	\sup\{\id(M)|M \text{ is an A-Module}\}$$
+\end{ques}
+
+%done
+\begin{ques}{7}
+	$(\Rightarrow)$ If $R$ is semisimple then every $R$ module $M$ is semisimple
+	and is thus injective. Therefore $\id(M) = 0$\\
+	$(\Leftarrow)$ We have that as an $R$ module $\id(R) = 0$ so $R$ is
+	injective. Thus $R$ is semisimple
+\end{ques}
+
+%done
+\begin{ques}{8}
+	Let $g_1, g_2, \dots g_n$ be a minimal set of generators for the $A$ module
+	$M$ (where $M$ is finitely generated, projective, and $A$ is a commutative
+	local ring)\\ Letting $A^n$ be the free module generated by $g_1 \dots g_n$
+	we have the exact sequence
+	$$\begin{tikzcd}
+	0 \arrow[r] & K \arrow[r] & A^n \arrow[r, "g_i \to g_i"] &
+	M \arrow[r] & 0
+	\end{tikzcd}$$
+	where $K = \ker(g_i \to g_i)$.\\
+	From projectivity we have splitting
+	$$A^n = M \oplus K$$
+	We can apply the functor $A/m \tensor -$ where $m$ is the maximal ideal of $A$
+	$$A/m \tensor A^n = (A/m \tensor M) \oplus (A/m \tensor K)$$
+	We have that $A/m \tensor D$ is an $A/m$ vector space for any $A-$module
+	$D$. We can compare dimensions of vector spaces, $n = \dim A/m \tensor M =
+	\dim A/m \tensor A^n$ and thus $\dim A/m \tensor K = 0$. Therefore $mK =
+	K$. From Nakayama's Lemma Corollary 2 (section 2 of Reid) this implies $K
+	=0$ and thus $M = A^n$
+\end{ques}
+
+\begin{ques}{9}
+	We can proceed by induction, if $\pd_{A/xA}(M/xM) = 0$ then $M/xM$ is a
+	projective $A/xA$ module and thus $M/xM \oplus K = F$ where $F$ is a free
+	$A/xA$ module. Tensoring with $A$ yields as $A$ modules
+	$$M/xM \oplus (K \tensor_{A/xA} A) = F/xF$$
+	where $F$ now denotes a free $A$ module\\
+	Thus we have the projective resolution
+	$$0 \to xF \oplus (K \tensor_{A/xA} A) \to F/xF \to M/xM$$
+	Thus $\pd_A(M/xM) \leq 1$ and it cannot be $0$ since $M/xM$ is not
+	torsion free and so not projective.
+	\\
+	We of course have $\pd_A(M) \geq 0$ as well. \\
+	Let $P$ be any projective $A$ module projecting onto $M$ we have the exact sequence
+	$$0 \to K \to P \to M \to 0$$
+	by inductive hypothesis $\pd_{A/xA}(K/xK) = \pd_A(K/xK) - 1 \leq \pd_A(K)$.
+	Notice that $\pd_A(K) \leq \pd_A(M)$ since any projective resolution of $K$
+	will show up above as a projective resolution to $P \to M$. When tensoring
+	with $\tensor_A A/xA$ we get the exact sequence 
+	$$\cdots \to \Tor_A^1(M,A/xA) \to K/xK \to P/xP \to M/xM \to 0$$
+	We have that $\Tor_A^1(M,A/xA) = 0$. This is calculated with the projective
+	resolution
+	$$0 \to xA \to A \to A/xA \to 0$$
+	and thus $\Tor_1^A(M,A/xA) = \ker(xA \to A)$ which is $0$ since $x$ is not
+	a zero divisor. Thus we have 
+	$$0 \to K/xK \to P/xP \to M/xM \to 0$$
+	This was the case for any $K$ so letting $K/xK$ be the kernel which realizes
+	the smallest projective resolution of $M/xM$ we have the desired result (by
+	either viewing the mapping $K/xK \to M/xM$ as $A$ linear or $A/xA$ linear)
+	$$\pd_A(M/xM) - 1 = \pd_{A/xA}(M/xM) = \pd_{A/xA}(K/xK) + 1$$
+	And since $\pd_{A/xA}(K/xK) + 1 \leq \pd_A(K) \leq \pd_A(M)$ we get the
+	final result
+	$$\pd_A(M/xM) - 1 = \pd_{A/xA}(M/xM) \leq \pd_A(M)$$
+	% We have the short exact sequence of $A$ modules
+	% $$0 \to xM \to M \to M/xM \to 0$$
+	% From section 17.1 Theorem 10 of Dummit and Foote we have exact sequence for
+	% any $A$ module $D$
+	% $$\Ext_A^{n-1}(D,M/xM) \to \Ext_A^n(D, xM) \to \Ext_A^n(D, M)$$
+	% Thus if it was the case that for all $A$ module $D$ $\Ext_A^{n-1}(D,M/xM) =
+	% 0$ (which is iff $\pd(M/xM) \leq n -1$) then $\Ext_A^n(D,M) = 0$ (so
+	% $\pd_A(M) \leq n$) and thus we can conclude 
+	% $$\pd_A(M/xM) - 1 \leq \pd_A(M)$$
+\end{ques}
+
+\begin{ques}{10}
+\end{ques}
+
+\end{document}

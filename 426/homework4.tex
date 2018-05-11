@@ -1,0 +1,204 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, epsfig}
+\setlength\parindent{0pt}
+
+\newenvironment{definition}{\vspace{2 ex}{\noindent{\bf Definition}}}
+        {\vspace{2 ex}}
+
+\newenvironment{ques}[1]{\textbf{#1}\vspace{1 mm}\\ }{\bigskip}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\theoremstyle{definition}
+
+\newenvironment{Proof}{\noindent {\sc Proof.}}{$\Box$ \vspace{2 ex}}
+\newtheorem{Wp}{Writing Problem}
+\newtheorem{Ep}{Extra Credit Problem}
+
+\oddsidemargin-1mm
+\evensidemargin-0mm
+\textwidth6.5in
+\topmargin-15mm
+\textheight8.75in
+\footskip27pt
+
+
+\renewcommand{\l}{\left }
+\renewcommand{\r}{\right }
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\i}{\text{int} \ }
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\renewcommand{\sup}{\text{sup}}
+\newcommand{\osc}{\text{osc}}
+\newcommand{\diam}{\text{diam} \ }
+\renewcommand{\-}{\backslash}
+
+\newcommand{\s}{\sin}
+\renewcommand{\c}{\cos}
+
+\renewcommand{\t}{\theta}
+\renewcommand{\a}{\alpha}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\T}{\mathfrak{T}}
+
+\newcommand{\dist}{\text{dist}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent \textit{\textbf{Math 426, SPRING 2018}} \hspace{1.3cm}
+\textit{\textbf{HOMEWORK $\#$4}} \hspace{1.3cm} \textit{\textbf{Peter
+Gylys-Colwell}} 
+
+\vspace{1cm}
+\begin{ques}{3.2 22}
+	As the hint suggests, for any $\epsilon > 0$ define 
+	$$E_n = \{x \in [a,b] | f(x)- f_n(x) < \epsilon \}$$
+	Notice that $E_n$ is the preimage of $f_n$ of a ball around $f(x)$: $E_n =
+	f_n^{-1}(B_\epsilon(f(x)))$ and thus is open. Next notice that if $m > n$
+	then $E_n \subseteq E_m$. This is true since $f(x) \geq f_m(x) > f_n(x)$ so
+	if $f(x) - f_n(x) > \epsilon$ then $f(x) - f_m(x) > \epsilon$\\
+	Finally notice that the collection of $E_n$s cover $[a,b]$. This is true
+	since for every $x \in [a,b]$ there is $N$ such that $f(x) - f_N(x) <
+	\epsilon$ so $x \in E_N$. Thus since $[a,b]$ is compact we have a finite
+	subcovering 
+	$$E_{n_1} \dots E_{n_k}$$
+	Since the largest indexed term $E_N$ in the subcovering contains all the other
+	$E_{n_i}$ we have that $[a,b] \subseteq \bigcup E_{n_i} \subseteq E_N$.
+	Thus for all $n > N$ we have the desired result $E_n \supseteq E_N
+	\supseteq [a,b]$ and $f(x) - f_n(x) < \epsilon$ for all $n > N$
+\end{ques}
+
+\begin{ques}{3.2 23}
+	Given measurable function $f(x)$, define $E_1 = f^{-1}([0,\infty]), E_2 =
+	f^{-1}([-\infty, 0))$. We can now define the nonegative measurable
+	functions $g_1(x) = \chi_{E_1}(x)f(x)$, $g_2(x) = -\chi_{E_2}(x)f(x)$.
+	Since $E_1$ and $E_2$ are disjoint and cover all the domain of $f$ we get
+	$$f(x) = g_1 - g_2$$
+	From what was proven about nonegative measurable functions we have a
+	sequence of simple functions with pointwise convergence $\phi_n \to g_1,
+	\psi_n \to g_2$ and thus we have the sequence of sums of simple functions (which is
+	again simple)
+	$$\phi_n + \psi_n \to f$$
+\end{ques}
+
+\begin{ques}{3.3 25}
+	We can express $\R \backslash F$ as the countable disjoint union of open
+	intervals $I_n$.\\
+	We will extend $f$ to all of $\R$ by using the following definition on each
+	$I_n = (a_n,b_n)$, for $x \in I_n$ define 
+	$$f(x) = \frac{f(b_n) - f(a_n)}{b_n-a_n}(x - a_n) + f(a_n)$$
+	Notice this is the equation for a line with points $(a_n,f(a_n)), (b_n, f(b_n))$.\\
+	If $I_n = (-\infty, p)$ or $= (p, \infty)$ define $f(x) = f(p)$ on $I_n$.\\
+	We have that this extension is continuous on all of $\R$. It is clearly
+	continuous on the interior of each $I_n$ and the interior of $F$ (since
+	locally $f$ is a continous function on $F^i$ and $I_n$). On any boundary
+	point $b \in F$ we have that $b$ is the boundary of some $I_n$. Thus either
+	$I_n = (b, p)$ or $(p,b)$ either way, from our definition of the extension
+	notice that $\lim_{x \to b^+}f(x) = f(b)$ and $\lim_{x \to b^-} f(x) =
+	f(b)$ and thus $f$ is continous at $b$
+\end{ques}
+
+\begin{ques}{3.3 29}
+	We can write $E$ as a countable disjoint union of measurable sets:
+	$$E = \bigcup_{n \in \Z} E \cap (n, n+1]$$
+	Calling $E_n$ each of these measurable sets, since $E_n$ has finite measure
+	we can use Lusin's result in the finite measure case to say there is a
+	$g_n$ defined on $F_n \subset E_n$ where $f = g_n$ on $F_n$ and $m(E_n
+	\backslash F_n) \leq \epsilon / 2^n$ we can define the desired $F$ as
+	$$F = \bigcup F_n$$
+	We have that
+	$$m(E \backslash F) = m(E \backslash \cup F_n) = \sum m(E_n \backslash F_n)
+	\leq \sum \epsilon / 2^n = \epsilon$$
+	with the desired $g$ defined as $g(x) = g_n(x)$ for $x \in E_n$. All that
+	is left is to show $F$ is closed. For any limit point
+	$p_n \to p$ of $F$,  $p \in (n,n+1]$ for some $n$, if $p \in (n,n+1)$ then
+	it must be the case that for sufficiently large $n$, $p_n \in F_n$ so $p
+	\in F_n$. If $p = n+1$ then the subsequence of $p_n$ contained in $F_n$
+	converges to $p$ so is contained in $p_n$. 
+\end{ques}
+
+\begin{ques}{3.3 31}
+	We can use Egoroff's Theorem to obtain for $k > 2$, measurable $E_k \subset
+	E$ where $m(E \backslash E_k) < 1/k$ and $f_n$ converges uniformly on
+	$E_k$. We will define 
+	$$E_1 = E \backslash \bigcup_{k=2}^\infty E_k$$
+	We have that 
+	$$m(E_1) = m\l(\bigcap_{k=2}^\infty E \backslash E_k\r) = \lim_{k \to
+	\infty} 1/k = 0$$
+	and finally it is clear from how $E_1$ was constructed $E =
+	\cup_{k=1}^\infty E_k$. 
+\end{ques}
+
+\begin{ques}{4.2 12}
+	Let $F \subset E$ be the set where $f(x) = g(x)$ and $m(E \backslash F) =
+	0$. Letting $F' = E \backslash F$, we have $f(x) = \chi_F g(x) + \chi_{F'}
+	f(x)$. Integration yields
+	$$\int_E f = \int_F g + \int_{F'} f$$
+	Since $f$ is bounded there is some value $B$ where $|f(x)| < B$ for all $x
+	\in F'$ and thus
+	$$\l|\int_{F'} f \r| \leq \int_{F'} B = Bm(F') = 0$$
+	Similarly since $g$ is bounded there is some $B'$ where $|g(x)| < B'$ and
+	$$\int_E g = \int_F g + \int_{F'} g $$
+	$\l|\int_{F'} g \r| \leq B'm(F') = 0$ and thus
+	$$\int_E f = \int_F g = \int_E g$$
+\end{ques}
+
+\begin{ques}{4.2 16}
+	Let $F = \{x \in E| f(x) \neq 0\}$ and define $F_n = \{x \in E| f(x) >
+	1/n\}$. We have that $F = \cup_{n=1}^\infty F_n$ and thus
+	$$m\l(F\r) = m\l(\bigcup_{n=1}^\infty F_n\r) = \sum_{n=1}^\infty m(F_n)$$
+	Thus $m(F)=0$ iff $m(F_n)=0$ for all $n$. If some $m(F_n) > 0$ then we have
+	$$0 = \int_E f = \int_{E \backslash F_n} f + \int_{F_n} f$$
+	$\int_{E \backslash F_n} f \geq 0 $ since $f \geq 0$ and so
+	$$\geq \int_{F_n} f \geq \int_{F_n} \frac 1 n = m(F_n)\frac 1 n > 0$$
+	which is a contradiction, thus $m(F) = 0$
+\end{ques}
+
+\begin{ques}{4.3 24}
+	(i) From the simple aproximation Theorem we can get an increasing sequence of
+	simple functions to converge pointwise to $f$ on $E$: 
+	$$\varphi_n \to f$$
+	For each $\varphi_n$ we have an increasing sequence of simple functions
+	$\psi_{kn} \to \varphi_n$
+	with finite support defined as
+	$$\psi_{kn} = \chi_{B_k}\varphi_n$$
+	where $B_k$ is the ball of radius $k$ (thus the support can be at most $2k$)\\
+	We have that the sequence of simple functions with finite support defined
+	as $\psi_{nn}$ converges to $f$ pointwise. For any $x$ we have that there
+	is a $N$ such that $f(x) - \varphi_n(x) < \epsilon$ for all $n > N$ and for
+	$K$ sufficiently large, $x \in B_K$ so for $M = \max\{N,K\}$ we have that
+	$f(x) - \psi_{m,m}(x) < \epsilon$ for all $m > M$\\
+	\\
+	(ii) We have that 
+	$$\int_E f = \sup\l\{\int_E h | h \text{ bounded, measurable, of finite
+	support and } 0 \leq h \leq f\r\}$$
+	thus since we are taking a sup over a larger set
+	$$\int_E f \geq \sup\l\{\int_E \varphi | \varphi \text{ simple, of finite
+	support and } 0 \leq \varphi \leq f\r\}$$
+	From $(i)$ we have a sequence $\varphi_n$ of simple and finite support
+	functions that converge pointwise to $f$. From Fatous Lemma we have
+	$$\int_E f \leq \lim \inf \int_E \varphi_n \leq \sup\l\{\int_E \varphi |
+	\varphi \text{ simple, of finite support and } 0 \leq \varphi \leq f\r\}$$
+	And thus we have equality
+\end{ques}
+
+\begin{ques}{4.3 26}
+	consider the sequence of functions over $E = \R$
+	$$f_n(x) = 1/n|x|$$
+	This is a decreasing sequence of functions which converge pointwise to $0$, however
+	$$\int_\R f_n = \infty$$
+	for all $n$ so 
+	$$\lim_{n \to \infty} \int_\R f_n = \infty \neq \int_\R 0$$
+\end{ques}
+\end{document}
